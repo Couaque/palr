@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>PALR - Accueil</title>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<head>
+  <meta charset="UTF-8" />
+  <title>PALR - Accueil</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link href="css/lister.css" rel="stylesheet">
-        <link href="css/login.css" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-      <nav>
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#">Accueil</a></li>
-        </ul>
-      </nav>
-      <p class="login">Bienvenue ! Veuillez vous connecter.</p>
-      <div class="panel panel-default panel-login">
-        <div class="panel-body">
-        <form>
-          <div class="form-group">
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="css/lister.css" rel="stylesheet">
+  <link href="css/login.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+  <nav>
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">Accueil</a></li>
+    </ul>
+  </nav>
+  <p class="login">Bienvenue ! Veuillez vous connecter.</p>
+  <div class="panel panel-default panel-login">
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
           <label for="login">Identifiant :</label>
           <input type="text" class="form-control" id="login">
-          </div>
+        </div>
 
-          <div class="form-group">
+        <div class="form-group">
           <label for="mdp">Mot de passe :</label>
           <input type="password" class="form-control" id="mdp">
-          </div>
-
-          <a class="btn btn-success" href="{{ path('listerPerceptions') }}"><span class="glyphicon glyphicon-chevron-right"></span> Connexion</a>
-
-          </form>
         </div>
-      </div>
 
-    </body>
+        <a class="btn btn-success" href="{{ path('listerPerceptions') }}"><span class="glyphicon glyphicon-chevron-right"></span> Connexion</a>
+
+      </form>
+    </div>
+  </div>
+  
+  <footer>
+    <p>Besoin d'aide ? N'hésitez pas à aller voir <a href="#">la documentation</a>. Si vous souhaitez signaler un bug, <a href="#">faites-le à pts3-portlr@gmail.fr</a></p>
+  </footer>
+</body>
 </html>

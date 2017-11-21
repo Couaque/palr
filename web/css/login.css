@@ -8,11 +8,19 @@ form{
 }
 
 .panel-login{
-  padding-top: 15px;
+  margin-top: 15px;
 }
 
 p.login{
   font-family: 'Montserrat', sans-serif;
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
+  padding-top: 15px;
+}
+
+footer{
+  height: 35px;
+  text-align: center;
+  bottom:0;
+  padding-top: 10%;
 }

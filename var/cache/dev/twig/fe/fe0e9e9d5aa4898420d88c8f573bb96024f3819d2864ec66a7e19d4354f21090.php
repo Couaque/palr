@@ -15,11 +15,11 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_8ade2d605b66b6d3d291e7e27e0721a522164830eae94cedf2672e6ac503fe23 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_8ade2d605b66b6d3d291e7e27e0721a522164830eae94cedf2672e6ac503fe23->enter($__internal_8ade2d605b66b6d3d291e7e27e0721a522164830eae94cedf2672e6ac503fe23_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_bd7f2ce43d879cbeff0d3c9b0b9e6595881055c9c71acc9d7d2968b7d04ad80a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_bd7f2ce43d879cbeff0d3c9b0b9e6595881055c9c71acc9d7d2968b7d04ad80a->enter($__internal_bd7f2ce43d879cbeff0d3c9b0b9e6595881055c9c71acc9d7d2968b7d04ad80a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
-        $__internal_53326e78863ec4b7388c2d7ca42745ddd448e96f632a0cc29132293bce498451 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_53326e78863ec4b7388c2d7ca42745ddd448e96f632a0cc29132293bce498451->enter($__internal_53326e78863ec4b7388c2d7ca42745ddd448e96f632a0cc29132293bce498451_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_85c15ae2f5906cb4076112a7cc371e75d139f3e091cd0acafbc02df32bb48789 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_85c15ae2f5906cb4076112a7cc371e75d139f3e091cd0acafbc02df32bb48789->enter($__internal_85c15ae2f5906cb4076112a7cc371e75d139f3e091cd0acafbc02df32bb48789_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -136,20 +136,6 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
               <td>YNEN53J</td>
               <td>12/08/2017</td>
             </tr>
-            <tr>
-              <td>Clémenceau</td>
-              <td>Simon</td>
-              <td>Service Y</td>
-              <td>FJLK532LK</td>
-              <td>13/09/2012 3:50:30</td>
-            </tr>
-            <tr>
-              <td>Haÿs</td>
-              <td>Téo</td>
-              <td>Achats & Patrimoine</td>
-              <td>DHF35G89</td>
-              <td>N/A</td>
-            </tr>
           </tbody>
         </table>
       </div>
@@ -164,9 +150,6 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
           <label for=\"pwd\">Numéro de clé:</label>
           <input type=\"text\" class=\"form-control\" id=\"filtre_numcle\">
 
-          <label for=\"pwd\">Variure:</label>
-          <input type=\"text\" class=\"form-control\" id=\"filtre_variure\">
-
           <label for=\"pwd\">Date début:</label>
           <input type=\"date\" class=\"form-control\" id=\"filtre_prenom\">
         </form>
@@ -176,18 +159,27 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
         <div id=\"demo\" class=\"collapse\">
           <label for=\"pwd\">Date de fin:</label>
           <input type=\"date\" class=\"form-control\" id=\"filtre_prenom\">
+
+          <label for=\"pwd\">Organisation:</label>
+          <input type=\"text\" class=\"form-control\" id=\"filtre_variure\">
+
+          <label for=\"pwd\">Variure:</label>
+          <input type=\"text\" class=\"form-control\" id=\"filtre_variure\">
         </div>
 
       </div>
     </div>
+    <footer>
+      <p> <span class=\"glyphicon glyphicon-chevron-right\"></span>Besoin d'aide ? N'hésitez pas à aller voir <a href=\"#\">la documentation</a>. Si vous souhaitez signaler un bug, faites-le à <a href=\"#\">pts3-portlr@gmail.fr</a><span class=\"glyphicon glyphicon-chevron-left\"> </span></p>
+    </footer>
   </body>
   </html>
 ";
         
-        $__internal_8ade2d605b66b6d3d291e7e27e0721a522164830eae94cedf2672e6ac503fe23->leave($__internal_8ade2d605b66b6d3d291e7e27e0721a522164830eae94cedf2672e6ac503fe23_prof);
+        $__internal_bd7f2ce43d879cbeff0d3c9b0b9e6595881055c9c71acc9d7d2968b7d04ad80a->leave($__internal_bd7f2ce43d879cbeff0d3c9b0b9e6595881055c9c71acc9d7d2968b7d04ad80a_prof);
 
         
-        $__internal_53326e78863ec4b7388c2d7ca42745ddd448e96f632a0cc29132293bce498451->leave($__internal_53326e78863ec4b7388c2d7ca42745ddd448e96f632a0cc29132293bce498451_prof);
+        $__internal_85c15ae2f5906cb4076112a7cc371e75d139f3e091cd0acafbc02df32bb48789->leave($__internal_85c15ae2f5906cb4076112a7cc371e75d139f3e091cd0acafbc02df32bb48789_prof);
 
     }
 
@@ -327,20 +319,6 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
               <td>YNEN53J</td>
               <td>12/08/2017</td>
             </tr>
-            <tr>
-              <td>Clémenceau</td>
-              <td>Simon</td>
-              <td>Service Y</td>
-              <td>FJLK532LK</td>
-              <td>13/09/2012 3:50:30</td>
-            </tr>
-            <tr>
-              <td>Haÿs</td>
-              <td>Téo</td>
-              <td>Achats & Patrimoine</td>
-              <td>DHF35G89</td>
-              <td>N/A</td>
-            </tr>
           </tbody>
         </table>
       </div>
@@ -355,9 +333,6 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
           <label for=\"pwd\">Numéro de clé:</label>
           <input type=\"text\" class=\"form-control\" id=\"filtre_numcle\">
 
-          <label for=\"pwd\">Variure:</label>
-          <input type=\"text\" class=\"form-control\" id=\"filtre_variure\">
-
           <label for=\"pwd\">Date début:</label>
           <input type=\"date\" class=\"form-control\" id=\"filtre_prenom\">
         </form>
@@ -367,10 +342,19 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
         <div id=\"demo\" class=\"collapse\">
           <label for=\"pwd\">Date de fin:</label>
           <input type=\"date\" class=\"form-control\" id=\"filtre_prenom\">
+
+          <label for=\"pwd\">Organisation:</label>
+          <input type=\"text\" class=\"form-control\" id=\"filtre_variure\">
+
+          <label for=\"pwd\">Variure:</label>
+          <input type=\"text\" class=\"form-control\" id=\"filtre_variure\">
         </div>
 
       </div>
     </div>
+    <footer>
+      <p> <span class=\"glyphicon glyphicon-chevron-right\"></span>Besoin d'aide ? N'hésitez pas à aller voir <a href=\"#\">la documentation</a>. Si vous souhaitez signaler un bug, faites-le à <a href=\"#\">pts3-portlr@gmail.fr</a><span class=\"glyphicon glyphicon-chevron-left\"> </span></p>
+    </footer>
   </body>
   </html>
 ", "FrontBundle:Default:listerPerceptions.html.twig", "/home/doge/PTS/PALR/src/FrontBundle/Resources/views/Default/listerPerceptions.html.twig");
