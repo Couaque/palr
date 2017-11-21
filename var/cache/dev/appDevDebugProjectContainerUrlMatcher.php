@@ -117,6 +117,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'FrontBundle\\Controller\\DefaultController::loginAction',  '_route' => 'login',);
         }
 
+        // listerPerceptions
+        if ('/perceptions' === $pathinfo) {
+            return array (  '_controller' => 'FrontBundle\\Controller\\DefaultController::listerPerceptionsAction',  '_route' => 'listerPerceptions',);
+        }
+
         // homepage
         if ('' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {

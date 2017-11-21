@@ -1,0 +1,31 @@
+label{
+  font-weight: bold;
+}
+
+.form_array_container{
+  padding-top: 25px !important;
+  display: flex;
+  flex-flow:row wrap;
+  justify-content: space-evenly;
+  padding: 0 3%;
+}
+
+label{
+  padding-top: 3px;
+}
+
+.form-container{
+  text-align: center;
+}
+
+form{
+  padding-bottom: 9px;
+}
+
+ul.nav{
+  padding-top: 10px;
+}
+
+button.btn-danger{
+  padding-top: 5px;
+}

@@ -22,4 +22,12 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:login.html.twig');
     }
+
+    /**
+     * @Route("/perceptions", name="listerPerceptions")
+     */
+    public function listerPerceptionsAction()
+    {
+        return $this->render('FrontBundle:Default:listerPerceptions.html.twig');
+    }
 }

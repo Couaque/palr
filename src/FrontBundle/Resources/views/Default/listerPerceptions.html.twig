@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PALR - Perceptions</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="css/lister.css" rel="stylesheet">
+</head>
+
+
+<body>
+  <nav>
+    <ul class="nav nav-tabs">
+      <li><a href="#">Accueil</a></li>
+      <li class="active"><a href="#">Perceptions</a></li>
+      <li><a href="#">Stock</a></li>
+      <li><a href="#">Base de données</a></li>
+    </ul>
+  </nav>
+  <div class="form_array_container">
+    <div class="table-container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Organisation</th>
+            <th>Numéro de la clé</th>
+            <th>Date de perception</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Haÿs</td>
+            <td>Téo</td>
+            <td>Achats & Patrimoine</td>
+            <td>DHF35G89</td>
+            <td>30 Octobre 2017</td
+            </tr>
+            <tr>
+              <td>Souffleux</td>
+              <td>Thomas</td>
+              <td>Capitainerie</td>
+              <td>FJKL89G</td>
+              <td>12/08/17</td>
+            </tr>
+            <tr>
+              <td>Charbonneau</td>
+              <td>Teddy</td>
+              <td>Entreprise X</td>
+              <td>YNEN53J</td>
+              <td>Il y a 15 jours</td>
+            </tr>
+            <tr>
+              <td>Clémenceau</td>
+              <td>Simon</td>
+              <td>Service Y</td>
+              <td>FJLK532LK</td>
+              <td>13/09/2012 3:50:30</td>
+            </tr>
+            <tr>
+              <td>Haÿs</td>
+              <td>Téo</td>
+              <td>Achats & Patrimoine</td>
+              <td>DHF35G89</td>
+              <td>30 Octobre 2017</td>
+            </tr>
+            <tr>
+              <td>Souffleux</td>
+              <td>Thomas</td>
+              <td>Capitainerie</td>
+              <td>FJKL89G</td>
+              <td>13 Nov. 2017</td>
+            </tr>
+            <tr>
+              <td>Charbonneau</td>
+              <td>Teddy</td>
+              <td>Entreprise X</td>
+              <td>YNEN53J</td>
+              <td>12/08/2017</td>
+            </tr>
+            <tr>
+              <td>Clémenceau</td>
+              <td>Simon</td>
+              <td>Service Y</td>
+              <td>FJLK532LK</td>
+              <td>13/09/2012 3:50:30</td>
+            </tr>
+            <tr>
+              <td>Haÿs</td>
+              <td>Téo</td>
+              <td>Achats & Patrimoine</td>
+              <td>DHF35G89</td>
+              <td>N/A</td>
+            </tr>
+            <tr>
+              <td>Charbonneau</td>
+              <td>Teddy</td>
+              <td>Entreprise X</td>
+              <td>YNEN53J</td>
+              <td>12/08/2017</td>
+            </tr>
+            <tr>
+              <td>Clémenceau</td>
+              <td>Simon</td>
+              <td>Service Y</td>
+              <td>FJLK532LK</td>
+              <td>13/09/2012 3:50:30</td>
+            </tr>
+            <tr>
+              <td>Haÿs</td>
+              <td>Téo</td>
+              <td>Achats & Patrimoine</td>
+              <td>DHF35G89</td>
+              <td>N/A</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="form-container">
+        <form>
+          <label for="filtre_nom">Nom:</label>
+          <input type="text" class="form-control" id="filtre_nom">
+
+          <label for="pwd">Prénom:</label>
+          <input type="text" class="form-control" id="filtre_prenom">
+
+          <label for="pwd">Numéro de clé:</label>
+          <input type="text" class="form-control" id="filtre_numcle">
+
+          <label for="pwd">Variure:</label>
+          <input type="text" class="form-control" id="filtre_variure">
+
+          <label for="pwd">Date début:</label>
+          <input type="date" class="form-control" id="filtre_prenom">
+        </form>
+        <button type="button" class="btn btn-primary">Filtrer</button> <br /> <br />
+        <button class="btn btn-default" data-toggle="collapse" data-target="#demo">Plus de filtres</button>
+        <div id="demo" class="collapse">
+          <label for="pwd">Date début:</label>
+          <input type="date" class="form-control" id="filtre_prenom">
+        </div>
+        <br /><br /><button type="button" class="btn btn-danger">Supprimer les filtres</button>
+
+      </div>
+    </div>
+  </body>
+  </html>
