@@ -386,3 +386,5 @@ b4bb9a,127.0.0.1,GET,http://localhost:8000/login,1511295723,,200
 f09556,127.0.0.1,GET,http://localhost:8000/login,1511295744,,200
 0881cf,127.0.0.1,GET,http://localhost:8000/login,1511295803,,200
 78a95e,127.0.0.1,GET,http://localhost:8000/login,1511295820,,200
+16966a,127.0.0.1,GET,http://localhost:8000/perceptions,1511295924,,200
+4d2ca5,127.0.0.1,GET,http://localhost:8000/login,1511295948,,200

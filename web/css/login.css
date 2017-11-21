@@ -24,3 +24,7 @@ footer{
   bottom:0;
   padding-top: 10%;
 }
+
+ul.nav{
+  padding-left: 10px;
+}

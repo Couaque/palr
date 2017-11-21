@@ -36,6 +36,10 @@ footer{
   bottom:0;
 }
 
+ul.nav{
+  padding-left: 10px;
+}
+
 body{
   position: relative;
   min-height: 100%;

@@ -15,11 +15,11 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_bd7f2ce43d879cbeff0d3c9b0b9e6595881055c9c71acc9d7d2968b7d04ad80a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_bd7f2ce43d879cbeff0d3c9b0b9e6595881055c9c71acc9d7d2968b7d04ad80a->enter($__internal_bd7f2ce43d879cbeff0d3c9b0b9e6595881055c9c71acc9d7d2968b7d04ad80a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_a702e7fdcb0c0a9ebac73a03e136633c3e8da3cd803bd60de18143cca941949d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_a702e7fdcb0c0a9ebac73a03e136633c3e8da3cd803bd60de18143cca941949d->enter($__internal_a702e7fdcb0c0a9ebac73a03e136633c3e8da3cd803bd60de18143cca941949d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
-        $__internal_85c15ae2f5906cb4076112a7cc371e75d139f3e091cd0acafbc02df32bb48789 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_85c15ae2f5906cb4076112a7cc371e75d139f3e091cd0acafbc02df32bb48789->enter($__internal_85c15ae2f5906cb4076112a7cc371e75d139f3e091cd0acafbc02df32bb48789_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_ab94f46cc405ecab2c85cead108a3b91f60445bd014a4ac35d7860dde5a8dfc1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_ab94f46cc405ecab2c85cead108a3b91f60445bd014a4ac35d7860dde5a8dfc1->enter($__internal_ab94f46cc405ecab2c85cead108a3b91f60445bd014a4ac35d7860dde5a8dfc1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -170,16 +170,16 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
       </div>
     </div>
     <footer>
-      <p> <span class=\"glyphicon glyphicon-chevron-right\"></span>Besoin d'aide ? N'hésitez pas à aller voir <a href=\"#\">la documentation</a>. Si vous souhaitez signaler un bug, faites-le à <a href=\"#\">pts3-portlr@gmail.fr</a><span class=\"glyphicon glyphicon-chevron-left\"> </span></p>
+      <p>Besoin d'aide ? N'hésitez pas à aller voir <a href=\"#\">la documentation</a>. Si vous souhaitez signaler un bug, faites-le à <a href=\"#\">pts3-portlr@gmail.fr</a></p>
     </footer>
   </body>
   </html>
 ";
         
-        $__internal_bd7f2ce43d879cbeff0d3c9b0b9e6595881055c9c71acc9d7d2968b7d04ad80a->leave($__internal_bd7f2ce43d879cbeff0d3c9b0b9e6595881055c9c71acc9d7d2968b7d04ad80a_prof);
+        $__internal_a702e7fdcb0c0a9ebac73a03e136633c3e8da3cd803bd60de18143cca941949d->leave($__internal_a702e7fdcb0c0a9ebac73a03e136633c3e8da3cd803bd60de18143cca941949d_prof);
 
         
-        $__internal_85c15ae2f5906cb4076112a7cc371e75d139f3e091cd0acafbc02df32bb48789->leave($__internal_85c15ae2f5906cb4076112a7cc371e75d139f3e091cd0acafbc02df32bb48789_prof);
+        $__internal_ab94f46cc405ecab2c85cead108a3b91f60445bd014a4ac35d7860dde5a8dfc1->leave($__internal_ab94f46cc405ecab2c85cead108a3b91f60445bd014a4ac35d7860dde5a8dfc1_prof);
 
     }
 
@@ -353,7 +353,7 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
       </div>
     </div>
     <footer>
-      <p> <span class=\"glyphicon glyphicon-chevron-right\"></span>Besoin d'aide ? N'hésitez pas à aller voir <a href=\"#\">la documentation</a>. Si vous souhaitez signaler un bug, faites-le à <a href=\"#\">pts3-portlr@gmail.fr</a><span class=\"glyphicon glyphicon-chevron-left\"> </span></p>
+      <p>Besoin d'aide ? N'hésitez pas à aller voir <a href=\"#\">la documentation</a>. Si vous souhaitez signaler un bug, faites-le à <a href=\"#\">pts3-portlr@gmail.fr</a></p>
     </footer>
   </body>
   </html>
