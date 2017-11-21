@@ -1,0 +1,30 @@
+body{
+  background-color: #353535;
+}
+
+.panel{
+  max-width: 400px;
+  margin: auto;
+}
+
+form{
+  padding: 5px;
+}
+
+.jumbotron2{
+  background-color: #7c7c7c;
+  color: white;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.panel{
+  color: white;
+}
+
+.panel-login{
+  padding-top: 15px;
+}
