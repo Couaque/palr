@@ -20,7 +20,7 @@
 <body>
   <nav>
     <ul class="nav nav-tabs">
-      <li><a href="#">Accueil</a></li>
+      <li><a href="{{ path('login') }}">Accueil</a></li>
       <li class="active"><a href="#">Perceptions</a></li>
       <li><a href="#">Stock</a></li>
       <li><a href="#">Base de données</a></li>
@@ -143,13 +143,13 @@
           <label for="pwd">Date début:</label>
           <input type="date" class="form-control" id="filtre_prenom">
         </form>
-        <button type="button" class="btn btn-primary">Filtrer</button> <br /> <br />
-        <button class="btn btn-default" data-toggle="collapse" data-target="#demo">Plus de filtres</button>
+        <p>    <button type="button" class="btn btn-primary btn-filtre">Filtrer</button></p>
+        <button class="btn btn-default btn-filtre" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-plus"></span> Plus de filtres</button>
+        <button type="button" class="btn btn-danger btn-filtre">Supprimer les filtres</button>
         <div id="demo" class="collapse">
-          <label for="pwd">Date début:</label>
+          <label for="pwd">Date de fin:</label>
           <input type="date" class="form-control" id="filtre_prenom">
         </div>
-        <br /><br /><button type="button" class="btn btn-danger">Supprimer les filtres</button>
 
       </div>
     </div>

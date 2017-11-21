@@ -15,30 +15,41 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_52f125550a0fc5128c5c1dcfdd43a0f711f8ec949039713ea1a9bb42cb977cb1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_52f125550a0fc5128c5c1dcfdd43a0f711f8ec949039713ea1a9bb42cb977cb1->enter($__internal_52f125550a0fc5128c5c1dcfdd43a0f711f8ec949039713ea1a9bb42cb977cb1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
+        $__internal_0b5d4e066115736310328a5e98c1ef1b9236535f4a4db1673056d36ec85c194f = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_0b5d4e066115736310328a5e98c1ef1b9236535f4a4db1673056d36ec85c194f->enter($__internal_0b5d4e066115736310328a5e98c1ef1b9236535f4a4db1673056d36ec85c194f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
 
-        $__internal_9f1b96635378df5a75d997d10f685747e041afeb6e3083a81d809fa9772077b6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_9f1b96635378df5a75d997d10f685747e041afeb6e3083a81d809fa9772077b6->enter($__internal_9f1b96635378df5a75d997d10f685747e041afeb6e3083a81d809fa9772077b6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
+        $__internal_bcc22e89fbc2d57ac399860ac8d26325f0831fcdba836921e436e2fcbee1769c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_bcc22e89fbc2d57ac399860ac8d26325f0831fcdba836921e436e2fcbee1769c->enter($__internal_bcc22e89fbc2d57ac399860ac8d26325f0831fcdba836921e436e2fcbee1769c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
 <html>
     <head>
         <meta charset=\"UTF-8\" />
-        <title>Bienvenue !</title>
-        <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">
+        <title>PALR - Accueil</title>
+        <link href=\"https://fonts.googleapis.com/css?family=Montserrat\" rel=\"stylesheet\">
+        <!-- Latest compiled and minified CSS -->
+        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">
+
+        <!-- jQuery library -->
+        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>
+        <link href=\"css/lister.css\" rel=\"stylesheet\">
         <link href=\"css/login.css\" rel=\"stylesheet\">
         <link rel=\"icon\" type=\"image/x-icon\" href=\"";
-        // line 8
+        // line 17
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
     </head>
     <body>
-        <div class=\"jumbotron2\">
-          <h1>Bienvenue sur le logiciel de gestion des perceptions PALR</h1>
-          <h3>Dans le futur, il vous permettra de gérer les perceptions de clés au sein du port.</h3>
-        </div>
+      <nav>
+        <ul class=\"nav nav-tabs\">
+          <li class=\"active\"><a href=\"#\">Accueil</a></li>
+        </ul>
+      </nav>
+      <p class=\"login\">Bienvenue ! Veuillez vous connecter.</p>
       <div class=\"panel panel-default panel-login\">
         <div class=\"panel-body\">
         <form>
@@ -53,9 +64,9 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
           </div>
 
           <a class=\"btn btn-success\" href=\"";
-        // line 28
+        // line 39
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("listerPerceptions");
-        echo "\">Connexion</a>
+        echo "\"><span class=\"glyphicon glyphicon-chevron-right\"></span> Connexion</a>
 
           </form>
         </div>
@@ -65,10 +76,10 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 </html>
 ";
         
-        $__internal_52f125550a0fc5128c5c1dcfdd43a0f711f8ec949039713ea1a9bb42cb977cb1->leave($__internal_52f125550a0fc5128c5c1dcfdd43a0f711f8ec949039713ea1a9bb42cb977cb1_prof);
+        $__internal_0b5d4e066115736310328a5e98c1ef1b9236535f4a4db1673056d36ec85c194f->leave($__internal_0b5d4e066115736310328a5e98c1ef1b9236535f4a4db1673056d36ec85c194f_prof);
 
         
-        $__internal_9f1b96635378df5a75d997d10f685747e041afeb6e3083a81d809fa9772077b6->leave($__internal_9f1b96635378df5a75d997d10f685747e041afeb6e3083a81d809fa9772077b6_prof);
+        $__internal_bcc22e89fbc2d57ac399860ac8d26325f0831fcdba836921e436e2fcbee1769c->leave($__internal_bcc22e89fbc2d57ac399860ac8d26325f0831fcdba836921e436e2fcbee1769c_prof);
 
     }
 
@@ -84,7 +95,7 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 
     public function getDebugInfo()
     {
-        return array (  57 => 28,  34 => 8,  25 => 1,);
+        return array (  68 => 39,  43 => 17,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -101,16 +112,27 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 <html>
     <head>
         <meta charset=\"UTF-8\" />
-        <title>Bienvenue !</title>
-        <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">
+        <title>PALR - Accueil</title>
+        <link href=\"https://fonts.googleapis.com/css?family=Montserrat\" rel=\"stylesheet\">
+        <!-- Latest compiled and minified CSS -->
+        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">
+
+        <!-- jQuery library -->
+        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>
+        <link href=\"css/lister.css\" rel=\"stylesheet\">
         <link href=\"css/login.css\" rel=\"stylesheet\">
         <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('favicon.ico') }}\" />
     </head>
     <body>
-        <div class=\"jumbotron2\">
-          <h1>Bienvenue sur le logiciel de gestion des perceptions PALR</h1>
-          <h3>Dans le futur, il vous permettra de gérer les perceptions de clés au sein du port.</h3>
-        </div>
+      <nav>
+        <ul class=\"nav nav-tabs\">
+          <li class=\"active\"><a href=\"#\">Accueil</a></li>
+        </ul>
+      </nav>
+      <p class=\"login\">Bienvenue ! Veuillez vous connecter.</p>
       <div class=\"panel panel-default panel-login\">
         <div class=\"panel-body\">
         <form>
@@ -124,7 +146,7 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
           <input type=\"password\" class=\"form-control\" id=\"mdp\">
           </div>
 
-          <a class=\"btn btn-success\" href=\"{{ path('listerPerceptions') }}\">Connexion</a>
+          <a class=\"btn btn-success\" href=\"{{ path('listerPerceptions') }}\"><span class=\"glyphicon glyphicon-chevron-right\"></span> Connexion</a>
 
           </form>
         </div>

@@ -15,11 +15,11 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_004ff9494e4de7a5c825eaddb5d759445c29b8a4ee66edfea40318aa00d550cd = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_004ff9494e4de7a5c825eaddb5d759445c29b8a4ee66edfea40318aa00d550cd->enter($__internal_004ff9494e4de7a5c825eaddb5d759445c29b8a4ee66edfea40318aa00d550cd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_8ade2d605b66b6d3d291e7e27e0721a522164830eae94cedf2672e6ac503fe23 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_8ade2d605b66b6d3d291e7e27e0721a522164830eae94cedf2672e6ac503fe23->enter($__internal_8ade2d605b66b6d3d291e7e27e0721a522164830eae94cedf2672e6ac503fe23_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
-        $__internal_486acfa23c160641f7a82cf728c60f5a6a050425b117616ac345957a6f54b946 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_486acfa23c160641f7a82cf728c60f5a6a050425b117616ac345957a6f54b946->enter($__internal_486acfa23c160641f7a82cf728c60f5a6a050425b117616ac345957a6f54b946_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_53326e78863ec4b7388c2d7ca42745ddd448e96f632a0cc29132293bce498451 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_53326e78863ec4b7388c2d7ca42745ddd448e96f632a0cc29132293bce498451->enter($__internal_53326e78863ec4b7388c2d7ca42745ddd448e96f632a0cc29132293bce498451_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -44,7 +44,10 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 <body>
   <nav>
     <ul class=\"nav nav-tabs\">
-      <li><a href=\"#\">Accueil</a></li>
+      <li><a href=\"";
+        // line 23
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
+        echo "\">Accueil</a></li>
       <li class=\"active\"><a href=\"#\">Perceptions</a></li>
       <li><a href=\"#\">Stock</a></li>
       <li><a href=\"#\">Base de données</a></li>
@@ -167,13 +170,13 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
           <label for=\"pwd\">Date début:</label>
           <input type=\"date\" class=\"form-control\" id=\"filtre_prenom\">
         </form>
-        <button type=\"button\" class=\"btn btn-primary\">Filtrer</button> <br /> <br />
-        <button class=\"btn btn-default\" data-toggle=\"collapse\" data-target=\"#demo\">Plus de filtres</button>
+        <p>    <button type=\"button\" class=\"btn btn-primary btn-filtre\">Filtrer</button></p>
+        <button class=\"btn btn-default btn-filtre\" data-toggle=\"collapse\" data-target=\"#demo\"><span class=\"glyphicon glyphicon-plus\"></span> Plus de filtres</button>
+        <button type=\"button\" class=\"btn btn-danger btn-filtre\">Supprimer les filtres</button>
         <div id=\"demo\" class=\"collapse\">
-          <label for=\"pwd\">Date début:</label>
+          <label for=\"pwd\">Date de fin:</label>
           <input type=\"date\" class=\"form-control\" id=\"filtre_prenom\">
         </div>
-        <br /><br /><button type=\"button\" class=\"btn btn-danger\">Supprimer les filtres</button>
 
       </div>
     </div>
@@ -181,10 +184,10 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
   </html>
 ";
         
-        $__internal_004ff9494e4de7a5c825eaddb5d759445c29b8a4ee66edfea40318aa00d550cd->leave($__internal_004ff9494e4de7a5c825eaddb5d759445c29b8a4ee66edfea40318aa00d550cd_prof);
+        $__internal_8ade2d605b66b6d3d291e7e27e0721a522164830eae94cedf2672e6ac503fe23->leave($__internal_8ade2d605b66b6d3d291e7e27e0721a522164830eae94cedf2672e6ac503fe23_prof);
 
         
-        $__internal_486acfa23c160641f7a82cf728c60f5a6a050425b117616ac345957a6f54b946->leave($__internal_486acfa23c160641f7a82cf728c60f5a6a050425b117616ac345957a6f54b946_prof);
+        $__internal_53326e78863ec4b7388c2d7ca42745ddd448e96f632a0cc29132293bce498451->leave($__internal_53326e78863ec4b7388c2d7ca42745ddd448e96f632a0cc29132293bce498451_prof);
 
     }
 
@@ -193,9 +196,14 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
         return "FrontBundle:Default:listerPerceptions.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  25 => 1,);
+        return array (  49 => 23,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -230,7 +238,7 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 <body>
   <nav>
     <ul class=\"nav nav-tabs\">
-      <li><a href=\"#\">Accueil</a></li>
+      <li><a href=\"{{ path('login') }}\">Accueil</a></li>
       <li class=\"active\"><a href=\"#\">Perceptions</a></li>
       <li><a href=\"#\">Stock</a></li>
       <li><a href=\"#\">Base de données</a></li>
@@ -353,13 +361,13 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
           <label for=\"pwd\">Date début:</label>
           <input type=\"date\" class=\"form-control\" id=\"filtre_prenom\">
         </form>
-        <button type=\"button\" class=\"btn btn-primary\">Filtrer</button> <br /> <br />
-        <button class=\"btn btn-default\" data-toggle=\"collapse\" data-target=\"#demo\">Plus de filtres</button>
+        <p>    <button type=\"button\" class=\"btn btn-primary btn-filtre\">Filtrer</button></p>
+        <button class=\"btn btn-default btn-filtre\" data-toggle=\"collapse\" data-target=\"#demo\"><span class=\"glyphicon glyphicon-plus\"></span> Plus de filtres</button>
+        <button type=\"button\" class=\"btn btn-danger btn-filtre\">Supprimer les filtres</button>
         <div id=\"demo\" class=\"collapse\">
-          <label for=\"pwd\">Date début:</label>
+          <label for=\"pwd\">Date de fin:</label>
           <input type=\"date\" class=\"form-control\" id=\"filtre_prenom\">
         </div>
-        <br /><br /><button type=\"button\" class=\"btn btn-danger\">Supprimer les filtres</button>
 
       </div>
     </div>
