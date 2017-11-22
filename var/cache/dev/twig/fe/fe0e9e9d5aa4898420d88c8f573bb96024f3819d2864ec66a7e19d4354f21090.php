@@ -15,11 +15,11 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_a702e7fdcb0c0a9ebac73a03e136633c3e8da3cd803bd60de18143cca941949d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_a702e7fdcb0c0a9ebac73a03e136633c3e8da3cd803bd60de18143cca941949d->enter($__internal_a702e7fdcb0c0a9ebac73a03e136633c3e8da3cd803bd60de18143cca941949d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_e34b4b81c08e789b00e76907ac62519864400b52ba350c75b8f504f10f0b635c = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_e34b4b81c08e789b00e76907ac62519864400b52ba350c75b8f504f10f0b635c->enter($__internal_e34b4b81c08e789b00e76907ac62519864400b52ba350c75b8f504f10f0b635c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
-        $__internal_ab94f46cc405ecab2c85cead108a3b91f60445bd014a4ac35d7860dde5a8dfc1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_ab94f46cc405ecab2c85cead108a3b91f60445bd014a4ac35d7860dde5a8dfc1->enter($__internal_ab94f46cc405ecab2c85cead108a3b91f60445bd014a4ac35d7860dde5a8dfc1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_b6c55f61c02bc5f76dde6fa58fdbb8d88a56105d21f2f707e4a74dd74ab8289b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b6c55f61c02bc5f76dde6fa58fdbb8d88a56105d21f2f707e4a74dd74ab8289b->enter($__internal_b6c55f61c02bc5f76dde6fa58fdbb8d88a56105d21f2f707e4a74dd74ab8289b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -47,10 +47,15 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
       <li><a href=\"";
         // line 23
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
-        echo "\">Accueil</a></li>
+        echo "\">Déconnexion</a></li>
       <li class=\"active\"><a href=\"#\">Perceptions</a></li>
-      <li><a href=\"#\">Stock</a></li>
+      <li><a href=\"#\">Clés</a></li>
+      <li><a href=\"#\">Cylindres</a></li>
       <li><a href=\"#\">Base de données</a></li>
+      <li><a href=\"";
+        // line 28
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("aide");
+        echo "\">Aide</a></li>
     </ul>
   </nav>
   <div class=\"form_array_container\">
@@ -169,17 +174,14 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
       </div>
     </div>
-    <footer>
-      <p>Besoin d'aide ? N'hésitez pas à aller voir <a href=\"#\">la documentation</a>. Si vous souhaitez signaler un bug, faites-le à <a href=\"#\">pts3-portlr@gmail.fr</a></p>
-    </footer>
   </body>
   </html>
 ";
         
-        $__internal_a702e7fdcb0c0a9ebac73a03e136633c3e8da3cd803bd60de18143cca941949d->leave($__internal_a702e7fdcb0c0a9ebac73a03e136633c3e8da3cd803bd60de18143cca941949d_prof);
+        $__internal_e34b4b81c08e789b00e76907ac62519864400b52ba350c75b8f504f10f0b635c->leave($__internal_e34b4b81c08e789b00e76907ac62519864400b52ba350c75b8f504f10f0b635c_prof);
 
         
-        $__internal_ab94f46cc405ecab2c85cead108a3b91f60445bd014a4ac35d7860dde5a8dfc1->leave($__internal_ab94f46cc405ecab2c85cead108a3b91f60445bd014a4ac35d7860dde5a8dfc1_prof);
+        $__internal_b6c55f61c02bc5f76dde6fa58fdbb8d88a56105d21f2f707e4a74dd74ab8289b->leave($__internal_b6c55f61c02bc5f76dde6fa58fdbb8d88a56105d21f2f707e4a74dd74ab8289b_prof);
 
     }
 
@@ -195,7 +197,7 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
     public function getDebugInfo()
     {
-        return array (  49 => 23,  25 => 1,);
+        return array (  57 => 28,  49 => 23,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -230,10 +232,12 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 <body>
   <nav>
     <ul class=\"nav nav-tabs\">
-      <li><a href=\"{{ path('login') }}\">Accueil</a></li>
+      <li><a href=\"{{ path('login') }}\">Déconnexion</a></li>
       <li class=\"active\"><a href=\"#\">Perceptions</a></li>
-      <li><a href=\"#\">Stock</a></li>
+      <li><a href=\"#\">Clés</a></li>
+      <li><a href=\"#\">Cylindres</a></li>
       <li><a href=\"#\">Base de données</a></li>
+      <li><a href=\"{{ path('aide') }}\">Aide</a></li>
     </ul>
   </nav>
   <div class=\"form_array_container\">
@@ -352,9 +356,6 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
       </div>
     </div>
-    <footer>
-      <p>Besoin d'aide ? N'hésitez pas à aller voir <a href=\"#\">la documentation</a>. Si vous souhaitez signaler un bug, faites-le à <a href=\"#\">pts3-portlr@gmail.fr</a></p>
-    </footer>
   </body>
   </html>
 ", "FrontBundle:Default:listerPerceptions.html.twig", "/home/doge/PTS/PALR/src/FrontBundle/Resources/views/Default/listerPerceptions.html.twig");

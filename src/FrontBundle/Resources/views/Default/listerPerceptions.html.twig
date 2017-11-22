@@ -20,10 +20,12 @@
 <body>
   <nav>
     <ul class="nav nav-tabs">
-      <li><a href="{{ path('login') }}">Accueil</a></li>
+      <li><a href="{{ path('login') }}">Déconnexion</a></li>
       <li class="active"><a href="#">Perceptions</a></li>
-      <li><a href="#">Stock</a></li>
+      <li><a href="#">Clés</a></li>
+      <li><a href="#">Cylindres</a></li>
       <li><a href="#">Base de données</a></li>
+      <li><a href="{{ path('aide') }}">Aide</a></li>
     </ul>
   </nav>
   <div class="form_array_container">
@@ -142,8 +144,5 @@
 
       </div>
     </div>
-    <footer>
-      <p>Besoin d'aide ? N'hésitez pas à aller voir <a href="#">la documentation</a>. Si vous souhaitez signaler un bug, faites-le à <a href="#">pts3-portlr@gmail.fr</a></p>
-    </footer>
   </body>
   </html>

@@ -15,11 +15,11 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_51365b689122b9c0092f53a33256bffe12d50bdd8341f704e34eaab427290064 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_51365b689122b9c0092f53a33256bffe12d50bdd8341f704e34eaab427290064->enter($__internal_51365b689122b9c0092f53a33256bffe12d50bdd8341f704e34eaab427290064_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
+        $__internal_7b066f149f5ce9781ea2fddd0ae53f28b7acbd8f7b9be8bf579d906a3675717a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_7b066f149f5ce9781ea2fddd0ae53f28b7acbd8f7b9be8bf579d906a3675717a->enter($__internal_7b066f149f5ce9781ea2fddd0ae53f28b7acbd8f7b9be8bf579d906a3675717a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
 
-        $__internal_c10347da62ae068396480a06e2378e4989296e4332de36e0bbe5620e81345c86 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_c10347da62ae068396480a06e2378e4989296e4332de36e0bbe5620e81345c86->enter($__internal_c10347da62ae068396480a06e2378e4989296e4332de36e0bbe5620e81345c86_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
+        $__internal_21cf673dc15c80dadf8e027519bcb4a76cc07fed3d30f189a70208716b7fc1d4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_21cf673dc15c80dadf8e027519bcb4a76cc07fed3d30f189a70208716b7fc1d4->enter($__internal_21cf673dc15c80dadf8e027519bcb4a76cc07fed3d30f189a70208716b7fc1d4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -27,7 +27,8 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 <head>
   <meta charset=\"UTF-8\" />
   <title>PALR - Accueil</title>
-  <link href=\"https://fonts.googleapis.com/css?family=Montserrat\" rel=\"stylesheet\">
+
+  <link href=\"css/montserrat_police\" rel=\"stylesheet\">
   <!-- Latest compiled and minified CSS -->
   <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">
 
@@ -39,10 +40,11 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
   <link href=\"css/lister.css\" rel=\"stylesheet\">
   <link href=\"css/login.css\" rel=\"stylesheet\">
   <link rel=\"icon\" type=\"image/x-icon\" href=\"";
-        // line 17
+        // line 18
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
 </head>
+
 <body>
   <nav>
     <ul class=\"nav nav-tabs\">
@@ -64,25 +66,21 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
         </div>
 
         <a class=\"btn btn-success\" href=\"";
-        // line 39
+        // line 41
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("listerPerceptions");
         echo "\"><span class=\"glyphicon glyphicon-chevron-right\"></span> Connexion</a>
 
       </form>
     </div>
   </div>
-  
-  <footer>
-    <p>Besoin d'aide ? N'hésitez pas à aller voir <a href=\"#\">la documentation</a>. Si vous souhaitez signaler un bug, <a href=\"#\">faites-le à pts3-portlr@gmail.fr</a></p>
-  </footer>
 </body>
 </html>
 ";
         
-        $__internal_51365b689122b9c0092f53a33256bffe12d50bdd8341f704e34eaab427290064->leave($__internal_51365b689122b9c0092f53a33256bffe12d50bdd8341f704e34eaab427290064_prof);
+        $__internal_7b066f149f5ce9781ea2fddd0ae53f28b7acbd8f7b9be8bf579d906a3675717a->leave($__internal_7b066f149f5ce9781ea2fddd0ae53f28b7acbd8f7b9be8bf579d906a3675717a_prof);
 
         
-        $__internal_c10347da62ae068396480a06e2378e4989296e4332de36e0bbe5620e81345c86->leave($__internal_c10347da62ae068396480a06e2378e4989296e4332de36e0bbe5620e81345c86_prof);
+        $__internal_21cf673dc15c80dadf8e027519bcb4a76cc07fed3d30f189a70208716b7fc1d4->leave($__internal_21cf673dc15c80dadf8e027519bcb4a76cc07fed3d30f189a70208716b7fc1d4_prof);
 
     }
 
@@ -98,7 +96,7 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 
     public function getDebugInfo()
     {
-        return array (  68 => 39,  43 => 17,  25 => 1,);
+        return array (  70 => 41,  44 => 18,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -116,7 +114,8 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 <head>
   <meta charset=\"UTF-8\" />
   <title>PALR - Accueil</title>
-  <link href=\"https://fonts.googleapis.com/css?family=Montserrat\" rel=\"stylesheet\">
+
+  <link href=\"css/montserrat_police\" rel=\"stylesheet\">
   <!-- Latest compiled and minified CSS -->
   <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">
 
@@ -129,6 +128,7 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
   <link href=\"css/login.css\" rel=\"stylesheet\">
   <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('favicon.ico') }}\" />
 </head>
+
 <body>
   <nav>
     <ul class=\"nav nav-tabs\">
@@ -154,10 +154,6 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
       </form>
     </div>
   </div>
-  
-  <footer>
-    <p>Besoin d'aide ? N'hésitez pas à aller voir <a href=\"#\">la documentation</a>. Si vous souhaitez signaler un bug, <a href=\"#\">faites-le à pts3-portlr@gmail.fr</a></p>
-  </footer>
 </body>
 </html>
 ", "FrontBundle:Default:login.html.twig", "/home/doge/PTS/PALR/src/FrontBundle/Resources/views/Default/login.html.twig");

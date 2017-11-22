@@ -30,4 +30,12 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:listerPerceptions.html.twig');
     }
+
+    /**
+     * @Route("/aide", name="aide")
+     */
+    public function aideAction()
+    {
+        return $this->render('FrontBundle:Default:aide.html.twig');
+    }
 }
