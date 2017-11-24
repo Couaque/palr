@@ -1,0 +1,3 @@
+[2017-11-24 15:37:39] request.INFO: Matched route "listerPerceptions". {"route":"listerPerceptions","route_parameters":{"_controller":"FrontBundle\\Controller\\DefaultController::listerPerceptionsAction","_route":"listerPerceptions"},"request_uri":"http://localhost:8000/perceptions","method":"GET"} []
+[2017-11-24 15:37:39] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
+[2017-11-24 15:37:39] request.INFO: Matched route "_wdt". {"route":"_wdt","route_parameters":{"_controller":"web_profiler.controller.profiler:toolbarAction","token":"0f7c9e","_route":"_wdt"},"request_uri":"http://localhost:8000/_wdt/0f7c9e","method":"GET"} []
