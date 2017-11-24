@@ -790,9 +790,12 @@ e4f4f2,127.0.0.1,GET,http://localhost:8000/css/montserrat_police,1511533903,32f8
 5b11b7,127.0.0.1,GET,http://localhost:8000/login,1511533923,,200
 a93f64,127.0.0.1,GET,http://localhost:8000/css/montserrat_police,1511533923,ac6ab2,200
 ac6ab2,127.0.0.1,GET,http://localhost:8000/css/montserrat_police,1511533923,,404
+<<<<<<< HEAD
 4e5c77,127.0.0.1,GET,http://localhost:8000/accueil,1511533990,,200
 850d50,127.0.0.1,GET,http://localhost:8000/perceptions,1511533998,,200
 123e79,127.0.0.1,GET,http://localhost:8000/accueil,1511534011,,200
 39350c,127.0.0.1,GET,http://localhost:8000/perceptions,1511534012,,200
 96b21a,127.0.0.1,GET,http://localhost:8000/perceptions,1511534042,,200
 799b15,127.0.0.1,GET,http://localhost:8000/perceptions,1511534079,,200
+=======
+>>>>>>> 894e6273fd6eaefd036680469001997bef0c8d57
