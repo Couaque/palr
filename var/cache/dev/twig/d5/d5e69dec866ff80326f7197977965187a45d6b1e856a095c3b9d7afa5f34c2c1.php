@@ -15,11 +15,11 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_a85e61ffce965eb4bee0c1fb5be6e9ea74d883fa244167d297cf5449138b80ba = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_a85e61ffce965eb4bee0c1fb5be6e9ea74d883fa244167d297cf5449138b80ba->enter($__internal_a85e61ffce965eb4bee0c1fb5be6e9ea74d883fa244167d297cf5449138b80ba_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
+        $__internal_74f42914f2abf97df3cf8af56a5f0555108de3bc3123637e3be1bbcc5a50d9db = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_74f42914f2abf97df3cf8af56a5f0555108de3bc3123637e3be1bbcc5a50d9db->enter($__internal_74f42914f2abf97df3cf8af56a5f0555108de3bc3123637e3be1bbcc5a50d9db_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
 
-        $__internal_5e8776f6cc1a4d0e1c25cb2a4ab7073e2a04caa69d548207b0f87f628927b9c4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_5e8776f6cc1a4d0e1c25cb2a4ab7073e2a04caa69d548207b0f87f628927b9c4->enter($__internal_5e8776f6cc1a4d0e1c25cb2a4ab7073e2a04caa69d548207b0f87f628927b9c4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
+        $__internal_ddb548da034d4f262d9d063ebca52a23b3b43b80cc394c593c43d3bf1fa26621 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_ddb548da034d4f262d9d063ebca52a23b3b43b80cc394c593c43d3bf1fa26621->enter($__internal_ddb548da034d4f262d9d063ebca52a23b3b43b80cc394c593c43d3bf1fa26621_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -51,6 +51,7 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
       <li class=\"active\"><a href=\"#\">Connexion</a></li>
     </ul>
   </nav>
+  <img src=\"img/icone_bleu.png\" alt=\"Logo\" height=\"128\" width=\"128\"> 
   <p class=\"login\">Bienvenue ! Veuillez vous connecter.</p>
   <div class=\"panel panel-default panel-login\">
     <div class=\"panel-body\">
@@ -66,7 +67,7 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
         </div>
 
         <a class=\"btn btn-success\" href=\"";
-        // line 41
+        // line 42
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("accueil");
         echo "\"><span class=\"glyphicon glyphicon-chevron-right\"></span> Connexion</a>
 
@@ -77,10 +78,10 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 </html>
 ";
         
-        $__internal_a85e61ffce965eb4bee0c1fb5be6e9ea74d883fa244167d297cf5449138b80ba->leave($__internal_a85e61ffce965eb4bee0c1fb5be6e9ea74d883fa244167d297cf5449138b80ba_prof);
+        $__internal_74f42914f2abf97df3cf8af56a5f0555108de3bc3123637e3be1bbcc5a50d9db->leave($__internal_74f42914f2abf97df3cf8af56a5f0555108de3bc3123637e3be1bbcc5a50d9db_prof);
 
         
-        $__internal_5e8776f6cc1a4d0e1c25cb2a4ab7073e2a04caa69d548207b0f87f628927b9c4->leave($__internal_5e8776f6cc1a4d0e1c25cb2a4ab7073e2a04caa69d548207b0f87f628927b9c4_prof);
+        $__internal_ddb548da034d4f262d9d063ebca52a23b3b43b80cc394c593c43d3bf1fa26621->leave($__internal_ddb548da034d4f262d9d063ebca52a23b3b43b80cc394c593c43d3bf1fa26621_prof);
 
     }
 
@@ -96,7 +97,7 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 
     public function getDebugInfo()
     {
-        return array (  70 => 41,  44 => 18,  25 => 1,);
+        return array (  71 => 42,  44 => 18,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -135,6 +136,7 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
       <li class=\"active\"><a href=\"#\">Connexion</a></li>
     </ul>
   </nav>
+  <img src=\"img/icone_bleu.png\" alt=\"Logo\" height=\"128\" width=\"128\"> 
   <p class=\"login\">Bienvenue ! Veuillez vous connecter.</p>
   <div class=\"panel panel-default panel-login\">
     <div class=\"panel-body\">

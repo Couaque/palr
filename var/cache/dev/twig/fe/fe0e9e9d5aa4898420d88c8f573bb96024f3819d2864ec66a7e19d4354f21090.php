@@ -15,11 +15,11 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d8ce366231cb4160aa23ba136cf5118fb47a77c0536290557e33b5441c4cc6a2 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_d8ce366231cb4160aa23ba136cf5118fb47a77c0536290557e33b5441c4cc6a2->enter($__internal_d8ce366231cb4160aa23ba136cf5118fb47a77c0536290557e33b5441c4cc6a2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_ac999a4af3787381668d0fed5772258541d4ccd1f3bd032d82c80611362a63e2 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_ac999a4af3787381668d0fed5772258541d4ccd1f3bd032d82c80611362a63e2->enter($__internal_ac999a4af3787381668d0fed5772258541d4ccd1f3bd032d82c80611362a63e2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
-        $__internal_6738ebd28c9c093604dc6a00bf605e521812f2b18c7aafe3208ffba26be16628 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6738ebd28c9c093604dc6a00bf605e521812f2b18c7aafe3208ffba26be16628->enter($__internal_6738ebd28c9c093604dc6a00bf605e521812f2b18c7aafe3208ffba26be16628_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_8f0e5661fd03d8859883e7e9c8866322e48303d2e67d3d2c67e56d9280127216 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_8f0e5661fd03d8859883e7e9c8866322e48303d2e67d3d2c67e56d9280127216->enter($__internal_8f0e5661fd03d8859883e7e9c8866322e48303d2e67d3d2c67e56d9280127216_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -155,6 +155,7 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
           </table>
         </div>
         <div class=\"form-container\">
+          <a href=\"#\" class=\"btn btn-success\"><span class=\"glyphicon glyphicon-plus\"></span> Ajouter</a>
           <form>
             <label for=\"filtre_nom\">Nom:</label>
             <input type=\"text\" class=\"form-control\" id=\"filtre_nom\">
@@ -173,17 +174,17 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
         </div>
       </div>
       <a class=\"btn btn-success deconnexion\" href=\" ";
-        // line 136
+        // line 137
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
         echo "\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</a>
     </body>
     </html>
 ";
         
-        $__internal_d8ce366231cb4160aa23ba136cf5118fb47a77c0536290557e33b5441c4cc6a2->leave($__internal_d8ce366231cb4160aa23ba136cf5118fb47a77c0536290557e33b5441c4cc6a2_prof);
+        $__internal_ac999a4af3787381668d0fed5772258541d4ccd1f3bd032d82c80611362a63e2->leave($__internal_ac999a4af3787381668d0fed5772258541d4ccd1f3bd032d82c80611362a63e2_prof);
 
         
-        $__internal_6738ebd28c9c093604dc6a00bf605e521812f2b18c7aafe3208ffba26be16628->leave($__internal_6738ebd28c9c093604dc6a00bf605e521812f2b18c7aafe3208ffba26be16628_prof);
+        $__internal_8f0e5661fd03d8859883e7e9c8866322e48303d2e67d3d2c67e56d9280127216->leave($__internal_8f0e5661fd03d8859883e7e9c8866322e48303d2e67d3d2c67e56d9280127216_prof);
 
     }
 
@@ -199,7 +200,7 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
     public function getDebugInfo()
     {
-        return array (  177 => 136,  65 => 27,  61 => 26,  57 => 25,  53 => 24,  49 => 23,  25 => 1,);
+        return array (  178 => 137,  65 => 27,  61 => 26,  57 => 25,  53 => 24,  49 => 23,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -330,6 +331,7 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
           </table>
         </div>
         <div class=\"form-container\">
+          <a href=\"#\" class=\"btn btn-success\"><span class=\"glyphicon glyphicon-plus\"></span> Ajouter</a>
           <form>
             <label for=\"filtre_nom\">Nom:</label>
             <input type=\"text\" class=\"form-control\" id=\"filtre_nom\">
