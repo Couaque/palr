@@ -127,6 +127,21 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'FrontBundle\\Controller\\DefaultController::aideAction',  '_route' => 'aide',);
         }
 
+        // accueil
+        if ('/accueil' === $pathinfo) {
+            return array (  '_controller' => 'FrontBundle\\Controller\\DefaultController::accueilAction',  '_route' => 'accueil',);
+        }
+
+        // bd
+        if ('/bd' === $pathinfo) {
+            return array (  '_controller' => 'FrontBundle\\Controller\\DefaultController::bdAction',  '_route' => 'bd',);
+        }
+
+        // stock
+        if ('/stock' === $pathinfo) {
+            return array (  '_controller' => 'FrontBundle\\Controller\\DefaultController::stockAction',  '_route' => 'stock',);
+        }
+
         // homepage
         if ('' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {

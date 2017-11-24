@@ -19,130 +19,120 @@
 
 <body>
   <nav>
-    <ul class="nav nav-tabs">
-      <li><a href="{{ path('login') }}">Déconnexion</a></li>
-      <li class="active"><a href="#">Perceptions</a></li>
-      <li><a href="#">Clés</a></li>
-      <li><a href="#">Cylindres</a></li>
-      <li><a href="#">Base de données</a></li>
+    <ul class="nav1 nav nav-tabs">
+      <li><a href="{{ path('accueil')}}">Accueil</a></li>
+      <li class="active"><a href="{{ path('listerPerceptions') }}">Perceptions</a></li>
+      <li><a href="{{ path('stock') }}">Stock</a></li>
+      <li><a href="{{ path('bd')}}">Base de données</a></li>
       <li><a href="{{ path('aide') }}">Aide</a></li>
     </ul>
   </nav>
-  <div class="form_array_container">
-    <div class="table-container">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Organisation</th>
-            <th>Numéro de la clé</th>
-            <th>Date de perception</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Haÿs</td>
-            <td>Téo</td>
-            <td>Achats & Patrimoine</td>
-            <td>DHF35G89</td>
-            <td>30 Octobre 2017</td
-            </tr>
-            <tr>
-              <td>Souffleux</td>
-              <td>Thomas</td>
-              <td>Capitainerie</td>
-              <td>FJKL89G</td>
-              <td>12/08/17</td>
-            </tr>
-            <tr>
-              <td>Charbonneau</td>
-              <td>Teddy</td>
-              <td>Entreprise X</td>
-              <td>YNEN53J</td>
-              <td>Il y a 15 jours</td>
-            </tr>
-            <tr>
-              <td>Clémenceau</td>
-              <td>Simon</td>
-              <td>Service Y</td>
-              <td>FJLK532LK</td>
-              <td>13/09/2012 3:50:30</td>
-            </tr>
-            <tr>
-              <td>Haÿs</td>
-              <td>Téo</td>
-              <td>Achats & Patrimoine</td>
-              <td>DHF35G89</td>
-              <td>30 Octobre 2017</td>
-            </tr>
-            <tr>
-              <td>Souffleux</td>
-              <td>Thomas</td>
-              <td>Capitainerie</td>
-              <td>FJKL89G</td>
-              <td>13 Nov. 2017</td>
-            </tr>
-            <tr>
-              <td>Charbonneau</td>
-              <td>Teddy</td>
-              <td>Entreprise X</td>
-              <td>YNEN53J</td>
-              <td>12/08/2017</td>
-            </tr>
-            <tr>
-              <td>Clémenceau</td>
-              <td>Simon</td>
-              <td>Service Y</td>
-              <td>FJLK532LK</td>
-              <td>13/09/2012 3:50:30</td>
-            </tr>
-            <tr>
-              <td>Haÿs</td>
-              <td>Téo</td>
-              <td>Achats & Patrimoine</td>
-              <td>DHF35G89</td>
-              <td>N/A</td>
-            </tr>
-            <tr>
-              <td>Charbonneau</td>
-              <td>Teddy</td>
-              <td>Entreprise X</td>
-              <td>YNEN53J</td>
-              <td>12/08/2017</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="form-container">
-        <form>
-          <label for="filtre_nom">Nom:</label>
-          <input type="text" class="form-control" id="filtre_nom">
-
-          <label for="pwd">Prénom:</label>
-          <input type="text" class="form-control" id="filtre_prenom">
-
-          <label for="pwd">Numéro de clé:</label>
-          <input type="text" class="form-control" id="filtre_numcle">
-
-          <label for="pwd">Date début:</label>
-          <input type="date" class="form-control" id="filtre_prenom">
-        </form>
-        <p>    <button type="button" class="btn btn-primary btn-filtre">Filtrer</button></p>
-        <button class="btn btn-default btn-filtre" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-plus"></span> Plus de filtres</button>
-        <button type="button" class="btn btn-danger btn-filtre">Supprimer les filtres</button>
-        <div id="demo" class="collapse">
-          <label for="pwd">Date de fin:</label>
-          <input type="date" class="form-control" id="filtre_prenom">
-
-          <label for="pwd">Organisation:</label>
-          <input type="text" class="form-control" id="filtre_variure">
-
-          <label for="pwd">Variure:</label>
-          <input type="text" class="form-control" id="filtre_variure">
+      <div class="form_array_container">
+        <div class="table-container">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Organisation</th>
+                <th>Numéro de la clé</th>
+                <th>Date de perception</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Haÿs</td>
+                <td>Téo</td>
+                <td>Achats & Patrimoine</td>
+                <td>DHF35G89</td>
+                <td>13/09/2012</td>
+                <td><a class="btn btn-info btn-xs btn-suppr"><span class="glyphicon glyphicon-edit"></span></a> <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a></td>
+              </tr>
+              <tr>
+                <td>Souffleux</td>
+                <td>Thomas</td>
+                <td>Capitainerie</td>
+                <td>FJKL89G</td>
+                <td>13/09/2012</td>
+              </tr>
+              <tr>
+                <td>Charbonneau</td>
+                <td>Teddy</td>
+                <td>Entreprise X</td>
+                <td>YNEN53J</td>
+                <td>13/09/2012</td>
+              </tr>
+              <tr>
+                <td>Clémenceau</td>
+                <td>Simon</td>
+                <td>Service Y</td>
+                <td>FJLK532LK</td>
+                <td>13/09/2012</td>
+              </tr>
+              <tr>
+                <td>Haÿs</td>
+                <td>Téo</td>
+                <td>Achats & Patrimoine</td>
+                <td>DHF35G89</td>
+                <td>13/09/2012</td>
+              </tr>
+              <tr>
+                <td>Souffleux</td>
+                <td>Thomas</td>
+                <td>Capitainerie</td>
+                <td>FJKL89G</td>
+                <td>13/09/2012</td>
+              </tr>
+              <tr>
+                <td>Charbonneau</td>
+                <td>Teddy</td>
+                <td>Entreprise X</td>
+                <td>YNEN53J</td>
+                <td>13/09/2012</td>
+              </tr>
+              <tr>
+                <td>Clémenceau</td>
+                <td>Simon</td>
+                <td>Service Y</td>
+                <td>FJLK532LK</td>
+                <td>13/09/2012</td>
+              </tr>
+              <tr>
+                <td>Haÿs</td>
+                <td>Téo</td>
+                <td>Achats & Patrimoine</td>
+                <td>DHF35G89</td>
+                <td>13/09/2012</td>
+              </tr>
+              <tr>
+                <td>Charbonneau</td>
+                <td>Teddy</td>
+                <td>Entreprise X</td>
+                <td>YNEN53J</td>
+                <td>13/09/2012</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        <div class="form-container">
+          <form>
+            <label for="filtre_nom">Nom:</label>
+            <input type="text" class="form-control" id="filtre_nom">
 
+            <label for="pwd">Prénom:</label>
+            <input type="text" class="form-control" id="filtre_prenom">
+
+            <label for="pwd">Numéro de clé:</label>
+            <input type="text" class="form-control" id="filtre_numcle">
+
+            <label for="pwd">Date début:</label>
+            <input type="date" class="form-control" id="filtre_prenom">
+          </form>
+          <p><button type="button" class="btn btn-primary btn-filtre">Filtrer</button></p>
+          <button type="button" class="btn btn-danger btn-filtre"><span class="glyphicon glyphicon-remove"></span> Supprimer filtres</button>
+        </div>
       </div>
-    </div>
-  </body>
-  </html>
+      <a class="btn btn-success deconnexion" href=" {{ path('login') }}"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
+    </body>
+    </html>

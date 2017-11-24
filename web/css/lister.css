@@ -44,3 +44,22 @@ body{
   position: relative;
   min-height: 100%;
 }
+
+.nav1{
+  display:flex;
+  flex-flow: row nowrap;
+}
+
+.deconnexion{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.btn-suppr{
+  margin-left: 3px;
+}
+
+.navchoix{
+  display: flex;
+}

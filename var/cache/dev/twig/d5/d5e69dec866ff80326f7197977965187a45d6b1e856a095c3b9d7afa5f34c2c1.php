@@ -15,11 +15,11 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_7b066f149f5ce9781ea2fddd0ae53f28b7acbd8f7b9be8bf579d906a3675717a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_7b066f149f5ce9781ea2fddd0ae53f28b7acbd8f7b9be8bf579d906a3675717a->enter($__internal_7b066f149f5ce9781ea2fddd0ae53f28b7acbd8f7b9be8bf579d906a3675717a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
+        $__internal_a85e61ffce965eb4bee0c1fb5be6e9ea74d883fa244167d297cf5449138b80ba = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_a85e61ffce965eb4bee0c1fb5be6e9ea74d883fa244167d297cf5449138b80ba->enter($__internal_a85e61ffce965eb4bee0c1fb5be6e9ea74d883fa244167d297cf5449138b80ba_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
 
-        $__internal_21cf673dc15c80dadf8e027519bcb4a76cc07fed3d30f189a70208716b7fc1d4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_21cf673dc15c80dadf8e027519bcb4a76cc07fed3d30f189a70208716b7fc1d4->enter($__internal_21cf673dc15c80dadf8e027519bcb4a76cc07fed3d30f189a70208716b7fc1d4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
+        $__internal_5e8776f6cc1a4d0e1c25cb2a4ab7073e2a04caa69d548207b0f87f628927b9c4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5e8776f6cc1a4d0e1c25cb2a4ab7073e2a04caa69d548207b0f87f628927b9c4->enter($__internal_5e8776f6cc1a4d0e1c25cb2a4ab7073e2a04caa69d548207b0f87f628927b9c4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:login.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -48,7 +48,7 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 <body>
   <nav>
     <ul class=\"nav nav-tabs\">
-      <li class=\"active\"><a href=\"#\">Accueil</a></li>
+      <li class=\"active\"><a href=\"#\">Connexion</a></li>
     </ul>
   </nav>
   <p class=\"login\">Bienvenue ! Veuillez vous connecter.</p>
@@ -67,7 +67,7 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 
         <a class=\"btn btn-success\" href=\"";
         // line 41
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("listerPerceptions");
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("accueil");
         echo "\"><span class=\"glyphicon glyphicon-chevron-right\"></span> Connexion</a>
 
       </form>
@@ -77,10 +77,10 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 </html>
 ";
         
-        $__internal_7b066f149f5ce9781ea2fddd0ae53f28b7acbd8f7b9be8bf579d906a3675717a->leave($__internal_7b066f149f5ce9781ea2fddd0ae53f28b7acbd8f7b9be8bf579d906a3675717a_prof);
+        $__internal_a85e61ffce965eb4bee0c1fb5be6e9ea74d883fa244167d297cf5449138b80ba->leave($__internal_a85e61ffce965eb4bee0c1fb5be6e9ea74d883fa244167d297cf5449138b80ba_prof);
 
         
-        $__internal_21cf673dc15c80dadf8e027519bcb4a76cc07fed3d30f189a70208716b7fc1d4->leave($__internal_21cf673dc15c80dadf8e027519bcb4a76cc07fed3d30f189a70208716b7fc1d4_prof);
+        $__internal_5e8776f6cc1a4d0e1c25cb2a4ab7073e2a04caa69d548207b0f87f628927b9c4->leave($__internal_5e8776f6cc1a4d0e1c25cb2a4ab7073e2a04caa69d548207b0f87f628927b9c4_prof);
 
     }
 
@@ -132,7 +132,7 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
 <body>
   <nav>
     <ul class=\"nav nav-tabs\">
-      <li class=\"active\"><a href=\"#\">Accueil</a></li>
+      <li class=\"active\"><a href=\"#\">Connexion</a></li>
     </ul>
   </nav>
   <p class=\"login\">Bienvenue ! Veuillez vous connecter.</p>
@@ -149,7 +149,7 @@ class __TwigTemplate_a73293a53a5e0bc527bc6b2ee02c0c06dd15339ac9859ca2766f530b880
           <input type=\"password\" class=\"form-control\" id=\"mdp\">
         </div>
 
-        <a class=\"btn btn-success\" href=\"{{ path('listerPerceptions') }}\"><span class=\"glyphicon glyphicon-chevron-right\"></span> Connexion</a>
+        <a class=\"btn btn-success\" href=\"{{ path('accueil') }}\"><span class=\"glyphicon glyphicon-chevron-right\"></span> Connexion</a>
 
       </form>
     </div>

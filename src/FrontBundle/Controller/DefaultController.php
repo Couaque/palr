@@ -38,4 +38,28 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:aide.html.twig');
     }
+
+      /**
+       * @Route("/accueil", name="accueil")
+       */
+      public function accueilAction()
+      {
+          return $this->render('FrontBundle:Default:accueil.html.twig');
+      }
+
+      /**
+       * @Route("/bd", name="bd")
+       */
+      public function bdAction()
+      {
+          return $this->render('FrontBundle:Default:bd.html.twig');
+      }
+
+      /**
+       * @Route("/stock", name="stock")
+       */
+      public function stockAction()
+      {
+          return $this->render('FrontBundle:Default:stock.html.twig');
+      }
 }
