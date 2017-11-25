@@ -68,3 +68,9 @@ body{
 nav{
   padding-bottom: 15px;
 }
+
+.content-container{
+  max-width: 90%;
+  display : flex;
+  flex-flow: row nowrap;
+}

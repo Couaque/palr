@@ -15,11 +15,11 @@ class __TwigTemplate_6a58fe3bd2cefec4e0981659a23f8933b118591bcebbf56778393b396ad
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d66ea8ef543e2879ed0c8417b2961ffbe72d6e1544e54842c779f81fb736c790 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_d66ea8ef543e2879ed0c8417b2961ffbe72d6e1544e54842c779f81fb736c790->enter($__internal_d66ea8ef543e2879ed0c8417b2961ffbe72d6e1544e54842c779f81fb736c790_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:accueil.html.twig"));
+        $__internal_f996d9417e38857b6ce0062df232be0410dc2d55f5aea5112772cac3ead6c9bc = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_f996d9417e38857b6ce0062df232be0410dc2d55f5aea5112772cac3ead6c9bc->enter($__internal_f996d9417e38857b6ce0062df232be0410dc2d55f5aea5112772cac3ead6c9bc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:accueil.html.twig"));
 
-        $__internal_0bdd3c22c84458dc709fc3eb8965804aff15460882b47581ef624f21ddcbbb81 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0bdd3c22c84458dc709fc3eb8965804aff15460882b47581ef624f21ddcbbb81->enter($__internal_0bdd3c22c84458dc709fc3eb8965804aff15460882b47581ef624f21ddcbbb81_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:accueil.html.twig"));
+        $__internal_0b769233a4001b33b54d246b32ce04c92f1f9e62cee5bc6cd7d8e476e4b27baf = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_0b769233a4001b33b54d246b32ce04c92f1f9e62cee5bc6cd7d8e476e4b27baf->enter($__internal_0b769233a4001b33b54d246b32ce04c92f1f9e62cee5bc6cd7d8e476e4b27baf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:accueil.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -63,7 +63,7 @@ class __TwigTemplate_6a58fe3bd2cefec4e0981659a23f8933b118591bcebbf56778393b396ad
         echo "\">Aide</a></li>
     </ul>
   </nav>
-  <div class=\"form_array_container\">
+  <div class=\"content-container\">
     <div class=\"alert-container\">
       <div class=\"alert alert-warning\">
         <strong>Michel Dupont</strong> doit rendre la clé <strong>PG302GP56</strong> le <strong>20/12/2017</strong>.
@@ -72,7 +72,7 @@ class __TwigTemplate_6a58fe3bd2cefec4e0981659a23f8933b118591bcebbf56778393b396ad
         <strong>Camille Durand</strong> doit rendre la clé <strong>PG389B23</strong> le <strong>21/12/2017</strong>.
       </div>
       <div class=\"alert alert-danger\">
-        <strong>Jean Delion</strong> n'a pas rendu la clé <strong>PG389B23</strong> qu'il devait rendre le <strong>10/12/2017</strong>.
+        <strong>Jean Delion</strong> n'a pas rendu la clé <strong>PG389B23</strong> qu'il devait rendre le <strong>10/12/2017</strong>. <button class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-remove\"></span> Archiver</button>
       </div>
     </div>
   </div>
@@ -85,10 +85,10 @@ class __TwigTemplate_6a58fe3bd2cefec4e0981659a23f8933b118591bcebbf56778393b396ad
 </html>
 ";
         
-        $__internal_d66ea8ef543e2879ed0c8417b2961ffbe72d6e1544e54842c779f81fb736c790->leave($__internal_d66ea8ef543e2879ed0c8417b2961ffbe72d6e1544e54842c779f81fb736c790_prof);
+        $__internal_f996d9417e38857b6ce0062df232be0410dc2d55f5aea5112772cac3ead6c9bc->leave($__internal_f996d9417e38857b6ce0062df232be0410dc2d55f5aea5112772cac3ead6c9bc_prof);
 
         
-        $__internal_0bdd3c22c84458dc709fc3eb8965804aff15460882b47581ef624f21ddcbbb81->leave($__internal_0bdd3c22c84458dc709fc3eb8965804aff15460882b47581ef624f21ddcbbb81_prof);
+        $__internal_0b769233a4001b33b54d246b32ce04c92f1f9e62cee5bc6cd7d8e476e4b27baf->leave($__internal_0b769233a4001b33b54d246b32ce04c92f1f9e62cee5bc6cd7d8e476e4b27baf_prof);
 
     }
 
@@ -146,7 +146,7 @@ class __TwigTemplate_6a58fe3bd2cefec4e0981659a23f8933b118591bcebbf56778393b396ad
       <li><a href=\"{{ path('aide') }}\">Aide</a></li>
     </ul>
   </nav>
-  <div class=\"form_array_container\">
+  <div class=\"content-container\">
     <div class=\"alert-container\">
       <div class=\"alert alert-warning\">
         <strong>Michel Dupont</strong> doit rendre la clé <strong>PG302GP56</strong> le <strong>20/12/2017</strong>.
@@ -155,7 +155,7 @@ class __TwigTemplate_6a58fe3bd2cefec4e0981659a23f8933b118591bcebbf56778393b396ad
         <strong>Camille Durand</strong> doit rendre la clé <strong>PG389B23</strong> le <strong>21/12/2017</strong>.
       </div>
       <div class=\"alert alert-danger\">
-        <strong>Jean Delion</strong> n'a pas rendu la clé <strong>PG389B23</strong> qu'il devait rendre le <strong>10/12/2017</strong>.
+        <strong>Jean Delion</strong> n'a pas rendu la clé <strong>PG389B23</strong> qu'il devait rendre le <strong>10/12/2017</strong>. <button class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-remove\"></span> Archiver</button>
       </div>
     </div>
   </div>

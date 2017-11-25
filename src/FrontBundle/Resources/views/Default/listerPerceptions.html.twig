@@ -27,113 +27,73 @@
       <li><a href="{{ path('aide') }}">Aide</a></li>
     </ul>
   </nav>
-      <div class="form_array_container">
-        <div class="table-container">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Organisation</th>
-                <th>Numéro de la clé</th>
-                <th>Date de perception</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Haÿs</td>
-                <td>Téo</td>
-                <td>Achats & Patrimoine</td>
-                <td>DHF35G89</td>
-                <td>13/09/2012</td>
-                <td><a class="btn btn-info btn-xs btn-suppr"><span class="glyphicon glyphicon-edit"></span></a> <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a></td>
-              </tr>
-              <tr>
-                <td>Souffleux</td>
-                <td>Thomas</td>
-                <td>Capitainerie</td>
-                <td>FJKL89G</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Charbonneau</td>
-                <td>Teddy</td>
-                <td>Entreprise X</td>
-                <td>YNEN53J</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Clémenceau</td>
-                <td>Simon</td>
-                <td>Service Y</td>
-                <td>FJLK532LK</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Haÿs</td>
-                <td>Téo</td>
-                <td>Achats & Patrimoine</td>
-                <td>DHF35G89</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Souffleux</td>
-                <td>Thomas</td>
-                <td>Capitainerie</td>
-                <td>FJKL89G</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Charbonneau</td>
-                <td>Teddy</td>
-                <td>Entreprise X</td>
-                <td>YNEN53J</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Clémenceau</td>
-                <td>Simon</td>
-                <td>Service Y</td>
-                <td>FJLK532LK</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Haÿs</td>
-                <td>Téo</td>
-                <td>Achats & Patrimoine</td>
-                <td>DHF35G89</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Charbonneau</td>
-                <td>Teddy</td>
-                <td>Entreprise X</td>
-                <td>YNEN53J</td>
-                <td>13/09/2012</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="form-container">
-          <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Ajouter</a>
+  <div class="content-container">
+    <div class="table-container"></div>
+    <div class="filtre-container">
+      <div class="alert alert-info">
+        <span class="glyphicon glyphicon-search"></span> Filtrer
+        <form>
           <form>
-            <label for="filtre_nom">Nom:</label>
-            <input type="text" class="form-control" id="filtre_nom">
+            <div class="form-group">
+              <label for="nomprenom">Personne :</label>
+              <input type="text" class="form-control" id="nomprenom">
 
-            <label for="pwd">Prénom:</label>
-            <input type="text" class="form-control" id="filtre_prenom">
-
-            <label for="pwd">Numéro de clé:</label>
-            <input type="text" class="form-control" id="filtre_numcle">
-
-            <label for="pwd">Date début:</label>
-            <input type="date" class="form-control" id="filtre_prenom">
-          </form>
-          <p><button type="button" class="btn btn-primary btn-filtre">Filtrer</button></p>
-          <button type="button" class="btn btn-danger btn-filtre"><span class="glyphicon glyphicon-remove"></span> Supprimer filtres</button>
+              <label for="organisation">Organisation :</label>
+              <input type="text" class="form-control" id="organisation">
+            </div>
+            <label for="sel1">Pass :</label>
+            <select class="form-control" id="PASS">
+              <option>PASS A</option>
+              <option>PASS B</option>
+              <option>PASS C</option>
+              <option>PASS D</option>
+            </select>
+            <label for="sel1">Variure :</label>
+            <select class="form-control" id="variure">
+              <option>VAR A</option>
+              <option>VAR B</option>
+              <option>VAR C</option>
+              <option>VAR D</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <a class="btn btn-success deconnexion" href=" {{ path('login') }}"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
-    </body>
-    </html>
+
+        <div class="ajout-container">
+          <button class="btn btn-success" data-toggle="collapse" data-target="#ajout"><span class="glyphicon glyphicon-plus"></span> Ajouter</button>
+          <div id="ajout" class="collapse">
+            <div class="alert alert-success">
+              <form>
+                <form>
+                  <div class="form-group">
+                    <label for="nomprenom">Nom & Prénom :</label>
+                    <input type="text" class="form-control" id="nomprenom">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="collegue">Collègue interne</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="collegue">Collaborateur externe</label>
+                  </div>
+                  <div class="form-group">
+                    <label for="organisation">Organisation :</label>
+                    <input type="text" class="form-control" id="organisation">
+                  </div>
+                  <div class="form-group">
+                    <label for="datedebut">Date de début :</label>
+                    <input type="date" class="form-control" id="datedebut">
+                  </div>
+                  <div class="form-group">
+                    <label for="datefin">Date de fin (laisser vide si inconnue) :</label>
+                    <input type="date" class="form-control" id="datefin">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a class="btn btn-success deconnexion" href=" {{ path('login') }}"><span class="glyphicon glyphicon-log-out"></span> <strong>Déconnexion</strong></a>
+          </body>
+          </html>

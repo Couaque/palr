@@ -15,11 +15,11 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_0fdcba0d2af259ca25b0c40d51b02a787e89efa7657e3c618b8d0d0e0fe93c25 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0fdcba0d2af259ca25b0c40d51b02a787e89efa7657e3c618b8d0d0e0fe93c25->enter($__internal_0fdcba0d2af259ca25b0c40d51b02a787e89efa7657e3c618b8d0d0e0fe93c25_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_e9759a8a720ec4c2c16aea313a2fab2897d4e8d4c6de940c2413b6bc8bfb8147 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_e9759a8a720ec4c2c16aea313a2fab2897d4e8d4c6de940c2413b6bc8bfb8147->enter($__internal_e9759a8a720ec4c2c16aea313a2fab2897d4e8d4c6de940c2413b6bc8bfb8147_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
-        $__internal_b9548f6f06cbf4c8f63d452f4f009ba52f89058e9049c925725efade0d933890 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b9548f6f06cbf4c8f63d452f4f009ba52f89058e9049c925725efade0d933890->enter($__internal_b9548f6f06cbf4c8f63d452f4f009ba52f89058e9049c925725efade0d933890_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_63205e5f57529e554ad8d749af0eaa335f498fd6a1bd23bc1b2782a590941fba = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_63205e5f57529e554ad8d749af0eaa335f498fd6a1bd23bc1b2782a590941fba->enter($__internal_63205e5f57529e554ad8d749af0eaa335f498fd6a1bd23bc1b2782a590941fba_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -66,125 +66,85 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
         echo "\">Aide</a></li>
     </ul>
   </nav>
-      <div class=\"form_array_container\">
-        <div class=\"table-container\">
-          <table class=\"table table-striped\">
-            <thead>
-              <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Organisation</th>
-                <th>Numéro de la clé</th>
-                <th>Date de perception</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Haÿs</td>
-                <td>Téo</td>
-                <td>Achats & Patrimoine</td>
-                <td>DHF35G89</td>
-                <td>13/09/2012</td>
-                <td><a class=\"btn btn-info btn-xs btn-suppr\"><span class=\"glyphicon glyphicon-edit\"></span></a> <a class=\"btn btn-danger btn-xs\"><span class=\"glyphicon glyphicon-remove\"></span></a></td>
-              </tr>
-              <tr>
-                <td>Souffleux</td>
-                <td>Thomas</td>
-                <td>Capitainerie</td>
-                <td>FJKL89G</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Charbonneau</td>
-                <td>Teddy</td>
-                <td>Entreprise X</td>
-                <td>YNEN53J</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Clémenceau</td>
-                <td>Simon</td>
-                <td>Service Y</td>
-                <td>FJLK532LK</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Haÿs</td>
-                <td>Téo</td>
-                <td>Achats & Patrimoine</td>
-                <td>DHF35G89</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Souffleux</td>
-                <td>Thomas</td>
-                <td>Capitainerie</td>
-                <td>FJKL89G</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Charbonneau</td>
-                <td>Teddy</td>
-                <td>Entreprise X</td>
-                <td>YNEN53J</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Clémenceau</td>
-                <td>Simon</td>
-                <td>Service Y</td>
-                <td>FJLK532LK</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Haÿs</td>
-                <td>Téo</td>
-                <td>Achats & Patrimoine</td>
-                <td>DHF35G89</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Charbonneau</td>
-                <td>Teddy</td>
-                <td>Entreprise X</td>
-                <td>YNEN53J</td>
-                <td>13/09/2012</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class=\"form-container\">
-          <a href=\"#\" class=\"btn btn-success\"><span class=\"glyphicon glyphicon-plus\"></span> Ajouter</a>
+  <div class=\"content-container\">
+    <div class=\"table-container\"></div>
+    <div class=\"filtre-container\">
+      <div class=\"alert alert-info\">
+        <span class=\"glyphicon glyphicon-search\"></span> Filtrer
+        <form>
           <form>
-            <label for=\"filtre_nom\">Nom:</label>
-            <input type=\"text\" class=\"form-control\" id=\"filtre_nom\">
+            <div class=\"form-group\">
+              <label for=\"nomprenom\">Personne :</label>
+              <input type=\"text\" class=\"form-control\" id=\"nomprenom\">
 
-            <label for=\"pwd\">Prénom:</label>
-            <input type=\"text\" class=\"form-control\" id=\"filtre_prenom\">
-
-            <label for=\"pwd\">Numéro de clé:</label>
-            <input type=\"text\" class=\"form-control\" id=\"filtre_numcle\">
-
-            <label for=\"pwd\">Date début:</label>
-            <input type=\"date\" class=\"form-control\" id=\"filtre_prenom\">
-          </form>
-          <p><button type=\"button\" class=\"btn btn-primary btn-filtre\">Filtrer</button></p>
-          <button type=\"button\" class=\"btn btn-danger btn-filtre\"><span class=\"glyphicon glyphicon-remove\"></span> Supprimer filtres</button>
+              <label for=\"organisation\">Organisation :</label>
+              <input type=\"text\" class=\"form-control\" id=\"organisation\">
+            </div>
+            <label for=\"sel1\">Pass :</label>
+            <select class=\"form-control\" id=\"PASS\">
+              <option>PASS A</option>
+              <option>PASS B</option>
+              <option>PASS C</option>
+              <option>PASS D</option>
+            </select>
+            <label for=\"sel1\">Variure :</label>
+            <select class=\"form-control\" id=\"variure\">
+              <option>VAR A</option>
+              <option>VAR B</option>
+              <option>VAR C</option>
+              <option>VAR D</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <a class=\"btn btn-success deconnexion\" href=\" ";
-        // line 137
+
+        <div class=\"ajout-container\">
+          <button class=\"btn btn-success\" data-toggle=\"collapse\" data-target=\"#ajout\"><span class=\"glyphicon glyphicon-plus\"></span> Ajouter</button>
+          <div id=\"ajout\" class=\"collapse\">
+            <div class=\"alert alert-success\">
+              <form>
+                <form>
+                  <div class=\"form-group\">
+                    <label for=\"nomprenom\">Nom & Prénom :</label>
+                    <input type=\"text\" class=\"form-control\" id=\"nomprenom\">
+                  </div>
+                  <div class=\"form-group\">
+                    <label for=\"email\">Email :</label>
+                    <input type=\"email\" class=\"form-control\" id=\"email\">
+                  </div>
+                  <div class=\"radio\">
+                    <label><input type=\"radio\" name=\"collegue\">Collègue interne</label>
+                  </div>
+                  <div class=\"radio\">
+                    <label><input type=\"radio\" name=\"collegue\">Collaborateur externe</label>
+                  </div>
+                  <div class=\"form-group\">
+                    <label for=\"organisation\">Organisation :</label>
+                    <input type=\"text\" class=\"form-control\" id=\"organisation\">
+                  </div>
+                  <div class=\"form-group\">
+                    <label for=\"datedebut\">Date de début :</label>
+                    <input type=\"date\" class=\"form-control\" id=\"datedebut\">
+                  </div>
+                  <div class=\"form-group\">
+                    <label for=\"datefin\">Date de fin (laisser vide si inconnue) :</label>
+                    <input type=\"date\" class=\"form-control\" id=\"datefin\">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a class=\"btn btn-success deconnexion\" href=\" ";
+        // line 97
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
-        echo "\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</a>
-    </body>
-    </html>
+        echo "\"><span class=\"glyphicon glyphicon-log-out\"></span> <strong>Déconnexion</strong></a>
+          </body>
+          </html>
 ";
         
-        $__internal_0fdcba0d2af259ca25b0c40d51b02a787e89efa7657e3c618b8d0d0e0fe93c25->leave($__internal_0fdcba0d2af259ca25b0c40d51b02a787e89efa7657e3c618b8d0d0e0fe93c25_prof);
+        $__internal_e9759a8a720ec4c2c16aea313a2fab2897d4e8d4c6de940c2413b6bc8bfb8147->leave($__internal_e9759a8a720ec4c2c16aea313a2fab2897d4e8d4c6de940c2413b6bc8bfb8147_prof);
 
         
-        $__internal_b9548f6f06cbf4c8f63d452f4f009ba52f89058e9049c925725efade0d933890->leave($__internal_b9548f6f06cbf4c8f63d452f4f009ba52f89058e9049c925725efade0d933890_prof);
+        $__internal_63205e5f57529e554ad8d749af0eaa335f498fd6a1bd23bc1b2782a590941fba->leave($__internal_63205e5f57529e554ad8d749af0eaa335f498fd6a1bd23bc1b2782a590941fba_prof);
 
     }
 
@@ -200,7 +160,7 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
     public function getDebugInfo()
     {
-        return array (  178 => 137,  65 => 27,  61 => 26,  57 => 25,  53 => 24,  49 => 23,  25 => 1,);
+        return array (  138 => 97,  65 => 27,  61 => 26,  57 => 25,  53 => 24,  49 => 23,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -242,116 +202,76 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
       <li><a href=\"{{ path('aide') }}\">Aide</a></li>
     </ul>
   </nav>
-      <div class=\"form_array_container\">
-        <div class=\"table-container\">
-          <table class=\"table table-striped\">
-            <thead>
-              <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Organisation</th>
-                <th>Numéro de la clé</th>
-                <th>Date de perception</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Haÿs</td>
-                <td>Téo</td>
-                <td>Achats & Patrimoine</td>
-                <td>DHF35G89</td>
-                <td>13/09/2012</td>
-                <td><a class=\"btn btn-info btn-xs btn-suppr\"><span class=\"glyphicon glyphicon-edit\"></span></a> <a class=\"btn btn-danger btn-xs\"><span class=\"glyphicon glyphicon-remove\"></span></a></td>
-              </tr>
-              <tr>
-                <td>Souffleux</td>
-                <td>Thomas</td>
-                <td>Capitainerie</td>
-                <td>FJKL89G</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Charbonneau</td>
-                <td>Teddy</td>
-                <td>Entreprise X</td>
-                <td>YNEN53J</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Clémenceau</td>
-                <td>Simon</td>
-                <td>Service Y</td>
-                <td>FJLK532LK</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Haÿs</td>
-                <td>Téo</td>
-                <td>Achats & Patrimoine</td>
-                <td>DHF35G89</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Souffleux</td>
-                <td>Thomas</td>
-                <td>Capitainerie</td>
-                <td>FJKL89G</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Charbonneau</td>
-                <td>Teddy</td>
-                <td>Entreprise X</td>
-                <td>YNEN53J</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Clémenceau</td>
-                <td>Simon</td>
-                <td>Service Y</td>
-                <td>FJLK532LK</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Haÿs</td>
-                <td>Téo</td>
-                <td>Achats & Patrimoine</td>
-                <td>DHF35G89</td>
-                <td>13/09/2012</td>
-              </tr>
-              <tr>
-                <td>Charbonneau</td>
-                <td>Teddy</td>
-                <td>Entreprise X</td>
-                <td>YNEN53J</td>
-                <td>13/09/2012</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class=\"form-container\">
-          <a href=\"#\" class=\"btn btn-success\"><span class=\"glyphicon glyphicon-plus\"></span> Ajouter</a>
+  <div class=\"content-container\">
+    <div class=\"table-container\"></div>
+    <div class=\"filtre-container\">
+      <div class=\"alert alert-info\">
+        <span class=\"glyphicon glyphicon-search\"></span> Filtrer
+        <form>
           <form>
-            <label for=\"filtre_nom\">Nom:</label>
-            <input type=\"text\" class=\"form-control\" id=\"filtre_nom\">
+            <div class=\"form-group\">
+              <label for=\"nomprenom\">Personne :</label>
+              <input type=\"text\" class=\"form-control\" id=\"nomprenom\">
 
-            <label for=\"pwd\">Prénom:</label>
-            <input type=\"text\" class=\"form-control\" id=\"filtre_prenom\">
-
-            <label for=\"pwd\">Numéro de clé:</label>
-            <input type=\"text\" class=\"form-control\" id=\"filtre_numcle\">
-
-            <label for=\"pwd\">Date début:</label>
-            <input type=\"date\" class=\"form-control\" id=\"filtre_prenom\">
-          </form>
-          <p><button type=\"button\" class=\"btn btn-primary btn-filtre\">Filtrer</button></p>
-          <button type=\"button\" class=\"btn btn-danger btn-filtre\"><span class=\"glyphicon glyphicon-remove\"></span> Supprimer filtres</button>
+              <label for=\"organisation\">Organisation :</label>
+              <input type=\"text\" class=\"form-control\" id=\"organisation\">
+            </div>
+            <label for=\"sel1\">Pass :</label>
+            <select class=\"form-control\" id=\"PASS\">
+              <option>PASS A</option>
+              <option>PASS B</option>
+              <option>PASS C</option>
+              <option>PASS D</option>
+            </select>
+            <label for=\"sel1\">Variure :</label>
+            <select class=\"form-control\" id=\"variure\">
+              <option>VAR A</option>
+              <option>VAR B</option>
+              <option>VAR C</option>
+              <option>VAR D</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <a class=\"btn btn-success deconnexion\" href=\" {{ path('login') }}\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</a>
-    </body>
-    </html>
+
+        <div class=\"ajout-container\">
+          <button class=\"btn btn-success\" data-toggle=\"collapse\" data-target=\"#ajout\"><span class=\"glyphicon glyphicon-plus\"></span> Ajouter</button>
+          <div id=\"ajout\" class=\"collapse\">
+            <div class=\"alert alert-success\">
+              <form>
+                <form>
+                  <div class=\"form-group\">
+                    <label for=\"nomprenom\">Nom & Prénom :</label>
+                    <input type=\"text\" class=\"form-control\" id=\"nomprenom\">
+                  </div>
+                  <div class=\"form-group\">
+                    <label for=\"email\">Email :</label>
+                    <input type=\"email\" class=\"form-control\" id=\"email\">
+                  </div>
+                  <div class=\"radio\">
+                    <label><input type=\"radio\" name=\"collegue\">Collègue interne</label>
+                  </div>
+                  <div class=\"radio\">
+                    <label><input type=\"radio\" name=\"collegue\">Collaborateur externe</label>
+                  </div>
+                  <div class=\"form-group\">
+                    <label for=\"organisation\">Organisation :</label>
+                    <input type=\"text\" class=\"form-control\" id=\"organisation\">
+                  </div>
+                  <div class=\"form-group\">
+                    <label for=\"datedebut\">Date de début :</label>
+                    <input type=\"date\" class=\"form-control\" id=\"datedebut\">
+                  </div>
+                  <div class=\"form-group\">
+                    <label for=\"datefin\">Date de fin (laisser vide si inconnue) :</label>
+                    <input type=\"date\" class=\"form-control\" id=\"datefin\">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a class=\"btn btn-success deconnexion\" href=\" {{ path('login') }}\"><span class=\"glyphicon glyphicon-log-out\"></span> <strong>Déconnexion</strong></a>
+          </body>
+          </html>
 ", "FrontBundle:Default:listerPerceptions.html.twig", "/home/doge/PTS/PALR/src/FrontBundle/Resources/views/Default/listerPerceptions.html.twig");
     }
 }
