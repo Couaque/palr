@@ -15,11 +15,11 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e9759a8a720ec4c2c16aea313a2fab2897d4e8d4c6de940c2413b6bc8bfb8147 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_e9759a8a720ec4c2c16aea313a2fab2897d4e8d4c6de940c2413b6bc8bfb8147->enter($__internal_e9759a8a720ec4c2c16aea313a2fab2897d4e8d4c6de940c2413b6bc8bfb8147_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_156e726a05cc68c11f30784f18bfb33c5f610455e759a01f306a72c9fd5268c6 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_156e726a05cc68c11f30784f18bfb33c5f610455e759a01f306a72c9fd5268c6->enter($__internal_156e726a05cc68c11f30784f18bfb33c5f610455e759a01f306a72c9fd5268c6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
-        $__internal_63205e5f57529e554ad8d749af0eaa335f498fd6a1bd23bc1b2782a590941fba = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_63205e5f57529e554ad8d749af0eaa335f498fd6a1bd23bc1b2782a590941fba->enter($__internal_63205e5f57529e554ad8d749af0eaa335f498fd6a1bd23bc1b2782a590941fba_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_dcaeb6381d71a87427990da8fadb297d703c0979e50fb0adc614a37cd5ca5c4d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_dcaeb6381d71a87427990da8fadb297d703c0979e50fb0adc614a37cd5ca5c4d->enter($__internal_dcaeb6381d71a87427990da8fadb297d703c0979e50fb0adc614a37cd5ca5c4d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -88,7 +88,7 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
               <option>PASS D</option>
             </select>
             <label for=\"sel1\">Variure :</label>
-            <select class=\"form-control\" id=\"variure\">
+            <select class=\"form-control inputlg\" id=\"variure\">
               <option>VAR A</option>
               <option>VAR B</option>
               <option>VAR C</option>
@@ -141,10 +141,10 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
           </html>
 ";
         
-        $__internal_e9759a8a720ec4c2c16aea313a2fab2897d4e8d4c6de940c2413b6bc8bfb8147->leave($__internal_e9759a8a720ec4c2c16aea313a2fab2897d4e8d4c6de940c2413b6bc8bfb8147_prof);
+        $__internal_156e726a05cc68c11f30784f18bfb33c5f610455e759a01f306a72c9fd5268c6->leave($__internal_156e726a05cc68c11f30784f18bfb33c5f610455e759a01f306a72c9fd5268c6_prof);
 
         
-        $__internal_63205e5f57529e554ad8d749af0eaa335f498fd6a1bd23bc1b2782a590941fba->leave($__internal_63205e5f57529e554ad8d749af0eaa335f498fd6a1bd23bc1b2782a590941fba_prof);
+        $__internal_dcaeb6381d71a87427990da8fadb297d703c0979e50fb0adc614a37cd5ca5c4d->leave($__internal_dcaeb6381d71a87427990da8fadb297d703c0979e50fb0adc614a37cd5ca5c4d_prof);
 
     }
 
@@ -224,7 +224,7 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
               <option>PASS D</option>
             </select>
             <label for=\"sel1\">Variure :</label>
-            <select class=\"form-control\" id=\"variure\">
+            <select class=\"form-control inputlg\" id=\"variure\">
               <option>VAR A</option>
               <option>VAR B</option>
               <option>VAR C</option>

@@ -15,18 +15,18 @@ class __TwigTemplate_e4a6b5139a1cd8baaea55cb4f903bb8cec80c7857f15a3449495ebfa08f
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_df0e665c48f8205f50cbde814cfc05434a1c2f5dfd591b2af43f900a7b978dd1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_df0e665c48f8205f50cbde814cfc05434a1c2f5dfd591b2af43f900a7b978dd1->enter($__internal_df0e665c48f8205f50cbde814cfc05434a1c2f5dfd591b2af43f900a7b978dd1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:bd.html.twig"));
+        $__internal_f1d0fae5e194c73a53e84b8846533ae481d8696286bbc4d1e8e7b6c2114630ff = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_f1d0fae5e194c73a53e84b8846533ae481d8696286bbc4d1e8e7b6c2114630ff->enter($__internal_f1d0fae5e194c73a53e84b8846533ae481d8696286bbc4d1e8e7b6c2114630ff_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:bd.html.twig"));
 
-        $__internal_92faf6460a08a74eb5b437e1ad2564d07b92f8262debfc771cc54a70b4c2ec66 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_92faf6460a08a74eb5b437e1ad2564d07b92f8262debfc771cc54a70b4c2ec66->enter($__internal_92faf6460a08a74eb5b437e1ad2564d07b92f8262debfc771cc54a70b4c2ec66_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:bd.html.twig"));
+        $__internal_3349f7b3d18b6f06039b21f6c03ea348c97f05bec5d10c5d59f09b5623551991 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_3349f7b3d18b6f06039b21f6c03ea348c97f05bec5d10c5d59f09b5623551991->enter($__internal_3349f7b3d18b6f06039b21f6c03ea348c97f05bec5d10c5d59f09b5623551991_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:bd.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
 <html>
 <head>
   <meta charset=\"UTF-8\" />
-  <title>PALR - Aide</title>
+  <title>PALR - Base de données</title>
 
   <link href=\"css/montserrat_police\" rel=\"stylesheet\">
   <!-- Latest compiled and minified CSS -->
@@ -78,10 +78,10 @@ class __TwigTemplate_e4a6b5139a1cd8baaea55cb4f903bb8cec80c7857f15a3449495ebfa08f
 </body>
 ";
         
-        $__internal_df0e665c48f8205f50cbde814cfc05434a1c2f5dfd591b2af43f900a7b978dd1->leave($__internal_df0e665c48f8205f50cbde814cfc05434a1c2f5dfd591b2af43f900a7b978dd1_prof);
+        $__internal_f1d0fae5e194c73a53e84b8846533ae481d8696286bbc4d1e8e7b6c2114630ff->leave($__internal_f1d0fae5e194c73a53e84b8846533ae481d8696286bbc4d1e8e7b6c2114630ff_prof);
 
         
-        $__internal_92faf6460a08a74eb5b437e1ad2564d07b92f8262debfc771cc54a70b4c2ec66->leave($__internal_92faf6460a08a74eb5b437e1ad2564d07b92f8262debfc771cc54a70b4c2ec66_prof);
+        $__internal_3349f7b3d18b6f06039b21f6c03ea348c97f05bec5d10c5d59f09b5623551991->leave($__internal_3349f7b3d18b6f06039b21f6c03ea348c97f05bec5d10c5d59f09b5623551991_prof);
 
     }
 
@@ -114,7 +114,7 @@ class __TwigTemplate_e4a6b5139a1cd8baaea55cb4f903bb8cec80c7857f15a3449495ebfa08f
 <html>
 <head>
   <meta charset=\"UTF-8\" />
-  <title>PALR - Aide</title>
+  <title>PALR - Base de données</title>
 
   <link href=\"css/montserrat_police\" rel=\"stylesheet\">
   <!-- Latest compiled and minified CSS -->

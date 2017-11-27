@@ -15,18 +15,18 @@ class __TwigTemplate_be71d4f6ca8bc04b8da4a16b88b4923ce340b62cd5661a3190ea8fa1aa6
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_af418ae1e67b4c23e43c0ba86e88cfde78de61f958f44a340adcc4e91545dceb = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_af418ae1e67b4c23e43c0ba86e88cfde78de61f958f44a340adcc4e91545dceb->enter($__internal_af418ae1e67b4c23e43c0ba86e88cfde78de61f958f44a340adcc4e91545dceb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:stock.html.twig"));
+        $__internal_0c81990331eae42aa0d52ce1dcb1c8b9f835873ee39d775b6a155c9606f43ce2 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_0c81990331eae42aa0d52ce1dcb1c8b9f835873ee39d775b6a155c9606f43ce2->enter($__internal_0c81990331eae42aa0d52ce1dcb1c8b9f835873ee39d775b6a155c9606f43ce2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:stock.html.twig"));
 
-        $__internal_1c8a3daa9a0d4bb7cddb4e7b3e45505e76989f56454138763e85e49faf4ae231 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_1c8a3daa9a0d4bb7cddb4e7b3e45505e76989f56454138763e85e49faf4ae231->enter($__internal_1c8a3daa9a0d4bb7cddb4e7b3e45505e76989f56454138763e85e49faf4ae231_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:stock.html.twig"));
+        $__internal_94ad73acb2991940b19abac6665e033c9c733bddbd77647fe12a83d8a2f7de27 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_94ad73acb2991940b19abac6665e033c9c733bddbd77647fe12a83d8a2f7de27->enter($__internal_94ad73acb2991940b19abac6665e033c9c733bddbd77647fe12a83d8a2f7de27_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:stock.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
 <html>
 <head>
   <meta charset=\"UTF-8\" />
-  <title>PALR - Aide</title>
+  <title>PALR - Stock</title>
 
   <link href=\"css/montserrat_police\" rel=\"stylesheet\">
   <!-- Latest compiled and minified CSS -->
@@ -70,18 +70,21 @@ class __TwigTemplate_be71d4f6ca8bc04b8da4a16b88b4923ce340b62cd5661a3190ea8fa1aa6
   <div class=\"aide_container\">
     <p class=\"login\">Bienvenue dans la section gestion de stock.</p>
   </div>
+  <div class=\"filtre-container\">
+
+  </div>
 
   <a class=\"btn btn-success deconnexion\" href=\" ";
-        // line 35
+        // line 38
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
         echo "\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</a>
 </body>
 ";
         
-        $__internal_af418ae1e67b4c23e43c0ba86e88cfde78de61f958f44a340adcc4e91545dceb->leave($__internal_af418ae1e67b4c23e43c0ba86e88cfde78de61f958f44a340adcc4e91545dceb_prof);
+        $__internal_0c81990331eae42aa0d52ce1dcb1c8b9f835873ee39d775b6a155c9606f43ce2->leave($__internal_0c81990331eae42aa0d52ce1dcb1c8b9f835873ee39d775b6a155c9606f43ce2_prof);
 
         
-        $__internal_1c8a3daa9a0d4bb7cddb4e7b3e45505e76989f56454138763e85e49faf4ae231->leave($__internal_1c8a3daa9a0d4bb7cddb4e7b3e45505e76989f56454138763e85e49faf4ae231_prof);
+        $__internal_94ad73acb2991940b19abac6665e033c9c733bddbd77647fe12a83d8a2f7de27->leave($__internal_94ad73acb2991940b19abac6665e033c9c733bddbd77647fe12a83d8a2f7de27_prof);
 
     }
 
@@ -97,7 +100,7 @@ class __TwigTemplate_be71d4f6ca8bc04b8da4a16b88b4923ce340b62cd5661a3190ea8fa1aa6
 
     public function getDebugInfo()
     {
-        return array (  76 => 35,  66 => 28,  62 => 27,  58 => 26,  54 => 25,  44 => 18,  25 => 1,);
+        return array (  79 => 38,  66 => 28,  62 => 27,  58 => 26,  54 => 25,  44 => 18,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -114,7 +117,7 @@ class __TwigTemplate_be71d4f6ca8bc04b8da4a16b88b4923ce340b62cd5661a3190ea8fa1aa6
 <html>
 <head>
   <meta charset=\"UTF-8\" />
-  <title>PALR - Aide</title>
+  <title>PALR - Stock</title>
 
   <link href=\"css/montserrat_police\" rel=\"stylesheet\">
   <!-- Latest compiled and minified CSS -->
@@ -142,6 +145,9 @@ class __TwigTemplate_be71d4f6ca8bc04b8da4a16b88b4923ce340b62cd5661a3190ea8fa1aa6
   </nav>
   <div class=\"aide_container\">
     <p class=\"login\">Bienvenue dans la section gestion de stock.</p>
+  </div>
+  <div class=\"filtre-container\">
+
   </div>
 
   <a class=\"btn btn-success deconnexion\" href=\" {{ path('login') }}\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</a>
