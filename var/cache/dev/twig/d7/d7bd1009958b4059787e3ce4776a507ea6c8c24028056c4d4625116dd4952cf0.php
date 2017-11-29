@@ -15,11 +15,11 @@ class __TwigTemplate_be71d4f6ca8bc04b8da4a16b88b4923ce340b62cd5661a3190ea8fa1aa6
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_0c81990331eae42aa0d52ce1dcb1c8b9f835873ee39d775b6a155c9606f43ce2 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0c81990331eae42aa0d52ce1dcb1c8b9f835873ee39d775b6a155c9606f43ce2->enter($__internal_0c81990331eae42aa0d52ce1dcb1c8b9f835873ee39d775b6a155c9606f43ce2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:stock.html.twig"));
+        $__internal_5f84fb1d28d87488ee804bc4903cb59d90fc6c3cdfbcde54767d61e092b1d1a4 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5f84fb1d28d87488ee804bc4903cb59d90fc6c3cdfbcde54767d61e092b1d1a4->enter($__internal_5f84fb1d28d87488ee804bc4903cb59d90fc6c3cdfbcde54767d61e092b1d1a4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:stock.html.twig"));
 
-        $__internal_94ad73acb2991940b19abac6665e033c9c733bddbd77647fe12a83d8a2f7de27 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_94ad73acb2991940b19abac6665e033c9c733bddbd77647fe12a83d8a2f7de27->enter($__internal_94ad73acb2991940b19abac6665e033c9c733bddbd77647fe12a83d8a2f7de27_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:stock.html.twig"));
+        $__internal_811456ffab2fdcdc510394432ed98ceb33c24686ccd57c2738c2399d744d5f3c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_811456ffab2fdcdc510394432ed98ceb33c24686ccd57c2738c2399d744d5f3c->enter($__internal_811456ffab2fdcdc510394432ed98ceb33c24686ccd57c2738c2399d744d5f3c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:stock.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -71,20 +71,22 @@ class __TwigTemplate_be71d4f6ca8bc04b8da4a16b88b4923ce340b62cd5661a3190ea8fa1aa6
     <p class=\"login\">Bienvenue dans la section gestion de stock.</p>
   </div>
   <div class=\"filtre-container\">
+    <form class=\"alert alert-info\">
 
+  </form>
   </div>
 
   <a class=\"btn btn-success deconnexion\" href=\" ";
-        // line 38
+        // line 40
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
         echo "\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</a>
 </body>
 ";
         
-        $__internal_0c81990331eae42aa0d52ce1dcb1c8b9f835873ee39d775b6a155c9606f43ce2->leave($__internal_0c81990331eae42aa0d52ce1dcb1c8b9f835873ee39d775b6a155c9606f43ce2_prof);
+        $__internal_5f84fb1d28d87488ee804bc4903cb59d90fc6c3cdfbcde54767d61e092b1d1a4->leave($__internal_5f84fb1d28d87488ee804bc4903cb59d90fc6c3cdfbcde54767d61e092b1d1a4_prof);
 
         
-        $__internal_94ad73acb2991940b19abac6665e033c9c733bddbd77647fe12a83d8a2f7de27->leave($__internal_94ad73acb2991940b19abac6665e033c9c733bddbd77647fe12a83d8a2f7de27_prof);
+        $__internal_811456ffab2fdcdc510394432ed98ceb33c24686ccd57c2738c2399d744d5f3c->leave($__internal_811456ffab2fdcdc510394432ed98ceb33c24686ccd57c2738c2399d744d5f3c_prof);
 
     }
 
@@ -100,7 +102,7 @@ class __TwigTemplate_be71d4f6ca8bc04b8da4a16b88b4923ce340b62cd5661a3190ea8fa1aa6
 
     public function getDebugInfo()
     {
-        return array (  79 => 38,  66 => 28,  62 => 27,  58 => 26,  54 => 25,  44 => 18,  25 => 1,);
+        return array (  81 => 40,  66 => 28,  62 => 27,  58 => 26,  54 => 25,  44 => 18,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -147,11 +149,13 @@ class __TwigTemplate_be71d4f6ca8bc04b8da4a16b88b4923ce340b62cd5661a3190ea8fa1aa6
     <p class=\"login\">Bienvenue dans la section gestion de stock.</p>
   </div>
   <div class=\"filtre-container\">
+    <form class=\"alert alert-info\">
 
+  </form>
   </div>
 
   <a class=\"btn btn-success deconnexion\" href=\" {{ path('login') }}\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</a>
 </body>
-", "FrontBundle:Default:stock.html.twig", "/home/doge/PTS/PALR/src/FrontBundle/Resources/views/Default/stock.html.twig");
+", "FrontBundle:Default:stock.html.twig", "/home/ironweb/PTS/palr/src/FrontBundle/Resources/views/Default/stock.html.twig");
     }
 }
