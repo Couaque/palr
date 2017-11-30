@@ -15,11 +15,11 @@ class __TwigTemplate_be71d4f6ca8bc04b8da4a16b88b4923ce340b62cd5661a3190ea8fa1aa6
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_5f84fb1d28d87488ee804bc4903cb59d90fc6c3cdfbcde54767d61e092b1d1a4 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_5f84fb1d28d87488ee804bc4903cb59d90fc6c3cdfbcde54767d61e092b1d1a4->enter($__internal_5f84fb1d28d87488ee804bc4903cb59d90fc6c3cdfbcde54767d61e092b1d1a4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:stock.html.twig"));
+        $__internal_b6795ecd3ac88655e386d472252d6aac12c56d3253ff68e53aaa053cf10397f6 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_b6795ecd3ac88655e386d472252d6aac12c56d3253ff68e53aaa053cf10397f6->enter($__internal_b6795ecd3ac88655e386d472252d6aac12c56d3253ff68e53aaa053cf10397f6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:stock.html.twig"));
 
-        $__internal_811456ffab2fdcdc510394432ed98ceb33c24686ccd57c2738c2399d744d5f3c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_811456ffab2fdcdc510394432ed98ceb33c24686ccd57c2738c2399d744d5f3c->enter($__internal_811456ffab2fdcdc510394432ed98ceb33c24686ccd57c2738c2399d744d5f3c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:stock.html.twig"));
+        $__internal_b9c8b4f460790cae4613164f043a2aa4405de9cfe5531641127b0190e46eec68 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b9c8b4f460790cae4613164f043a2aa4405de9cfe5531641127b0190e46eec68->enter($__internal_b9c8b4f460790cae4613164f043a2aa4405de9cfe5531641127b0190e46eec68_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:stock.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -83,10 +83,10 @@ class __TwigTemplate_be71d4f6ca8bc04b8da4a16b88b4923ce340b62cd5661a3190ea8fa1aa6
 </body>
 ";
         
-        $__internal_5f84fb1d28d87488ee804bc4903cb59d90fc6c3cdfbcde54767d61e092b1d1a4->leave($__internal_5f84fb1d28d87488ee804bc4903cb59d90fc6c3cdfbcde54767d61e092b1d1a4_prof);
+        $__internal_b6795ecd3ac88655e386d472252d6aac12c56d3253ff68e53aaa053cf10397f6->leave($__internal_b6795ecd3ac88655e386d472252d6aac12c56d3253ff68e53aaa053cf10397f6_prof);
 
         
-        $__internal_811456ffab2fdcdc510394432ed98ceb33c24686ccd57c2738c2399d744d5f3c->leave($__internal_811456ffab2fdcdc510394432ed98ceb33c24686ccd57c2738c2399d744d5f3c_prof);
+        $__internal_b9c8b4f460790cae4613164f043a2aa4405de9cfe5531641127b0190e46eec68->leave($__internal_b9c8b4f460790cae4613164f043a2aa4405de9cfe5531641127b0190e46eec68_prof);
 
     }
 
@@ -156,6 +156,6 @@ class __TwigTemplate_be71d4f6ca8bc04b8da4a16b88b4923ce340b62cd5661a3190ea8fa1aa6
 
   <a class=\"btn btn-success deconnexion\" href=\" {{ path('login') }}\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</a>
 </body>
-", "FrontBundle:Default:stock.html.twig", "/home/ironweb/PTS/palr/src/FrontBundle/Resources/views/Default/stock.html.twig");
+", "FrontBundle:Default:stock.html.twig", "/home/doge/PTS/palr/src/FrontBundle/Resources/views/Default/stock.html.twig");
     }
 }
