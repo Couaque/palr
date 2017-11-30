@@ -15,11 +15,11 @@ class __TwigTemplate_6a58fe3bd2cefec4e0981659a23f8933b118591bcebbf56778393b396ad
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_8f205a42eb3398dbfcdc07f4be333783dc1ddb68382937c014c416fc12e14691 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_8f205a42eb3398dbfcdc07f4be333783dc1ddb68382937c014c416fc12e14691->enter($__internal_8f205a42eb3398dbfcdc07f4be333783dc1ddb68382937c014c416fc12e14691_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:accueil.html.twig"));
+        $__internal_3f988319f9e67ec50690258644489f3903d63232f8551c82ebd88396d5ae728f = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_3f988319f9e67ec50690258644489f3903d63232f8551c82ebd88396d5ae728f->enter($__internal_3f988319f9e67ec50690258644489f3903d63232f8551c82ebd88396d5ae728f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:accueil.html.twig"));
 
-        $__internal_f1ae516e2ee99c9bde749c74bdeee6c204c38086f5aa5630aaa694dd194a812f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_f1ae516e2ee99c9bde749c74bdeee6c204c38086f5aa5630aaa694dd194a812f->enter($__internal_f1ae516e2ee99c9bde749c74bdeee6c204c38086f5aa5630aaa694dd194a812f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:accueil.html.twig"));
+        $__internal_6e6dea2d95d92813ba2b6dc214a5662ab04314ec3b9c859b7e4114f06b1a3f5a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_6e6dea2d95d92813ba2b6dc214a5662ab04314ec3b9c859b7e4114f06b1a3f5a->enter($__internal_6e6dea2d95d92813ba2b6dc214a5662ab04314ec3b9c859b7e4114f06b1a3f5a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:accueil.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -63,32 +63,30 @@ class __TwigTemplate_6a58fe3bd2cefec4e0981659a23f8933b118591bcebbf56778393b396ad
         echo "\">Aide</a></li>
     </ul>
   </nav>
-  <div class=\"content-container\">
-    <div class=\"alert-container\">
-      <div class=\"alert alert-warning\">
-        <strong>Michel Dupont</strong> doit rendre la clé <strong>PG302GP56</strong> le <strong>20/12/2017</strong>.
-      </div>
-      <div class=\"alert alert-warning\">
-        <strong>Camille Durand</strong> doit rendre la clé <strong>PG389B23</strong> le <strong>21/12/2017</strong>.
-      </div>
-      <div class=\"alert alert-danger\">
-        <strong>Jean Delion</strong> n'a pas rendu la clé <strong>PG389B23</strong> qu'il devait rendre le <strong>10/12/2017</strong>. <button class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-remove\"></span> Archiver</button>
-      </div>
+  <div class=\"alert-container container-fluid\">
+    <div class=\"alert alert-warning\">
+      <strong>Michel Dupont</strong> doit rendre la clé <strong>PG302GP56</strong> le <strong>20/12/2017</strong>.
+    </div>
+    <div class=\"alert alert-warning\">
+      <strong>Camille Durand</strong> doit rendre la clé <strong>PG389B23</strong> le <strong>21/12/2017</strong>.
+    </div>
+    <div class=\"alert alert-danger\">
+      <strong>Jean Delion</strong> n'a pas rendu la clé <strong>PG389B23</strong> qu'il devait rendre le <strong>10/12/2017</strong>. <button class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-remove\"></span> Archiver</button>
     </div>
   </div>
 </div>
 <a class=\"btn btn-success deconnexion\" href=\" ";
-        // line 44
+        // line 42
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
         echo "\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</a>
 </body>
 </html>
 ";
         
-        $__internal_8f205a42eb3398dbfcdc07f4be333783dc1ddb68382937c014c416fc12e14691->leave($__internal_8f205a42eb3398dbfcdc07f4be333783dc1ddb68382937c014c416fc12e14691_prof);
+        $__internal_3f988319f9e67ec50690258644489f3903d63232f8551c82ebd88396d5ae728f->leave($__internal_3f988319f9e67ec50690258644489f3903d63232f8551c82ebd88396d5ae728f_prof);
 
         
-        $__internal_f1ae516e2ee99c9bde749c74bdeee6c204c38086f5aa5630aaa694dd194a812f->leave($__internal_f1ae516e2ee99c9bde749c74bdeee6c204c38086f5aa5630aaa694dd194a812f_prof);
+        $__internal_6e6dea2d95d92813ba2b6dc214a5662ab04314ec3b9c859b7e4114f06b1a3f5a->leave($__internal_6e6dea2d95d92813ba2b6dc214a5662ab04314ec3b9c859b7e4114f06b1a3f5a_prof);
 
     }
 
@@ -104,7 +102,7 @@ class __TwigTemplate_6a58fe3bd2cefec4e0981659a23f8933b118591bcebbf56778393b396ad
 
     public function getDebugInfo()
     {
-        return array (  82 => 44,  62 => 27,  58 => 26,  54 => 25,  50 => 24,  25 => 1,);
+        return array (  80 => 42,  62 => 27,  58 => 26,  54 => 25,  50 => 24,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -146,23 +144,21 @@ class __TwigTemplate_6a58fe3bd2cefec4e0981659a23f8933b118591bcebbf56778393b396ad
       <li><a href=\"{{ path('aide') }}\">Aide</a></li>
     </ul>
   </nav>
-  <div class=\"content-container\">
-    <div class=\"alert-container\">
-      <div class=\"alert alert-warning\">
-        <strong>Michel Dupont</strong> doit rendre la clé <strong>PG302GP56</strong> le <strong>20/12/2017</strong>.
-      </div>
-      <div class=\"alert alert-warning\">
-        <strong>Camille Durand</strong> doit rendre la clé <strong>PG389B23</strong> le <strong>21/12/2017</strong>.
-      </div>
-      <div class=\"alert alert-danger\">
-        <strong>Jean Delion</strong> n'a pas rendu la clé <strong>PG389B23</strong> qu'il devait rendre le <strong>10/12/2017</strong>. <button class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-remove\"></span> Archiver</button>
-      </div>
+  <div class=\"alert-container container-fluid\">
+    <div class=\"alert alert-warning\">
+      <strong>Michel Dupont</strong> doit rendre la clé <strong>PG302GP56</strong> le <strong>20/12/2017</strong>.
+    </div>
+    <div class=\"alert alert-warning\">
+      <strong>Camille Durand</strong> doit rendre la clé <strong>PG389B23</strong> le <strong>21/12/2017</strong>.
+    </div>
+    <div class=\"alert alert-danger\">
+      <strong>Jean Delion</strong> n'a pas rendu la clé <strong>PG389B23</strong> qu'il devait rendre le <strong>10/12/2017</strong>. <button class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-remove\"></span> Archiver</button>
     </div>
   </div>
 </div>
 <a class=\"btn btn-success deconnexion\" href=\" {{ path('login') }}\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</a>
 </body>
 </html>
-", "FrontBundle:Default:accueil.html.twig", "/home/ironweb/PTS/palr/src/FrontBundle/Resources/views/Default/accueil.html.twig");
+", "FrontBundle:Default:accueil.html.twig", "/home/louguar/Documents/PWS3/TPSymfony/palr/src/FrontBundle/Resources/views/Default/accueil.html.twig");
     }
 }

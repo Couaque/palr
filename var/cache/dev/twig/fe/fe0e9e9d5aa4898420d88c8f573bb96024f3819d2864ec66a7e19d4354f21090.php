@@ -15,11 +15,11 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_176ad2c71d66f514e06c72e64e5aadd59172f54acbc6e85967ca0e04c038c7d7 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_176ad2c71d66f514e06c72e64e5aadd59172f54acbc6e85967ca0e04c038c7d7->enter($__internal_176ad2c71d66f514e06c72e64e5aadd59172f54acbc6e85967ca0e04c038c7d7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_1e9f9d225f25310e02808ed0a2b0f58c41fb34a863c9e414836cae44f4fca9ff = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_1e9f9d225f25310e02808ed0a2b0f58c41fb34a863c9e414836cae44f4fca9ff->enter($__internal_1e9f9d225f25310e02808ed0a2b0f58c41fb34a863c9e414836cae44f4fca9ff_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
-        $__internal_81ee155557210e25e05ca73a1fd917f1f20956d2abb3c12af1e451e39a5ed5ff = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_81ee155557210e25e05ca73a1fd917f1f20956d2abb3c12af1e451e39a5ed5ff->enter($__internal_81ee155557210e25e05ca73a1fd917f1f20956d2abb3c12af1e451e39a5ed5ff_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
+        $__internal_eb703b29eff8996b43c3b90123b518d7a25a73bb4abdad5b48a55705ea4b0882 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_eb703b29eff8996b43c3b90123b518d7a25a73bb4abdad5b48a55705ea4b0882->enter($__internal_eb703b29eff8996b43c3b90123b518d7a25a73bb4abdad5b48a55705ea4b0882_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Default:listerPerceptions.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -42,109 +42,107 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
 
 <body>
+
   <nav>
     <ul class=\"nav1 nav nav-tabs\">
       <li><a href=\"";
-        // line 23
+        // line 24
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("accueil");
         echo "\">Accueil</a></li>
       <li class=\"active\"><a href=\"";
-        // line 24
+        // line 25
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("listerPerceptions");
         echo "\">Perceptions</a></li>
       <li><a href=\"";
-        // line 25
+        // line 26
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("stock");
         echo "\">Stock</a></li>
       <li><a href=\"";
-        // line 26
+        // line 27
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("bd");
         echo "\">Base de données</a></li>
       <li><a href=\"";
-        // line 27
+        // line 28
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("aide");
         echo "\">Aide</a></li>
     </ul>
   </nav>
-  <div class=\"content-container\">
-    <div class=\"table-container\"></div>
-    <div class=\"filtre-container\">
-      <div class=\"alert alert-info\">
-        <span class=\"glyphicon glyphicon-search\"></span> Filtrer
-        <form>
-          <form>
-            <div class=\"form-group\">
-              <label for=\"nomprenom\">Personne :</label>
-              <input type=\"text\" class=\"form-control\" id=\"nomprenom\">
 
-              <label for=\"organisation\">Organisation :</label>
-              <input type=\"text\" class=\"form-control\" id=\"organisation\">
-            </div>
-            <label for=\"sel1\">Pass :</label>
-            <select class=\"form-control\" id=\"PASS\">
-              <option>PASS A</option>
-              <option>PASS B</option>
-              <option>PASS C</option>
-              <option>PASS D</option>
-            </select>
-            <label for=\"sel1\">Variure :</label>
-            <select class=\"form-control inputlg\" id=\"variure\">
-              <option>VAR A</option>
-              <option>VAR B</option>
-              <option>VAR C</option>
-              <option>VAR D</option>
-            </select>
-          </div>
-        </div>
-
-        <div class=\"ajout-container\">
-          <button class=\"btn btn-success\" data-toggle=\"collapse\" data-target=\"#ajout\"><span class=\"glyphicon glyphicon-plus\"></span> Ajouter</button>
-          <div id=\"ajout\" class=\"collapse\">
-            <div class=\"alert alert-success\">
-              <form>
-                <form>
-                  <div class=\"form-group\">
-                    <label for=\"nomprenom\">Nom & Prénom :</label>
-                    <input type=\"text\" class=\"form-control\" id=\"nomprenom\">
-                  </div>
-                  <div class=\"form-group\">
-                    <label for=\"email\">Email :</label>
-                    <input type=\"email\" class=\"form-control\" id=\"email\">
-                  </div>
-                  <div class=\"radio\">
-                    <label><input type=\"radio\" name=\"collegue\">Collègue interne</label>
-                  </div>
-                  <div class=\"radio\">
-                    <label><input type=\"radio\" name=\"collegue\">Collaborateur externe</label>
-                  </div>
-                  <div class=\"form-group\">
-                    <label for=\"organisation\">Organisation :</label>
-                    <input type=\"text\" class=\"form-control\" id=\"organisation\">
-                  </div>
-                  <div class=\"form-group\">
-                    <label for=\"datedebut\">Date de début :</label>
-                    <input type=\"date\" class=\"form-control\" id=\"datedebut\">
-                  </div>
-                  <div class=\"form-group\">
-                    <label for=\"datefin\">Date de fin (laisser vide si inconnue) :</label>
-                    <input type=\"date\" class=\"form-control\" id=\"datefin\">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <a class=\"btn btn-success deconnexion\" href=\" ";
-        // line 97
+  <a class=\"btn btn-success deconnexion\" href=\" ";
+        // line 32
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
         echo "\"><span class=\"glyphicon glyphicon-log-out\"></span> <strong>Déconnexion</strong></a>
-          </body>
-          </html>
+
+  <div class\"row\">
+    <form class=\"alert alert-info col-md-4 col-centered\">
+      <span class=\"glyphicon glyphicon-search\"> </span> Filtrer
+      <div class=\"form-group\">
+        <label for=\"nom\">Personne :</label>
+        <input type=\"text\" class=\"form-control\" id=\"nom\">
+        <label for=\"organisation\">Organisation :</label>
+        <input type=\"text\" class=\"form-control\" id=\"organisation\">
+      </div>
+      <div class=\"form-group\">
+        <label for=\"Pass\">Pass :</label>
+        <select class=\"form-control input-sm\" id=\"Pass\">
+          <option>PASS A</option>
+          <option>PASS B</option>
+          <option>PASS C</option>
+          <option>PASS D</option>
+        </select>
+      </div>
+      <div class=\"form-group\">
+        <label for=\"variure\">Variure :</label>
+        <select class=\"form-control input-sm\" id=\"variure\">
+          <option>VAR A</option>
+          <option>VAR B</option>
+          <option>VAR C</option>
+          <option>VAR D</option>
+        </select>
+      </div>
+    </form>
+
+    <button class=\"btn btn-success\" ><span class=\"glyphicon glyphicon-plus\"></span> Ajouter une perception</button>
+  </div>
+</body>
+</html>
+
+<!-- <div id=\"ajout\" class=\"collapse\">
+<div class=\"alert alert-success\">
+<div class=\"form-group\">
+<label for=\"nomprenom\">Nom & Prénom :</label>
+<input type=\"text\" class=\"form-control\" id=\"nomprenom\">
+</div>
+<div class=\"form-group\">
+<label for=\"email\">Email :</label>
+<input type=\"email\" class=\"form-control\" id=\"email\">
+</div>
+<div class=\"radio\">
+<label><input type=\"radio\" name=\"collegue\">Collègue interne</label>
+</div>
+<div class=\"radio\">
+<label><input type=\"radio\" name=\"collegue\">Collaborateur externe</label>
+</div>
+<div class=\"form-group\">
+<label for=\"organisation\">Organisation :</label>
+<input type=\"text\" class=\"form-control\" id=\"organisation\">
+</div>
+<div class=\"form-group\">
+<label for=\"datedebut\">Date de début :</label>
+<input type=\"date\" class=\"form-control\" id=\"datedebut\">
+</div>
+<div class=\"form-group\">
+<label for=\"datefin\">Date de fin (laisser vide si inconnue) :</label>
+<input type=\"date\" class=\"form-control\" id=\"datefin\">
+</div>
+</div>
+</div> -->
 ";
         
-        $__internal_176ad2c71d66f514e06c72e64e5aadd59172f54acbc6e85967ca0e04c038c7d7->leave($__internal_176ad2c71d66f514e06c72e64e5aadd59172f54acbc6e85967ca0e04c038c7d7_prof);
+        $__internal_1e9f9d225f25310e02808ed0a2b0f58c41fb34a863c9e414836cae44f4fca9ff->leave($__internal_1e9f9d225f25310e02808ed0a2b0f58c41fb34a863c9e414836cae44f4fca9ff_prof);
 
         
-        $__internal_81ee155557210e25e05ca73a1fd917f1f20956d2abb3c12af1e451e39a5ed5ff->leave($__internal_81ee155557210e25e05ca73a1fd917f1f20956d2abb3c12af1e451e39a5ed5ff_prof);
+        $__internal_eb703b29eff8996b43c3b90123b518d7a25a73bb4abdad5b48a55705ea4b0882->leave($__internal_eb703b29eff8996b43c3b90123b518d7a25a73bb4abdad5b48a55705ea4b0882_prof);
 
     }
 
@@ -160,7 +158,7 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
     public function getDebugInfo()
     {
-        return array (  138 => 97,  65 => 27,  61 => 26,  57 => 25,  53 => 24,  49 => 23,  25 => 1,);
+        return array (  73 => 32,  66 => 28,  62 => 27,  58 => 26,  54 => 25,  50 => 24,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -193,6 +191,7 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
 
 
 <body>
+
   <nav>
     <ul class=\"nav1 nav nav-tabs\">
       <li><a href=\"{{ path('accueil')}}\">Accueil</a></li>
@@ -202,76 +201,73 @@ class __TwigTemplate_75ad46a74cf9ed7a90dc84da63d142f41959264a02550cdb3c683c63713
       <li><a href=\"{{ path('aide') }}\">Aide</a></li>
     </ul>
   </nav>
-  <div class=\"content-container\">
-    <div class=\"table-container\"></div>
-    <div class=\"filtre-container\">
-      <div class=\"alert alert-info\">
-        <span class=\"glyphicon glyphicon-search\"></span> Filtrer
-        <form>
-          <form>
-            <div class=\"form-group\">
-              <label for=\"nomprenom\">Personne :</label>
-              <input type=\"text\" class=\"form-control\" id=\"nomprenom\">
 
-              <label for=\"organisation\">Organisation :</label>
-              <input type=\"text\" class=\"form-control\" id=\"organisation\">
-            </div>
-            <label for=\"sel1\">Pass :</label>
-            <select class=\"form-control\" id=\"PASS\">
-              <option>PASS A</option>
-              <option>PASS B</option>
-              <option>PASS C</option>
-              <option>PASS D</option>
-            </select>
-            <label for=\"sel1\">Variure :</label>
-            <select class=\"form-control inputlg\" id=\"variure\">
-              <option>VAR A</option>
-              <option>VAR B</option>
-              <option>VAR C</option>
-              <option>VAR D</option>
-            </select>
-          </div>
-        </div>
+  <a class=\"btn btn-success deconnexion\" href=\" {{ path('login') }}\"><span class=\"glyphicon glyphicon-log-out\"></span> <strong>Déconnexion</strong></a>
 
-        <div class=\"ajout-container\">
-          <button class=\"btn btn-success\" data-toggle=\"collapse\" data-target=\"#ajout\"><span class=\"glyphicon glyphicon-plus\"></span> Ajouter</button>
-          <div id=\"ajout\" class=\"collapse\">
-            <div class=\"alert alert-success\">
-              <form>
-                <form>
-                  <div class=\"form-group\">
-                    <label for=\"nomprenom\">Nom & Prénom :</label>
-                    <input type=\"text\" class=\"form-control\" id=\"nomprenom\">
-                  </div>
-                  <div class=\"form-group\">
-                    <label for=\"email\">Email :</label>
-                    <input type=\"email\" class=\"form-control\" id=\"email\">
-                  </div>
-                  <div class=\"radio\">
-                    <label><input type=\"radio\" name=\"collegue\">Collègue interne</label>
-                  </div>
-                  <div class=\"radio\">
-                    <label><input type=\"radio\" name=\"collegue\">Collaborateur externe</label>
-                  </div>
-                  <div class=\"form-group\">
-                    <label for=\"organisation\">Organisation :</label>
-                    <input type=\"text\" class=\"form-control\" id=\"organisation\">
-                  </div>
-                  <div class=\"form-group\">
-                    <label for=\"datedebut\">Date de début :</label>
-                    <input type=\"date\" class=\"form-control\" id=\"datedebut\">
-                  </div>
-                  <div class=\"form-group\">
-                    <label for=\"datefin\">Date de fin (laisser vide si inconnue) :</label>
-                    <input type=\"date\" class=\"form-control\" id=\"datefin\">
-                  </div>
-                </div>
-              </div>
-            </div>
+  <div class\"row\">
+    <form class=\"alert alert-info col-md-4 col-centered\">
+      <span class=\"glyphicon glyphicon-search\"> </span> Filtrer
+      <div class=\"form-group\">
+        <label for=\"nom\">Personne :</label>
+        <input type=\"text\" class=\"form-control\" id=\"nom\">
+        <label for=\"organisation\">Organisation :</label>
+        <input type=\"text\" class=\"form-control\" id=\"organisation\">
+      </div>
+      <div class=\"form-group\">
+        <label for=\"Pass\">Pass :</label>
+        <select class=\"form-control input-sm\" id=\"Pass\">
+          <option>PASS A</option>
+          <option>PASS B</option>
+          <option>PASS C</option>
+          <option>PASS D</option>
+        </select>
+      </div>
+      <div class=\"form-group\">
+        <label for=\"variure\">Variure :</label>
+        <select class=\"form-control input-sm\" id=\"variure\">
+          <option>VAR A</option>
+          <option>VAR B</option>
+          <option>VAR C</option>
+          <option>VAR D</option>
+        </select>
+      </div>
+    </form>
 
-            <a class=\"btn btn-success deconnexion\" href=\" {{ path('login') }}\"><span class=\"glyphicon glyphicon-log-out\"></span> <strong>Déconnexion</strong></a>
-          </body>
-          </html>
-", "FrontBundle:Default:listerPerceptions.html.twig", "/home/ironweb/PTS/palr/src/FrontBundle/Resources/views/Default/listerPerceptions.html.twig");
+    <button class=\"btn btn-success\" ><span class=\"glyphicon glyphicon-plus\"></span> Ajouter une perception</button>
+  </div>
+</body>
+</html>
+
+<!-- <div id=\"ajout\" class=\"collapse\">
+<div class=\"alert alert-success\">
+<div class=\"form-group\">
+<label for=\"nomprenom\">Nom & Prénom :</label>
+<input type=\"text\" class=\"form-control\" id=\"nomprenom\">
+</div>
+<div class=\"form-group\">
+<label for=\"email\">Email :</label>
+<input type=\"email\" class=\"form-control\" id=\"email\">
+</div>
+<div class=\"radio\">
+<label><input type=\"radio\" name=\"collegue\">Collègue interne</label>
+</div>
+<div class=\"radio\">
+<label><input type=\"radio\" name=\"collegue\">Collaborateur externe</label>
+</div>
+<div class=\"form-group\">
+<label for=\"organisation\">Organisation :</label>
+<input type=\"text\" class=\"form-control\" id=\"organisation\">
+</div>
+<div class=\"form-group\">
+<label for=\"datedebut\">Date de début :</label>
+<input type=\"date\" class=\"form-control\" id=\"datedebut\">
+</div>
+<div class=\"form-group\">
+<label for=\"datefin\">Date de fin (laisser vide si inconnue) :</label>
+<input type=\"date\" class=\"form-control\" id=\"datefin\">
+</div>
+</div>
+</div> -->
+", "FrontBundle:Default:listerPerceptions.html.twig", "/home/louguar/Documents/PWS3/TPSymfony/palr/src/FrontBundle/Resources/views/Default/listerPerceptions.html.twig");
     }
 }
