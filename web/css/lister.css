@@ -79,3 +79,7 @@ nav{
     margin: 0 auto;
     margin-bottom: 15px;
 }
+
+select.form-control:not([size]):not([multiple]) {
+    height: auto;
+}
