@@ -1,6 +1,6 @@
 <?php
 
-namespace FrontBundle\Controller;
+namespace AdministrateurBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -20,15 +20,15 @@ class DefaultController extends Controller
      */
     public function loginAction()
     {
-        return $this->render('FrontBundle:Default:login.html.twig');
+        return $this->render('AdministrateurBundle:Default:login.html.twig');
     }
 
     /**
-     * @Route("/perceptions", name="listerPerceptions")
+     * @Route("/perceptions", name="Perceptions")
      */
-    public function listerPerceptionsAction()
+    public function PerceptionsAction()
     {
-        return $this->render('FrontBundle:Default:listerPerceptions.html.twig');
+        return $this->render('AdministrateurBundle:Default:Perceptions.html.twig');
     }
 
     /**
@@ -36,7 +36,7 @@ class DefaultController extends Controller
      */
     public function aideAction()
     {
-        return $this->render('FrontBundle:Default:aide.html.twig');
+        return $this->render('AdministrateurBundle:Default:aide.html.twig');
     }
 
       /**
@@ -44,7 +44,7 @@ class DefaultController extends Controller
        */
       public function accueilAction()
       {
-          return $this->render('FrontBundle:Default:accueil.html.twig');
+          return $this->render('AdministrateurBundle:Default:accueil.html.twig');
       }
 
       /**
@@ -52,7 +52,7 @@ class DefaultController extends Controller
        */
       public function bdAction()
       {
-          return $this->render('FrontBundle:Default:bd.html.twig');
+          return $this->render('AdministrateurBundle:Default:bd.html.twig');
       }
 
       /**
@@ -60,6 +60,6 @@ class DefaultController extends Controller
        */
       public function stockAction()
       {
-          return $this->render('FrontBundle:Default:stock.html.twig');
+          return $this->render('AdministrateurBundle:Default:stock.html.twig');
       }
 }

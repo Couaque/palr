@@ -56,6 +56,7 @@ use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\ObjectInitializerInterface;
 use Symfony\Component\WebLink\HttpHeaderSerializer;
 use Symfony\Component\Workflow;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * FrameworkExtension.
@@ -171,6 +172,10 @@ class FrameworkExtension extends Extension
         }
 
         if ($this->isConfigEnabled($container, $config['form'])) {
+            if (!class_exists('Symfony\Component\Form\Form')) {
+                throw new LogicException('Form support cannot be enabled as the Form component is not installed.');
+            }
+
             $this->formConfigEnabled = true;
             $this->registerFormConfiguration($config, $container, $loader);
             $config['validation']['enabled'] = true;
@@ -216,6 +221,10 @@ class FrameworkExtension extends Extension
         $this->registerPropertyAccessConfiguration($config['property_access'], $container, $loader);
 
         if ($this->isConfigEnabled($container, $config['serializer'])) {
+            if (!class_exists('Symfony\Component\Serializer\Serializer')) {
+                throw new LogicException('Serializer support cannot be enabled as the Serializer component is not installed.');
+            }
+
             $this->registerSerializerConfiguration($config['serializer'], $container, $loader);
         }
 
@@ -1162,6 +1171,10 @@ class FrameworkExtension extends Extension
         if (!class_exists('Symfony\Component\PropertyAccess\PropertyAccessor')) {
             $container->removeAlias('serializer.property_accessor');
             $container->removeDefinition('serializer.normalizer.object');
+        }
+
+        if (!class_exists(Yaml::class)) {
+            $container->removeDefinition('serializer.encoder.yaml');
         }
 
         $serializerLoaders = array();

@@ -665,6 +665,22 @@ class ContainerBuilderTest extends TestCase
         $container->compile(true);
     }
 
+    public function testEnvInId()
+    {
+        $container = include __DIR__.'/Fixtures/containers/container_env_in_id.php';
+        $container->compile(true);
+
+        $expected = array(
+            'service_container',
+            'foo',
+            'bar',
+            'bar_%env(BAR)%',
+        );
+        $this->assertSame($expected, array_keys($container->getDefinitions()));
+
+        $this->assertSame(array('baz_bar'), array_keys($container->getDefinition('foo')->getArgument(1)));
+    }
+
     /**
      * @expectedException \LogicException
      */
@@ -1004,6 +1020,28 @@ class ContainerBuilderTest extends TestCase
         }
 
         $this->assertTrue($classInList);
+    }
+
+    public function testInlinedDefinitions()
+    {
+        $container = new ContainerBuilder();
+
+        $definition = new Definition('BarClass');
+
+        $container->register('bar_user', 'BarUserClass')
+            ->addArgument($definition)
+            ->setProperty('foo', $definition);
+
+        $container->register('bar', 'BarClass')
+            ->setProperty('foo', $definition)
+            ->addMethodCall('setBaz', array($definition));
+
+        $barUser = $container->get('bar_user');
+        $bar = $container->get('bar');
+
+        $this->assertSame($barUser->foo, $barUser->bar);
+        $this->assertSame($bar->foo, $bar->getBaz());
+        $this->assertNotSame($bar->foo, $barUser->foo);
     }
 
     public function testInitializePropertiesBeforeMethodCalls()
