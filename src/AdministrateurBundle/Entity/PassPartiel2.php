@@ -28,7 +28,15 @@ class PassPartiel2
      */
     private $nomPass2;
 
-
+    /**
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel1", cascade={"persist"})
+    */
+    private $PassPartiel1;
+    
+    /**
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"})
+    */
+    private $variure;
     /**
      * Get id
      *

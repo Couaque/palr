@@ -28,6 +28,12 @@ class organisation
      */
     private $nomOrganisation;
 
+    /**
+    *@var string
+    *
+    * @ORM\Column(name="service", type="string", length=255)
+    */
+    private $service;
 
     /**
      * Get id
@@ -63,4 +69,3 @@ class organisation
         return $this->nomOrganisation;
     }
 }
-

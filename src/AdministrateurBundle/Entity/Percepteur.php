@@ -49,6 +49,10 @@ class Percepteur
      */
     private $typePercepteur;
 
+    /**
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\organisation", cascade={"persist"})
+    */
+     private $organisation;
 
     /**
      * Get id

@@ -2,6 +2,7 @@
 
 namespace AdministrateurBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,6 +30,13 @@ class batiment
     private $nomBat;
 
 
+
+    /**
+    *@ORM\ManyToMany(targetEntity="AdministrateurBundle\Entity\organisation", cascade={"persist"})
+    */
+    private $organisations;
+
+  
     /**
      * Get id
      *
@@ -62,5 +70,38 @@ class batiment
     {
         return $this->nomBat;
     }
-}
 
+    /**
+     * Add organisation
+     *
+     * @param \AdministrateurBundle\Entity\organisation $organisations
+     *
+     * @return batiment
+     */
+    public function addOrganisation(\AdministrateurBundle\Entity\organisation $organisations)
+    {
+        $this->organisations[] = $organisation;
+
+        return $this;
+    }
+
+    /**
+     * Remove organisation
+     *
+     * @param \AdministrateurBundle\Entity\organisation $organisation
+     */
+    public function removeOrganisation(\AdministrateurBundle\Entity\organisation $organisation)
+    {
+        $this->organisations->removeElement($organisation);
+    }
+
+    /**
+     * Get organisations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getOrganisations()
+    {
+        return $this->organisations;
+    }
+}

@@ -26,8 +26,13 @@ class PassPartiel3
      *
      * @ORM\Column(name="nomPass", type="string", length=255)
      */
-    private $nomPass;
+    private $nomPass3;
 
+    /**
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel2", cascade={"persist"})
+    */
+    private $PassPartiel2;
+  
 
     /**
      * Get id
@@ -63,4 +68,3 @@ class PassPartiel3
         return $this->nomPass;
     }
 }
-

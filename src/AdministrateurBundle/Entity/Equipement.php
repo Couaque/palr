@@ -28,7 +28,20 @@ class Equipement
      */
     private $nomEquipement;
 
+    /**
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\batiment", cascade={"persist"})
+    */
+    private $batiment;
 
+    /**
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"})
+    */
+    private $variure;
+    
+    /**
+    *@ORM\OneToOne(targetEntity="AdministrateurBundle\Entity\OutilFermeture", cascade={"persist"})
+    */
+    private $outilFermeture;
     /**
      * Get id
      *
@@ -63,4 +76,3 @@ class Equipement
         return $this->nomEquipement;
     }
 }
-

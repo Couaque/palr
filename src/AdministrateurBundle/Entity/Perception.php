@@ -42,6 +42,30 @@ class Perception
      */
     private $typePerception;
 
+    /**
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\Percepteur", cascade={"persist"})
+    */
+     private $percepteur;
+
+    /**
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"})
+    */
+    private $variure;
+
+    /**
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel1", cascade={"persist"})
+    */
+     private $passPartiel1;
+
+    /**
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel2", cascade={"persist"})
+    */
+     private $passPartiel2;
+
+    /**
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel3", cascade={"persist"})
+    */
+     private $passPartiel3;
 
     /**
      * Get id

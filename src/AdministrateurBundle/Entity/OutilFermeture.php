@@ -42,6 +42,10 @@ class OutilFermeture
      */
     private $etat;
 
+    /**
+    *@ORM\OneToOne(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"})
+    */
+    private $variure;
 
     /**
      * Get id
@@ -125,4 +129,3 @@ class OutilFermeture
         return $this->etat;
     }
 }
-
