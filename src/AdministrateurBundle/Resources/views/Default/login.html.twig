@@ -1,23 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>PALR - Accueil</title>
-
-  <link href="css/montserrat_police" rel="stylesheet">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="css/lister.css" rel="stylesheet">
-  <link href="css/login.css" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-</head>
-
+{% extends '::base.html.twig' %}
+{% block body %}
 <body>
   <nav>
     <ul class="nav nav-tabs">
@@ -44,5 +26,4 @@
       </form>
     </div>
   </div>
-</body>
-</html>
+{% endblock %}
