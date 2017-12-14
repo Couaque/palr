@@ -33,7 +33,10 @@ class PassPartiel3
     */
     private $PassPartiel2;
   
-
+    /**
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"})
+    */
+    private $idVariure;
     /**
      * Get id
      *
