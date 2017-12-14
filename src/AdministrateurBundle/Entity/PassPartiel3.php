@@ -31,12 +31,12 @@ class PassPartiel3
     /**
     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel2", cascade={"persist"})
     */
-    private $PassPartiel2;
+    private $passPartiel2;
   
     /**
     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"})
     */
-    private $idVariure;
+    private $variure;
     /**
      * Get id
      *

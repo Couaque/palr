@@ -13,3 +13,10 @@ a321a6,127.0.0.1,GET,http://localhost:8000/css/bootstrap.css,1513240885,b30926,2
 b30926,127.0.0.1,GET,http://localhost:8000/css/bootstrap.css,1513240885,,404
 e9fca1,127.0.0.1,GET,http://localhost:8000/phpmyadmin,1513241024,1f344f,200
 1f344f,127.0.0.1,GET,http://localhost:8000/phpmyadmin,1513241024,,404
+79578a,127.0.0.1,GET,http://localhost:8000/login,1513241542,,200
+a3727a,127.0.0.1,GET,http://localhost:8000/css/montserrat_police,1513241543,fb42cf,200
+fb42cf,127.0.0.1,GET,http://localhost:8000/css/montserrat_police,1513241543,,404
+bfa880,127.0.0.1,GET,http://localhost:8000/css/login.css,1513241543,6a182f,200
+6a182f,127.0.0.1,GET,http://localhost:8000/css/login.css,1513241543,,404
+18cd07,127.0.0.1,GET,http://localhost:8000/css/login.css,1513241543,e098c6,200
+e098c6,127.0.0.1,GET,http://localhost:8000/css/login.css,1513241543,,404
