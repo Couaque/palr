@@ -56,10 +56,10 @@ class DefaultController extends Controller
       }
 
       /**
-       * @Route("/stock", name="stock")
+       * @Route("/Inventaire", name="Inventaire")
        */
-      public function stockAction()
+      public function InventaireAction()
       {
-          return $this->render('AdministrateurBundle:Default:stock.html.twig');
+          return $this->render('AdministrateurBundle:Default:Inventaire.html.twig');
       }
 }
