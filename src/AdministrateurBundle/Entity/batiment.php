@@ -32,9 +32,9 @@ class batiment
 
 
     /**
-    *@ORM\ManyToMany(targetEntity="AdministrateurBundle\Entity\organisation", cascade={"persist"})
+    *@ORM\ManyToMany(targetEntity="AdministrateurBundle\Entity\ServicePALR", cascade={"persist"})
     */
-    private $organisations;
+    private $servicePALR;
 
   
     /**
@@ -78,9 +78,9 @@ class batiment
      *
      * @return batiment
      */
-    public function addOrganisation(\AdministrateurBundle\Entity\organisation $organisations)
+    public function addOrganisation(\AdministrateurBundle\Entity\ServicePALR $servicePALR)
     {
-        $this->organisations[] = $organisation;
+        $this->servicePALR[] = $servicePALR;
 
         return $this;
     }
@@ -90,9 +90,9 @@ class batiment
      *
      * @param \AdministrateurBundle\Entity\organisation $organisation
      */
-    public function removeOrganisation(\AdministrateurBundle\Entity\organisation $organisation)
+    public function removeOrganisation(\AdministrateurBundle\Entity\ServicePALR $servicePALR)
     {
-        $this->organisations->removeElement($organisation);
+        $this->servicePALR->removeElement($servicePALR);
     }
 
     /**
@@ -102,6 +102,6 @@ class batiment
      */
     public function getOrganisations()
     {
-        return $this->organisations;
+        return $this->servicePALR;
     }
 }

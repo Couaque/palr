@@ -49,10 +49,21 @@ class Percepteur
      */
     private $typePercepteur;
 
+
     /**
-    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\organisation", cascade={"persist"})
-    */
-     private $organisation;
+     * @var string
+     *
+     * @ORM\Column(name="organisation", type="string", length=255)
+     */
+    private $organisation;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="servicePALR", type="integer", nullable=true) 
+     * @ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\ServicePALR", cascade={"persist"})
+     */
+     private $service;
 
     /**
      * Get id
