@@ -1,16 +1,9 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-<nav>
-  <ul class="nav1 nav nav-tabs">
-    <li><a href="{{ path('accueil')}}">Accueil</a></li>
-    <li class="active"><a href="{{ path('Perceptions') }}">Perceptions</a></li>
-    <li><a href="{{ path('Inventaire') }}">Inventaire</a></li>
-    <li><a href="{{ path('bd')}}">Base de données</a></li>
-    <li><a href="{{ path('aide') }}">Aide</a></li>
-  </ul>
-</nav>
 
-<a class="btn btn-success deconnexion" href=" {{ path('login') }}"><span class="glyphicon glyphicon-log-out"></span> <strong>Déconnexion</strong></a>
+
+ <a href="{{ path('creer') }}" class="btn btn-primary" role="button">Ajouter une perception</a>
+
 
 <div class"row">
   <form class="alert alert-info col-md-4 col-centered">
@@ -42,5 +35,6 @@
   </form>
 
   <button class="btn btn-success" ><span class="glyphicon glyphicon-plus"></span> Filtrer</button>
+
 </div>
 {% endblock %}

@@ -1,17 +1,4 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-  <nav>
-    <ul class="nav1 nav nav-tabs">
-      <li><a href="#">Accueil</a></li>
-      <li><a href="{{ path('Perceptions') }}">Perceptions</a></li>
-      <li><a href="{{ path('Inventaire') }}">Inventaire</a></li>
-      <li class="active"><a href="{{ path('bd')}}">Base de données</a></li>
-      <li><a href="{{ path('aide') }}">Aide</a></li>
-    </ul>
-  </nav>
-  <div class="aide_container">
-    <p class="login">Bienvenue dans la section base de données.</p>
-  </div>
 
-  <a class="btn btn-success deconnexion" href=" {{ path('login') }}"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
 {% endblock %}

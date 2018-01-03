@@ -24,6 +24,14 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/perceptions/creer", name="creer")
+     */
+    public function creerAction()
+    {
+        return $this->render('AdministrateurBundle:Default:creer.html.twig');
+    }
+
+    /**
      * @Route("/perceptions", name="Perceptions")
      */
     public function PerceptionsAction()

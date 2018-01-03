@@ -22,9 +22,7 @@ form{
   padding-bottom: 9px;
 }
 
-ul.nav{
-  padding-top: 10px;
-}
+
 
 button.btn-danger{
   padding-top: 5px;
@@ -36,9 +34,7 @@ footer{
   bottom:0;
 }
 
-ul.nav{
-  padding-left: 10px;
-}
+
 
 body{
   position: relative;
@@ -65,9 +61,7 @@ body{
   display: flex;
 }
 
-nav{
-  padding-bottom: 15px;
-}
+
 
 .content-container{
   display : flex;

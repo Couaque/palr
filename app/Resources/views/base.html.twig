@@ -2,21 +2,49 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>{% block title %}PALR{% endblock %}</title>
 
   {% block stylesheets %}
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="css/lister.css" rel="stylesheet">
+
+  
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+  </style>
+  
   {% endblock %}
 </head>
 <body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="{{ path('accueil')}}">Accueil</a></li>
+      <li><a href="{{ path('Perceptions') }}">Perceptions</a></li>
+      <li><a href="{{ path('Inventaire') }}">Inventaire</a></li>
+      <li><a href="{{ path('bd')}}">Base de données</a></li>
+      <li><a href="{{ path('aide') }}">Aide</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href=" {{ path('login') }}"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
+    </ul>
+  </div>
+</nav>
+  
   {% block body %}{% endblock %}
 
   {% block javascripts %}
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   {% endblock %}
 </body>
 </html>
+
+
+
+ 
