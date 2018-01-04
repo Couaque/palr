@@ -77,3 +77,7 @@ body{
 select.form-control:not([size]):not([multiple]) {
     height: auto;
 }
+
+.btn-modif{
+  margin-bottom:10px; 
+}
