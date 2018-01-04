@@ -384,3 +384,13 @@ e94531,127.0.0.1,GET,http://localhost:8001/lister,1515085120,,200
 e64366,127.0.0.1,GET,http://localhost:8001/lister,1515085625,,200
 32988b,127.0.0.1,GET,http://localhost:8001/lister,1515085669,,200
 18b1af,127.0.0.1,GET,http://localhost:8001/lister,1515085790,,200
+700821,127.0.0.1,GET,http://localhost:8001/lister,1515085896,,200
+6bfacf,127.0.0.1,GET,http://localhost:8001/bd,1515085903,,200
+4bb79f,127.0.0.1,GET,http://localhost:8001/aide,1515085903,,200
+73c8f3,127.0.0.1,GET,http://localhost:8001/bd,1515085904,,200
+5259bb,127.0.0.1,GET,http://localhost:8001/Inventaire,1515085905,,200
+8411e6,127.0.0.1,GET,http://localhost:8001/aide,1515085905,,200
+9cf362,127.0.0.1,GET,http://localhost:8001/Inventaire,1515085906,,200
+bc1455,127.0.0.1,GET,http://localhost:8001/perceptions,1515085907,,200
+7f8357,127.0.0.1,GET,http://localhost:8001/accueil,1515085907,,200
+12e821,127.0.0.1,GET,http://localhost:8001/aide,1515085917,,200
