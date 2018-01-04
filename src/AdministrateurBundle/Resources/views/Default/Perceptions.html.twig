@@ -1,9 +1,7 @@
 {% extends '::base.html.twig' %}
 {% block body %}
 
-
  <a href="{{ path('creer') }}" class="btn btn-primary btn-modif" role="button"><span class="glyphicon glyphicon-plus"></span> Ajouter une perception</a>
-
 
 <div class"row">
   <form class="alert alert-info col-md-4 col-centered">
@@ -34,7 +32,7 @@
     </div>
   </form>
 
-  <button class="btn btn-success" ><span class="glyphicon glyphicon-plus"></span> Filtrer</button>
+  <a href="{{ path('lister') }}" class="btn btn-success btn-modif" ><span class="glyphicon glyphicon-plus"></span> Filtrer<a>
 
 </div>
 {% endblock %}

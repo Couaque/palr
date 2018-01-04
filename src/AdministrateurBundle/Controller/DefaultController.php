@@ -70,4 +70,12 @@ class DefaultController extends Controller
       {
           return $this->render('AdministrateurBundle:Default:Inventaire.html.twig');
       }
+
+      /**
+       * @Route("/lister", name="lister")
+       */
+      public function ListerAction()
+      {
+          return $this->render('AdministrateurBundle:Default:Lister.html.twig');
+      }
 }
