@@ -22,7 +22,6 @@ class DefaultController extends Controller
     {
         return $this->render('AdministrateurBundle:Default:login.html.twig');
     }
-
     /**
      * @Route("/perceptions/creer", name="creer")
      */
@@ -30,7 +29,36 @@ class DefaultController extends Controller
     {
         return $this->render('AdministrateurBundle:Default:creer.html.twig');
     }
+    /**
+     * @Route("/perceptions/ajouterPerception", name="ajouterPerception")
+     */
+    public function ajouterPerceptionAction()
+    {
+        return $this->render('AdministrateurBundle:Default:ajouterPerception.html.twig');
+    }
+    /**
+     * @Route("/perceptions/ajouterPerception/numPorte", name="numPorte")
+     */
+    public function ajouterPerceptionNumPorteAction()
+    {
+        return $this->render('AdministrateurBundle:Default:ajouterPerceptionNumPorte.html.twig');
+    }
 
+    /**
+     * @Route("/perceptions/ajouterPerception/localisation", name="localisation")
+     */
+    public function ajouterPerceptionLocalisationAction()
+    {
+        return $this->render('AdministrateurBundle:Default:ajouterPerceptionLocalisation.html.twig');
+    }
+
+    /**
+     * @Route("/perceptions/ajouterPerception/numCle", name="numCle")
+     */
+    public function ajouterPerceptionNumCleAction()
+    {
+        return $this->render('AdministrateurBundle:Default:ajouterPerceptionNumCle.html.twig');
+    }
     /**
      * @Route("/perceptions", name="Perceptions")
      */
