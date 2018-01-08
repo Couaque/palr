@@ -36,6 +36,14 @@ class DefaultController extends Controller
     {
         return $this->render('AdministrateurBundle:Default:ajouterPerception.html.twig');
     }
+
+    /**
+     * @Route("/perceptions/modifierPerception", name="modifierPerception")
+     */
+    public function modifierPerceptionAction()
+    {
+        return $this->render('AdministrateurBundle:Default:modifierPerception.html.twig');
+    }
     /**
      * @Route("/perceptions/ajouterPerception/numPorte", name="numPorte")
      */
@@ -100,9 +108,9 @@ class DefaultController extends Controller
       }
 
       /**
-       * @Route("/lister", name="lister")
+       * @Route("/perceptions/lister", name="lister")
        */
-      public function ListerAction()
+      public function listerPerceptionsAction()
       {
           return $this->render('AdministrateurBundle:Default:Lister.html.twig');
       }
