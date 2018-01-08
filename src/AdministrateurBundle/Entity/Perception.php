@@ -148,5 +148,29 @@ class Perception
     {
         return $this->typePerception;
     }
+
+    /**
+     * Get percepteur
+     *
+     * @return Perception
+     */
+    public function getPercepteur()
+    {
+        return $this->percepteur;
+    }
+
+    /**
+     * Set percepteur
+     *
+     * @param string $percepteur
+     *
+     * @return Perception
+     */
+    public function setPercepteur($percepteur)
+    {
+        $this->percepteur = $percepteur;
+
+        return $this;
+    }
 }
 

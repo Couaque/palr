@@ -24,16 +24,9 @@ class Percepteur
     /**
      * @var string
      *
-     * @ORM\Column(name="nomPercepteur", type="string", length=255)
+     * @ORM\Column(name="nomPrenomPercepteur", type="string", length=255)
      */
-    private $nomPercepteur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenomPercepteur", type="string", length=255)
-     */
-    private $prenomPercepteur;
+    private $nomPrenomPercepteur;
 
     /**
      * @var string
@@ -76,51 +69,27 @@ class Percepteur
     }
 
     /**
-     * Set nomPercepteur
+     * Set nomPrenomPercepteur
      *
-     * @param string $nomPercepteur
+     * @param string $nomPrenomPercepteur
      *
      * @return Percepteur
      */
-    public function setNomPercepteur($nomPercepteur)
+    public function setNomPrenomPercepteur($nomPrenomPercepteur)
     {
-        $this->nomPercepteur = $nomPercepteur;
+        $this->nomPrenomPercepteur = $nomPrenomPercepteur;
 
         return $this;
     }
 
     /**
-     * Get nomPercepteur
+     * Get nomPrenomPercepteur
      *
      * @return string
      */
-    public function getNomPercepteur()
+    public function getNomPrenomPercepteur()
     {
-        return $this->nomPercepteur;
-    }
-
-    /**
-     * Set prenomPercepteur
-     *
-     * @param string $prenomPercepteur
-     *
-     * @return Percepteur
-     */
-    public function setPrenomPercepteur($prenomPercepteur)
-    {
-        $this->prenomPercepteur = $prenomPercepteur;
-
-        return $this;
-    }
-
-    /**
-     * Get prenomPercepteur
-     *
-     * @return string
-     */
-    public function getPrenomPercepteur()
-    {
-        return $this->prenomPercepteur;
+        return $this->nomPrenomPercepteur;
     }
 
     /**

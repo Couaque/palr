@@ -4,6 +4,13 @@ namespace AdministrateurBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use AdministrateurBundle\Entity\Perception;
+use AdministrateurBundle\Entity\Percepteur;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class DefaultController extends Controller
 {
@@ -21,13 +28,6 @@ class DefaultController extends Controller
     public function loginAction()
     {
         return $this->render('AdministrateurBundle:Default:login.html.twig');
-    }
-    /**
-     * @Route("/perceptions/creer", name="creer")
-     */
-    public function creerAction()
-    {
-        return $this->render('AdministrateurBundle:Default:creer.html.twig');
     }
     /**
      * @Route("/perceptions/ajouterPerception", name="ajouterPerception")
@@ -60,12 +60,49 @@ class DefaultController extends Controller
         return $this->render('AdministrateurBundle:Default:ajouterPerceptionLocalisation.html.twig');
     }
 
-    /**
+   /**
      * @Route("/perceptions/ajouterPerception/numCle", name="numCle")
      */
-    public function ajouterPerceptionNumCleAction()
+    public function ajouterPerceptionNumCleAction(Request $request)
     {
-        return $this->render('AdministrateurBundle:Default:ajouterPerceptionNumCle.html.twig');
+        $perception = new Perception();
+
+        $form = $this->createFormBuilder($perception)
+        ->add('percepteur', EntityType::class, array(
+          'class' => 'AdministrateurBundle:Percepteur',
+          'choice_label' => 'nomPrenomPercepteur',  
+          'label' => 'Percepteur :',
+
+        ))
+        ->add('dateDebut', DateType::class, array('label' => 'Date de début : ', 'format'=>'dd/MM/yyyy'))
+        ->add('dateFin', DateType::class, array('label' => 'Date de fin (non obligatoire) : ', 'format'=>'dd/MM/yyyy'))
+        ->add('save', SubmitType::class, array('label' => 'Ajouter Perception'))
+        ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+        $PerceptionInsert = $form->getData();
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($PerceptionInsert);
+        $em->flush();
+        /*$this->addFlash("success", "Vous avez bien inséré une perception pour : " . $PerceptionInsert->getNomPercepteur());
+*/
+    }/*else{
+      if ($form->isSubmitted() && !($form->isValid())) {
+        $validator = $this->get('validator');
+        $errors = $validator->validate($membre);
+        $errorsString = (string) $errors;
+        return $this->render('AdministrateurBundle:Default:ajouterPerceptionNumCle.html.twig', array(
+          'form' => $form->createView(),
+          'errors' => $errors
+        ));
+      }
+    }*/
+        return $this->render('AdministrateurBundle:Default:ajouterPerceptionNumCle.html.twig', array(
+          'form' => $form->createView(),
+        ));
     }
     /**
      * @Route("/perceptions", name="Perceptions")
