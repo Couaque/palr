@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+<div class"row">
+  <form class="alert alert-info col-md-4 col-centered">
+    <span class="glyphicon glyphicon-search"> </span> Filtrer
+    <div class="form-group">
+      <label for="nom">Personne :</label>
+      <input type="text" class="form-control" id="nom">
+      <label for="organisation">Organisation :</label>
+      <input type="text" class="form-control" id="organisation">
+    </div>
+    <div class="form-group">
+      <label for="Pass">Pass :</label>
+      <select class="form-control" id="Pass">
+        <option>PASS A</option>
+        <option>PASS B</option>
+        <option>PASS C</option>
+        <option>PASS D</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="variure">Variure :</label>
+      <select class="form-control" id="variure">
+        <option>VAR A</option>
+        <option>VAR B</option>
+        <option>VAR C</option>
+        <option>VAR D</option>
+      </select>
+    </div>
+  </form>
+
+  <a href="{{ path('lister') }}" class="btn btn-success btn-modif" ><span class="glyphicon glyphicon-plus"></span> Filtrer<a>
+<a href="{{ path('ajouterPerception') }}" class="btn btn-primary btn-modif" role="button"><span class="glyphicon glyphicon-plus"></span> Ajouter une perception</a>
+</div>
+{% endblock %}

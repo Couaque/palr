@@ -4845,3 +4845,6 @@
 [2018-01-09 17:07:34] request.INFO: Matched route "perception". {"route":"perception","route_parameters":{"_controller":"AdministrateurBundle\\Controller\\PerceptionController::PerceptionAction","_route":"perception"},"request_uri":"http://localhost:8000/perception","method":"GET"} []
 [2018-01-09 17:07:34] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
 [2018-01-09 17:07:34] request.INFO: Matched route "_wdt". {"route":"_wdt","route_parameters":{"_controller":"web_profiler.controller.profiler:toolbarAction","token":"ed5e3b","_route":"_wdt"},"request_uri":"http://localhost:8000/_wdt/ed5e3b","method":"GET"} []
+[2018-01-09 17:10:20] request.INFO: Matched route "perception". {"route":"perception","route_parameters":{"_controller":"AdministrateurBundle\\Controller\\PerceptionController::PerceptionAction","_route":"perception"},"request_uri":"http://localhost:8000/perception","method":"GET"} []
+[2018-01-09 17:10:20] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
+[2018-01-09 17:10:20] request.INFO: Matched route "_wdt". {"route":"_wdt","route_parameters":{"_controller":"web_profiler.controller.profiler:toolbarAction","token":"c0dda9","_route":"_wdt"},"request_uri":"http://localhost:8000/_wdt/c0dda9","method":"GET"} []
