@@ -1017,3 +1017,4 @@ bb1004,127.0.0.1,GET,http://localhost:8000/perceptions/ajouterPerception/css/lis
 040dda,127.0.0.1,GET,http://localhost:8000/perceptions/js/materialize.min.js,1515513175,,404
 adac4c,127.0.0.1,GET,http://localhost:8000/perceptions/js/materialize.min.js,1515513175,14ad9e,200
 14ad9e,127.0.0.1,GET,http://localhost:8000/perceptions/js/materialize.min.js,1515513175,,404
+3b6456,127.0.0.1,GET,http://localhost:8000/perceptions,1515513521,,200

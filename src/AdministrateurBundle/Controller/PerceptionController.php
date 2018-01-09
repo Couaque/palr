@@ -17,16 +17,16 @@ class PerceptionController extends Controller
 {
 
   /**
-  * @Route("/perceptions", name="Perceptions")
+  * @Route("/perception", name="perception")
   */
-  public function PerceptionsAction()
+  public function PerceptionAction()
   {
-    return $this->render('AdministrateurBundle:Perception:Perceptions.html.twig');
+    return $this->render('AdministrateurBundle:Perception:perception.html.twig');
   }
 
 
   /**
-  * @Route("/perceptions/modifierPerception", name="modifierPerception")
+  * @Route("/perception/modifierPerception", name="modifierPerception")
   */
   public function modifierPerceptionAction()
   {
@@ -35,7 +35,7 @@ class PerceptionController extends Controller
 
 
   /**
-  * @Route("/perceptions/ajouterPerception", name="ajouterPerception")
+  * @Route("/perception/ajouterPerception", name="ajouterPerception")
   */
   public function ajouterPerceptionAction()
   {
@@ -43,7 +43,7 @@ class PerceptionController extends Controller
   }
 
   /**
-  * @Route("/perceptions/ajouterPerception/numPorte", name="numPorte")
+  * @Route("/perception/ajouterPerception/numPorte", name="numPorte")
   */
   public function ajouterPerceptionNumPorteAction()
   {
@@ -51,7 +51,7 @@ class PerceptionController extends Controller
   }
 
   /**
-  * @Route("/perceptions/ajouterPerception/localisation", name="localisation")
+  * @Route("/perception/ajouterPerception/localisation", name="localisation")
   */
   public function ajouterPerceptionLocalisationAction()
   {
@@ -59,7 +59,7 @@ class PerceptionController extends Controller
   }
 
   /**
-  * @Route("/perceptions/ajouterPerception/numCle", name="numCle")
+  * @Route("/perception/ajouterPerception/numCle", name="numCle")
   */
   public function ajouterPerceptionNumCleAction(Request $request)
   {
@@ -95,7 +95,7 @@ class PerceptionController extends Controller
   }
 
   /**
-  * @Route("/perceptions/lister", name="lister")
+  * @Route("/perception/lister", name="lister")
   */
   public function listerPerceptionsAction()
   {
