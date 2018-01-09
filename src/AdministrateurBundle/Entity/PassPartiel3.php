@@ -24,7 +24,7 @@ class PassPartiel3
     /**
      * @var string
      *
-     * @ORM\Column(name="nomPass", type="string", length=255)
+     * @ORM\Column(name="nomPass3", type="string", length=255)
      */
     private $nomPass3;
 
@@ -32,7 +32,7 @@ class PassPartiel3
     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel2", cascade={"persist"})
     */
     private $passPartiel2;
-  
+
     /**
     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"})
     */
@@ -48,26 +48,26 @@ class PassPartiel3
     }
 
     /**
-     * Set nomPass
+     * Set nomPass3
      *
-     * @param string $nomPass
+     * @param string $nomPass3
      *
      * @return PassPartiel3
      */
-    public function setNomPass($nomPass)
+    public function setNomPass($nomPass3)
     {
-        $this->nomPass = $nomPass;
+        $this->nomPass3 = $nomPass3;
 
         return $this;
     }
 
     /**
-     * Get nomPass
+     * Get nomPass3
      *
      * @return string
      */
-    public function getNomPass()
+    public function getNomPass3()
     {
-        return $this->nomPass;
+        return $this->nomPass3;
     }
 }

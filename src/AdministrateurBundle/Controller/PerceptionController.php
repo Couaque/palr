@@ -21,7 +21,15 @@ class PerceptionController extends Controller
   */
   public function PerceptionAction()
   {
-    return $this->render('AdministrateurBundle:Perception:perception.html.twig');
+    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
+    $PassPartiel1 = $repository->findAll();
+    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
+    $PassPartiel2 = $repository->findAll();
+    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
+    $PassPartiel3 = $repository->findAll();
+    return $this->render('AdministrateurBundle:Perception:perception.html.twig', array(
+      'passPartiel1' => $PassPartiel1,'passPartiel2' => $PassPartiel2,'passPartiel3' => $PassPartiel3
+    ));
   }
 
 
@@ -95,7 +103,7 @@ class PerceptionController extends Controller
   }
 
   /**
-  * @Route("/perception/lister", name="lister")
+  * @Route("/perception/listerPerception", name="listerPerception")
   */
   public function listerPerceptionsAction()
   {
