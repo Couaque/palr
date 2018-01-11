@@ -70,4 +70,66 @@ class PassPartiel3
     {
         return $this->nomPass3;
     }
+
+    /**
+     * Set nomPass3
+     *
+     * @param string $nomPass3
+     *
+     * @return PassPartiel3
+     */
+    public function setNomPass3($nomPass3)
+    {
+        $this->nomPass3 = $nomPass3;
+
+        return $this;
+    }
+
+    /**
+     * Set passPartiel2
+     *
+     * @param \AdministrateurBundle\Entity\PassPartiel2 $passPartiel2
+     *
+     * @return PassPartiel3
+     */
+    public function setPassPartiel2(\AdministrateurBundle\Entity\PassPartiel2 $passPartiel2 = null)
+    {
+        $this->passPartiel2 = $passPartiel2;
+
+        return $this;
+    }
+
+    /**
+     * Get passPartiel2
+     *
+     * @return \AdministrateurBundle\Entity\PassPartiel2
+     */
+    public function getPassPartiel2()
+    {
+        return $this->passPartiel2;
+    }
+
+    /**
+     * Set variure
+     *
+     * @param \AdministrateurBundle\Entity\Variure $variure
+     *
+     * @return PassPartiel3
+     */
+    public function setVariure(\AdministrateurBundle\Entity\Variure $variure = null)
+    {
+        $this->variure = $variure;
+
+        return $this;
+    }
+
+    /**
+     * Get variure
+     *
+     * @return \AdministrateurBundle\Entity\Variure
+     */
+    public function getVariure()
+    {
+        return $this->variure;
+    }
 }

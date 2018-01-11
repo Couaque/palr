@@ -32,7 +32,7 @@ class PassPartiel2
     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel1", cascade={"persist"})
     */
     private $PassPartiel1;
-    
+
     /**
     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"})
     */
@@ -70,5 +70,52 @@ class PassPartiel2
     {
         return $this->nomPass2;
     }
-}
 
+    /**
+     * Set passPartiel1
+     *
+     * @param \AdministrateurBundle\Entity\PassPartiel1 $passPartiel1
+     *
+     * @return PassPartiel2
+     */
+    public function setPassPartiel1(\AdministrateurBundle\Entity\PassPartiel1 $passPartiel1 = null)
+    {
+        $this->PassPartiel1 = $passPartiel1;
+
+        return $this;
+    }
+
+    /**
+     * Get passPartiel1
+     *
+     * @return \AdministrateurBundle\Entity\PassPartiel1
+     */
+    public function getPassPartiel1()
+    {
+        return $this->PassPartiel1;
+    }
+
+    /**
+     * Set variure
+     *
+     * @param \AdministrateurBundle\Entity\Variure $variure
+     *
+     * @return PassPartiel2
+     */
+    public function setVariure(\AdministrateurBundle\Entity\Variure $variure = null)
+    {
+        $this->variure = $variure;
+
+        return $this;
+    }
+
+    /**
+     * Get variure
+     *
+     * @return \AdministrateurBundle\Entity\Variure
+     */
+    public function getVariure()
+    {
+        return $this->variure;
+    }
+}

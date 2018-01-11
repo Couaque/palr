@@ -19,24 +19,27 @@
         <div class="col-sm-4">
           <label for="Pass">Pass 1 :</label>
           <select class="form-control" id="Pass1">
+            <option>- Select -</option>
             {% for pp1 in passPartiel1 %}
-            <option>{{pp1.nomPass1}}</option>
+            <option data-id="{{pp1.id}}">{{pp1.nomPass1}}</option>
             {% endfor %}
           </select>
         </div>
         <div class="col-sm-4">
           <label for="Pass">Pass 2 :</label>
-          <select class="form-control" id="Pass2">
+          <select class="form-control" id="Pass2" disabled>
+            <option>- Select -</option>
             {% for pp2 in passPartiel2 %}
-            <option>{{pp2.nomPass2}}</option>
+            <option data-idpartiel="{{pp2.PassPartiel1.id}}" data-id="{{pp2.id}}">{{pp2.nomPass2}}</option>
             {% endfor %}
           </select>
         </div>
         <div class="col-sm-4">
           <label for="Pass">Pass 3 :</label>
-          <select class="form-control" id="Pass3">
+          <select class="form-control" id="Pass3" disabled>
+            <option>- Select -</option>
             {% for pp3 in passPartiel3 %}
-            <option>{{pp3.nomPass3}}</option>
+            <option data-idpartiel="{{pp3.PassPartiel2.id}}" data-id="{{pp3.id}}">{{pp3.nomPass3}}</option>
             {% endfor %}
           </select>
         </div>
@@ -47,7 +50,8 @@
     </div>
   </form>
 
-  <a href="{{ path('listerPerception') }}" class="btn btn-success btn-modif" ><span class="glyphicon glyphicon-plus"></span> Filtrer<a>
-    <a href="{{ path('ajouterPerception') }}" class="btn btn-primary btn-modif" role="button"><span class="glyphicon glyphicon-plus"></span> Ajouter une perception</a>
-  </div>
-  {% endblock %}
+  <a href="{{ path('listerPerception') }}" class="btn btn-success btn-modif" ><span class="glyphicon glyphicon-plus"></span> Filtrer</a>
+  <a href="{{ path('ajouterPerception') }}" class="btn btn-primary btn-modif" role="button"><span class="glyphicon glyphicon-plus"></span> Ajouter une perception</a>
+</div>
+<script src="/js/perception.js"></script>
+{% endblock %}

@@ -1,15 +1,9 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-<body>
-  <nav>
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#">Connexion</a></li>
-    </ul>
-  </nav>
   <img src="img/icone_bleu.png" alt="Logo" height="128" width="128">
-  <p class="login">Bienvenue ! Veuillez vous connecter.</p>
+  <h2 class="login">Bienvenue ! Veuillez vous connecter.</h2>
   <div class="panel panel-default panel-login">
-    <div class="panel-body">
+    <div class="panel-body col-sm-4 col-centered">
       <form>
         <div class="form-group">
           <label for="login">Identifiant :</label>
@@ -26,4 +20,4 @@
       </form>
     </div>
   </div>
-{% endblock %}
+  {% endblock %}
