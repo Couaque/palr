@@ -3,10 +3,13 @@
 namespace AdministrateurBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * Perception
  *
+ * 
  * @ORM\Table(name="perception")
  * @ORM\Entity(repositoryClass="AdministrateurBundle\Repository\PerceptionRepository")
  */
@@ -24,20 +27,25 @@ class Perception
     /**
      * @var string
      *
-     * @ORM\Column(name="dateDebut", type="string", length=255)
+     * @ORM\Column(name="dateDebut", type="date")
+     * @Assert\Expression(
+     *     "this.dateDebut <= this.dateFin",
+     *     message="La date de début doit être inférieur à la date de fin!"
+     * )
      */
-    private $dateDebut;
+    public $dateDebut;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="dateFin", type="string", length=255, nullable=true)
+     * @ORM\Column(name="dateFin", type="date")
+     * 
      */
-    private $dateFin;
+    public $dateFin;
 
     /**
      * @var string
-     *
+     * @Assert\Choice({"Permanente", "Temporaire"})
      * @ORM\Column(name="typePerception", type="string", length=255)
      */
     private $typePerception;
@@ -268,4 +276,5 @@ class Perception
     {
         return $this->passPartiel3;
     }
+
 }

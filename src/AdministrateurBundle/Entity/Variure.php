@@ -102,5 +102,52 @@ class Variure
     {
         return $this->etat;
     }
-}
 
+    /**
+     * Set passPartiel2
+     *
+     * @param \AdministrateurBundle\Entity\PassPartiel2 $passPartiel2
+     *
+     * @return Variure
+     */
+    public function setPassPartiel2(\AdministrateurBundle\Entity\PassPartiel2 $passPartiel2 = null)
+    {
+        $this->passPartiel2 = $passPartiel2;
+
+        return $this;
+    }
+
+    /**
+     * Get passPartiel2
+     *
+     * @return \AdministrateurBundle\Entity\PassPartiel2
+     */
+    public function getPassPartiel2()
+    {
+        return $this->passPartiel2;
+    }
+
+    /**
+     * Set passPartiel3
+     *
+     * @param \AdministrateurBundle\Entity\PassPartiel3 $passPartiel3
+     *
+     * @return Variure
+     */
+    public function setPassPartiel3(\AdministrateurBundle\Entity\PassPartiel3 $passPartiel3 = null)
+    {
+        $this->passPartiel3 = $passPartiel3;
+
+        return $this;
+    }
+
+    /**
+     * Get passPartiel3
+     *
+     * @return \AdministrateurBundle\Entity\PassPartiel3
+     */
+    public function getPassPartiel3()
+    {
+        return $this->passPartiel3;
+    }
+}

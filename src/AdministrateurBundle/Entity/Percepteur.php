@@ -58,9 +58,7 @@ class Percepteur
     private $organisation;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="servicePALR", type="integer", nullable=true) 
+     * 
      * @ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\ServicePALR", cascade={"persist"})
      */
      private $service;

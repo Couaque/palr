@@ -97,8 +97,7 @@ class PerceptionController extends Controller
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
-      /*$this->addFlash("success", "Vous avez bien inséré une perception pour : " . $PerceptionInsert->getNomPercepteur());
-      */
+      $this->addFlash("success", "Vous avez bien inséré la perception");
     }
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCle.html.twig', array(

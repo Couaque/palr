@@ -5,6 +5,11 @@ namespace AdministrateurBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class PercepteurType extends AbstractType
 {
@@ -14,12 +19,19 @@ class PercepteurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $builder->add('nomPercepteur')
-        ->add('prenomPercepteur')
-        ->add('email')
-        ->add('typePercepteur')
-        ->add('organisation')
-        ->add('service');
+        $builder->add('nomPercepteur', TextType::class, array('label' => 'Nom du percepteur :' ,'label_attr'=> array('class' => 'active-custom')))
+        ->add('prenomPercepteur', TextType::class, array('label' => 'Prénom du percepteur :' ))
+        ->add('email', EmailType::class, array('label_attr' => array('class' => 'active-custom')))
+        ->add('typePercepteur', ChoiceType::class, 
+            array('label' => 'Type de percepteur :' ,'choices'=> array(
+            'Employé du port '=>'EmployePort',
+            'Collaborateur extérieur'=>'CollabExt'),
+        'expanded'=> true))
+        ->add('organisation', TextType::class, array('label' => 'Organisation : '))
+        ->add('service', EntityType::class, array(
+            'class' => 'AdministrateurBundle:ServicePALR',
+            'choice_label' => 'nomServicePALR',
+            'label' => 'Service du port :'));
     }
     
     /**
