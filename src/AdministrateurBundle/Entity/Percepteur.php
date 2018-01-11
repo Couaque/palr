@@ -24,9 +24,16 @@ class Percepteur
     /**
      * @var string
      *
-     * @ORM\Column(name="nomPrenomPercepteur", type="string", length=255)
+     * @ORM\Column(name="nomPercepteur", type="string", length=255)
      */
-    private $nomPrenomPercepteur;
+    private $nomPercepteur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenomPercepteur", type="string", length=255)
+     */
+    private $prenomPercepteur;
 
     /**
      * @var string
@@ -68,29 +75,7 @@ class Percepteur
         return $this->id;
     }
 
-    /**
-     * Set nomPrenomPercepteur
-     *
-     * @param string $nomPrenomPercepteur
-     *
-     * @return Percepteur
-     */
-    public function setNomPrenomPercepteur($nomPrenomPercepteur)
-    {
-        $this->nomPrenomPercepteur = $nomPrenomPercepteur;
-
-        return $this;
-    }
-
-    /**
-     * Get nomPrenomPercepteur
-     *
-     * @return string
-     */
-    public function getNomPrenomPercepteur()
-    {
-        return $this->nomPrenomPercepteur;
-    }
+    
 
     /**
      * Set email
@@ -139,5 +124,100 @@ class Percepteur
     {
         return $this->typePercepteur;
     }
-}
 
+    /**
+     * Set nomPercepteur
+     *
+     * @param string $nomPercepteur
+     *
+     * @return Percepteur
+     */
+    public function setNomPercepteur($nomPercepteur)
+    {
+        $this->nomPercepteur = $nomPercepteur;
+
+        return $this;
+    }
+
+    /**
+     * Get nomPercepteur
+     *
+     * @return string
+     */
+    public function getNomPercepteur()
+    {
+        return $this->nomPercepteur;
+    }
+
+    /**
+     * Set prenomPercepteur
+     *
+     * @param string $prenomPercepteur
+     *
+     * @return Percepteur
+     */
+    public function setPrenomPercepteur($prenomPercepteur)
+    {
+        $this->prenomPercepteur = $prenomPercepteur;
+
+        return $this;
+    }
+
+    /**
+     * Get prenomPercepteur
+     *
+     * @return string
+     */
+    public function getPrenomPercepteur()
+    {
+        return $this->prenomPercepteur;
+    }
+
+    /**
+     * Set organisation
+     *
+     * @param string $organisation
+     *
+     * @return Percepteur
+     */
+    public function setOrganisation($organisation)
+    {
+        $this->organisation = $organisation;
+
+        return $this;
+    }
+
+    /**
+     * Get organisation
+     *
+     * @return string
+     */
+    public function getOrganisation()
+    {
+        return $this->organisation;
+    }
+
+    /**
+     * Set service
+     *
+     * @param integer $service
+     *
+     * @return Percepteur
+     */
+    public function setService($service)
+    {
+        $this->service = $service;
+
+        return $this;
+    }
+
+    /**
+     * Get service
+     *
+     * @return integer
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+}

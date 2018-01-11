@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AdministrateurBundle\Entity\Perception;
 use AdministrateurBundle\Entity\Percepteur;
+use AdministrateurBundle\Form\PerceptionType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -72,9 +73,12 @@ class PerceptionController extends Controller
   public function ajouterPerceptionNumCleAction(Request $request)
   {
     $perception = new Perception();
+  
+    //$perception->getPercepteur()->add($percepteur);
+    
 
-    $form = $this->createFormBuilder($perception)
-    ->add('percepteur', EntityType::class, array(
+    $form = $this->createForm(PerceptionType::class, $perception);
+    /*->add('percepteur', EntityType::class, array(
       'class' => 'AdministrateurBundle:Percepteur',
       'choice_label' => 'nomPrenomPercepteur',
       'label' => 'Percepteur :',
@@ -83,7 +87,7 @@ class PerceptionController extends Controller
     ->add('dateDebut', DateType::class, array('label' => 'Date de début : ', 'format'=>'dd/MM/yyyy'))
     ->add('dateFin', DateType::class, array('label' => 'Date de fin (non obligatoire) : ', 'format'=>'dd/MM/yyyy'))
     ->add('save', SubmitType::class, array('label' => 'Ajouter Perception'))
-    ->getForm();
+    ->getForm();*/
 
     $form->handleRequest($request);
 

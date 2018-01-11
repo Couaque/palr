@@ -172,5 +172,100 @@ class Perception
 
         return $this;
     }
-}
 
+    /**
+     * Set variure
+     *
+     * @param \AdministrateurBundle\Entity\Variure $variure
+     *
+     * @return Perception
+     */
+    public function setVariure(\AdministrateurBundle\Entity\Variure $variure = null)
+    {
+        $this->variure = $variure;
+
+        return $this;
+    }
+
+    /**
+     * Get variure
+     *
+     * @return \AdministrateurBundle\Entity\Variure
+     */
+    public function getVariure()
+    {
+        return $this->variure;
+    }
+
+    /**
+     * Set passPartiel1
+     *
+     * @param \AdministrateurBundle\Entity\PassPartiel1 $passPartiel1
+     *
+     * @return Perception
+     */
+    public function setPassPartiel1(\AdministrateurBundle\Entity\PassPartiel1 $passPartiel1 = null)
+    {
+        $this->passPartiel1 = $passPartiel1;
+
+        return $this;
+    }
+
+    /**
+     * Get passPartiel1
+     *
+     * @return \AdministrateurBundle\Entity\PassPartiel1
+     */
+    public function getPassPartiel1()
+    {
+        return $this->passPartiel1;
+    }
+
+    /**
+     * Set passPartiel2
+     *
+     * @param \AdministrateurBundle\Entity\PassPartiel2 $passPartiel2
+     *
+     * @return Perception
+     */
+    public function setPassPartiel2(\AdministrateurBundle\Entity\PassPartiel2 $passPartiel2 = null)
+    {
+        $this->passPartiel2 = $passPartiel2;
+
+        return $this;
+    }
+
+    /**
+     * Get passPartiel2
+     *
+     * @return \AdministrateurBundle\Entity\PassPartiel2
+     */
+    public function getPassPartiel2()
+    {
+        return $this->passPartiel2;
+    }
+
+    /**
+     * Set passPartiel3
+     *
+     * @param \AdministrateurBundle\Entity\PassPartiel3 $passPartiel3
+     *
+     * @return Perception
+     */
+    public function setPassPartiel3(\AdministrateurBundle\Entity\PassPartiel3 $passPartiel3 = null)
+    {
+        $this->passPartiel3 = $passPartiel3;
+
+        return $this;
+    }
+
+    /**
+     * Get passPartiel3
+     *
+     * @return \AdministrateurBundle\Entity\PassPartiel3
+     */
+    public function getPassPartiel3()
+    {
+        return $this->passPartiel3;
+    }
+}
