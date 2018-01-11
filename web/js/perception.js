@@ -1,3 +1,5 @@
+//Gestion du formulaire de filtrage sur la perception
+
 var list1 = $("#Pass1");
 var list2 = $("#Pass2");
 var list3 = $("#Pass3");
@@ -22,3 +24,13 @@ list2.on('change', function(event) {
   }
   $("#Pass3").removeAttr("disabled");
 });
+
+
+//Gestion affichage du tableau
+
+$(".tableau-modif").hide();
+$("#formFiltrage").addClass("col-centered");
+$('.btn-filtrer').on('click',function(){
+  $("#formFiltrage").removeClass("col-centered");
+  $(".tableau-modif").show();
+})

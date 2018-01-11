@@ -1,10 +1,40 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-<div class"row">
-  <form class="alert alert-info col-md-4 col-centered">
+<div class="row">
 
+  <div class="tableau-modif col-md-8">
+    <div class="container">
+      <h2>Base de données filtré</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Variure</th>
+            <th>Date Perception</th>
+            <th>Organisation</th>
+            <th>Etat</th>
+            <th>Numéro Pass</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+            <td>John</td>
+            <td><a href="{{ path('modifierPerception') }}" class="btn btn-success btn-modif">Modifier</a>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div class="col-md-3" id="formFiltrage">
+  <form class="alert alert-info">
     <span class="glyphicon glyphicon-search"> </span> Filtrer
-
     <div class="form-group">
       <label for="nom">Nom :</label>
       <input type="text" class="form-control" id="nom">
@@ -49,9 +79,9 @@
       <input type="text" class="form-control" id="organisation">
     </div>
   </form>
-
-  <a href="{{ path('listerPerception') }}" class="btn btn-success btn-modif" ><span class="glyphicon glyphicon-plus"></span> Filtrer</a>
-  <a href="{{ path('ajouterPerception') }}" class="btn btn-primary btn-modif" role="button"><span class="glyphicon glyphicon-plus"></span> Ajouter une perception</a>
+  <a class="btn btn-success btn-modif btn-filtrer"><span class="glyphicon glyphicon-plus"></span> Filtrer</a>
+  <a href="{{ path('ajouterPerception') }}" class="btn btn-primary btn-modif"><span class="glyphicon glyphicon-plus"></span> Ajouter une perception</a>
+</div>
 </div>
 <script src="/js/perception.js"></script>
 {% endblock %}
