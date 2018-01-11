@@ -13,7 +13,7 @@
       <input type="text" class="form-control" id="prenom">
 
       <label for="nom">Numéro de clé :</label>
-      <input type="text" class="form-control" id="numeroCle">
+      <input type="text" class="form-control" id="numeroPass">
 
       <div class="row">
         <div class="col-sm-4">
@@ -30,7 +30,7 @@
           <select class="form-control" id="Pass2" disabled>
             <option>- Select -</option>
             {% for pp2 in passPartiel2 %}
-            <option class="pass2cacher{{pp2.id}}" data-idpartiel="{{pp2.PassPartiel1.id}}" data-id="{{pp2.id}}">{{pp2.nomPass2}}</option>
+            <option data-idpartiel="{{pp2.PassPartiel1.id}}" data-id="{{pp2.id}}">{{pp2.nomPass2}}</option>
             {% endfor %}
           </select>
         </div>
@@ -39,7 +39,7 @@
           <select class="form-control" id="Pass3" disabled>
             <option>- Select -</option>
             {% for pp3 in passPartiel3 %}
-            <option class="pass3cacher{{pp3.id}}" data-idpartiel="{{pp3.PassPartiel2.id}}" data-id="{{pp3.id}}">{{pp3.nomPass3}}</option>
+            <option data-idpartiel="{{pp3.PassPartiel2.id}}" data-id="{{pp3.id}}">{{pp3.nomPass3}}</option>
             {% endfor %}
           </select>
         </div>
