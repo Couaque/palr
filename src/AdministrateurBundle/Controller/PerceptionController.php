@@ -123,11 +123,22 @@ class PerceptionController extends Controller
   }
 
   /**
-  * @Route("/perception/listerPerception", name="listerPerception")
+  * @Route("/perception/filtrerPerception", name="filtrerPerception")
   */
-  public function listerPerceptionsAction()
+  public function filtrerPerceptionAction(Request $req)
   {
-    return $this->render('AdministrateurBundle:Perception:listerPerception.html.twig');
+    if($req->isXMLHttpRequest()) {
+      $options['nom']=$req->get('nom');
+      $options['organisation']=$req->get('organisation');
+      $options['numeroCle']=$req->get('numeroCle');
+      $options['Pass1']=$req->get('Pass1');
+      $options['Pass2']=$req->get('Pass2');
+      $options['Pass3']=$req->get('Pass3');
+      $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
+      $base = $repository->rechercher($options);
+      return new JsonResponse(array('data'=>json_encode($base)));
+    }
+    return new Response("Erreur : Ce n'est pas une requete Ajax",400);
   }
 
 }

@@ -6,3 +6,8 @@ administrateur:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+filtrerPerception:
+  path: /perception/filtrerPerception
+  defaults: { _controller: AdministrateurBundle:Perception:filtrerPerception }
+  methods: [post]

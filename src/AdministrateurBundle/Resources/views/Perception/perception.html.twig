@@ -2,7 +2,7 @@
 {% block body %}
 <div class="row">
 
-  <div class="tableau-modif col-md-8">
+  <div class="tableau-modif col-md-8" id="tableauModif">
     <div class="container">
       <h2>Base de données filtré</h2>
       <table class="table">
@@ -26,62 +26,62 @@
             <td>Doe</td>
             <td>john@example.com</td>
             <td>John</td>
-            <td><a href="{{ path('modifierPerception') }}" class="btn btn-success btn-modif">Modifier</a>
+            <td><a class="btn btn-success btn-modif">Modifier</a></td>
+            <td><span class="btn btn-success btn-modif glyphicon glyphicon-remove"></span></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-<div class="col-md-3" id="formFiltrage">
-  <form class="alert alert-info">
-    <span class="glyphicon glyphicon-search"> </span> Filtrer
-    <div class="form-group">
-      <label for="nom">Nom :</label>
-      <input type="text" class="form-control" id="nom">
 
-      <label for="nom">Prenom :</label>
-      <input type="text" class="form-control" id="prenom">
+  <div class="col-md-3" id="formFiltrage">
+    <form class="alert alert-info">
+      <span class="glyphicon glyphicon-search"> </span> Filtrer
+      <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input type="text" class="form-control" id="nom">
 
-      <label for="nom">Numéro de clé :</label>
-      <input type="text" class="form-control" id="numeroCle">
+        <label for="organisation">Organisation :</label>
+        <input type="text" class="form-control" id="organisation">
 
-      <div class="row">
-        <div class="col-sm-4">
-          <label for="Pass">Pass 1 :</label>
-          <select class="form-control" id="Pass1">
-            <option>- Select -</option>
-            {% for pp1 in passPartiel1 %}
-            <option data-id="{{pp1.id}}">{{pp1.nomPass1}}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class="col-sm-4">
-          <label for="Pass">Pass 2 :</label>
-          <select class="form-control" id="Pass2" disabled>
-            <option>- Select -</option>
-            {% for pp2 in passPartiel2 %}
-            <option class="pass2cacher{{pp2.id}}" data-idpartiel="{{pp2.PassPartiel1.id}}" data-id="{{pp2.id}}">{{pp2.nomPass2}}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class="col-sm-4">
-          <label for="Pass">Pass 3 :</label>
-          <select class="form-control" id="Pass3" disabled>
-            <option>- Select -</option>
-            {% for pp3 in passPartiel3 %}
-            <option class="pass3cacher{{pp3.id}}" data-idpartiel="{{pp3.PassPartiel2.id}}" data-id="{{pp3.id}}">{{pp3.nomPass3}}</option>
-            {% endfor %}
-          </select>
+        <label for="nom">Numéro de clé :</label>
+        <input type="text" class="form-control" id="numeroCle">
+
+        <div class="row">
+          <div class="col-sm-4">
+            <label for="Pass">Pass 1 :</label>
+            <select class="form-control" id="Pass1" >
+              <option>- Select -</option>
+              {% for pp1 in passPartiel1 %}
+              <option data-id="{{pp1.id}}">{{pp1.nomPass1}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-sm-4">
+            <label for="Pass">Pass 2 :</label>
+            <select class="form-control" id="Pass2" disabled>
+              <option>- Select -</option>
+              {% for pp2 in passPartiel2 %}
+              <option class="pass2cacher{{pp2.id}}" data-idpartiel="{{pp2.PassPartiel1.id}}" data-id="{{pp2.id}}">{{pp2.nomPass2}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-sm-4">
+            <label for="Pass">Pass 3 :</label>
+            <select class="form-control" id="Pass3" disabled>
+              <option>- Select -</option>
+              {% for pp3 in passPartiel3 %}
+              <option class="pass3cacher{{pp3.id}}" data-idpartiel="{{pp3.PassPartiel2.id}}" data-id="{{pp3.id}}">{{pp3.nomPass3}}</option>
+              {% endfor %}
+            </select>
+          </div>
         </div>
       </div>
 
-      <label for="organisation">Organisation :</label>
-      <input type="text" class="form-control" id="organisation">
-    </div>
-  </form>
-  <a class="btn btn-success btn-modif btn-filtrer"><span class="glyphicon glyphicon-plus"></span> Filtrer</a>
-  <a href="{{ path('ajouterPerception') }}" class="btn btn-primary btn-modif"><span class="glyphicon glyphicon-plus"></span> Ajouter une perception</a>
-</div>
+      <a type="submit" value="Filtrer" class="btn-success btn-modif btn-filtrer btn">Filtrer</a>
+    </form>
+    <a href="{{ path('ajouterPerception') }}" class="btn btn-primary btn-modif"><span class="glyphicon glyphicon-plus"></span> Ajouter une perception</a>
+  </div>
 </div>
 <script src="/js/perception.js"></script>
 {% endblock %}
