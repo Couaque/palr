@@ -3,19 +3,22 @@
 
 
 
+{% for message in app.flashes('success') %}
+<div class="alert alert-success">
+  {{ message }}
+</div>
+{% endfor %}
 
+<div class="container">
+  <h2>Modifier la perception</h2>
+  <h3> Modifier les champs désirés : </h3>
 
+   {{ form_start(form) }}
+<div class="row" style="max-width: 70%;">
+  <form class="col s12">
 
-
-
-
-
-
-
-
-
-
-
-
+    {{ form_end(form) }}
+  </form>
+</div>
 
 {% endblock %}

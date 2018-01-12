@@ -35,11 +35,28 @@ class PerceptionController extends Controller
 
 
   /**
-  * @Route("/perception/modifierPerception", name="modifierPerception")
+  * @Route("/perception/modifierPerception/{id}", name="modifierPerception")
+  * @Route("/perception/modifierPerception", defaults={"id"=-1})
   */
-  public function modifierPerceptionAction()
+  public function modifierPerceptionAction(Request $request, $id)
   {
-    return $this->render('AdministrateurBundle:Perception:modifierPerception.html.twig');
+    $em=$this->getDoctrine()->getManager();
+    $perception = $em->getRepository('AdministrateurBundle:Perception')->find($id);
+    $form = $this->createForm(ModifierPerceptionForm::class, $perception);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      $PerceptionInsert = $form->getData();
+
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($PerceptionInsert);
+      $em->flush();
+      $this->addFlash("success", "Vous avez bien modifier la Perception");
+    }
+
+    return $this->render('AdministrateurBundle:Perception:modifierPerception.html.twig', array(
+      'form' => $form->createView(),
+    ));
   }
 
 
@@ -73,9 +90,9 @@ class PerceptionController extends Controller
   public function ajouterPerceptionNumCleAction(Request $request)
   {
     $perception = new Perception();
-  
+
     //$perception->getPercepteur()->add($percepteur);
-    
+
 
     $form = $this->createForm(PerceptionType::class, $perception);
     /*->add('percepteur', EntityType::class, array(
