@@ -25,8 +25,9 @@ class PercepteurType extends AbstractType
         ->add('typePercepteur', ChoiceType::class, 
             array('label' => 'Type de percepteur :' ,'choices'=> array(
             'Employé du port '=>'EmployePort',
-            'Collaborateur extérieur'=>'CollabExt'),
-        'expanded'=> true))
+            'Collaborateur extérieur'=>'CollabExt',),
+        'expanded'=> true,
+        'data'=> true))
         ->add('organisation', TextType::class, array('label' => 'Organisation : '))
         ->add('service', EntityType::class, array(
             'class' => 'AdministrateurBundle:ServicePALR',

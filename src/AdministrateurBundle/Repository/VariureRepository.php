@@ -10,4 +10,132 @@ namespace AdministrateurBundle\Repository;
  */
 class VariureRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function PP2DAF01(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 1")
+		->getQuery()
+		->getResult();
+	}
+	public function PP2DAF02(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 2")
+		->getQuery()
+		->getResult();
+	}public function PP2DAF03(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 3")
+		->getQuery()
+		->getResult();
+	}public function PP2DAF04(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 4")
+		->getQuery()
+		->getResult();
+	}public function PP2DAF05(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 5")
+		->getQuery()
+		->getResult();
+	}public function PP2DAF06(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 6")
+		->getQuery()
+		->getResult();
+	}public function PP2DAF07(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 7")
+		->getQuery()
+		->getResult();
+	}public function PP2DAF08(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 8")
+		->getQuery()
+		->getResult();
+	}public function PP2DG01(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 9")
+		->getQuery()
+		->getResult();
+	}public function PP2DG02(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 10")
+		->getQuery()
+		->getResult();
+	}public function PP2DG03(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 11")
+		->getQuery()
+		->getResult();
+	}public function PP2DG04(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 12")
+		->getQuery()
+		->getResult();
+	}public function PP2DG05(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 13")
+		->getQuery()
+		->getResult();
+	}public function PP2DOP01(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 14")
+		->getQuery()
+		->getResult();
+	}public function PP2DOP02(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 15")
+		->getQuery()
+		->getResult();
+	}public function PP2DOP03(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 16")
+		->getQuery()
+		->getResult();
+	}public function PP2DOP04(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 17")
+		->getQuery()
+		->getResult();
+	}public function PP2DOP05(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 18")
+		->getQuery()
+		->getResult();
+	}public function PP2DOP06(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 19")
+		->getQuery()
+		->getResult();
+	}public function PP2DOP07(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 20")
+		->getQuery()
+		->getResult();
+	}public function PP2SUR01(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 21")
+		->getQuery()
+		->getResult();
+	}public function PP2SUR02(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 22")
+		->getQuery()
+		->getResult();
+	}public function PP2SUR03(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 23")
+		->getQuery()
+		->getResult();
+	}public function PP2SUR04(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 24")
+		->getQuery()
+		->getResult();
+	}
+	public function PP2SUR05(){
+		return $this->createQueryBuilder('v')
+		->where("v.passPartiel2 = 25")
+		->getQuery()
+		->getResult();
+	}
 }

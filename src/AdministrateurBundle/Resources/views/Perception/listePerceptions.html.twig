@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+<div class="container">
+  <h2>Liste des perceptions en cours : </h2>
+ 
+  {% for p in listePerceptions %}
+ <tr>
+ 	
+    <td>{{ p.dateDebut|date('d/m/Y')}}</td>
+    
+     <td>{{ p.dateFin|date('d/m/Y')}}</td>
+     
+     <td>{{ p.typePerception}}</td>
+     
+     <td>{{ p.choixPerception}}</td>
+    
+     <td>{{ p.percepteur.nomPercepteur}}</td>
+    
+     <td>{{ p.percepteur.prenomPercepteur}}</td>
+    
+     <td>{{ p.percepteur.email}}</td>
+    
+     <td>{{ p.percepteur.typePercepteur}}</td>
+     
+     <td>{{ p.percepteur.organisation}}</td>
+     {% if p.percepteur.service %}
+     <td>{{ p.percepteur.service.nomServicePALR}}</td>
+     {% endif %}
+     {% if p.variure %}
+     
+     <td>{{ p.variure.nomVariure}}</td>
+     {% endif %}
+     {% if p.passPartiel1 %}
+     <td>{{ p.passPartiel1.nomPass1}}</td>
+     {% endif %}
+     {% if p.passPartiel2 %}
+     <td>{{ p.passPartiel2.nomPass2}}</td>
+     {% endif %}
+     {% if p.passPartiel3 %}
+     <td>{{ p.passPartiel3.nomPass3}}</td>
+     {% endif %}
+ </tr>
+{% endfor %}
+
+  </div>
+
+{% endblock %}
+
+

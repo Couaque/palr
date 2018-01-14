@@ -60,6 +60,7 @@ class Percepteur
     /**
      * 
      * @ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\ServicePALR", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
      private $service;
 

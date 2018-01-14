@@ -30,11 +30,12 @@ class PerceptionType extends AbstractType
          ->add('variure', EntityType::class, array(
             'class' => 'AdministrateurBundle:Variure',
             'choice_label' => 'nomVariure',
-            'label' => 'Nom de la clé :',))
+            'label' => "Veuillez entrez l'une des variures trouvée par vos filtres : ",))
         ->add('passPartiel1', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel1',
             'choice_label' => 'nomPass1',
-            'label' => 'Pass 1 correspondant :'))
+            'label' => 'Pass 1 correspondant :',))
+            //'empty_data' => "Pass" 
         ->add('passPartiel2', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel2',
             'choice_label' => 'nomPass2',
@@ -43,6 +44,11 @@ class PerceptionType extends AbstractType
             'class' => 'AdministrateurBundle:PassPartiel3',
             'choice_label' => 'nomPass3',
             'label' => 'Pass 3 correspondant :'))
+        ->add('choixPerception', ChoiceType::class, 
+            array('label' => 'La personne va percevoir :' ,'choices'=> array(
+            'Une clé'=>'Clé',
+            'Un Pass'=>'Pass'),
+        'expanded'=> true))
         ->add('save', SubmitType::class, array('label' => 'Ajouter Perception'));
        
          

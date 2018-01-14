@@ -9,16 +9,220 @@
 </div>
 {% endfor %}
 
+
 <div class="container">
   <h2>Ajouter une perception</h2>
   <h3> Veuillez renseigner les champs suivants : </h3>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
    {{ form_start(form) }}
 <div class="row" style="max-width: 70%;">
+
   <form class="col s12">
-  	
+    <div class="row">
+      <div>
+        {{form_row(form.percepteur.typePercepteur)}}
+            
+    
+        {{form_row(form.percepteur.organisation)}}
+        {{form_row(form.percepteur.service)}}
+        {{form_row(form.dateDebut)}}
+        <div id="dateFin">
+        {{form_row(form.dateFin)}}
+        </div>
+        {{form_row(form.typePerception)}}
+        {{form_row(form.choixPerception)}}
+        <p id="h4PP2"><strong> Pass 2 correspondant : </strong></p>
+    <select id="pp2">
+  {% for pp2 in pp2 %}
+    <option value="1">{{ pp2.nomPass2}}</option>
+{% endfor %}
+  </select>
+  <p id="parag"><strong> Variure(s) rattachée au Pass 2 sélectionné : </strong></p>
+  <select id="PP2DAF01">
+  {% for v in PP2DAF01 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DAF02">
+  {% for v in PP2DAF02 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DAF03">
+  {% for v in PP2DAF03 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DAF04">
+  {% for v in PP2DAF04 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DAF05">
+  {% for v in PP2DAF02 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DAF06">
+  {% for v in PP2DAF06 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DAF07">
+  {% for v in PP2DAF07 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DAF08">
+  {% for v in PP2DAF08 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DG01">
+  {% for v in PP2DG01 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DG02">
+  {% for v in PP2DG02 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DG03">
+  {% for v in PP2DG03 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DG04">
+  {% for v in PP2DG04 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DG05">
+  {% for v in PP2DG05 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DOP01">
+  {% for v in PP2DOP01 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DOP02">
+  {% for v in PP2DOP02 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DOP03">
+  {% for v in PP2DOP03 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DOP04">
+  {% for v in PP2DOP04 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DOP05">
+  {% for v in PP2DOP05 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DOP06">
+  {% for v in PP2DOP06 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2DOP07">
+  {% for v in PP2DOP07 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2SUR01">
+  {% for v in PP2SUR01 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2SUR02">
+  {% for v in PP2SUR02 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2SUR03">
+  {% for v in PP2SUR03 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2SUR04">
+  {% for v in PP2SUR04 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+<select id="PP2SUR05">
+  {% for v in PP2SUR05 %}
+    <option value="1">{{ v.nomVariure}}</option>
+    
+{% endfor %}
+</select>
+
+
+        
+        {{form_row(form.passPartiel1)}}
+
+        <div id="variure">  
+        {{form_row(form.variure)}}
+        </div>
+    
+        {{form_row(form.passPartiel2)}}
+        {{form_row(form.passPartiel3)}}
+
+
+
+      </div>
+</div>
     {{ form_end(form) }}
   </form>
 </div>
-
+</div>
+<script src="/js/ajouterPerceptionNumCle.js"></script>
 {% endblock %}
+
+        
