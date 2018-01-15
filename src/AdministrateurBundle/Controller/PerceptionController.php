@@ -305,7 +305,6 @@ class PerceptionController extends Controller
   */
   public function listePerceptionsActions()
   {
-<<<<<<< HEAD
     if($req->isXMLHttpRequest()) {
       $options['nom']=$req->get('nom');
       $options['organisation']=$req->get('organisation');
@@ -329,13 +328,6 @@ class PerceptionController extends Controller
       return $response;
     }
     return new Response("Erreur : Ce n'est pas une requete Ajax",400);
-=======
-    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Perception');
-    $listePerceptions = $repository->findAll();
-    return $this->render('AdministrateurBundle:Perception:listePerceptions.html.twig', array(
-      'listePerceptions' => $listePerceptions,
-    ));
->>>>>>> dd83ee3feea257d92b9637593e27eb051efc6c12
   }
 
 }

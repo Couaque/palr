@@ -28,20 +28,15 @@ class Perception
      * @var string
      *
      * @ORM\Column(name="dateDebut", type="date")
-     * 
+     *
      */
     public $dateDebut;
 
     /**
      * @var string
      *
-<<<<<<< HEAD
      * @ORM\Column(name="dateFin", type="date", nullable=true)
      *
-=======
-     * @ORM\Column(name="dateFin", type="date",nullable=true)
-     * 
->>>>>>> dd83ee3feea257d92b9637593e27eb051efc6c12
      */
     public $dateFin;
 

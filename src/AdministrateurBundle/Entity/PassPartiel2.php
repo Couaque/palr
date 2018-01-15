@@ -34,6 +34,11 @@ class PassPartiel2
     private $PassPartiel1;
 
     /**
+    *@ORM\OneToMany(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"}, mappedBy="passPartiel2")
+    */
+    private $Variures;
+
+    /**
      * Get id
      *
      * @return int
@@ -81,7 +86,7 @@ class PassPartiel2
         return $this;
     }
 
-   
+
 
     /**
      * Get passPartiel1
@@ -91,5 +96,46 @@ class PassPartiel2
     public function getPassPartiel1()
     {
         return $this->PassPartiel1;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Variures = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add variure
+     *
+     * @param \AdministrateurBundle\Entity\Variure $variure
+     *
+     * @return PassPartiel2
+     */
+    public function addVariure(\AdministrateurBundle\Entity\Variure $variure)
+    {
+        $this->Variures[] = $variure;
+
+        return $this;
+    }
+
+    /**
+     * Remove variure
+     *
+     * @param \AdministrateurBundle\Entity\Variure $variure
+     */
+    public function removeVariure(\AdministrateurBundle\Entity\Variure $variure)
+    {
+        $this->Variures->removeElement($variure);
+    }
+
+    /**
+     * Get variures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVariures()
+    {
+        return $this->Variures;
     }
 }

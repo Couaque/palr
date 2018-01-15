@@ -36,7 +36,7 @@ class Variure
     private $etat;
 
      /**
-    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel2", cascade={"persist"})
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel2", cascade={"persist"}, inversedBy="AdministrateurBundle\Entity\PassPartiel2")
     */
      private $passPartiel2;
 
@@ -44,7 +44,7 @@ class Variure
     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel3", cascade={"persist"})
     */
      private $passPartiel3;
-    
+
     /**
      * Get id
      *
