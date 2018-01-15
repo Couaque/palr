@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
-class PerceptionType extends AbstractType
+class PerceptionType2 extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -19,7 +19,10 @@ class PerceptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('percepteur', PercepteurType::class)
+        ->add('percepteur', EntityType::class, array(
+            'class' => 'AdministrateurBundle:Percepteur',
+        'required'=>true,
+        'multiple'=>false,))
         ->add('typePerception', ChoiceType::class, 
             array('label' => 'Type de perception :' ,'choices'=> array(
             'Permanente'=>'Permanente',
@@ -35,6 +38,7 @@ class PerceptionType extends AbstractType
             'class' => 'AdministrateurBundle:PassPartiel1',
             'choice_label' => 'nomPass1',
             'label' => 'Pass 1 correspondant :',))
+            //'empty_data' => "Pass" 
         ->add('passPartiel2', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel2',
             'choice_label' => 'nomPass2',

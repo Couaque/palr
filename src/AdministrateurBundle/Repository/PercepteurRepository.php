@@ -10,6 +10,7 @@ namespace AdministrateurBundle\Repository;
 */
 class PercepteurRepository extends \Doctrine\ORM\EntityRepository
 {
+<<<<<<< HEAD
   public function recherche(array $options){
     if($options['nom'] != NULL){
       $row = $this->rechercheNom($options);
@@ -24,4 +25,15 @@ class PercepteurRepository extends \Doctrine\ORM\EntityRepository
      ->where('p.nomPercepteur = :nomPercepteur')
      ->setParameter('nomPercepteur',$options['nom']);
   }
+=======
+  //public fonction rechercher(array $options){
+    //$options['nom'];
+    //$options['nom'];
+    //$options['organisation'];
+    //$options['numeroCle'];
+    //$options['Pass1'];
+    //$options['Pass2'];
+    //$options['Pass3'];
+  //}
+>>>>>>> dd83ee3feea257d92b9637593e27eb051efc6c12
 }

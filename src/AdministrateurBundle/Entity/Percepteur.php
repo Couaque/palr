@@ -60,6 +60,7 @@ class Percepteur
     /**
      * 
      * @ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\ServicePALR", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
      private $service;
 
@@ -217,5 +218,9 @@ class Percepteur
     public function getService()
     {
         return $this->service;
+    }
+
+    public function __toString(){
+        return ' Nom : ' . $this->nomPercepteur . ' / Prénom : ' . $this->prenomPercepteur . ' / Email : ' . $this->email ;
     }
 }

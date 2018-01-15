@@ -28,18 +28,20 @@ class Perception
      * @var string
      *
      * @ORM\Column(name="dateDebut", type="date")
-     * @Assert\Expression(
-     *     "this.dateDebut <= this.dateFin",
-     *     message="La date de début doit être inférieur à la date de fin!"
-     * )
+     * 
      */
     public $dateDebut;
 
     /**
      * @var string
      *
+<<<<<<< HEAD
      * @ORM\Column(name="dateFin", type="date", nullable=true)
      *
+=======
+     * @ORM\Column(name="dateFin", type="date",nullable=true)
+     * 
+>>>>>>> dd83ee3feea257d92b9637593e27eb051efc6c12
      */
     public $dateFin;
 
@@ -49,6 +51,13 @@ class Perception
      * @ORM\Column(name="typePerception", type="string", length=255)
      */
     private $typePerception;
+
+    /**
+     * @var string
+     * @Assert\Choice({"Clé", "Pass"})
+     * @ORM\Column(name="choixPerception", type="string", length=255)
+     */
+    private $choixPerception;
 
     /**
     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\Percepteur", cascade={"persist"})
@@ -62,16 +71,19 @@ class Perception
 
     /**
     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel1", cascade={"persist"})
+    *@ORM\JoinColumn(nullable=true)
     */
      private $passPartiel1;
 
     /**
     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel2", cascade={"persist"})
+    *@ORM\JoinColumn(nullable=true)
     */
      private $passPartiel2;
 
     /**
     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel3", cascade={"persist"})
+    *@ORM\JoinColumn(nullable=true)
     */
      private $passPartiel3;
 
@@ -277,4 +289,28 @@ class Perception
         return $this->passPartiel3;
     }
 
+
+    /**
+     * Set choixPerception
+     *
+     * @param string $choixPerception
+     *
+     * @return Perception
+     */
+    public function setChoixPerception($choixPerception)
+    {
+        $this->choixPerception = $choixPerception;
+
+        return $this;
+    }
+
+    /**
+     * Get choixPerception
+     *
+     * @return string
+     */
+    public function getChoixPerception()
+    {
+        return $this->choixPerception;
+    }
 }

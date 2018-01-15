@@ -24,14 +24,14 @@ class Variure
     /**
      * @var string
      *
-     * @ORM\Column(name="nomVariure", type="string", length=255)
+     * @ORM\Column(name="nomVariure", type="string", length=255, nullable=true)
      */
     private $nomVariure;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="etat", type="string", length=255)
+     * @ORM\Column(name="etat", type="string", length=255, nullable=true)
      */
     private $etat;
 
