@@ -36,37 +36,27 @@ $("#formFiltrage").addClass("col-centered");
 
 //Gestion des informations du tableau
 $('.btn-filtrer').on('click',function ajaxCall(){
-  // $('#tableauModif').html('<img src="/img/ajax-loader.gif">');
-  // $.post('/perception/filtrerPerception',
-  // {
-  //   nom: $("#nom").val(),
-  //   prenom: $("#prenom").val(),
-  //   numeroCle: $("#numeroCle").val(),
-  //   Pass1: $("#Pass1").text(),
-  //   Pass2: $("#Pass2").text(),
-  //   Pass3: $("#Pass3").text(),
-  //   organisation: $("#organisation").val()
-  // }, function(data) {
-  //creation du tableau de data
-  // });
-
-  var nom = $('#nom');
+  var nom = $('#nom').val();
+  var organisation = $('#organisation').val();
+  var numeroCle = $('#numeroCle').val();
+  var Pass1 = $('#Pass1 option:selected').val();
+  var Pass2 = $('#Pass2 option:selected').val();
+  var Pass3 = $('#Pass3 option:selected').val();
   $.ajax({
     url: "/perception/filtrerPerception",
     method: "post",
-    data: {nom:  $("#nom").val()}
-  }).done(function(msg){
-      console.log($("#nom").val());
-    refreshList();
+    data: {nom,
+           organisation,
+           numeroCle,
+           Pass1,
+           Pass2,
+           Pass3
+         },
+   success : function(data){
+     console.log(data);
+   },
+   error:function(err){
+      console.log(err.responseText);
+    }
   });
 });
-
-function refresList(){
-  nom.innerHTML = "";
-  $.each(JSON.parse(msg['data']),function(i,item){
-    var li = document.createElement('li');
-    var text = document.createTextNode( item.prenom + " " + item.nom);
-    li.appendChild(text);
-    list.appendChild(li);
-  });
-};

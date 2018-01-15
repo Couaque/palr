@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 class PerceptionController extends Controller
@@ -134,9 +135,20 @@ class PerceptionController extends Controller
       $options['Pass1']=$req->get('Pass1');
       $options['Pass2']=$req->get('Pass2');
       $options['Pass3']=$req->get('Pass3');
-      $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
-      $base = $repository->rechercher($options);
-      return new JsonResponse(array('data'=>json_encode($base)));
+      $repository = $this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
+      $percepteurs = $repository->recherche($options);
+      // $formatted = array();
+      // $i=0;
+      //  foreach ($percepteurs as $percepteur) {
+      //    $formatted[$i]=[
+      //      'nomPercepteur'=> $percepteur->getNomPercepteur()
+      //    ];
+      // }
+      $data = $this->get('jms_serializer')->serialize($percepteurs, 'json');
+      $response = new Response($data);
+      $response->headers->set('Content-Type', 'application/json');
+
+      return $response;
     }
     return new Response("Erreur : Ce n'est pas une requete Ajax",400);
   }

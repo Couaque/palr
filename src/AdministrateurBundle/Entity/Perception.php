@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 /**
  * Perception
  *
- * 
+ *
  * @ORM\Table(name="perception")
  * @ORM\Entity(repositoryClass="AdministrateurBundle\Repository\PerceptionRepository")
  */
@@ -38,8 +38,8 @@ class Perception
     /**
      * @var string
      *
-     * @ORM\Column(name="dateFin", type="date")
-     * 
+     * @ORM\Column(name="dateFin", type="date", nullable=true)
+     *
      */
     public $dateFin;
 
