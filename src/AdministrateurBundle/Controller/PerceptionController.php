@@ -8,6 +8,7 @@ use AdministrateurBundle\Entity\Perception;
 use AdministrateurBundle\Entity\Percepteur;
 use AdministrateurBundle\Form\PerceptionType;
 use AdministrateurBundle\Form\PerceptionType2;
+use AdministrateurBundle\Form\ModifierPerceptionType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -43,7 +44,7 @@ class PerceptionController extends Controller
   {
     $em=$this->getDoctrine()->getManager();
     $perception = $em->getRepository('AdministrateurBundle:Perception')->find($id);
-    $form = $this->createForm(ModifierPerceptionForm::class, $perception);
+    $form = $this->createForm(ModifierPerceptionType::class, $perception);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
@@ -109,7 +110,7 @@ class PerceptionController extends Controller
 
 
     $form = $this->createForm(PerceptionType::class, $perception);
-   
+
 
     $form->handleRequest($request);
 
@@ -152,7 +153,7 @@ class PerceptionController extends Controller
       $PP2SUR04 = $repository->PP2SUR04();
       $PP2SUR05 = $repository->PP2SUR05();
       $pp2 = $repository2->findAll();
-     
+
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleNouveauPercepteur.html.twig', array(
       'variures' => $listeVariures,
@@ -203,7 +204,7 @@ class PerceptionController extends Controller
 
 
     $form = $this->createForm(PerceptionType2::class, $perception);
-   
+
 
     $form->handleRequest($request);
 
@@ -246,7 +247,7 @@ class PerceptionController extends Controller
       $PP2SUR04 = $repository->PP2SUR04();
       $PP2SUR05 = $repository->PP2SUR05();
       $pp2 = $repository2->findAll();
-     
+
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumClePercepteurConnu.html.twig', array(
       'variures' => $listeVariures,

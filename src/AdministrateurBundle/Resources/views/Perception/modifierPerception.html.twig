@@ -12,13 +12,14 @@
 <div class="container">
   <h2>Modifier la perception</h2>
   <h3> Modifier les champs désirés : </h3>
+      <form class="col s12">
+          <div class="row" style="max-width: 70%;">
+            <div class="form-control">
+              {{ form_start(form) }}
+              {{ form_end(form) }}
+            </div>
+          </div>
+      </form>
 
-   {{ form_start(form) }}
-<div class="row" style="max-width: 70%;">
-  <form class="col s12">
-
-    {{ form_end(form) }}
-  </form>
 </div>
-
 {% endblock %}
