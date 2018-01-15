@@ -10,13 +10,13 @@ namespace AdministrateurBundle\Repository;
 */
 class PercepteurRepository extends \Doctrine\ORM\EntityRepository
 {
-  public fonction rechercher(array $options){
-    $options['nom'];
-    $options['nom'];
-    $options['organisation'];
-    $options['numeroCle'];
-    $options['Pass1'];
-    $options['Pass2'];
-    $options['Pass3'];
-  }
+  //public fonction rechercher(array $options){
+    //$options['nom'];
+    //$options['nom'];
+    //$options['organisation'];
+    //$options['numeroCle'];
+    //$options['Pass1'];
+    //$options['Pass2'];
+    //$options['Pass3'];
+  //}
 }

@@ -219,4 +219,8 @@ class Percepteur
     {
         return $this->service;
     }
+
+    public function __toString(){
+        return ' Nom : ' . $this->nomPercepteur . ' / Prénom : ' . $this->prenomPercepteur . ' / Email : ' . $this->email ;
+    }
 }
