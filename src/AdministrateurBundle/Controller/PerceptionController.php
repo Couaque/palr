@@ -127,39 +127,39 @@ class PerceptionController extends Controller
     }
     $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
-      $listeVariures = $repository->findAll();
-      $PP2DAF01 = $repository->PP2DAF01();
-      $PP2DAF02 = $repository->PP2DAF02();
-      $PP2DAF03 = $repository->PP2DAF03();
-      $PP2DAF04 = $repository->PP2DAF04();
-      $PP2DAF05 = $repository->PP2DAF05();
-      $PP2DAF06 = $repository->PP2DAF06();
-      $PP2DAF07 = $repository->PP2DAF07();
-      $PP2DAF08 = $repository->PP2DAF08();
-      $PP2DG01 = $repository->PP2DG01();
-      $PP2DG02 = $repository->PP2DG02();
-      $PP2DG03 = $repository->PP2DG03();
-      $PP2DG04 = $repository->PP2DG04();
-      $PP2DG05 = $repository->PP2DG05();
-      $PP2DOP01 = $repository->PP2DOP01();
-      $PP2DOP02 = $repository->PP2DOP02();
-      $PP2DOP03 = $repository->PP2DOP03();
-      $PP2DOP04 = $repository->PP2DOP04();
-      $PP2DOP05 = $repository->PP2DOP05();
-      $PP2DOP06 = $repository->PP2DOP06();
-      $PP2DOP07 = $repository->PP2DOP07();
-      $PP2SUR01 = $repository->PP2SUR01();
-      $PP2SUR02 = $repository->PP2SUR02();
-      $PP2SUR03 = $repository->PP2SUR03();
-      $PP2SUR04 = $repository->PP2SUR04();
-      $PP2SUR05 = $repository->PP2SUR05();
-      $pp2 = $repository2->findAll();
+    $listeVariures = $repository->findAll();
+    $PP2DAF01 = $repository->PP2DAF01();
+    $PP2DAF02 = $repository->PP2DAF02();
+    $PP2DAF03 = $repository->PP2DAF03();
+    $PP2DAF04 = $repository->PP2DAF04();
+    $PP2DAF05 = $repository->PP2DAF05();
+    $PP2DAF06 = $repository->PP2DAF06();
+    $PP2DAF07 = $repository->PP2DAF07();
+    $PP2DAF08 = $repository->PP2DAF08();
+    $PP2DG01 = $repository->PP2DG01();
+    $PP2DG02 = $repository->PP2DG02();
+    $PP2DG03 = $repository->PP2DG03();
+    $PP2DG04 = $repository->PP2DG04();
+    $PP2DG05 = $repository->PP2DG05();
+    $PP2DOP01 = $repository->PP2DOP01();
+    $PP2DOP02 = $repository->PP2DOP02();
+    $PP2DOP03 = $repository->PP2DOP03();
+    $PP2DOP04 = $repository->PP2DOP04();
+    $PP2DOP05 = $repository->PP2DOP05();
+    $PP2DOP06 = $repository->PP2DOP06();
+    $PP2DOP07 = $repository->PP2DOP07();
+    $PP2SUR01 = $repository->PP2SUR01();
+    $PP2SUR02 = $repository->PP2SUR02();
+    $PP2SUR03 = $repository->PP2SUR03();
+    $PP2SUR04 = $repository->PP2SUR04();
+    $PP2SUR05 = $repository->PP2SUR05();
+    $pp2 = $repository2->findAll();
 
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleNouveauPercepteur.html.twig', array(
       'variures' => $listeVariures,
       'form' => $form->createView(),
-         'PP2DAF01' => $PP2DAF01,
+      'PP2DAF01' => $PP2DAF01,
       'PP2DAF02' => $PP2DAF02,
       'PP2DAF03' => $PP2DAF03,
       'PP2DAF04' => $PP2DAF04,
@@ -189,7 +189,7 @@ class PerceptionController extends Controller
   }
 
 
-/**
+  /**
   * @Route("/perception/ajouterPerception/numCle/PercepteurConnu", name="numClePercepteurConnu")
   */
   public function ajouterPerceptionNumClePercepteurConnuAction(Request $request)
@@ -221,39 +221,39 @@ class PerceptionController extends Controller
     }
     $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
-      $listeVariures = $repository->findAll();
-      $PP2DAF01 = $repository->PP2DAF01();
-      $PP2DAF02 = $repository->PP2DAF02();
-      $PP2DAF03 = $repository->PP2DAF03();
-      $PP2DAF04 = $repository->PP2DAF04();
-      $PP2DAF05 = $repository->PP2DAF05();
-      $PP2DAF06 = $repository->PP2DAF06();
-      $PP2DAF07 = $repository->PP2DAF07();
-      $PP2DAF08 = $repository->PP2DAF08();
-      $PP2DG01 = $repository->PP2DG01();
-      $PP2DG02 = $repository->PP2DG02();
-      $PP2DG03 = $repository->PP2DG03();
-      $PP2DG04 = $repository->PP2DG04();
-      $PP2DG05 = $repository->PP2DG05();
-      $PP2DOP01 = $repository->PP2DOP01();
-      $PP2DOP02 = $repository->PP2DOP02();
-      $PP2DOP03 = $repository->PP2DOP03();
-      $PP2DOP04 = $repository->PP2DOP04();
-      $PP2DOP05 = $repository->PP2DOP05();
-      $PP2DOP06 = $repository->PP2DOP06();
-      $PP2DOP07 = $repository->PP2DOP07();
-      $PP2SUR01 = $repository->PP2SUR01();
-      $PP2SUR02 = $repository->PP2SUR02();
-      $PP2SUR03 = $repository->PP2SUR03();
-      $PP2SUR04 = $repository->PP2SUR04();
-      $PP2SUR05 = $repository->PP2SUR05();
-      $pp2 = $repository2->findAll();
+    $listeVariures = $repository->findAll();
+    $PP2DAF01 = $repository->PP2DAF01();
+    $PP2DAF02 = $repository->PP2DAF02();
+    $PP2DAF03 = $repository->PP2DAF03();
+    $PP2DAF04 = $repository->PP2DAF04();
+    $PP2DAF05 = $repository->PP2DAF05();
+    $PP2DAF06 = $repository->PP2DAF06();
+    $PP2DAF07 = $repository->PP2DAF07();
+    $PP2DAF08 = $repository->PP2DAF08();
+    $PP2DG01 = $repository->PP2DG01();
+    $PP2DG02 = $repository->PP2DG02();
+    $PP2DG03 = $repository->PP2DG03();
+    $PP2DG04 = $repository->PP2DG04();
+    $PP2DG05 = $repository->PP2DG05();
+    $PP2DOP01 = $repository->PP2DOP01();
+    $PP2DOP02 = $repository->PP2DOP02();
+    $PP2DOP03 = $repository->PP2DOP03();
+    $PP2DOP04 = $repository->PP2DOP04();
+    $PP2DOP05 = $repository->PP2DOP05();
+    $PP2DOP06 = $repository->PP2DOP06();
+    $PP2DOP07 = $repository->PP2DOP07();
+    $PP2SUR01 = $repository->PP2SUR01();
+    $PP2SUR02 = $repository->PP2SUR02();
+    $PP2SUR03 = $repository->PP2SUR03();
+    $PP2SUR04 = $repository->PP2SUR04();
+    $PP2SUR05 = $repository->PP2SUR05();
+    $pp2 = $repository2->findAll();
 
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumClePercepteurConnu.html.twig', array(
       'variures' => $listeVariures,
       'form' => $form->createView(),
-         'PP2DAF01' => $PP2DAF01,
+      'PP2DAF01' => $PP2DAF01,
       'PP2DAF02' => $PP2DAF02,
       'PP2DAF03' => $PP2DAF03,
       'PP2DAF04' => $PP2DAF04,
@@ -284,27 +284,7 @@ class PerceptionController extends Controller
   /**
   * @Route("/perception/filtrerPerception", name="filtrerPerception")
   */
-//  public function filtrerPerceptionAction(Request $req)
-  //{
-    //if($req->isXMLHttpRequest()) {
-      //$options['nom']=$req->get('nom');
-      //$options['organisation']=$req->get('organisation');
-      //$options['numeroCle']=$req->get('numeroCle');
-      //$options['Pass1']=$req->get('Pass1');
-      //$options['Pass2']=$req->get('Pass2');
-      //$options['Pass3']=$req->get('Pass3');
-      //$repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
-      //$base = $repository->rechercher($options);
-      //return new JsonResponse(array('data'=>json_encode($base)));
-    //}
-    //return new Response("Erreur : Ce n'est pas une requete Ajax",400);
-  //w}
-
-  /**
-  * @Route("/perception/listePerceptions", name="listePerceptions")
-  */
-  public function listePerceptionsActions()
-  {
+  public function filtrerPerceptionAction(Request $req) {
     if($req->isXMLHttpRequest()) {
       $options['nom']=$req->get('nom');
       $options['organisation']=$req->get('organisation');
@@ -312,22 +292,16 @@ class PerceptionController extends Controller
       $options['Pass1']=$req->get('Pass1');
       $options['Pass2']=$req->get('Pass2');
       $options['Pass3']=$req->get('Pass3');
-      $repository = $this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
-      $percepteurs = $repository->recherche($options);
-      // $formatted = array();
-      // $i=0;
-      //  foreach ($percepteurs as $percepteur) {
-      //    $formatted[$i]=[
-      //      'nomPercepteur'=> $percepteur->getNomPercepteur()
-      //    ];
-      // }
-      $data = $this->get('jms_serializer')->serialize($percepteurs, 'json');
+      $repository = $this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Perception');
+      $perceptions = $repository->recherche($options);
+
+      $data = $this->get('jms_serializer')->serialize($perceptions, 'json');
       $response = new Response($data);
       $response->headers->set('Content-Type', 'application/json');
 
       return $response;
     }
     return new Response("Erreur : Ce n'est pas une requete Ajax",400);
-  }
+    }
 
-}
+  }

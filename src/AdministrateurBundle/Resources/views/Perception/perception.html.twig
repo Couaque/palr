@@ -2,10 +2,10 @@
 {% block body %}
 <div class="row">
 
-  <div class="tableau-modif col-md-8" id="tableauModif">
+  <div class="tableau-modif col-md-8">
     <div class="container">
-      <h2>Base de données filtré</h2>
-      <table class="table">
+      <h2>Contenu de la base de données :</h2>
+      <table class="table table-striped" id="table">
         <thead>
           <tr>
             <th>Nom</th>
@@ -13,22 +13,13 @@
             <th>Variure</th>
             <th>Date Perception</th>
             <th>Organisation</th>
-            <th>Etat</th>
-            <th>Numéro Pass</th>
+            <th>Etat perception</th>
+            <th>Numéro Pass 1</th>
+            <th>Numéro Pass 2</th>
+            <th>Numéro Pass 3</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-            <td>John</td>
-            <td><a class="btn btn-success btn-modif">Modifier</a></td>
-            <td><span class="btn btn-success btn-modif glyphicon glyphicon-remove"></span></td>
-          </tr>
         </tbody>
       </table>
     </div>
@@ -80,7 +71,6 @@
 
       <a type="submit" value="Filtrer" class="btn-success btn-modif btn-filtrer btn">Filtrer</a>
     </form>
-    <a href="{{ path('listePerceptions') }}" class="btn btn-primary btn-modif"> Toutes les perceptions </a>
     <a href="{{ path('ajouterPerception') }}" class="btn btn-primary btn-modif"><span class="glyphicon glyphicon-plus"></span> Ajouter une perception</a>
   </div>
 </div>
