@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 
 
 {% for message in app.flashes('success') %}
@@ -12,14 +12,41 @@
 <div class="container">
   <h2>Modifier la perception</h2>
   <h3> Modifier les champs désirés : </h3>
+  {{form_start(form)}}
       <form class="col s12">
           <div class="row" style="max-width: 70%;">
-            <div class="form-control">
-              {{ form_start(form) }}
-              {{ form_end(form) }}
-            </div>
+            <h4>Percepteur :</h4>
+              {{  form_row(form.percepteur.nomPercepteur)}}
+              {{  form_row(form.percepteur.prenomPercepteur)}}
+              {{  form_row(form.percepteur.email)}}
+              <div id="typePercepteur">
+              {{  form_row(form.percepteur.typePercepteur)}}
+              </div>
+              <div id="organisation">
+              {{  form_row(form.percepteur.organisation)}}
+              </div>
+              <div id="service">
+              {{  form_row(form.percepteur.service)}}
+              </div>
+              {{  form_row(form.typePerception)}}
+              <div id="dateFin">
+                {{  form_row(form.dateFin)}}
+              </div>
+              {{  form_row(form.choixPerception)}}
+              <div id="pass">
+              {{  form_row(form.passPartiel1)}}
+              {{  form_row(form.passPartiel2)}}
+              {{  form_row(form.passPartiel3)}}
+              </div>
+              <div id="variure">
+                {{  form_row(form.variure)}}
+              </div>
+              {{ form_row(form.save) }}<a href="../../perception"></a>
           </div>
       </form>
 
 </div>
+
+<script src="/js/modifierPerception.js"></script>
+
 {% endblock %}

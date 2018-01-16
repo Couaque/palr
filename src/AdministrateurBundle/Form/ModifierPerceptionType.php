@@ -25,7 +25,14 @@ class ModifierPerceptionType extends AbstractType
             'Permanente'=>'Permanente',
             'Temporaire'=>'Temporaire'),
         'expanded'=> true))
-        ->add('dateFin', DateType::class, array('label' => 'Date de fin : ', 'format'=>'dd/MM/yyyy'))
+        ->add('dateFin', DateType::class, array(
+            'label' => 'Date de fin : ',
+            'format'=>'dd/MM/yyyy'))
+        ->add('choixPerception', ChoiceType::class, array(
+                'label' => 'La personne perçoit :' ,'choices'=> array(
+                'Une clé'=>'Clé',
+                'Un Pass'=>'Pass'),
+            'expanded'=> true))
         ->add('variure', EntityType::class, array(
             'class' => 'AdministrateurBundle:Variure',
             'choice_label' => 'nomVariure',
@@ -42,7 +49,8 @@ class ModifierPerceptionType extends AbstractType
             'class' => 'AdministrateurBundle:PassPartiel3',
             'choice_label' => 'nomPass3',
             'label' => 'Pass 3 correspondant :'))
-        ->add('save', SubmitType::class, array('label' => 'Modifier Perception'));
+        ->add('save', SubmitType::class, array('label' => 'Modifier Perception'
+      ));
 
 
     }

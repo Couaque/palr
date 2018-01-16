@@ -54,7 +54,7 @@ class PerceptionController extends Controller
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
-      $this->addFlash("success", "Vous avez bien modifier la Perception");
+      $this->addFlash("success", "Vous avez bien modifié la Perception");
     }
 
     return $this->render('AdministrateurBundle:Perception:modifierPerception.html.twig', array(
