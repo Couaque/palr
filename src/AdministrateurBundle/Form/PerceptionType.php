@@ -30,19 +30,54 @@ class PerceptionType extends AbstractType
          ->add('variure', EntityType::class, array(
             'class' => 'AdministrateurBundle:Variure',
             'choice_label' => 'nomVariure',
-            'label' => "Veuillez entrez l'une des variures trouvée par vos filtres : ",))
+            'label' => "Veuillez entrez l'une des variures trouvée par vos filtres : ",
+            'attr' => array( 'disabled' => 'true'),
+            'choice_attr' => function($variure, $index, $value){
+                if ($variure->getPassPartiel2() != null ){
+                    return 
+                array(
+                'class' => "variurecachee" . $variure->getId(),
+                'data-id' => $variure->getId(),
+                'data-idpartielpp2' => $variure->getPassPartiel2()->getId()); 
+                }else if ($variure->getPassPartiel3() != null ){
+                    return array(
+                'class' => "variurecachee" . $variure->getPassPartiel3()->getId(),
+                'data-id' => $variure->getId(),
+                'data-idpartielpp3' => $variure->getPassPartiel3()->getId());
+                } return array();
+            }))
         ->add('passPartiel1', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel1',
             'choice_label' => 'nomPass1',
-            'label' => 'Pass 1 correspondant :',))
+            'label' => 'Pass 1 correspondant :',
+            'choice_attr' => function($passPartiel1, $index, $value){
+            return array(
+                'data-id' => $passPartiel1->getId(),
+                ); 
+            }))
         ->add('passPartiel2', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel2',
             'choice_label' => 'nomPass2',
-            'label' => 'Pass 2 correspondant :',))
+            'label' => 'Pass 2 correspondant :',
+            'attr' => array( 'disabled' => 'true'),
+            'choice_attr' => function($passPartiel2, $index, $value){
+            return array(
+                'class' => "pass2cacher" . $passPartiel2->getId(),
+                'data-id' => $passPartiel2->getId(),
+                'data-idpartiel' => $passPartiel2->getPassPartiel1()->getId()); 
+            }))
         ->add('passPartiel3', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel3',
             'choice_label' => 'nomPass3',
-            'label' => 'Pass 3 correspondant :'))
+            'label' => 'Pass 3 correspondant :',
+            'attr' => array( 'disabled' => 'true'),
+            'choice_attr' => function($passPartiel3, $index, $value){
+                return array(
+                'class' => "pass3cacher" . $passPartiel3->getId(),
+                'data-id' => $passPartiel3->getId(),
+                'data-idpartiel' => $passPartiel3->getPassPartiel2()->getId()); 
+               
+            }))
         ->add('choixPerception', ChoiceType::class, 
             array('label' => 'La personne va percevoir :' ,'choices'=> array(
             'Une clé'=>'Clé',

@@ -35,15 +35,15 @@ class Variure
      */
     private $etat;
 
-    /**
-    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel2", cascade={"persist"}, inversedBy="AdministrateurBundle\Entity\PassPartiel2")
+     /**
+    *@ORM\ManyToOne(targetEntity="PassPartiel2", cascade={"persist"}, inversedBy="Variures")
     */
-    private $passPartiel2;
+     private $passPartiel2;
 
      /**
-    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\PassPartiel3", cascade={"persist"})
+    *@ORM\ManyToOne(targetEntity="PassPartiel3", cascade={"persist"}, inversedBy="Variures")
     */
-    private $passPartiel3;
+     private $passPartiel3;
 
     /**
      * Get id
@@ -150,4 +150,10 @@ class Variure
     {
         return $this->passPartiel3;
     }
+
+    /*public function __toString()
+    {
+        return ' Variure : ' . $this->nomVariure . '/ Pass 2 ou 3 correspondant : ' . $this->getPassPartiel2()->getNomPass2() . ' ' . $this->getPassPartiel2()->getNomPass2();
+    }
+    */
 }

@@ -71,13 +71,7 @@ class PerceptionController extends Controller
     return $this->render('AdministrateurBundle:Perception:ajouterPerception.html.twig');
   }
 
-  /**
-  * @Route("/perception/ajouterPerception/numPorte", name="numPorte")
-  */
-  public function ajouterPerceptionNumPorteAction()
-  {
-    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPorte.html.twig');
-  }
+ 
 
   /**
   * @Route("/perception/ajouterPerception/localisation", name="localisation")
@@ -90,9 +84,75 @@ class PerceptionController extends Controller
   /**
   * @Route("/perception/ajouterPerception/numCle/Choix", name="numCle")
   */
-  public function ajouterPerceptionNumCleAction()
+  public function ajouterPerceptionNumCleChoixAction()
   {
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleChoix.html.twig');
+  }
+
+
+   /**
+  * @Route("/perception/ajouterPerception/numPorte", name="numPorte")
+  */
+  public function ajouterPerceptionNumPorteAction()
+  {
+    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPorte.html.twig');
+  }
+
+  /**
+  * @Route("/perception/ajouterPerception/numPorte/Choix", name="numPorte")
+  */
+  public function ajouterPerceptionNumPorteChoixAction()
+  {
+    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPorteChoix.html.twig');
+  }
+
+  /**
+  * @Route("/perception/ajouterPerception/numPorte/nouveauPercepteur", name="numPorteNouveauPercepteur")
+  */
+  public function ajouterPerceptionNumPorteNouveauPercepteurAction(Request $request)
+  {
+    $perception = new Perception();
+    $perception->setDateFin(null);
+    $perception->setPassPartiel1(null);
+    $perception->setPassPartiel3(null);
+    $perception->setPassPartiel2(null);
+    $percepteur = new Percepteur();
+    $percepteur->setService(null);
+    //$perception->getPercepteur()->add($percepteur);
+
+
+    $form = $this->createForm(PerceptionType::class, $perception);
+
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      $PerceptionInsert = $form->getData();
+      if($perception->getTypePerception() == "Permanente"){
+        $perception->setDateFin(null);
+      }
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($PerceptionInsert);
+      $em->flush();
+      $this->addFlash("success", "Vous avez bien inséré la perception");
+    }
+    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
+    $listeEquipements = $repository->findAll();
+    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+    $listeVariures = $repository2->findAll();
+
+    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPorteNouveauPercepteur.html.twig', array(
+      'equipements' => $listeEquipements,
+      'form' => $form->createView(),
+    ));
+  }
+
+  /**
+  * @Route("/perception/ajouterPerception/numPorte/PercepteurConnu", name="numPortePercepteurConnu")
+  */
+  public function ajouterPerceptionNumPortePercepteurConnuAction()
+  {
+    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPortePercepteurConnu.html.twig');
   }
 
   /**
@@ -125,71 +185,26 @@ class PerceptionController extends Controller
       $em->flush();
       $this->addFlash("success", "Vous avez bien inséré la perception");
     }
-    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+
+    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
-    $listeVariures = $repository->findAll();
-    $PP2DAF01 = $repository->PP2DAF01();
-    $PP2DAF02 = $repository->PP2DAF02();
-    $PP2DAF03 = $repository->PP2DAF03();
-    $PP2DAF04 = $repository->PP2DAF04();
-    $PP2DAF05 = $repository->PP2DAF05();
-    $PP2DAF06 = $repository->PP2DAF06();
-    $PP2DAF07 = $repository->PP2DAF07();
-    $PP2DAF08 = $repository->PP2DAF08();
-    $PP2DG01 = $repository->PP2DG01();
-    $PP2DG02 = $repository->PP2DG02();
-    $PP2DG03 = $repository->PP2DG03();
-    $PP2DG04 = $repository->PP2DG04();
-    $PP2DG05 = $repository->PP2DG05();
-    $PP2DOP01 = $repository->PP2DOP01();
-    $PP2DOP02 = $repository->PP2DOP02();
-    $PP2DOP03 = $repository->PP2DOP03();
-    $PP2DOP04 = $repository->PP2DOP04();
-    $PP2DOP05 = $repository->PP2DOP05();
-    $PP2DOP06 = $repository->PP2DOP06();
-    $PP2DOP07 = $repository->PP2DOP07();
-    $PP2SUR01 = $repository->PP2SUR01();
-    $PP2SUR02 = $repository->PP2SUR02();
-    $PP2SUR03 = $repository->PP2SUR03();
-    $PP2SUR04 = $repository->PP2SUR04();
-    $PP2SUR05 = $repository->PP2SUR05();
-    $pp2 = $repository2->findAll();
+    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
+
+      $pp1 = $repository1->findAll();
+      $pp2 = $repository2->findAll();
+      $pp3 = $repository3->findAll();
 
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleNouveauPercepteur.html.twig', array(
-      'variures' => $listeVariures,
       'form' => $form->createView(),
-      'PP2DAF01' => $PP2DAF01,
-      'PP2DAF02' => $PP2DAF02,
-      'PP2DAF03' => $PP2DAF03,
-      'PP2DAF04' => $PP2DAF04,
-      'PP2DAF05' => $PP2DAF05,
-      'PP2DAF06' => $PP2DAF06,
-      'PP2DAF07' => $PP2DAF07,
-      'PP2DAF08' => $PP2DAF08,
-      'PP2DG01'=> $PP2DG01,
-      'PP2DG02'=> $PP2DG02,
-      'PP2DG03'=> $PP2DG03,
-      'PP2DG04'=> $PP2DG04,
-      'PP2DG05'=> $PP2DG05,
-      'PP2DOP01' => $PP2DOP01,
-      'PP2DOP02' => $PP2DOP02,
-      'PP2DOP03' => $PP2DOP03,
-      'PP2DOP04' => $PP2DOP04,
-      'PP2DOP05' => $PP2DOP05,
-      'PP2DOP06' => $PP2DOP06,
-      'PP2DOP07' => $PP2DOP07,
-      'PP2SUR01' => $PP2SUR01,
-      'PP2SUR02' => $PP2SUR02,
-      'PP2SUR03' => $PP2SUR03,
-      'PP2SUR04' => $PP2SUR04,
-      'PP2SUR05' => $PP2SUR05,
+      'pp1' => $pp1,
       'pp2' => $pp2,
+      'pp3' => $pp3,
     ));
   }
 
 
-  /**
+/**
   * @Route("/perception/ajouterPerception/numCle/PercepteurConnu", name="numClePercepteurConnu")
   */
   public function ajouterPerceptionNumClePercepteurConnuAction(Request $request)
@@ -219,68 +234,22 @@ class PerceptionController extends Controller
       $em->flush();
       $this->addFlash("success", "Vous avez bien inséré la perception");
     }
-    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
-    $listeVariures = $repository->findAll();
-    $PP2DAF01 = $repository->PP2DAF01();
-    $PP2DAF02 = $repository->PP2DAF02();
-    $PP2DAF03 = $repository->PP2DAF03();
-    $PP2DAF04 = $repository->PP2DAF04();
-    $PP2DAF05 = $repository->PP2DAF05();
-    $PP2DAF06 = $repository->PP2DAF06();
-    $PP2DAF07 = $repository->PP2DAF07();
-    $PP2DAF08 = $repository->PP2DAF08();
-    $PP2DG01 = $repository->PP2DG01();
-    $PP2DG02 = $repository->PP2DG02();
-    $PP2DG03 = $repository->PP2DG03();
-    $PP2DG04 = $repository->PP2DG04();
-    $PP2DG05 = $repository->PP2DG05();
-    $PP2DOP01 = $repository->PP2DOP01();
-    $PP2DOP02 = $repository->PP2DOP02();
-    $PP2DOP03 = $repository->PP2DOP03();
-    $PP2DOP04 = $repository->PP2DOP04();
-    $PP2DOP05 = $repository->PP2DOP05();
-    $PP2DOP06 = $repository->PP2DOP06();
-    $PP2DOP07 = $repository->PP2DOP07();
-    $PP2SUR01 = $repository->PP2SUR01();
-    $PP2SUR02 = $repository->PP2SUR02();
-    $PP2SUR03 = $repository->PP2SUR03();
-    $PP2SUR04 = $repository->PP2SUR04();
-    $PP2SUR05 = $repository->PP2SUR05();
-    $pp2 = $repository2->findAll();
+    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
+      $pp1 = $repository1->findAll();
+      $pp2 = $repository2->findAll();
+      $pp3 = $repository3->findAll();
 
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumClePercepteurConnu.html.twig', array(
-      'variures' => $listeVariures,
       'form' => $form->createView(),
-      'PP2DAF01' => $PP2DAF01,
-      'PP2DAF02' => $PP2DAF02,
-      'PP2DAF03' => $PP2DAF03,
-      'PP2DAF04' => $PP2DAF04,
-      'PP2DAF05' => $PP2DAF05,
-      'PP2DAF06' => $PP2DAF06,
-      'PP2DAF07' => $PP2DAF07,
-      'PP2DAF08' => $PP2DAF08,
-      'PP2DG01'=> $PP2DG01,
-      'PP2DG02'=> $PP2DG02,
-      'PP2DG03'=> $PP2DG03,
-      'PP2DG04'=> $PP2DG04,
-      'PP2DG05'=> $PP2DG05,
-      'PP2DOP01' => $PP2DOP01,
-      'PP2DOP02' => $PP2DOP02,
-      'PP2DOP03' => $PP2DOP03,
-      'PP2DOP04' => $PP2DOP04,
-      'PP2DOP05' => $PP2DOP05,
-      'PP2DOP06' => $PP2DOP06,
-      'PP2DOP07' => $PP2DOP07,
-      'PP2SUR01' => $PP2SUR01,
-      'PP2SUR02' => $PP2SUR02,
-      'PP2SUR03' => $PP2SUR03,
-      'PP2SUR04' => $PP2SUR04,
-      'PP2SUR05' => $PP2SUR05,
+      'pp1' => $pp1,
       'pp2' => $pp2,
+      'pp3' => $pp3,
     ));
   }
+  
   /**
   * @Route("/perception/filtrerPerception", name="filtrerPerception")
   */

@@ -34,6 +34,11 @@ class PassPartiel3
     private $passPartiel2;
 
     /**
+    *@ORM\OneToMany(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"}, mappedBy="passPartiel3")
+    */
+    private $Variures;
+
+    /**
      * Get id
      *
      * @return int
