@@ -15,6 +15,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use \PDO; 
 
 
 class PerceptionController extends Controller
@@ -90,7 +91,7 @@ class PerceptionController extends Controller
   }
 
 
-   /**
+  /**
   * @Route("/perception/ajouterPerception/numPorte", name="numPorte")
   */
   public function ajouterPerceptionNumPorteAction()
@@ -190,9 +191,9 @@ class PerceptionController extends Controller
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
     $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
 
-      $pp1 = $repository1->findAll();
-      $pp2 = $repository2->findAll();
-      $pp3 = $repository3->findAll();
+    $pp1 = $repository1->findAll();
+    $pp2 = $repository2->findAll();
+    $pp3 = $repository3->findAll();
 
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleNouveauPercepteur.html.twig', array(
@@ -204,7 +205,7 @@ class PerceptionController extends Controller
   }
 
 
-/**
+  /**
   * @Route("/perception/ajouterPerception/numCle/PercepteurConnu", name="numClePercepteurConnu")
   */
   public function ajouterPerceptionNumClePercepteurConnuAction(Request $request)
@@ -237,9 +238,9 @@ class PerceptionController extends Controller
     $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
     $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
-      $pp1 = $repository1->findAll();
-      $pp2 = $repository2->findAll();
-      $pp3 = $repository3->findAll();
+    $pp1 = $repository1->findAll();
+    $pp2 = $repository2->findAll();
+    $pp3 = $repository3->findAll();
 
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumClePercepteurConnu.html.twig', array(
@@ -255,6 +256,7 @@ class PerceptionController extends Controller
   */
   public function filtrerPerceptionAction(Request $req) {
     if($req->isXMLHttpRequest()) {
+      $options['etat']=$req->get('etat');
       $options['nom']=$req->get('nom');
       $options['organisation']=$req->get('organisation');
       $options['numeroCle']=$req->get('numeroCle');
@@ -271,6 +273,25 @@ class PerceptionController extends Controller
       return $response;
     }
     return new Response("Erreur : Ce n'est pas une requete Ajax",400);
-    }
-
   }
+
+  /**
+  * @Route("/perception/archiveePerception/{id}", name="archiveePerception")
+  */
+  public function archiveePerceptionAction($id) {
+    try
+    {
+      $bdd = new PDO('mysql:host=localhost;dbname=PALR;charset=utf8', 'root', 'mysql');
+    }
+    catch(Exception $e)
+    {
+      die('Erreur : '.$e->getMessage());
+    }
+    $req = $bdd->prepare('UPDATE perception SET etatPerception = :etat WHERE id = :id');
+    $req->execute(array(
+      'etat' => "archivee",
+      'id' => $id
+    ));
+    return $this->redirectToRoute('perception');
+  }
+}
