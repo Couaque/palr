@@ -9,7 +9,8 @@ var textField = $("#administrateurbundle_perception_percepteur_organisation"),
     label3 = $("label[for='administrateurbundle_perception_passPartiel1']"),
     label4 = $("label[for='administrateurbundle_perception_passPartiel2']"),
     label5 = $("label[for='administrateurbundle_perception_passPartiel3']"),
-    typePercepteur = $('#typePercepteur'),
+    divTypePercepteur = $('#typePercepteur'),
+    typePercepteur=$("administrateurbundle_perception_percepteur_typePercepteur"),
     choixPerception0 = $("#administrateurbundle_perception_choixPerception_0"),
     choixPerception1 = $("#administrateurbundle_perception_choixPerception_1"),
     typePerception1 = $("#administrateurbundle_perception_typePerception_1"),
@@ -18,8 +19,6 @@ var textField = $("#administrateurbundle_perception_percepteur_organisation"),
     service=$('#service'),
     parag=$("#parag"),
     pass=$('#pass'),
-    typePercepteur1 = $("#administrateurbundle_perception_typePercepteur_1"),
-    typePercepteur0 = $("#administrateurbundle_perception_typePercepteur_0"),
     select = $( "#administrateurbundle_perception_percepteur_service" ),
     select2 = $( "#administrateurbundle_perception_passPartiel1" ),
     select3 = $( "#administrateurbundle_perception_passPartiel2" ),
@@ -38,53 +37,90 @@ var textField = $("#administrateurbundle_perception_percepteur_organisation"),
 
 
 h4.hide();
-divid2.hide();
-service.hide();
-organisation.hide();
-if(typePercepteur1.val()=='EmployePort')
-{
-  select.show();
-  textField.hide();
-  label.hide();
-  label2.show();
+
+
+if(textField.val()=='PALR'){
   service.show();
-  $("#administrateurbundle_perception_percepteur_organisation").val ("PALR");
+  organisation.hide();
 }
-
-if(typePercepteur0.val()=='CollabExt')
-{
-  textField.show();
-  label.show();
-  select.hide();
-  label2.hide();
+else{
   organisation.show();
-}
+  service.hide();
 
-if(typePerception0.val() == 'Permanente'){
+}
+if(typePerception0.is(':checked')){
   divid2.hide();
-}
-
-if(typePerception1.val() == 'Temporaire'){
+}else{
   divid2.show();
 }
-
-if(choixPerception0.val()=='Clé'){
-  pass.hide();
-  divid.show();
-  h4.show();
-  parag.show();
-}
-
-if(choixPerception1.val()=='Pass'){
+if(choixPerception1.is(':checked')){
   pass.show();
   variure.hide();
   h4.hide();
   parag.hide();
   divid.hide();
 }
-if(select4.val()==null){
-  select4.val() ('');
+else{
+  pass.hide();
+  divid.show();
+  h4.show();
+  parag.show();
 }
+
+var etat = "enCours";
+var nom = $('#nom').val();
+var organisation = $('#organisation').val();
+var numeroCle = $('#numeroCle').val();
+var Pass1 = $('#Pass1 option:selected').val();
+var Pass2 = $('#Pass2 option:selected').val();
+var Pass3 = $('#Pass3 option:selected').val();
+$.ajax({
+  url: "/perception/filtrerPerception",
+  method: "post",
+  data: {etat,
+    nom,
+    organisation,
+    numeroCle,
+    Pass1,
+    Pass2,
+    Pass3
+  },
+  success : function(data){
+    var leI = 0;
+    for (leI in data) {
+      var maDate = Date.parse(data[leI].date_debut).toString("dd/MM/yyyy");
+      var pass2 = "";
+      if(data[leI].pass_partiel2 != undefined) {
+        pass2 = data[leI].pass_partiel2.nom_pass2
+      }else {
+        $("#administrateurbundle_perception_passPartiel2").prepend("<option></option>");
+
+      }
+      var pass3 = "";
+      if(data[leI].pass_partiel3 != undefined) {
+        pass3 = data[leI].pass_partiel3.nom_pass3
+      } else {
+        $("#administrateurbundle_perception_passPartiel3").prepend("<option></option>");
+      }
+}}})
+divTypePercepteur.hide();
+
+
+for (var leI=1; leI<26; leI++){
+  if(($("#administrateurbundle_perception_passPartiel1 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel2 option:eq("+leI+")").data('idpartiel'))){
+    $(".pass2cacher"+leI).hide();
+  }else{
+    $(".pass2cacher"+leI).show();
+  }
+}
+for (var leI=1; leI<124; leI++){
+  if(($("#administrateurbundle_perception_passPartiel2 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel3 option:eq("+leI+")").data('idpartiel'))){
+    $(".pass3cacher"+leI).hide();
+  }else{
+    $(".pass3cacher"+leI).show();
+  }
+}
+
 parag1.hide();
 parag2.hide();
 parag3.hide();
@@ -100,39 +136,32 @@ $("#administrateurbundle_perception_passPartiel3").prepend("<option></option>");
 list1.on('change', function(event) {
   for (var leI=1; leI<26; leI++){
     if(($("#administrateurbundle_perception_passPartiel1 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel2 option:eq("+leI+")").data('idpartiel'))){
-
       $(".pass2cacher"+leI).hide();
-
     }else{
       $(".pass2cacher"+leI).show();
     }
   }
-  $("#administrateurbundle_perception_passPartiel2").removeAttr("disabled");
 });
 
 list2.on('change', function(event) {
-  for (var leI=1; leI<124; leI++){
-    if(($("#administrateurbundle_perception_passPartiel2 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel3 option:eq("+leI+")").data('idpartiel'))){
-
+  if(select4.val()==null){
+    for (var leI=1; leI<124; leI++){
       $(".pass3cacher"+leI).hide();
-
+    }
+  }else for (var leI=1; leI<124; leI++){
+    if(($("#administrateurbundle_perception_passPartiel2 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel3 option:eq("+leI+")").data('idpartiel'))){
+      $(".pass3cacher"+leI).hide();
     }else{
       $(".pass3cacher"+leI).show();
     }
   }
-  $("#administrateurbundle_perception_passPartiel3").removeAttr("disabled");
 });
 
 
 
  $('#administrateurbundle_perception_choixPerception_0').change(function(){
   if($(this).val() == 'Clé'){
-    select2.hide();
-    select3.hide();
-    select4.hide();
-    label3.hide();
-    label4.hide();
-    label5.hide();
+    pass.hide();
     divid.show();
     h4.show();
     parag1.show();
@@ -141,18 +170,14 @@ list2.on('change', function(event) {
     select6.show();
     select7.show();
     select8.show();
+    variure.show();
   }
 });
 
  $('#administrateurbundle_perception_choixPerception_1').change(function(){
   if($(this).val() == 'Pass'){
-    select2.show();
-    select3.show();
-    select4.show();
+    pass.show();
     variure.hide();
-    label3.show();
-    label4.show();
-    label5.show();
     h4.hide();
     parag1.hide();
     parag2.hide();

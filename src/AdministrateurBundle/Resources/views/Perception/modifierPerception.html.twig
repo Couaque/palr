@@ -8,44 +8,53 @@
   {{ message }}
 </div>
 {% endfor %}
+<link href="/css/nouvellePerception.css" rel="stylesheet">
 
-<div class="container">
+<div class="container alert alert-info">
   <h2>Modifier la perception</h2>
-  <h3> Modifier les champs désirés : </h3>
+  <h3> Modifiez les champs désirés : </h3>
   {{form_start(form)}}
       <form class="col s12">
-          <div class="row" style="max-width: 70%;">
+          <div class="row">
             <h4>Percepteur :</h4>
+            <div class="champs">
               {{  form_row(form.percepteur.nomPercepteur)}}
               {{  form_row(form.percepteur.prenomPercepteur)}}
               {{  form_row(form.percepteur.email)}}
+            </div>
               <div id="typePercepteur">
               {{  form_row(form.percepteur.typePercepteur)}}
               </div>
-              <div id="organisation">
+              <div class="champs" id="organisation">
               {{  form_row(form.percepteur.organisation)}}
               </div>
-              <div id="service">
+              <div class="champs" id="service">
               {{  form_row(form.percepteur.service)}}
               </div>
               {{  form_row(form.typePerception)}}
               <div id="dateFin">
                 {{  form_row(form.dateFin)}}
               </div>
+              <div class="champs">
               {{  form_row(form.choixPerception)}}
+              </div>
+              <div class="champs">
               <div id="pass">
               {{  form_row(form.passPartiel1)}}
               {{  form_row(form.passPartiel2)}}
               {{  form_row(form.passPartiel3)}}
               </div>
+              </div>
+              <div class="champs">
               <div id="variure">
                 {{  form_row(form.variure)}}
+              </div>
               </div>
               <div id="etatPerception">
                 {{form_row(form.etatPerception)}}
               </div>
               {{ form_row(form._token)}}
-              {{ form_row(form.save) }}<a href="{{ path('perception') }}"></a>
+              <a href="{{ path('perception') }}">{{ form_row(form.save) }}</a>
           </div>
       </form>
 

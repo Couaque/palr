@@ -19,14 +19,15 @@ class PercepteurType2 extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $builder->add('nomPercepteur', TextType::class, array('label' => 'Nom du percepteur :' ,'label_attr'=> array('class' => 'active-custom')))
-        ->add('prenomPercepteur', TextType::class, array('label' => 'Prénom du percepteur :' ))
-        ->add('email', EmailType::class, array('label_attr' => array('class' => 'active-custom')))
-        ->add('organisation', TextType::class, array('label' => 'Organisation : '))
-        ->add('service', EntityType::class, array(
-            'class' => 'AdministrateurBundle:ServicePALR',
-            'choice_label' => 'nomServicePALR',
-            'label' => 'Service du port :'));
+      $builder->add('nomPercepteur', TextType::class, array('label' => 'Nom du percepteur :' ,'label_attr'=> array('class' => 'active-custom')))
+      ->add('prenomPercepteur', TextType::class, array('label' => 'Prénom du percepteur :' ))
+      ->add('email', EmailType::class, array('label_attr' => array('class' => 'active-custom')))
+      ->add('typePercepteur', TextType::class)
+      ->add('organisation', TextType::class, array('label' => 'Organisation : '))
+      ->add('service', EntityType::class, array(
+          'class' => 'AdministrateurBundle:ServicePALR',
+          'choice_label' => 'nomServicePALR',
+          'label' => 'Service du port :'));
     }
 
     /**

@@ -128,7 +128,7 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
-      $perception->setEtatPerception("En cours");
+      $perception->setEtatPerception("enCours");
       $perception->setChoixPerception("Clé");
 
       $em = $this->getDoctrine()->getManager();
@@ -170,7 +170,7 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
-      $perception->setEtatPerception("En cours");
+      $perception->setEtatPerception("enCours");
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
@@ -210,7 +210,7 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
-      $perception->setEtatPerception("En cours");
+      $perception->setEtatPerception("enCours");
       $perception->setChoixPerception("Clé");
 
       $em = $this->getDoctrine()->getManager();
@@ -258,7 +258,7 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
-      $perception->setEtatPerception("En cours");
+      $perception->setEtatPerception("enCours");
       $perception->setChoixPerception("Clé");
 
       $em = $this->getDoctrine()->getManager();
@@ -311,7 +311,7 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
-      $perception->setEtatPerception("En cours");
+      $perception->setEtatPerception("enCours");
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
@@ -358,7 +358,7 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
-      $perception->setEtatPerception("En cours");
+      $perception->setEtatPerception("enCours");
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
