@@ -90,8 +90,8 @@ $('.btn-filtrer').on('click',function ajaxCall(){
         }
 
         var icone = "<a href="+"perception/modifierPerception/"+data[leI].id+" class="+"a-modif-perception"+
-        "></a><span class="+"span2-modif-perception"+
-        "></span><a onclick="+"confirmeArchivee("+data[leI].id+")"+" id="+data[leI].id+" class="+"a1-modif-perception"+"></a>";
+        "></a><a onclick="+"imprimer("+data[leI].id+")"+" class="+"a2-modif-perception"+
+        "></a><a onclick="+"confirmeArchivee("+data[leI].id+")"+" id="+data[leI].id+" class="+"a1-modif-perception"+"></a>";
 
         $("#table>tbody:last").append("<tr><td>"+data[leI].percepteur.nom_percepteur+
         "</td><td>"+data[leI].percepteur.prenom_percepteur+
@@ -105,7 +105,7 @@ $('.btn-filtrer').on('click',function ajaxCall(){
       }
       $(".a-modif-perception").addClass("btn btn-success btn-modif-filtre glyphicon glyphicon-pencil");
       $(".a1-modif-perception").addClass("btn btn-success btn-modif-filtre glyphicon glyphicon-remove");
-      $(".span2-modif-perception").addClass("btn btn-success btn-modif-filtre glyphicon glyphicon-print");
+      $(".a2-modif-perception").addClass("btn btn-success btn-modif-filtre glyphicon glyphicon-print");
 
     },
     error:function(err){
@@ -119,6 +119,10 @@ function confirmeArchivee(id){
   if (conf == true) {
        window.location.replace("/perception/archiveePerception/"+id+"");
    }
+}
+
+function imprimer(id){
+  confirm("Fonctionnalitée à venir !");
 }
 
 function afficherPopupConfirmationArchivee(question, lien, id) {
