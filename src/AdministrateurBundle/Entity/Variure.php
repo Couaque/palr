@@ -45,6 +45,11 @@ class Variure
     */
      private $passPartiel3;
 
+     /**
+    *@ORM\ManyToOne(targetEntity="Equipement", cascade={"persist"}, inversedBy="Variures")
+    */
+     private $Equipement;
+
     /**
      * Get id
      *
@@ -156,4 +161,28 @@ class Variure
         return ' Variure : ' . $this->nomVariure . '/ Pass 2 ou 3 correspondant : ' . $this->getPassPartiel2()->getNomPass2() . ' ' . $this->getPassPartiel2()->getNomPass2();
     }
     */
+
+    /**
+     * Set equipement
+     *
+     * @param \AdministrateurBundle\Entity\Equipement $equipement
+     *
+     * @return Variure
+     */
+    public function setEquipement(\AdministrateurBundle\Entity\Equipement $equipement = null)
+    {
+        $this->Equipement = $equipement;
+
+        return $this;
+    }
+
+    /**
+     * Get equipement
+     *
+     * @return \AdministrateurBundle\Entity\Equipement
+     */
+    public function getEquipement()
+    {
+        return $this->Equipement;
+    }
 }

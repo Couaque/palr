@@ -8,6 +8,9 @@ use AdministrateurBundle\Entity\Perception;
 use AdministrateurBundle\Entity\Percepteur;
 use AdministrateurBundle\Form\PerceptionType;
 use AdministrateurBundle\Form\PerceptionType2;
+use AdministrateurBundle\Form\PerceptionType3;
+use AdministrateurBundle\Form\PerceptionType4;
+
 use AdministrateurBundle\Form\ModifierPerceptionType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +18,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use \PDO; 
+use \PDO;
 
 
 class PerceptionController extends Controller
@@ -75,11 +78,11 @@ class PerceptionController extends Controller
 
 
   /**
-  * @Route("/perception/ajouterPerception/localisation", name="localisation")
+  * @Route("/perception/ajouterPerception/localisation/Choix", name="localisation")
   */
-  public function ajouterPerceptionLocalisationAction()
+  public function ajouterPerceptionLocalisationChoixAction()
   {
-    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionLocalisation.html.twig');
+    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionLocalisationChoix.html.twig');
   }
 
   /**
@@ -90,14 +93,6 @@ class PerceptionController extends Controller
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleChoix.html.twig');
   }
 
-
-  /**
-  * @Route("/perception/ajouterPerception/numPorte", name="numPorte")
-  */
-  public function ajouterPerceptionNumPorteAction()
-  {
-    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPorte.html.twig');
-  }
 
   /**
   * @Route("/perception/ajouterPerception/numPorte/Choix", name="numPorte")
@@ -122,7 +117,7 @@ class PerceptionController extends Controller
     //$perception->getPercepteur()->add($percepteur);
 
 
-    $form = $this->createForm(PerceptionType::class, $perception);
+    $form = $this->createForm(PerceptionType3::class, $perception);
 
 
     $form->handleRequest($request);
@@ -132,6 +127,9 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
+      $perception->setEtatPerception("En cours");
+      $perception->setChoixPerception("Clé");
+
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
@@ -139,8 +137,6 @@ class PerceptionController extends Controller
     }
     $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
     $listeEquipements = $repository->findAll();
-    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
-    $listeVariures = $repository2->findAll();
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPorteNouveauPercepteur.html.twig', array(
       'equipements' => $listeEquipements,
@@ -151,10 +147,129 @@ class PerceptionController extends Controller
   /**
   * @Route("/perception/ajouterPerception/numPorte/PercepteurConnu", name="numPortePercepteurConnu")
   */
-  public function ajouterPerceptionNumPortePercepteurConnuAction()
+  public function ajouterPerceptionNumPortePercepteurConnuAction(Request $request)
   {
-    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPortePercepteurConnu.html.twig');
+    $perception = new Perception();
+    $perception->setDateFin(null);
+    $perception->setPassPartiel1(null);
+    $perception->setPassPartiel3(null);
+    $perception->setPassPartiel2(null);
+    $percepteur = new Percepteur();
+    $percepteur->setService(null);
+
+
+
+    $form = $this->createForm(PerceptionType4::class, $perception);
+
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      $PerceptionInsert = $form->getData();
+      if($perception->getTypePerception() == "Permanente"){
+        $perception->setDateFin(null);
+      }
+      $perception->setEtatPerception("En cours");
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($PerceptionInsert);
+      $em->flush();
+      $this->addFlash("success", "Vous avez bien inséré la perception");
+    }
+    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
+    $listeEquipements = $repository->findAll();
+    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPortePercepteurConnu.html.twig', array(
+      'equipements' => $listeEquipements,
+      'form' => $form->createView(),
+
+    ));
   }
+
+  /**
+  * @Route("/perception/ajouterPerception/localisation/nouveauPercepteur", name="localisationNouveauPercepteur")
+  */
+  public function ajouterPerceptionLocalisationNouveauPercepteurAction(Request $request)
+  {
+    $perception = new Perception();
+    $perception->setDateFin(null);
+    $perception->setPassPartiel1(null);
+    $perception->setPassPartiel3(null);
+    $perception->setPassPartiel2(null);
+    $percepteur = new Percepteur();
+    $percepteur->setService(null);
+    //$perception->getPercepteur()->add($percepteur);
+
+
+    $form = $this->createForm(PerceptionType3::class, $perception);
+
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      $PerceptionInsert = $form->getData();
+      if($perception->getTypePerception() == "Permanente"){
+        $perception->setDateFin(null);
+      }
+      $perception->setEtatPerception("En cours");
+      $perception->setChoixPerception("Clé");
+
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($PerceptionInsert);
+      $em->flush();
+      $this->addFlash("success", "Vous avez bien inséré la perception");
+    }
+    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
+    $listeEquipements = $repository->findAll();
+
+    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionLocalisationNouveauPercepteur.html.twig', array(
+      'equipements' => $listeEquipements,
+      'form' => $form->createView(),
+    ));
+  }
+
+  /**
+  * @Route("/perception/ajouterPerception/localisation/PercepteurConnu", name="localisationPercepteurConnu")
+  */
+  public function ajouterPerceptionLocalisationPercepteurConnuAction(Request $request)
+  {
+    $perception = new Perception();
+    $perception->setDateFin(null);
+    $perception->setPassPartiel1(null);
+    $perception->setPassPartiel3(null);
+    $perception->setPassPartiel2(null);
+    $percepteur = new Percepteur();
+    $percepteur->setService(null);
+
+
+
+    $form = $this->createForm(PerceptionType4::class, $perception);
+
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      $PerceptionInsert = $form->getData();
+      if($perception->getTypePerception() == "Permanente"){
+        $perception->setDateFin(null);
+      }
+      $perception->setEtatPerception("En cours");
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($PerceptionInsert);
+      $em->flush();
+      $this->addFlash("success", "Vous avez bien inséré la perception");
+    }
+    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
+    $listeEquipements = $repository->findAll();
+    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionLocalisationPercepteurConnu.html.twig', array(
+      'equipements' => $listeEquipements,
+      'form' => $form->createView(),
+
+    ));
+  }
+
+
+
+
+
 
   /**
   * @Route("/perception/ajouterPerception/numCle/nouveauPercepteur", name="numCleNouveauPercepteur")
@@ -168,7 +283,7 @@ class PerceptionController extends Controller
     $perception->setPassPartiel2(null);
     $percepteur = new Percepteur();
     $percepteur->setService(null);
-    //$perception->getPercepteur()->add($percepteur);
+
 
 
     $form = $this->createForm(PerceptionType::class, $perception);
@@ -181,26 +296,15 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
+      $perception->setEtatPerception("En cours");
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
       $this->addFlash("success", "Vous avez bien inséré la perception");
     }
-
-    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
-    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
-    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
-
-    $pp1 = $repository1->findAll();
-    $pp2 = $repository2->findAll();
-    $pp3 = $repository3->findAll();
-
-
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleNouveauPercepteur.html.twig', array(
       'form' => $form->createView(),
-      'pp1' => $pp1,
-      'pp2' => $pp2,
-      'pp3' => $pp3,
+
     ));
   }
 
@@ -230,6 +334,7 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
+      $perception->setEtatPerception("En cours");
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();

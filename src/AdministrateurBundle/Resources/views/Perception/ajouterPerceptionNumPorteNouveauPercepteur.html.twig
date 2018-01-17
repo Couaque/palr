@@ -13,20 +13,7 @@
   <h3> Veuillez renseigner les champs suivants : </h3>
 
 
-<p id="paragpp2">Numéro de porte :</p>
-  <select class="form-control" id="Porte" >
-    <option> - Selectionnez le numéro de porte voulu - </option>
-    {% for equipement in equipements %}
-<option>{{equipement.nomEquipement}}</option>
-    {% endfor %}
-</select>
 
-<select class="form-control">
-  <option> Variure : </option>
-  
-  <option></option>
-
-</select>
 
 
   {% form_theme form 'bootstrap_3_layout.html.twig' %}
@@ -47,13 +34,17 @@
   <div id="dateFin">
     {{form_row(form.dateFin)}}
   </div>
-  
-  {{form_row(form.choixPerception)}}
 
-  {{form_row(form.passPartiel1)}}
 
-  {{form_row(form.passPartiel2)}}
-  {{form_row(form.passPartiel3)}}
+
+  <p id="paragPorte">Numéro de porte :</p>
+  <select class="form-control" id="Porte" >
+    <option> - Selectionnez le numéro de porte voulu - </option>
+    {% for equipement in equipements %}
+<option data-id="{{equipement.id}}">{{equipement.nomEquipement}}</option>
+    {% endfor %}
+</select>
+
  
   <div id="variure">
     {{form_row(form.variure)}}
@@ -63,7 +54,7 @@
  
 </div>
 
-<script src="/js/ajouterPerceptionNumCle.js"></script>
+<script src="/js/ajouterPerceptionNumPorte.js"></script>
 
 {% endblock %}
 

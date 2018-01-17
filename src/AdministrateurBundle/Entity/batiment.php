@@ -36,6 +36,12 @@ class batiment
     */
     private $servicePALR;
 
+
+    /**
+    *@ORM\OneToMany(targetEntity="AdministrateurBundle\Entity\Localisation", cascade={"persist"}, mappedBy="batiment")
+    */
+    private $Localisations;
+
   
     /**
      * Get id
@@ -103,5 +109,81 @@ class batiment
     public function getOrganisations()
     {
         return $this->servicePALR;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->servicePALR = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->Localisations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add servicePALR
+     *
+     * @param \AdministrateurBundle\Entity\ServicePALR $servicePALR
+     *
+     * @return batiment
+     */
+    public function addServicePALR(\AdministrateurBundle\Entity\ServicePALR $servicePALR)
+    {
+        $this->servicePALR[] = $servicePALR;
+
+        return $this;
+    }
+
+    /**
+     * Remove servicePALR
+     *
+     * @param \AdministrateurBundle\Entity\ServicePALR $servicePALR
+     */
+    public function removeServicePALR(\AdministrateurBundle\Entity\ServicePALR $servicePALR)
+    {
+        $this->servicePALR->removeElement($servicePALR);
+    }
+
+    /**
+     * Get servicePALR
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getServicePALR()
+    {
+        return $this->servicePALR;
+    }
+
+    /**
+     * Add localisation
+     *
+     * @param \AdministrateurBundle\Entity\Localisation $localisation
+     *
+     * @return batiment
+     */
+    public function addLocalisation(\AdministrateurBundle\Entity\Localisation $localisation)
+    {
+        $this->Localisations[] = $localisation;
+
+        return $this;
+    }
+
+    /**
+     * Remove localisation
+     *
+     * @param \AdministrateurBundle\Entity\Localisation $localisation
+     */
+    public function removeLocalisation(\AdministrateurBundle\Entity\Localisation $localisation)
+    {
+        $this->Localisations->removeElement($localisation);
+    }
+
+    /**
+     * Get localisations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLocalisations()
+    {
+        return $this->Localisations;
     }
 }

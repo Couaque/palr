@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
-class PerceptionType extends AbstractType
+class PerceptionType4 extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -19,7 +19,10 @@ class PerceptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('percepteur', PercepteurType::class)
+        ->add('percepteur', EntityType::class, array(
+            'class' => 'AdministrateurBundle:Percepteur',
+            'required'=>true,
+            'multiple'=>false,))
         ->add('typePerception', ChoiceType::class, 
             array('label' => 'Type de perception :' ,'choices'=> array(
             'Permanente'=>'Permanente',
@@ -33,17 +36,14 @@ class PerceptionType extends AbstractType
             'label' => "Veuillez entrez l'une des variures trouvée par vos filtres : ",
             'attr' => array( 'disabled' => 'true'),
             'choice_attr' => function($variure, $index, $value){
-                if ($variure->getPassPartiel2() != null ){
+                if ($variure->getEquipement() != null ){
                     return 
                 array(
                 'class' => "variurecachee" . $variure->getId(),
                 'data-id' => $variure->getId(),
-                'data-idpartielpp2' => $variure->getPassPartiel2()->getId()); 
-                }else if ($variure->getPassPartiel3() != null ){
-                    return array(
-                'class' => "variurecachee" . $variure->getPassPartiel3()->getId(),
-                'data-id' => $variure->getId(),
-                'data-idpartielpp3' => $variure->getPassPartiel3()->getId());
+                'data-idpartielporte' => $variure->getEquipement()->getId()); 
+                }else{
+                    return array('class' => "variuresansequip");
                 } return array();
             }))
         ->add('passPartiel1', EntityType::class, array(
@@ -78,11 +78,6 @@ class PerceptionType extends AbstractType
                 'data-idpartiel' => $passPartiel3->getPassPartiel2()->getId()); 
                
             }))
-        ->add('choixPerception', ChoiceType::class, 
-            array('label' => 'La personne va percevoir :' ,'choices'=> array(
-            'Une clé'=>'Clé',
-            'Un Pass'=>'Pass'),
-        'expanded'=> true))
         ->add('save', SubmitType::class, array('label' => 'Ajouter Perception'));
        
          

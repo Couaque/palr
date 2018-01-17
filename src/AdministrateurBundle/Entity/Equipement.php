@@ -33,15 +33,22 @@ class Equipement
     */
     private $batiment;
 
-    /**
-    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"})
+     /**
+    *@ORM\OneToMany(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"}, mappedBy="Equipement")
     */
-    private $variure;
+    private $Variures;
     
     /**
     *@ORM\OneToOne(targetEntity="AdministrateurBundle\Entity\OutilFermeture", cascade={"persist"})
     */
     private $outilFermeture;
+
+    /**
+    *@ORM\ManyToOne(targetEntity="Localisation", cascade={"persist"}, inversedBy="Equipements")
+    */
+     private $localisation;
+
+
     /**
      * Get id
      *
@@ -74,5 +81,118 @@ class Equipement
     public function getNomEquipement()
     {
         return $this->nomEquipement;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Variures = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set batiment
+     *
+     * @param \AdministrateurBundle\Entity\batiment $batiment
+     *
+     * @return Equipement
+     */
+    public function setBatiment(\AdministrateurBundle\Entity\batiment $batiment = null)
+    {
+        $this->batiment = $batiment;
+
+        return $this;
+    }
+
+    /**
+     * Get batiment
+     *
+     * @return \AdministrateurBundle\Entity\batiment
+     */
+    public function getBatiment()
+    {
+        return $this->batiment;
+    }
+
+    /**
+     * Add variure
+     *
+     * @param \AdministrateurBundle\Entity\Variure $variure
+     *
+     * @return Equipement
+     */
+    public function addVariure(\AdministrateurBundle\Entity\Variure $variure)
+    {
+        $this->Variures[] = $variure;
+
+        return $this;
+    }
+
+    /**
+     * Remove variure
+     *
+     * @param \AdministrateurBundle\Entity\Variure $variure
+     */
+    public function removeVariure(\AdministrateurBundle\Entity\Variure $variure)
+    {
+        $this->Variures->removeElement($variure);
+    }
+
+    /**
+     * Get variures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVariures()
+    {
+        return $this->Variures;
+    }
+
+    /**
+     * Set outilFermeture
+     *
+     * @param \AdministrateurBundle\Entity\OutilFermeture $outilFermeture
+     *
+     * @return Equipement
+     */
+    public function setOutilFermeture(\AdministrateurBundle\Entity\OutilFermeture $outilFermeture = null)
+    {
+        $this->outilFermeture = $outilFermeture;
+
+        return $this;
+    }
+
+    /**
+     * Get outilFermeture
+     *
+     * @return \AdministrateurBundle\Entity\OutilFermeture
+     */
+    public function getOutilFermeture()
+    {
+        return $this->outilFermeture;
+    }
+
+    /**
+     * Set localisation
+     *
+     * @param \AdministrateurBundle\Entity\Localisation $localisation
+     *
+     * @return Equipement
+     */
+    public function setLocalisation(\AdministrateurBundle\Entity\Localisation $localisation = null)
+    {
+        $this->localisation = $localisation;
+
+        return $this;
+    }
+
+    /**
+     * Get localisation
+     *
+     * @return \AdministrateurBundle\Entity\Localisation
+     */
+    public function getLocalisation()
+    {
+        return $this->localisation;
     }
 }
