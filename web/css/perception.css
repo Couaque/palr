@@ -1,3 +1,13 @@
+.div-modif-perception{
+  text-align: center;
+}
+
+img.div-modif-perception {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 label{
   font-weight: bold;
 }
@@ -35,7 +45,6 @@ footer{
 }
 
 
-
 body{
   position: relative;
   height: 100%;
@@ -68,17 +77,17 @@ body{
 }
 
 .col-centered{
-    float: none;
-    margin: 0 auto;
-    margin-bottom: 15px;
+  float: none;
+  margin: 0 auto;
+  margin-bottom: 15px;
 }
 
 select.form-control:not([size]):not([multiple]) {
-    height: auto;
+  height: auto;
 }
 
 .btn-modif{
-    margin:2px;
+  margin:2px;
 }
 
 .btn-modif-filtre{
