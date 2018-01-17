@@ -10,7 +10,8 @@ use AdministrateurBundle\Form\PerceptionType;
 use AdministrateurBundle\Form\PerceptionType2;
 use AdministrateurBundle\Form\PerceptionType3;
 use AdministrateurBundle\Form\PerceptionType4;
-
+use AdministrateurBundle\Form\PerceptionType5;
+use AdministrateurBundle\Form\PerceptionType6;
 use AdministrateurBundle\Form\ModifierPerceptionType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -199,7 +200,7 @@ class PerceptionController extends Controller
     //$perception->getPercepteur()->add($percepteur);
 
 
-    $form = $this->createForm(PerceptionType3::class, $perception);
+    $form = $this->createForm(PerceptionType5::class, $perception);
 
 
     $form->handleRequest($request);
@@ -218,11 +219,17 @@ class PerceptionController extends Controller
       $this->addFlash("success", "Vous avez bien inséré la perception");
     }
     $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
+    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:batiment');
+    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Localisation');
     $listeEquipements = $repository->findAll();
+    $batiments = $repository2->findAll();
+    $localisations = $repository3->findAll();
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionLocalisationNouveauPercepteur.html.twig', array(
       'equipements' => $listeEquipements,
       'form' => $form->createView(),
+      'batiments' => $batiments,
+      'localisations' => $localisations,
     ));
   }
 
@@ -238,10 +245,10 @@ class PerceptionController extends Controller
     $perception->setPassPartiel2(null);
     $percepteur = new Percepteur();
     $percepteur->setService(null);
+    //$perception->getPercepteur()->add($percepteur);
 
 
-
-    $form = $this->createForm(PerceptionType4::class, $perception);
+    $form = $this->createForm(PerceptionType6::class, $perception);
 
 
     $form->handleRequest($request);
@@ -252,17 +259,25 @@ class PerceptionController extends Controller
         $perception->setDateFin(null);
       }
       $perception->setEtatPerception("En cours");
+      $perception->setChoixPerception("Clé");
+
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
       $this->addFlash("success", "Vous avez bien inséré la perception");
     }
     $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
+    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:batiment');
+    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Localisation');
     $listeEquipements = $repository->findAll();
+    $batiments = $repository2->findAll();
+    $localisations = $repository3->findAll();
+
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionLocalisationPercepteurConnu.html.twig', array(
       'equipements' => $listeEquipements,
       'form' => $form->createView(),
-
+      'batiments' => $batiments,
+      'localisations' => $localisations,
     ));
   }
 
