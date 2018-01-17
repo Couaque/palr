@@ -55,6 +55,13 @@ class Perception
     private $choixPerception;
 
     /**
+     * @var string
+     * @Assert\Choice({"enCours", "Archivee"})
+     * @ORM\Column(name="etatPerception", type="string", length=255)
+     */
+    private $etatPerception;
+
+    /**
     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\Percepteur", cascade={"persist"})
     */
      private $percepteur;
@@ -307,5 +314,29 @@ class Perception
     public function getChoixPerception()
     {
         return $this->choixPerception;
+    }
+
+    /**
+     * Set etatPerception
+     *
+     * @param string $etatPerception
+     *
+     * @return Perception
+     */
+    public function setEtatPerception($etatPerception)
+    {
+        $this->etatPerception = $etatPerception;
+
+        return $this;
+    }
+
+    /**
+     * Get etatPerception
+     *
+     * @return string
+     */
+    public function getEtatPerception()
+    {
+        return $this->etatPerception;
     }
 }

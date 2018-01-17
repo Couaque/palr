@@ -71,7 +71,7 @@ class PerceptionController extends Controller
     return $this->render('AdministrateurBundle:Perception:ajouterPerception.html.twig');
   }
 
- 
+
 
   /**
   * @Route("/perception/ajouterPerception/localisation", name="localisation")
@@ -249,7 +249,7 @@ class PerceptionController extends Controller
       'pp3' => $pp3,
     ));
   }
-  
+
   /**
   * @Route("/perception/filtrerPerception", name="filtrerPerception")
   */

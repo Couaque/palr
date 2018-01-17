@@ -86,7 +86,9 @@ $('.btn-filtrer').on('click',function ajaxCall(){
           pass3 = "X";
         }
 
-        var icone = "<a href="+"perception/modifierPerception/"+data[leI].id+" class="+"a-modif-perception"+"></a><span class="+"span2-modif-perception"+"></span><span class="+"span1-modif-perception"+"></span>";
+        var icone = "<a href="+"perception/modifierPerception/"+data[leI].id+" class="+"a-modif-perception"+
+        "></a><span class="+"span2-modif-perception"+
+        "></span><span class="+"span1-modif-perception"+"></span>";
 
         $("#table>tbody:last").append("<tr><td>"+data[leI].percepteur.nom_percepteur+
         "</td><td>"+data[leI].percepteur.prenom_percepteur+
