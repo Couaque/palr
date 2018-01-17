@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+{% for message in app.flashes('success') %}
+<div class="alert alert-success">
+  {{ message }}
+</div>
+{% endfor %}
+
+<a href="{{ path('ajouterPerception') }}" class="btn btn-primary btn-modif"> Nouvelle perception</a>
+<div class="container">
+  <h2>Ajouter une perception</h2>
+  <h3> Veuillez renseigner les champs suivants : </h3>
+
+
+
+
+
+  {% form_theme form 'bootstrap_3_layout.html.twig' %}
+  {{ form_start(form) }}
+  {{form_row(form.percepteur) }}
+  {{form_row(form.typePerception)}}
+  <div id="dateDebut">
+    {{form_row(form.dateDebut)}}
+  </div>
+  <div id="dateFin">
+    {{form_row(form.dateFin)}}
+  </div>
+
+
+<p id="paragBatiment">Batiment :</p>
+  <select class="form-control" id="Batiment" >
+    <option> - Selectionnez le batiment - </option>
+    {% for bat in batiments %}
+<option data-id="{{bat.id}}">{{bat.nomBat}}</option>
+    {% endfor %}
+</select>
+
+
+<p id="paragLocalisation">Localisation :</p>
+  <select class="form-control" id="Localisation" disabled>
+    <option> - Selectionnez la localisation de ce batiment - </option>
+    {% for local in localisations %}
+<option class="localcachee{{local.id}}" data-idlocal="{{local.batiment.id}}" data-id="{{local.id}}">{{local.nomLocalisation}}</option>
+    {% endfor %}
+</select>
+
+ 
+  <div id="variure">
+    {{form_row(form.variure)}}
+  </div>
+
+  {{ form_end(form) }}
+ 
+</div>
+
+<script src="/js/ajouterPerceptionLocalisation.js"></script>
+
+{% endblock %}
+
