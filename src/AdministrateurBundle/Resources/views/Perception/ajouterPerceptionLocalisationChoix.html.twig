@@ -1,14 +1,15 @@
 {% extends '::base.html.twig' %}
 {% block body %}
 
+  <link href="/css/ajouterPerception.css" rel="stylesheet">
+
+<h1> Vous souhaitez ajouter une perception par localisation. </h1>
+<h2> Le percepteur existe-il déja ? </h2>
+
+<a href="{{ path('localisationNouveauPercepteur') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus-sign"></span>  Nouveau Percepteur</a>
 
 
-
-
-
- <a href="{{ path('localisationNouveauPercepteur') }}" class="btn btn-primary" role="button">Nouveau Percepteur</a>
-
- <a href="{{ path('localisationPercepteurConnu') }}" class="btn btn-primary" role="button">Percepteur connu</a>
+<a href="{{ path('localisationPercepteurConnu') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-user"></span>  Percepteur Connu</a>
  
 
 

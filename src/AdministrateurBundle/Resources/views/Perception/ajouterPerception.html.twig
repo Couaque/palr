@@ -1,15 +1,16 @@
 {% extends '::base.html.twig' %}
 {% block body %}
 
+  <link href="/css/ajouterPerception.css" rel="stylesheet">
 
 
- <a href="{{ path('numPorte') }}" class="btn btn-primary" role="button">Par Numéro de Porte</a>
+ <a href="{{ path('numCle') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-edit"></span>  Par Numéro de Cle</a>
 
 
- <a href="{{ path('numCle') }}" class="btn btn-primary" role="button">Par Numéro de Clé</a>
+ <a href="{{ path('numPorte') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-edit"></span>  Par Numéro de Porte</a>
 
 
- <a href="{{ path('localisation') }}" class="btn btn-primary" role="button">Par Localisation</a>
+  <a href="{{ path('localisation') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-edit"></span>  Par Localisation</a>
 
 
 

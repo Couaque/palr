@@ -1,10 +1,17 @@
 {% extends '::base.html.twig' %}
 {% block body %}
 
+<link href="/css/ajouterPerception.css" rel="stylesheet">
 
- <a href="{{ path('numCleNouveauPercepteur') }}" class="btn btn-primary" role="button">Nouveau Percepteur</a>
 
- <a href="{{ path('numClePercepteurConnu') }}" class="btn btn-primary" role="button">Percepteur connu</a>
+<h1> Vous souhaitez ajouter une perception par numéro de clé. </h1>
+<h2> Le percepteur existe-il déjà ? </h2>
+
+
+
+ <a href="{{ path('numCleNouveauPercepteur') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus-sign"></span>  Nouveau Percepteur</a>
+
+<a href="{{ path('numClePercepteurConnu') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-user"></span>  Percepteur Connu</a>
  
 
 
