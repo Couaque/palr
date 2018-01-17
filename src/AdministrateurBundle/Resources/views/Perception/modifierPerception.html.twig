@@ -41,6 +41,10 @@
               <div id="variure">
                 {{  form_row(form.variure)}}
               </div>
+              <div id="etatPerception">
+                {{form_row(form.etatPerception)}}
+              </div>
+              {{ form_row(form._token)}}
               {{ form_row(form.save) }}<a href="{{ path('perception') }}"></a>
           </div>
       </form>

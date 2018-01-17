@@ -19,7 +19,7 @@ var textField = $("#administrateurbundle_perception_percepteur_organisation"),
     parag=$("#parag"),
     pass=$('#pass'),
     typePercepteur1 = $("#administrateurbundle_perception_typePercepteur_1"),
-    typePercepteur0 = $("#administrateurbundle_perception_typePerception_0"),
+    typePercepteur0 = $("#administrateurbundle_perception_typePercepteur_0"),
     select = $( "#administrateurbundle_perception_percepteur_service" ),
     select2 = $( "#administrateurbundle_perception_passPartiel1" ),
     select3 = $( "#administrateurbundle_perception_passPartiel2" ),
@@ -33,19 +33,21 @@ var textField = $("#administrateurbundle_perception_percepteur_organisation"),
     select7 = $("#Pass2"),
     select8 = $("#Pass3"),
     divid2 = $('#dateFin'),
-    divid = $('#variure');
-
+    divid = $('#variure'),
+    etatPerception=$('#etatPerception');
 
 
 h4.hide();
 divid2.hide();
+service.hide();
+organisation.hide();
 if(typePercepteur1.val()=='EmployePort')
 {
   select.show();
   textField.hide();
   label.hide();
   label2.show();
-  organisation.hide();
+  service.show();
   $("#administrateurbundle_perception_percepteur_organisation").val ("PALR");
 }
 
@@ -55,7 +57,7 @@ if(typePercepteur0.val()=='CollabExt')
   label.show();
   select.hide();
   label2.hide();
-  service.hide();
+  organisation.show();
 }
 
 if(typePerception0.val() == 'Permanente'){
@@ -80,16 +82,16 @@ if(choixPerception1.val()=='Pass'){
   parag.hide();
   divid.hide();
 }
-if(select4.val()=='X'){
-  select4.hide();
+if(select4.val()==null){
+  select4.val() ('');
 }
-typePercepteur.hide();
 parag1.hide();
 parag2.hide();
 parag3.hide();
 select6.hide();
 select7.hide();
 select8.hide();
+etatPerception.hide();
 
 $("#administrateurbundle_perception_passPartiel1").prepend("<option></option>");
 $("#administrateurbundle_perception_passPartiel2").prepend("<option></option>");
@@ -169,9 +171,10 @@ list2.on('change', function(event) {
     textField.hide();
     label.hide();
     label2.show();
+    organisation.hide();
+    service.show();
     $("#administrateurbundle_perception_percepteur_organisation").val ("PALR");
-
-  }
+}
 });
 
  $('#administrateurbundle_perception_percepteur_typePercepteur_1').change(function(){
@@ -180,6 +183,8 @@ list2.on('change', function(event) {
     label.show();
     select.hide();
     label2.hide();
+    organisation.show();
+    service.hide();
   }
 });
 
@@ -194,7 +199,4 @@ list2.on('change', function(event) {
    divid2.show();
  }
 });
-
-
-
 });

@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ModifierPerceptionType extends AbstractType
 {
@@ -49,6 +50,7 @@ class ModifierPerceptionType extends AbstractType
             'class' => 'AdministrateurBundle:PassPartiel3',
             'choice_label' => 'nomPass3',
             'label' => 'Pass 3 correspondant :'))
+        ->add('etatPerception', TextType::class)
         ->add('save', SubmitType::class, array('label' => 'Modifier Perception'
       ));
 
