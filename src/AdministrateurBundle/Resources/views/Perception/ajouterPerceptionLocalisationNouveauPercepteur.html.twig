@@ -7,8 +7,11 @@
 </div>
 {% endfor %}
 
-<a href="{{ path('ajouterPerception') }}" class="btn btn-primary btn-modif"> Nouvelle perception</a>
-<div class="container">
+  <link href="/css/nouvellePerception.css" rel="stylesheet">
+
+
+
+<div class="container alert alert-info">
   <h2>Ajouter une perception</h2>
   <h3> Veuillez renseigner les champs suivants : </h3>
 
@@ -18,6 +21,7 @@
 
   {% form_theme form 'bootstrap_3_layout.html.twig' %}
   {{ form_start(form) }}
+  <div class="champs">
   {{form_row(form.percepteur.nomPercepteur)}}
   {{form_row(form.percepteur.prenomPercepteur)}}
   {{form_row(form.percepteur.email)}}
@@ -57,9 +61,13 @@
   <div id="variure">
     {{form_row(form.variure)}}
   </div>
-
+</div>
   {{ form_end(form) }}
  
+</div>
+
+<div id="nouvellePerception">
+<a href="{{ path('ajouterPerception') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span>  Nouvelle perception</a>
 </div>
 
 <script src="/js/ajouterPerceptionLocalisation.js"></script>

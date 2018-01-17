@@ -33,7 +33,7 @@ class PerceptionType2 extends AbstractType
         ->add('variure', EntityType::class, array(
             'class' => 'AdministrateurBundle:Variure',
             'choice_label' => 'nomVariure',
-            'label' => "Veuillez entrez l'une des variures trouvée par vos filtres : ",
+            'label' => "Veuillez entrez l'une des clés trouvée par vos filtres : ",
             'attr' => array( 'disabled' => 'true'),
             'choice_attr' => function($variure, $index, $value){
                 if ($variure->getPassPartiel2() != null ){
@@ -86,7 +86,9 @@ class PerceptionType2 extends AbstractType
             'Une clé'=>'Clé',
             'Un Pass'=>'Pass'),
         'expanded'=> true))
-        ->add('save', SubmitType::class, array('label' => 'Ajouter Perception'));
+        ->add('save', SubmitType::class, array(
+        'label' => 'Valider la Perception',
+        'attr' => array('class' => "btn btn-info btn-lg")));
 
 
     }

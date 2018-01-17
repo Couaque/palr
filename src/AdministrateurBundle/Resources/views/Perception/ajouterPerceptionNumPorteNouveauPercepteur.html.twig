@@ -7,8 +7,10 @@
 </div>
 {% endfor %}
 
-<a href="{{ path('ajouterPerception') }}" class="btn btn-primary btn-modif"> Nouvelle perception</a>
-<div class="container">
+  <link href="/css/nouvellePerception.css" rel="stylesheet">
+
+
+<div class="container alert alert-info">
   <h2>Ajouter une perception</h2>
   <h3> Veuillez renseigner les champs suivants : </h3>
 
@@ -18,15 +20,18 @@
 
   {% form_theme form 'bootstrap_3_layout.html.twig' %}
   {{ form_start(form) }}
+  <div class="champs">
   {{form_row(form.percepteur.nomPercepteur)}}
   {{form_row(form.percepteur.prenomPercepteur)}}
   {{form_row(form.percepteur.email)}}
-
+</div>
   {{form_row(form.percepteur.typePercepteur)}}
 
-
+<div class="champs">
   {{form_row(form.percepteur.organisation)}}
   {{form_row(form.percepteur.service)}}
+</div>
+
   {{form_row(form.typePerception)}}
   <div id="dateDebut">
     {{form_row(form.dateDebut)}}
@@ -35,7 +40,7 @@
     {{form_row(form.dateFin)}}
   </div>
 
-
+<div class="champs">
 
   <p id="paragPorte">Numéro de porte :</p>
   <select class="form-control" id="Porte" >
@@ -50,8 +55,13 @@
     {{form_row(form.variure)}}
   </div>
 
+</div>
   {{ form_end(form) }}
  
+</div>
+
+<div id="nouvellePerception">
+<a href="{{ path('ajouterPerception') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span>  Nouvelle perception</a>
 </div>
 
 <script src="/js/ajouterPerceptionNumPorte.js"></script>

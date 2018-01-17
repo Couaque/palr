@@ -1,0 +1,17 @@
+body{
+	text-align: center;
+}
+
+.container{
+	max-width: 40%;
+}
+
+#nouvellePerception{
+	margin-bottom: 20px;
+}
+
+.champs{
+	max-width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
