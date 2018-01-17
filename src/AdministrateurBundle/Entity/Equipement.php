@@ -42,6 +42,13 @@ class Equipement
     *@ORM\OneToOne(targetEntity="AdministrateurBundle\Entity\OutilFermeture", cascade={"persist"})
     */
     private $outilFermeture;
+
+    /**
+    *@ORM\ManyToOne(targetEntity="Localisation", cascade={"persist"}, inversedBy="Equipements")
+    */
+     private $localisation;
+
+
     /**
      * Get id
      *
@@ -163,5 +170,29 @@ class Equipement
     public function getOutilFermeture()
     {
         return $this->outilFermeture;
+    }
+
+    /**
+     * Set localisation
+     *
+     * @param \AdministrateurBundle\Entity\Localisation $localisation
+     *
+     * @return Equipement
+     */
+    public function setLocalisation(\AdministrateurBundle\Entity\Localisation $localisation = null)
+    {
+        $this->localisation = $localisation;
+
+        return $this;
+    }
+
+    /**
+     * Get localisation
+     *
+     * @return \AdministrateurBundle\Entity\Localisation
+     */
+    public function getLocalisation()
+    {
+        return $this->localisation;
     }
 }

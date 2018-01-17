@@ -28,6 +28,16 @@ class Localisation
      */
     private $nomLocalisation;
 
+    /**
+    *@ORM\OneToMany(targetEntity="AdministrateurBundle\Entity\Equipement", cascade={"persist"}, mappedBy="localisation")
+    */
+    private $Equipements;
+
+    /**
+    *@ORM\ManyToOne(targetEntity="batiment", cascade={"persist"}, inversedBy="Localisations")
+    */
+     private $batiment;
+
 
     /**
      * Get id
@@ -62,5 +72,69 @@ class Localisation
     {
         return $this->nomLocalisation;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Equipements = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add equipement
+     *
+     * @param \AdministrateurBundle\Entity\Equipement $equipement
+     *
+     * @return Localisation
+     */
+    public function addEquipement(\AdministrateurBundle\Entity\Equipement $equipement)
+    {
+        $this->Equipements[] = $equipement;
+
+        return $this;
+    }
+
+    /**
+     * Remove equipement
+     *
+     * @param \AdministrateurBundle\Entity\Equipement $equipement
+     */
+    public function removeEquipement(\AdministrateurBundle\Entity\Equipement $equipement)
+    {
+        $this->Equipements->removeElement($equipement);
+    }
+
+    /**
+     * Get equipements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEquipements()
+    {
+        return $this->Equipements;
+    }
+
+    /**
+     * Set batiment
+     *
+     * @param \AdministrateurBundle\Entity\batiment $batiment
+     *
+     * @return Localisation
+     */
+    public function setBatiment(\AdministrateurBundle\Entity\batiment $batiment = null)
+    {
+        $this->batiment = $batiment;
+
+        return $this;
+    }
+
+    /**
+     * Get batiment
+     *
+     * @return \AdministrateurBundle\Entity\batiment
+     */
+    public function getBatiment()
+    {
+        return $this->batiment;
+    }
+}
