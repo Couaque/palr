@@ -1,3 +1,7 @@
+body{
+  width: 100%;
+}
+
 .div-modif-perception{
   text-align: center;
 }
@@ -68,8 +72,6 @@ body{
 .navchoix{
   display: flex;
 }
-
-
 
 .content-container{
   display : flex;
