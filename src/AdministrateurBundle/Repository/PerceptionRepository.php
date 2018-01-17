@@ -19,7 +19,9 @@ class PerceptionRepository extends \Doctrine\ORM\EntityRepository
     $pass2 = false;
     $qb = $this->createQueryBuilder('p');
     $qb->select('perception')
-    ->from('\AdministrateurBundle\Entity\Perception','perception');
+    ->from('\AdministrateurBundle\Entity\Perception','perception')
+    ->andWhere('perception.etatPerception = :etatPerception');
+    $parameters['etatPerception'] = $options['etat'];
 
     if($options['nom'] != ""){
       $qb->join('perception.percepteur','percepteur')
