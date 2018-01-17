@@ -171,6 +171,9 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     select7.hide();
     select8.hide();
     $("#administrateurbundle_perception_variure").val (null);
+    $("#administrateurbundle_perception_passPartiel1").val (null);
+    $("#administrateurbundle_perception_passPartiel2").val (null);
+    $("#administrateurbundle_perception_passPartiel3").val (null);
     divid.hide();
   }
 });
