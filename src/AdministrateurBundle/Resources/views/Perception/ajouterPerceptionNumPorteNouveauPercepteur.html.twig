@@ -41,7 +41,7 @@
   <select class="form-control" id="Porte" >
     <option> - Selectionnez le numéro de porte voulu - </option>
     {% for equipement in equipements %}
-<option>{{equipement.nomEquipement}}</option>
+<option data-id="{{equipement.id}}">{{equipement.nomEquipement}}</option>
     {% endfor %}
 </select>
 

@@ -5,6 +5,27 @@ $(document).ready(function(){
 
 
 
+var list1 = $("#Porte");
+var list2 = $("#administrateurbundle_perception_variure");
+$("#administrateurbundle_perception_variure").val (null);
+$(".variuresansequip").hide();
+
+list1.on('change', function(event) {
+  for (var leI=0; leI<50; leI++){
+    console.log($("#Porte option:selected").data('id'));
+      console.log($("#administrateurbundle_perception_variure option:eq("+leI+")").data('idpartielporte'));
+
+    if(($("#Porte option:selected").data('id')) != ($("#administrateurbundle_perception_variure option:eq("+leI+")").data('idpartielporte'))){
+
+    $("#administrateurbundle_perception_variure option:eq("+leI+")").hide();
+    }else{
+    $("#administrateurbundle_perception_variure option:eq("+leI+")").show();
+    }
+  }
+
+  $("#administrateurbundle_perception_variure").removeAttr("disabled");
+});
+
 var porte = $("#Porte");
 
 
@@ -27,6 +48,7 @@ var porte = $("#Porte");
  $("#administrateurbundle_perception_passPartiel1").hide();
   $("#administrateurbundle_perception_passPartiel2").hide();
    $("#administrateurbundle_perception_passPartiel3").hide();
+
     $("#administrateurbundle_perception_passPartiel1").val (null);
   $("#administrateurbundle_perception_passPartiel2").val(null);
    $("#administrateurbundle_perception_passPartiel3").val(null);

@@ -14,11 +14,11 @@
 
 
 
+
+
   {% form_theme form 'bootstrap_3_layout.html.twig' %}
   {{ form_start(form) }}
   {{form_row(form.percepteur)}}
-
-
 
   {{form_row(form.typePerception)}}
   <div id="dateDebut">
@@ -28,63 +28,26 @@
     {{form_row(form.dateFin)}}
   </div>
 
-  
-  {{form_row(form.choixPerception)}}
-
-  {{form_row(form.passPartiel1)}}
 
 
-  {{form_row(form.passPartiel2)}}
-  {{form_row(form.passPartiel3)}}
-  <p id="paragpp1"> Pass 1 : </p>
-  
-  <select class="form-control" id="Pass1">
-    <option> - Selectionnez le pass 1 - </option>
-    {% for pass in pp1 %}
-
-    <option data-id="{{pass.id}}">{{pass.nomPass1}}</option>
+  <p id="paragPorte">Numéro de porte :</p>
+  <select class="form-control" id="Porte" >
+    <option> - Selectionnez le numéro de porte voulu - </option>
+    {% for equipement in equipements %}
+<option data-id="{{equipement.id}}">{{equipement.nomEquipement}}</option>
     {% endfor %}
-  </select>
+</select>
 
-
-  <p id="paragpp2">Pass 2 :</p>
-  <select class="form-control" id="Pass2" disabled>
-    <option> - Selectionnez le pass 2 - </option>
-    {% for pass in pp2 %}
-
-    <option class="pass2cacher{{pass.id}}" data-idpartiel="{{pass.PassPartiel1.id}}" data-id="{{pass.id}}">{{pass.nomPass2}}</option>
-    {% endfor %}
-  </select>
-
-
-  <p id="paragpp3">Pass 3 :</p>
-
-  <select class="form-control" id="Pass3" disabled>
-    <option> - Selectionnez le pass 3 - </option>
-    {% for pass in pp3 %}
-
-    <option class="pass3cacher{{pass.id}}" data-idpartiel="{{pass.PassPartiel2.id}}" data-id="{{pass.id}}">{{pass.nomPass3}}</option>
-    {% endfor %}
-  </select>
-
-
-
-
+ 
   <div id="variure">
     {{form_row(form.variure)}}
   </div>
 
-
-
   {{ form_end(form) }}
-
-
-
-  
+ 
 </div>
 
-
-<script src="/js/ajouterPerceptionNumCle.js"></script>
+<script src="/js/ajouterPerceptionNumPorte.js"></script>
 
 {% endblock %}
 
