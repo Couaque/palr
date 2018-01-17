@@ -8,6 +8,7 @@ use AdministrateurBundle\Entity\Perception;
 use AdministrateurBundle\Entity\Percepteur;
 use AdministrateurBundle\Form\PerceptionType;
 use AdministrateurBundle\Form\PerceptionType2;
+use AdministrateurBundle\Form\PerceptionType3;
 use AdministrateurBundle\Form\ModifierPerceptionType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -121,7 +122,7 @@ class PerceptionController extends Controller
     //$perception->getPercepteur()->add($percepteur);
 
 
-    $form = $this->createForm(PerceptionType::class, $perception);
+    $form = $this->createForm(PerceptionType3::class, $perception);
 
 
     $form->handleRequest($request);
@@ -131,6 +132,9 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
+      $perception->setEtatPerception("En cours");
+      $perception->setChoixPerception("Clé");
+
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
@@ -138,8 +142,6 @@ class PerceptionController extends Controller
     }
     $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
     $listeEquipements = $repository->findAll();
-    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
-    $listeVariures = $repository2->findAll();
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPorteNouveauPercepteur.html.twig', array(
       'equipements' => $listeEquipements,
@@ -180,6 +182,7 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
+      $perception->setEtatPerception("En cours");
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
@@ -229,6 +232,7 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
+      $perception->setEtatPerception("En cours");
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();

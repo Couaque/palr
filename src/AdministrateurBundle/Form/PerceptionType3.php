@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
-class PerceptionType extends AbstractType
+class PerceptionType3 extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -78,11 +78,6 @@ class PerceptionType extends AbstractType
                 'data-idpartiel' => $passPartiel3->getPassPartiel2()->getId()); 
                
             }))
-        ->add('choixPerception', ChoiceType::class, 
-            array('label' => 'La personne va percevoir :' ,'choices'=> array(
-            'Une clé'=>'Clé',
-            'Un Pass'=>'Pass'),
-        'expanded'=> true))
         ->add('save', SubmitType::class, array('label' => 'Ajouter Perception'));
        
          
