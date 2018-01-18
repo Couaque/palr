@@ -9,7 +9,8 @@ var textField = $("#administrateurbundle_perception_percepteur_organisation"),
     label3 = $("label[for='administrateurbundle_perception_passPartiel1']"),
     label4 = $("label[for='administrateurbundle_perception_passPartiel2']"),
     label5 = $("label[for='administrateurbundle_perception_passPartiel3']"),
-    typePercepteur = $('#typePercepteur'),
+    divTypePercepteur = $('#typePercepteur'),
+    typePercepteur=$("administrateurbundle_perception_percepteur_typePercepteur"),
     choixPerception0 = $("#administrateurbundle_perception_choixPerception_0"),
     choixPerception1 = $("#administrateurbundle_perception_choixPerception_1"),
     typePerception1 = $("#administrateurbundle_perception_typePerception_1"),
@@ -18,8 +19,6 @@ var textField = $("#administrateurbundle_perception_percepteur_organisation"),
     service=$('#service'),
     parag=$("#parag"),
     pass=$('#pass'),
-    typePercepteur1 = $("#administrateurbundle_perception_typePercepteur_1"),
-    typePercepteur0 = $("#administrateurbundle_perception_typePerception_0"),
     select = $( "#administrateurbundle_perception_percepteur_service" ),
     select2 = $( "#administrateurbundle_perception_passPartiel1" ),
     select3 = $( "#administrateurbundle_perception_passPartiel2" ),
@@ -33,104 +32,102 @@ var textField = $("#administrateurbundle_perception_percepteur_organisation"),
     select7 = $("#Pass2"),
     select8 = $("#Pass3"),
     divid2 = $('#dateFin'),
-    divid = $('#variure');
-
+    divid = $('#variure'),
+    etatPerception=$('#etatPerception');
 
 
 h4.hide();
-divid2.hide();
-if(typePercepteur1.val()=='EmployePort')
-{
-  select.show();
-  textField.hide();
-  label.hide();
-  label2.show();
+
+
+if(textField.val()=='PALR'){
+  service.show();
   organisation.hide();
-  $("#administrateurbundle_perception_percepteur_organisation").val ("PALR");
 }
-
-if(typePercepteur0.val()=='CollabExt')
-{
-  textField.show();
-  label.show();
-  select.hide();
-  label2.hide();
+else{
+  organisation.show();
   service.hide();
-}
 
-if(typePerception0.val() == 'Permanente'){
+}
+if(typePerception0.is(':checked')){
   divid2.hide();
-}
-
-if(typePerception1.val() == 'Temporaire'){
+}else{
   divid2.show();
 }
-
-if(choixPerception0.val()=='Clé'){
-  pass.hide();
-  divid.show();
-  h4.show();
-  parag.show();
-}
-
-if(choixPerception1.val()=='Pass'){
+if(choixPerception1.is(':checked')){
   pass.show();
   variure.hide();
   h4.hide();
   parag.hide();
   divid.hide();
 }
-if(select4.val()=='X'){
-  select4.hide();
+else{
+  pass.hide();
+  divid.show();
+  h4.show();
+  parag.show();
 }
-typePercepteur.hide();
+
+
+divTypePercepteur.hide();
+
+
+
+
+for (var leI=1; leI<26; leI++){
+  if(($("#administrateurbundle_perception_passPartiel1 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel2 option:eq("+leI+")").data('idpartiel'))){
+    $(".pass2cacher"+leI).hide();
+  }else{
+    $(".pass2cacher"+leI).show();
+  }
+}
+for (var leI=1; leI<124; leI++){
+  if(($("#administrateurbundle_perception_passPartiel2 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel3 option:eq("+leI+")").data('idpartiel'))){
+    $(".pass3cacher"+leI).hide();
+  }else{
+    $(".pass3cacher"+leI).show();
+  }
+}
+$("#administrateurbundle_perception_passPartiel2").prepend("<option></option>");
+$("#administrateurbundle_perception_passPartiel3").prepend("<option></option>");
 parag1.hide();
 parag2.hide();
 parag3.hide();
 select6.hide();
 select7.hide();
 select8.hide();
+etatPerception.hide();
 
-$("#administrateurbundle_perception_passPartiel1").prepend("<option></option>");
-$("#administrateurbundle_perception_passPartiel2").prepend("<option></option>");
-$("#administrateurbundle_perception_passPartiel3").prepend("<option></option>");
+
 
 list1.on('change', function(event) {
   for (var leI=1; leI<26; leI++){
     if(($("#administrateurbundle_perception_passPartiel1 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel2 option:eq("+leI+")").data('idpartiel'))){
-
       $(".pass2cacher"+leI).hide();
-
     }else{
       $(".pass2cacher"+leI).show();
     }
   }
-  $("#administrateurbundle_perception_passPartiel2").removeAttr("disabled");
 });
 
 list2.on('change', function(event) {
-  for (var leI=1; leI<124; leI++){
-    if(($("#administrateurbundle_perception_passPartiel2 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel3 option:eq("+leI+")").data('idpartiel'))){
-
+  if(select4.val()==null){
+    for (var leI=1; leI<124; leI++){
       $(".pass3cacher"+leI).hide();
-
+    }
+  }else for (var leI=1; leI<124; leI++){
+    if(($("#administrateurbundle_perception_passPartiel2 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel3 option:eq("+leI+")").data('idpartiel'))){
+      $(".pass3cacher"+leI).hide();
     }else{
       $(".pass3cacher"+leI).show();
     }
   }
-  $("#administrateurbundle_perception_passPartiel3").removeAttr("disabled");
 });
 
 
 
  $('#administrateurbundle_perception_choixPerception_0').change(function(){
   if($(this).val() == 'Clé'){
-    select2.hide();
-    select3.hide();
-    select4.hide();
-    label3.hide();
-    label4.hide();
-    label5.hide();
+    pass.hide();
     divid.show();
     h4.show();
     parag1.show();
@@ -139,18 +136,14 @@ list2.on('change', function(event) {
     select6.show();
     select7.show();
     select8.show();
+    variure.show();
   }
 });
 
  $('#administrateurbundle_perception_choixPerception_1').change(function(){
   if($(this).val() == 'Pass'){
-    select2.show();
-    select3.show();
-    select4.show();
+    pass.show();
     variure.hide();
-    label3.show();
-    label4.show();
-    label5.show();
     h4.hide();
     parag1.hide();
     parag2.hide();
@@ -169,9 +162,10 @@ list2.on('change', function(event) {
     textField.hide();
     label.hide();
     label2.show();
+    organisation.hide();
+    service.show();
     $("#administrateurbundle_perception_percepteur_organisation").val ("PALR");
-
-  }
+}
 });
 
  $('#administrateurbundle_perception_percepteur_typePercepteur_1').change(function(){
@@ -180,6 +174,8 @@ list2.on('change', function(event) {
     label.show();
     select.hide();
     label2.hide();
+    organisation.show();
+    service.hide();
   }
 });
 
@@ -194,7 +190,4 @@ list2.on('change', function(event) {
    divid2.show();
  }
 });
-
-
-
 });

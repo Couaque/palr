@@ -33,7 +33,7 @@ class PerceptionType6 extends AbstractType
          ->add('variure', EntityType::class, array(
             'class' => 'AdministrateurBundle:Variure',
             'choice_label' => 'nomVariure',
-            'label' => "Veuillez entrez l'une des variures trouvée par vos filtres : ",
+            'label' => "Veuillez entrez l'une des clés trouvée par vos filtres : ",
             'attr' => array( 'disabled' => 'true'),
             'choice_attr' => function($variure, $index, $value){
                 if ($variure->getEquipement() != null ){
@@ -78,7 +78,8 @@ class PerceptionType6 extends AbstractType
                 'data-idpartiel' => $passPartiel3->getPassPartiel2()->getId()); 
                
             }))
-        ->add('save', SubmitType::class, array('label' => 'Ajouter Perception'));
+        ->add('save', SubmitType::class, array('label' => 'Valider la Perception',
+        'attr' => array('class' => "btn btn-info btn-lg")));
        
          
     }

@@ -18,7 +18,7 @@ $("#administrateurbundle_perception_passPartiel3").prepend("<option selected='se
 list1.on('change', function(event) {
   for (var leI=1; leI<26; leI++){
     if(($("#administrateurbundle_perception_passPartiel1 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel2 option:eq("+leI+")").data('idpartiel'))){
-      
+
       $(".pass2cacher"+leI).hide();
 
     }else{
@@ -31,7 +31,7 @@ list1.on('change', function(event) {
 list2.on('change', function(event) {
   for (var leI=1; leI<124; leI++){
     if(($("#administrateurbundle_perception_passPartiel2 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel3 option:eq("+leI+")").data('idpartiel'))){
-      
+
       $(".pass3cacher"+leI).hide();
 
     }else{
@@ -105,7 +105,7 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
 
  divid2 = $('#dateFin'),
  divid = $('#variure');
- 
+
 
 
  h4.hide();
@@ -134,7 +134,7 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     select2.hide();
     select3.hide();
     select4.hide();
-   
+
     label3.hide();
     label4.hide();
     label5.hide();
@@ -162,8 +162,8 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     label4.show();
     label5.show();
     h4.hide();
-  
- 
+
+
     parag1.hide();
     parag2.hide();
     parag3.hide();
@@ -171,6 +171,9 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     select7.hide();
     select8.hide();
     $("#administrateurbundle_perception_variure").val (null);
+    $("#administrateurbundle_perception_passPartiel1").val (null);
+    $("#administrateurbundle_perception_passPartiel2").val (null);
+    $("#administrateurbundle_perception_passPartiel3").val (null);
     divid.hide();
   }
 });
@@ -209,10 +212,9 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
 
  $('#administrateurbundle_perception_typePerception_1').change(function(){
   if($(this).val() == 'Temporaire'){
-   divid2.show(); 
+   divid2.show();
  }
 });
 
 
 });
-
