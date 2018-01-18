@@ -69,7 +69,7 @@ $('.btn-filtrer').on('click',function ajaxCall(){
         }
 
         var pass1 = "";
-        if(data[leI].pass_partiel1.nom_pass1 != undefined) {
+        if(data[leI].pass_partiel1 != undefined) {
           pass1 = data[leI].pass_partiel1.nom_pass1
         }else {
           pass1 = "X";
