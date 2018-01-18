@@ -48,6 +48,16 @@ class ModifierPerceptionType extends AbstractType
                 );
             }))
         ->add('passPartiel2', EntityType::class, array(
+                    'class' => 'AdministrateurBundle:PassPartiel2',
+                    'choice_label' => 'nomPass2',
+                    'label' => 'Pass 2 correspondant :',
+                    'choice_attr' => function($passPartiel2, $index, $value){
+                    return array(
+                        'class' => "pass2cacher" . $passPartiel2->getId(),
+                        'data-id' => $passPartiel2->getId(),
+                        'data-idpartiel' => $passPartiel2->getPassPartiel1()->getId());
+            }))
+        ->add('passPartiel2', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel2',
             'choice_label' => 'nomPass2',
             'label' => 'Pass 2 correspondant :',

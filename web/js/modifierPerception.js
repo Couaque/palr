@@ -67,43 +67,10 @@ else{
   parag.show();
 }
 
-var etat = "enCours";
-var nom = $('#nom').val();
-var organisation = $('#organisation').val();
-var numeroCle = $('#numeroCle').val();
-var Pass1 = $('#Pass1 option:selected').val();
-var Pass2 = $('#Pass2 option:selected').val();
-var Pass3 = $('#Pass3 option:selected').val();
-$.ajax({
-  url: "/perception/filtrerPerception",
-  method: "post",
-  data: {etat,
-    nom,
-    organisation,
-    numeroCle,
-    Pass1,
-    Pass2,
-    Pass3
-  },
-  success : function(data){
-    var leI = 0;
-    for (leI in data) {
-      var maDate = Date.parse(data[leI].date_debut).toString("dd/MM/yyyy");
-      var pass2 = "";
-      if(data[leI].pass_partiel2 != undefined) {
-        pass2 = data[leI].pass_partiel2.nom_pass2
-      }else {
-        $("#administrateurbundle_perception_passPartiel2").prepend("<option></option>");
 
-      }
-      var pass3 = "";
-      if(data[leI].pass_partiel3 != undefined) {
-        pass3 = data[leI].pass_partiel3.nom_pass3
-      } else {
-        $("#administrateurbundle_perception_passPartiel3").prepend("<option></option>");
-      }
-}}})
 divTypePercepteur.hide();
+
+
 
 
 for (var leI=1; leI<26; leI++){
@@ -120,7 +87,8 @@ for (var leI=1; leI<124; leI++){
     $(".pass3cacher"+leI).show();
   }
 }
-
+$("#administrateurbundle_perception_passPartiel2").prepend("<option></option>");
+$("#administrateurbundle_perception_passPartiel3").prepend("<option></option>");
 parag1.hide();
 parag2.hide();
 parag3.hide();
@@ -129,9 +97,7 @@ select7.hide();
 select8.hide();
 etatPerception.hide();
 
-$("#administrateurbundle_perception_passPartiel1").prepend("<option></option>");
-$("#administrateurbundle_perception_passPartiel2").prepend("<option></option>");
-$("#administrateurbundle_perception_passPartiel3").prepend("<option></option>");
+
 
 list1.on('change', function(event) {
   for (var leI=1; leI<26; leI++){
