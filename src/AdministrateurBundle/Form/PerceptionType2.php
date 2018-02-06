@@ -18,11 +18,23 @@ class PerceptionType2 extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+
+        
         $builder
         ->add('percepteur', EntityType::class, array(
             'class' => 'AdministrateurBundle:Percepteur',
             'required'=>true,
-            'multiple'=>false,))
+            'multiple'=>false,
+            'attr' => array('class' => 'js-example-basic-single-percep', 'required'=> 'required'),
+            'choice_attr' => function($percepteur, $index, $value){
+            return array(
+                //'class' => "percepteurcachee" . $percepteur->getId(),
+                'data-id' => $percepteur->getId(),
+                
+                //'data-idpercep' => $percepteur->getPerceptions()->getTypePerception()); 
+            );})
+        )
         ->add('typePerception', ChoiceType::class, 
             array('label' => 'Type de perception :' ,'choices'=> array(
                 'Permanente'=>'Permanente',
@@ -34,25 +46,13 @@ class PerceptionType2 extends AbstractType
             'class' => 'AdministrateurBundle:Variure',
             'choice_label' => 'nomVariure',
             'label' => "Veuillez entrez l'une des clés trouvée par vos filtres : ",
-            'attr' => array( 'disabled' => 'true'),
-            'choice_attr' => function($variure, $index, $value){
-                if ($variure->getPassPartiel2() != null ){
-                    return 
-                array(
-                'class' => "variurecachee" . $variure->getId(),
-                'data-id' => $variure->getId(),
-                'data-idpartielpp2' => $variure->getPassPartiel2()->getId()); 
-                }else if ($variure->getPassPartiel3() != null ){
-                    return array(
-                'class' => "variurecachee" . $variure->getId(),
-                'data-id' => $variure->getId(),
-                'data-idpartielpp2' => $variure->getPassPartiel3()->getId());
-                } return array();
-            }))
+            'attr' => array('class' => 'js-example-basic-single-variure')
+        ))
         ->add('passPartiel1', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel1',
             'choice_label' => 'nomPass1',
             'label' => 'Pass 1 correspondant :',
+            'attr' => array('class' => 'js-example-basic-single-pp1'),
             'choice_attr' => function($passPartiel1, $index, $value){
             return array(
                 'data-id' => $passPartiel1->getId(),
@@ -62,7 +62,7 @@ class PerceptionType2 extends AbstractType
             'class' => 'AdministrateurBundle:PassPartiel2',
             'choice_label' => 'nomPass2',
             'label' => 'Pass 2 correspondant :',
-            'attr' => array( 'disabled' => 'true'),
+           'attr' => array('class' => 'js-example-basic-single-pp2'),
             'choice_attr' => function($passPartiel2, $index, $value){
             return array(
                 'class' => "pass2cacher" . $passPartiel2->getId(),
@@ -73,7 +73,7 @@ class PerceptionType2 extends AbstractType
             'class' => 'AdministrateurBundle:PassPartiel3',
             'choice_label' => 'nomPass3',
             'label' => 'Pass 3 correspondant :',
-            'attr' => array( 'disabled' => 'true'),
+            'attr' => array('class' => 'js-example-basic-single-pp3'),
             'choice_attr' => function($passPartiel3, $index, $value){
                 return array(
                 'class' => "pass3cacher" . $passPartiel3->getId(),

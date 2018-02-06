@@ -1,0 +1,3 @@
+<service id="app.moteur_recherche" class="AdministrateurBundle\Service\MoteurRecherche">
+    <argument type="service" id="fos_elastica.finder.app.categorie" />
+</service/>

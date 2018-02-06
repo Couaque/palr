@@ -38,9 +38,16 @@ class Percepteur
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=255, nullable=true)
+     */
+    private $telephone;
 
     /**
      * @var string
@@ -48,6 +55,13 @@ class Percepteur
      * @ORM\Column(name="typePercepteur", type="string", length=255)
      */
     private $typePercepteur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="coordonnees", type="string", length=255, nullable=true)
+     */
+    private $coordonnees;
 
 
     /**
@@ -63,6 +77,11 @@ class Percepteur
      * @ORM\JoinColumn(nullable=true)
      */
      private $service;
+
+     /**
+    *@ORM\OneToMany(targetEntity="AdministrateurBundle\Entity\Perception", cascade={"persist"}, mappedBy="percepteur")
+    */
+    private $Perceptions;
 
     /**
      * Get id
@@ -221,6 +240,86 @@ class Percepteur
     }
 
     public function __toString(){
-        return ' Nom : ' . $this->nomPercepteur . ' / Prénom : ' . $this->prenomPercepteur . ' / Email : ' . $this->email ;
+        return ' ' . $this->nomPercepteur . ' ' . $this->prenomPercepteur . ' ' . $this->email ;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     *
+     * @return Percepteur
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Perceptions = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add perception
+     *
+     * @param \AdministrateurBundle\Entity\Perception $perception
+     *
+     * @return Percepteur
+     */
+    public function addPerception(\AdministrateurBundle\Entity\Perception $perception)
+    {
+        $this->Perceptions[] = $perception;
+
+        return $this;
+    }
+
+    /**
+     * Remove perception
+     *
+     * @param \AdministrateurBundle\Entity\Perception $perception
+     */
+    public function removePerception(\AdministrateurBundle\Entity\Perception $perception)
+    {
+        $this->Perceptions->removeElement($perception);
+    }
+
+    /**
+     * Get perceptions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPerceptions()
+    {
+        return $this->Perceptions;
+    }
+
+    /**
+     * Get perceptions
+     *
+     * @return array
+     */
+    public function getPerceptionsId()
+    {
+        $res = array();
+        foreach ($this->Perceptions as $perception ) {
+            $res = $perception->getId();
+            
+        }
+        return $res;
     }
 }

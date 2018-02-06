@@ -10,4 +10,16 @@ namespace AdministrateurBundle\Repository;
 */
 class PercepteurRepository extends \Doctrine\ORM\EntityRepository
 {
+	/**
+ * Retourne un QueryBuilder qui permet de récupérer toutes les catégories actives.
+ *
+ * @return QueryBuilder
+ */
+public function getQbIsActive()
+{
+    $qb = $this->createQueryBuilder('c');
+
+    return $qb->where($qb->expr()->eq('c.actif', ':actif'))
+        ->setParameter(':actif', true);
+}
 }
