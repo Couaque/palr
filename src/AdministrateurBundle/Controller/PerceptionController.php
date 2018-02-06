@@ -55,13 +55,16 @@ class PerceptionController extends Controller
 
     if ($form->isSubmitted() && $form->isValid()) {
       $PerceptionInsert = $form->getData();
-
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
       $this->addFlash("success", "Vous avez bien modifié la Perception");
     }
-
+/*    $testPass= array(
+      'passPartiel2' => '$form.passPartiel2',
+      'passPartiel3' => '$form.passPartiel3'
+    );
+    $this->get('acme.js_vars')->chartData = $testPass;*/
     return $this->render('AdministrateurBundle:Perception:modifierPerception.html.twig', array(
       'form' => $form->createView(),
     ));
@@ -128,9 +131,9 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
-      $perception->setEtatPerception("enCours");
-      $perception->setChoixPerception("Clé");
 
+      $perception->setEtatPerception("enCours");
+      $perception->setChoixPerception("Cle");
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
@@ -171,6 +174,7 @@ class PerceptionController extends Controller
         $perception->setDateFin(null);
       }
       $perception->setEtatPerception("enCours");
+      $perception->setChoixPerception("Cle");
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();

@@ -15,8 +15,8 @@ var textField = $("#administrateurbundle_perception_percepteur_organisation"),
     choixPerception1 = $("#administrateurbundle_perception_choixPerception_1"),
     typePerception1 = $("#administrateurbundle_perception_typePerception_1"),
     typePerception0 = $("#administrateurbundle_perception_typePerception_0"),
-    organisation = $('#organisation'),
-    service=$('#service'),
+    organisation = $('#organisationdiv'),
+    service=$('#servicediv'),
     parag=$("#parag"),
     pass=$('#pass'),
     select = $( "#administrateurbundle_perception_percepteur_service" ),
@@ -34,20 +34,30 @@ var textField = $("#administrateurbundle_perception_percepteur_organisation"),
     divid2 = $('#dateFin'),
     divid = $('#variure'),
     etatPerception=$('#etatPerception');
+var passPartiel2test=$('#passPartiel2test');
+var passPartiel3test=$('#passPartiel3test');
+//var JsVars = jQuery('#js-vars').data('vars');
+//var passPartiel2js = JsVars.chartData;
+
+select.select2();
+select2.select2();
+select3.select2();
+select4.select2();
+$( "#administrateurbundle_perception_variure").select2();
 
 
 h4.hide();
 
-
-if(textField.val()=='PALR'){
-  service.show();
+if(typePercepteur.val()=="EmployePort")
+{
   organisation.hide();
+  service.show();
 }
 else{
   organisation.show();
   service.hide();
-
 }
+
 if(typePerception0.is(':checked')){
   divid2.hide();
 }else{
@@ -87,8 +97,7 @@ for (var leI=1; leI<124; leI++){
     $(".pass3cacher"+leI).show();
   }
 }
-$("#administrateurbundle_perception_passPartiel2").prepend("<option></option>");
-$("#administrateurbundle_perception_passPartiel3").prepend("<option></option>");
+
 parag1.hide();
 parag2.hide();
 parag3.hide();
