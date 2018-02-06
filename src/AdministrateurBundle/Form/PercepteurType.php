@@ -21,7 +21,9 @@ class PercepteurType extends AbstractType
 
         $builder->add('nomPercepteur', TextType::class, array('label' => 'Nom du percepteur :' ,'label_attr'=> array('class' => 'active-custom')))
         ->add('prenomPercepteur', TextType::class, array('label' => 'Prénom du percepteur :' ))
-        ->add('email', EmailType::class, array('label_attr' => array('class' => 'active-custom')))
+        ->add('email', TextType::class, array('label_attr' => array('class' => 'active-custom'),
+            'required' => false))
+        ->add('telephone', TextType::class, array('label' => 'Téléphone :'))
         ->add('typePercepteur', ChoiceType::class, 
             array('label' => 'Type de percepteur :' ,'choices'=> array(
             'Employé du port '=>'EmployePort',

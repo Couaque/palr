@@ -273,6 +273,7 @@ class PerceptionController extends Controller
     $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:batiment');
     $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Localisation');
+
     $listeEquipements = $repository->findAll();
     $batiments = $repository2->findAll();
     $localisations = $repository3->findAll();
@@ -327,9 +328,10 @@ class PerceptionController extends Controller
       $pp1 = $repository1->findAll();
       $pp2 = $repository2->findAll();
       $pp3 = $repository3->findAll();
+     
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleNouveauPercepteur.html.twig', array(
       'form' => $form->createView(),
-         'pp1' => $pp1,
+      'pp1' => $pp1,
       'pp2' => $pp2,
       'pp3' => $pp3,
 
@@ -371,13 +373,25 @@ class PerceptionController extends Controller
     $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
     $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
+    $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
+    $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+
     $pp1 = $repository1->findAll();
     $pp2 = $repository2->findAll();
     $pp3 = $repository3->findAll();
+    $variures = $repository5->findAll();
 
+    $percepteurs = $repository4->findAll();
+      $perceptions = array();
+      foreach ($percepteurs as $p) {
+        $perceptions[] = $p->getPerceptions();
+      }
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumClePercepteurConnu.html.twig', array(
       'form' => $form->createView(),
+      'perceptions' => $perceptions,
+      'percepteurs' => $percepteurs,
+      'variures' => $variures,
       'pp1' => $pp1,
       'pp2' => $pp2,
       'pp3' => $pp3,

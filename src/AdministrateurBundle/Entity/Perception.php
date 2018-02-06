@@ -5,6 +5,7 @@ namespace AdministrateurBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Perception
@@ -12,6 +13,8 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
  *
  * @ORM\Table(name="perception")
  * @ORM\Entity(repositoryClass="AdministrateurBundle\Repository\PerceptionRepository")
+ * @UniqueEntity(fields={"variure"}, message="Cette clé a déja été perçue par quelqu'un !")
+ * @UniqueEntity(fields={"passPartiel1"}, message="Ce pass a déja été perçu par quelqu'un !")
  */
 class Perception
 {
@@ -61,8 +64,10 @@ class Perception
      */
     private $etatPerception;
 
-    /**
-    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\Percepteur", cascade={"persist"})
+     /**
+    *@ORM\ManyToOne(targetEntity="Percepteur", cascade={"persist"}, inversedBy="Perceptions")
+    @ORM\JoinColumn(nullable=false)
+    *@Assert\NotNull(message="Vous devez entrer un percepteur!")
     */
      private $percepteur;
 
