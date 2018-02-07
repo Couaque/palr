@@ -555,6 +555,6 @@ class PerceptionController extends Controller
   * @Route("/perception/imprimer/{id}", name="imprimerUnePerception")
   */
   public function imprimerUnePerceptionAction($id){
-    return $this->imprimerPerceptionAction(array(11,12,13,14,15,16,17));
+    return $this->imprimerPerceptionAction(array($id));
   }
 }

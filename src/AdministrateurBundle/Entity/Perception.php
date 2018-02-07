@@ -66,6 +66,10 @@ class Perception
 
      /**
     *@ORM\ManyToOne(targetEntity="Percepteur", cascade={"persist"}, inversedBy="Perceptions")
+<<<<<<< HEAD
+=======
+    *@ORM\JoinColumn(nullable=false)
+>>>>>>> 82026e726f5380e81df8a4388641eeb4ca9c6db4
     *@Assert\NotNull(message="Vous devez entrer un percepteur!")
     */
      private $percepteur;
