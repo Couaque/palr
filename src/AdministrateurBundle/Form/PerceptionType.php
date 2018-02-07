@@ -37,14 +37,16 @@ class PerceptionType extends AbstractType
                         return
                             array(
                                 'data-idpp2' => $variure->getPassPartiel2()->getId(),
-                                'data-id' => $variure->getId());
+                                'data-id' => $variure->getId(),
+                        'data-idporte' => $variure->getEquipement()->getId());
 
                     }else if ($variure->getPassPartiel3() != null ){
                         return
                             array(
 
                                 'data-idpp3' => $variure->getPassPartiel3()->getId(),
-                                'data-id' => $variure->getId());
+                                'data-id' => $variure->getId(),
+                        'data-idporte' => $variure->getEquipement()->getId());
                     } return array();
                 }))
             ->add('passPartiel1', EntityType::class, array(
