@@ -4,8 +4,7 @@ namespace AdministrateurBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use AdministrateurBundle\Entity\Perception;
-use AdministrateurBundle\Entity\Percepteur;
+use AdministrateurBundle\Entity\Perception as Perception;
 use AdministrateurBundle\Form\PerceptionType;
 use AdministrateurBundle\Form\PerceptionType2;
 use AdministrateurBundle\Form\PerceptionType3;
@@ -328,7 +327,7 @@ class PerceptionController extends Controller
       $pp1 = $repository1->findAll();
       $pp2 = $repository2->findAll();
       $pp3 = $repository3->findAll();
-     
+
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleNouveauPercepteur.html.twig', array(
       'form' => $form->createView(),
       'pp1' => $pp1,
@@ -440,5 +439,126 @@ class PerceptionController extends Controller
       'id' => $id
     ));
     return $this->redirectToRoute('perception');
+  }
+
+  /**
+  * @Route("/perception/imprimer", name="imprimerPerception")
+  */
+  public function imprimerPerceptionAction($listeid){
+    $listePerceptions = array();
+    foreach($listeid as $id){
+      $repo = $this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Perception');
+      $listePerceptions[] = $repo->findById($id);
+    }
+    //var_dump($listePerceptions);
+    $pdf = new \FPDF();
+    //Initialisation d'une première page
+    $pdf->AddPage();
+    $pdf->SetFont('Arial','',15);
+    $pdf->SetTextColor(0, 0, 0);
+    //Ajout de l'icône
+    $pdf->Image('img/icone_bleu.png',4,4,20);
+    //Ajout du titre
+    $pdf->Multicell(95, 8, utf8_decode("Attestation de perception"), '', 'C', false);
+
+    //Descriptif des perceptions
+    $pdf->SetY(25);
+    $pdf->SetFont('Arial','U',15);
+    $pdf->Multicell(0, 8, utf8_decode('Perceptions effectuées par ' . $listePerceptions[0][0]->getPercepteur()->getPrenomPercepteur() . ' ' . $listePerceptions[0][0]->getPercepteur()->getNomPercepteur() . ' :'), '', 'C', false);
+
+    $pdf->SetY(35);
+    $w = array(38, 38, 38, 38, 38);
+
+    //Création des colonnes du tableau
+    $pdf->SetFont('Arial','B',13);
+    $pdf->Cell($w[0],7,utf8_decode("Pass / Clé"),1,0,'C');
+    $pdf->Cell($w[1],7,utf8_decode("Localisation"),1,0,'C');
+    $pdf->Cell($w[2],7,utf8_decode("Date de début"),1,0,'C');
+    $pdf->Cell($w[0],7,utf8_decode("Date de fin"),1,0,'C');
+    $pdf->Cell($w[0],7,utf8_decode("Date rendu"),1,0,'C');
+    $pdf->Ln();
+    $pdf->SetFillColor(183, 183, 183);
+    $pdf->SetFont('Arial','',11);
+
+    if(empty($listePerceptions) && !isset($listePerceptions)){
+      for($count = 0; $count<20; $count++)
+      {
+        $pdf->Cell($w[0],6,"test",'LR', 0, 'C', $fill);
+        $pdf->Cell($w[1],6,"test",'LR', 0, 'C', $fill);
+        $pdf->Cell($w[2],6," / / ",'LR', 0, 'C', $fill);
+        $pdf->Cell($w[3],6," / / ",'LR', 0, 'C', $fill);
+        $pdf->Cell($w[4],6," / / ",'LR', 0, 'C', $fill);
+        $pdf->Ln();
+        $fill = !$fill;
+      }
+    }else{
+      $fill = false;
+      foreach($listePerceptions as $liste){
+      foreach($liste as $perc){
+        //Affichage du pass donné
+        if($perc->getVariure()!=null)
+        $pdf->Cell($w[0],6,$perc->getVariure()->getNomVariure(),'LR' ,0, 'C', $fill);
+        elseif ($perc->getPassPartiel3()!=null)
+        $pdf->Cell($w[0],6,$perc->getPassPartiel3()->getNomPass3(),'LR' ,0, 'C', $fill);
+        elseif ($perc->getPassPartiel2()!=null)
+        $pdf->Cell($w[0],6,$perc->getPassPartiel2()->getNomPass2(),'LR' ,0, 'C', $fill);
+        elseif ($perc->getPassPartiel1()!=null)
+        $pdf->Cell($w[0],6,$perc->getPassPartiel1()->getNomPass1(),'LR' ,0, 'C', $fill);
+        else
+        $pdf->Cell($w[0],6,'NULL','LR' ,0, 'C', $fill);
+
+        //Gestion de la date de début
+        $pdf->Cell($w[1],6,"test",'LR' ,0, 'C', $fill);
+        if($perc->getDateDebut()!=null)
+        //var_dump($perc->getDateDebut()->format('Y-m-d H:i:s'));
+        $pdf->Cell($w[2],6,$perc->getDateDebut()->format('Y / m / d'),'LR' ,0, 'C', $fill);
+        else
+        $pdf->Cell($w[2],6,'XXX','LR' ,0, 'C', $fill);
+
+        //Gestion de la date de fin
+        if($perc->getDateFin()!=null)
+        //var_dump($w[2]);
+        $pdf->Cell($w[2],6,$perc->getDateFin()->format('Y / m / d'),'LR' ,0, 'C', $fill);
+        else
+        $pdf->Cell($w[2],6,'X/X/X','LR' ,0, 'C', $fill);
+
+        //On ajoute un champ pour noter la date réelle de rendu
+        $pdf->Cell($w[4],6,"           /          /           ",'LR' , 0, 'C', $fill);
+        $pdf->Ln();
+        $fill = !$fill;
+      }
+    }
+    }
+    $pdf->Cell(array_sum($w),0,'','T');
+
+    $pdf->SetY(185);
+    $pdf->Multicell(300, 8, utf8_decode('Imprimé le : ' . date("d / m / y")), '', 'C', false);
+
+    // Carré de signature
+    $pdf->SetFont('Arial','',11);
+    $pdf->SetY(165);
+    $pdf->Multicell(60, 8, utf8_decode("Signature :"), '', 'C', false);
+    $pdf->SetY(175);
+    $w = array(60);
+    $pdf->Cell($w[0],30,utf8_decode("           "),1,0,'C');
+
+    // Footer du PDF
+    $pdf->SetY(255);
+    //Disclaimer
+    $pdf->Multicell(0, 4, utf8_decode("
+    Toutes les clés perçues doivent être rendues.
+    Ce document atteste d'une perception ou de l'absence de rendu."), '', 'C', false);
+    $pdf->SetY(270);
+    $pdf->SetFont('Arial','B',11);
+    $pdf->Multicell(0, 0, utf8_decode("Port Atlantique de La Rochelle · Tel: 0707070707 · Email: exemple@exemple.fr"), '', 'C', false);
+
+    return new Response($pdf->Output(), 200, array('Content-Type' => 'application/pdf'));
+  }
+
+  /**
+  * @Route("/perception/imprimer/{id}", name="imprimerUnePerception")
+  */
+  public function imprimerUnePerceptionAction($id){
+    return $this->imprimerPerceptionAction(array($id));
   }
 }

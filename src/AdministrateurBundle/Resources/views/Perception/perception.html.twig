@@ -7,15 +7,15 @@
       <table class="table table-striped" id="table">
         <thead>
           <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Variure</th>
-            <th>Date Perception</th>
-            <th>Organisation</th>
-            <th>Etat perception</th>
-            <th>Numéro Pass 1</th>
-            <th>Numéro Pass 2</th>
-            <th>Numéro Pass 3</th>
+            <th data-sort="String"><i class="fa fa-sort"></i> Nom</th>
+            <th data-sort="String"><i class="fa fa-sort"></i> Prénom</th>
+            <th data-sort="String"><i class="fa fa-sort"></i> Organisation</th>
+            <th data-sort="String"><i class="fa fa-sort"></i> Debut Perception</th>
+            <th data-sort="String"><i class="fa fa-sort"></i> Fin Perception</th>
+            <th data-sort="String"><i class="fa fa-sort"></i> Etat perception</th>
+            <th data-sort="String"><i class="fa fa-sort"></i> Pass</th>
+            <th data-sort="String"><i class="fa fa-sort"></i> Variure</th>
+            <th>Action possible</th>
           </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@
   </div>
 
   <div class="col-md-3" id="formFiltrage">
-    <form class="alert alert-info">
+    <form id="formulaire" class="alert alert-info">
       <span class="glyphicon glyphicon-search"> </span> Filtrer
       <div class="form-group">
         <label for="nom">Nom :</label>
@@ -40,8 +40,8 @@
         <div class="row">
           <div class="col-sm-4">
             <label for="Pass">Pass 1 :</label>
-            <select class="form-control" id="Pass1" >
-              <option>- Select -</option>
+            <select class="form-control js-example-basic-single-percep" id="Pass1" >
+              <option selected="selected"></option>
               {% for pp1 in passPartiel1 %}
               <option data-id="{{pp1.id}}">{{pp1.nomPass1}}</option>
               {% endfor %}
@@ -49,8 +49,8 @@
           </div>
           <div class="col-sm-4">
             <label for="Pass">Pass 2 :</label>
-            <select class="form-control" id="Pass2" disabled>
-              <option>- Select -</option>
+            <select class="form-control js-example-basic-single-percep" id="Pass2">
+              <option selected="selected"></option>
               {% for pp2 in passPartiel2 %}
               <option class="pass2cacher{{pp2.id}}" data-idpartiel="{{pp2.PassPartiel1.id}}" data-id="{{pp2.id}}">{{pp2.nomPass2}}</option>
               {% endfor %}
@@ -58,14 +58,17 @@
           </div>
           <div class="col-sm-4">
             <label for="Pass">Pass 3 :</label>
-            <select class="form-control" id="Pass3" disabled>
-              <option>- Select -</option>
+            <select class="form-control js-example-basic-single-percep" id="Pass3">
+              <option selected="selected"></option>
               {% for pp3 in passPartiel3 %}
               <option class="pass3cacher{{pp3.id}}" data-idpartiel="{{pp3.PassPartiel2.id}}" data-id="{{pp3.id}}">{{pp3.nomPass3}}</option>
               {% endfor %}
             </select>
           </div>
         </div>
+        <br>
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox">Souhaitez-vous afficher les perceptions archivées ?</label>
       </div>
 
       <a type="submit" value="Filtrer" class="btn-success btn-modif btn-filtrer btn">Filtrer</a>
@@ -74,5 +77,7 @@
     <a href="{{ path('ajouterPerception') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span>  Ajouter une perception</a>
   </div>
 </div>
-<script src="/js/perception.js"></script>
+    <script src="/js/ajouterPerceptionNumCle.js"></script>
+    <script src="/js/perception.js"></script>
+     <script src="/js/stupidtable.min.js"></script>
 {% endblock %}
