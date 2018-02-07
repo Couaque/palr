@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fcb7ba4dde87024525facaacda0a33d4",
+    "content-hash": "312a1419b83a78eb7b40141649e5c9b1",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1808,7 +1808,23 @@
             "autoload": {
                 "psr-0": {
                     "FPDF_": "lib/"
-                  },
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3"
+            ],
+            "authors": [
+                {
+                    "name": "Rodrigo Prado de Jesus",
+                    "email": "royopa@gmail.com"
+                }
+            ],
+            "description": "fpdf vendor for use with symfony2, based on toooni/fpdf",
+            "homepage": "http://github.com/royopa",
+            "time": "2016-08-17T02:50:27+00:00"
+        },
+        {
             "name": "ruflin/elastica",
             "version": "3.2.3",
             "source": {
@@ -1849,18 +1865,22 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Rodrigo Prado de Jesus",
-                    "email": "royopa@gmail.com"
+                    "name": "Nicolas Ruflin",
+                    "homepage": "http://ruflin.com/"
                 }
             ],
-            "description": "fpdf vendor for use with symfony2, based on toooni/fpdf",
-            "homepage": "http://github.com/royopa",
-            "time": "2016-08-17T02:50:27+00:00"
-        }},
+            "description": "Elasticsearch Client",
+            "homepage": "http://elastica.io/",
+            "keywords": [
+                "client",
+                "search"
+            ],
+            "time": "2016-09-23T10:24:25+00:00"
+        },
         {
             "name": "sensio/distribution-bundle",
             "version": "v5.0.21",
