@@ -240,7 +240,7 @@ class Percepteur
     }
 
     public function __toString(){
-        return ' ' . $this->nomPercepteur . ' ' . $this->prenomPercepteur . ' ' . $this->email ;
+        return ' ' . $this->nomPercepteur . ' ' . $this->prenomPercepteur . ' <' . $this->email . '>';
     }
 
     /**

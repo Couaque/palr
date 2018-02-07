@@ -14,7 +14,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table(name="perception")
  * @ORM\Entity(repositoryClass="AdministrateurBundle\Repository\PerceptionRepository")
  * @UniqueEntity(fields={"variure"}, message="Cette clé a déja été perçue par quelqu'un !")
- * @UniqueEntity(fields={"passPartiel1"}, message="Ce pass a déja été perçu par quelqu'un !")
  */
 class Perception
 {

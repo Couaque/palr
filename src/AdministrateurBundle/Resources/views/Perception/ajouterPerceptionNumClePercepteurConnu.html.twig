@@ -12,25 +12,16 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
-<h2> Clés ou Pass déja perçues par ce percepteur : </h2>
-{% for percep in perceptions %}
-{% for p in percep %}
-{% if p.variure %}
-<p id="paragpercep" class="cachee{{p.id}}" data-idpartiel={{p.percepteur.id}} data-id="{{p.id}}">{{ p.variure.nomVariure}} </p>
-{% endif %}
-{% if p.passPartiel1 %}
-<p id="paragpercep" class="cachee{{p.id}}" data-idpartiel={{p.percepteur.id}} data-id="{{p.id}}"> {{ p.passPartiel1.nomPass1}} </p>
-{% endif %}
-{% if p.passPartiel2 %}
-<p id="paragpercep" class="cachee{{p.id}}" data-idpartiel={{p.percepteur.id}} data-id="{{p.id}}"> {{ p.passPartiel2.nomPass2}} </p>
-{% endif %}
-{% if p.passPartiel3 %}
-<p id="paragpercep" class="cachee{{p.id}}" data-idpartiel={{p.percepteur.id}} data-id="{{p.id}}"> {{ p.passPartiel3.nomPass3}} </p>
-{% endif %}
-{% endfor %}
-{% endfor %}
 
 
+        {% for variure in variures %}
+            {% if variure.passPartiel2 %}
+            <p id="pass{{variure.id}}" class="deuxcachee{{variure.id}}" data-idpartielpp2="{{variure.passPartiel2.id}}" data-id="{{variure.id}}">{{ variure.passPartiel2.nomPass2 }}</p>
+            {% endif %}
+            {% if variure.passPartiel3 %}
+                <p id="pass{{variure.id}}" class="troiscachee{{variure.id}}" data-idpartielpp3="{{variure.passPartiel3.id}}" data-id="{{variure.id}}">{{ variure.passPartiel3.nomPass3 }}</p>
+            {% endif %}
+        {% endfor %}
 
 <div class="container alert alert-info">
 <h2>Ajouter une perception</h2>
@@ -40,6 +31,25 @@
 {{ form_start(form) }}
 <div class="champs">
 {{form_row(form.percepteur)}}
+    <h5 id="h5"> <strong> Clés ou Pass déja perçues par ce percepteur : </strong></h5>
+
+        {% for percep in perceptions %}
+            {% for p in percep %}
+                {% if p.variure %}
+                    <p id="paragpercep" class="cachee{{p.id}}" data-idpartiel={{p.percepteur.id}} data-id="{{p.id}}">{{ p.variure.nomVariure}} </p>
+                {% endif %}
+                {% if p.passPartiel1 %}
+                    <p id="paragpercep" class="cachee{{p.id}}" data-idpartiel={{p.percepteur.id}} data-id="{{p.id}}"> {{ p.passPartiel1.nomPass1}} </p>
+                {% endif %}
+                {% if p.passPartiel2 %}
+                    <p id="paragpercep" class="cachee{{p.id}}" data-idpartiel={{p.percepteur.id}} data-id="{{p.id}}"> {{ p.passPartiel2.nomPass2}} </p>
+                {% endif %}
+                {% if p.passPartiel3 %}
+                    <p id="paragpercep" class="cachee{{p.id}}" data-idpartiel={{p.percepteur.id}} data-id="{{p.id}}"> {{ p.passPartiel3.nomPass3}} </p>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
 </div>
 
 
@@ -57,23 +67,14 @@
 <div class="champs">
 
 {{form_row(form.passPartiel1)}}
-
-
 {{form_row(form.passPartiel2)}}
 {{form_row(form.passPartiel3)}}
 
 <div id="variure">
 {{form_row(form.variure)}}
 </div>
-    {% for variure in variures %}
-    <p> {{ variure.nomVariure }}</p>
-    {% if variure.passPartiel2 %}
-    <p> <strong> {{ variure.passPartiel2.nomPass2 }}</strong></p>
-    {% endif %}
-    {% if variure.passPartiel3 %}
-    <p><strong>{{ variure.passPartiel3.nomPass3 }}</strong></p>
-    {% endif %}
-    {% endfor %}
+
+
 
 
 
