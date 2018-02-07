@@ -11,20 +11,23 @@
 
 
 
-
-
 <div class="container alert alert-info ">
   <h2>Ajouter une perception</h2>
   <h3> Veuillez renseigner les champs suivants : </h3>
-
-
 
   {% form_theme form 'bootstrap_3_layout.html.twig' %}
   {{ form_start(form) }}
   <div class="champs">
   {{form_row(form.percepteur.nomPercepteur)}}
   {{form_row(form.percepteur.prenomPercepteur)}}
+
+
+   <input type="checkbox" name="test[]" />Email
+    <input type="checkbox" name="test[]" />Téléphone 
+
   {{form_row(form.percepteur.email)}}
+  {{form_row(form.percepteur.telephone)}}
+
 </div>
   {{form_row(form.percepteur.typePercepteur)}}
 
@@ -46,7 +49,6 @@
   {{form_row(form.choixPerception)}}
 <div class="champs">
   {{form_row(form.passPartiel1)}}
-
 
   {{form_row(form.passPartiel2)}}
   {{form_row(form.passPartiel3)}}

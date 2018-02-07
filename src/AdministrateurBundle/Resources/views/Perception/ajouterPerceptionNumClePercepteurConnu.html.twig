@@ -3,89 +3,86 @@
 
 {% for message in app.flashes('success') %}
 <div class="alert alert-success">
-  {{ message }}
+{{ message }}
 </div>
 {% endfor %}
 
-  <link href="/css/nouvellePerception.css" rel="stylesheet">
+
+<link href="/css/nouvellePerception.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+<h2> Clés ou Pass déja perçues par ce percepteur : </h2>
+{% for percep in perceptions %}
+{% for p in percep %}
+{% if p.variure %}
+<p id="paragpercep" class="cachee{{p.id}}" data-idpartiel={{p.percepteur.id}} data-id="{{p.id}}">{{ p.variure.nomVariure}} </p>
+{% endif %}
+{% if p.passPartiel1 %}
+<p id="paragpercep" class="cachee{{p.id}}" data-idpartiel={{p.percepteur.id}} data-id="{{p.id}}"> {{ p.passPartiel1.nomPass1}} </p>
+{% endif %}
+{% if p.passPartiel2 %}
+<p id="paragpercep" class="cachee{{p.id}}" data-idpartiel={{p.percepteur.id}} data-id="{{p.id}}"> {{ p.passPartiel2.nomPass2}} </p>
+{% endif %}
+{% if p.passPartiel3 %}
+<p id="paragpercep" class="cachee{{p.id}}" data-idpartiel={{p.percepteur.id}} data-id="{{p.id}}"> {{ p.passPartiel3.nomPass3}} </p>
+{% endif %}
+{% endfor %}
+{% endfor %}
 
 
 
 <div class="container alert alert-info">
-  <h2>Ajouter une perception</h2>
-  <h3> Veuillez renseigner les champs suivants : </h3>
+<h2>Ajouter une perception</h2>
+<h3> Veuillez renseigner les champs suivants : </h3>
 
-
-
-  {% form_theme form 'bootstrap_3_layout.html.twig' %}
-  {{ form_start(form) }}
-  <div class="champs">
-  {{form_row(form.percepteur)}}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{{ form_start(form) }}
+<div class="champs">
+{{form_row(form.percepteur)}}
 </div>
 
 
-  {{form_row(form.typePerception)}}
-  <div id="dateDebut">
-    {{form_row(form.dateDebut)}}
-  </div>
-  <div id="dateFin">
-    {{form_row(form.dateFin)}}
-  </div>
-
-  
-  {{form_row(form.choixPerception)}}
-
-  <div class="champs">
-
-  {{form_row(form.passPartiel1)}}
+{{form_row(form.typePerception)}}
+<div id="dateDebut">
+{{form_row(form.dateDebut)}}
+</div>
+<div id="dateFin">
+{{form_row(form.dateFin)}}
+</div>
 
 
-  {{form_row(form.passPartiel2)}}
-  {{form_row(form.passPartiel3)}}
-  <p id="paragpp1"> Pass 1 : </p>
-  
-  <select class="form-control" id="Pass1">
-    <option> - Selectionnez le pass 1 - </option>
-    {% for pass in pp1 %}
+{{form_row(form.choixPerception)}}
 
-    <option data-id="{{pass.id}}">{{pass.nomPass1}}</option>
+<div class="champs">
+
+{{form_row(form.passPartiel1)}}
+
+
+{{form_row(form.passPartiel2)}}
+{{form_row(form.passPartiel3)}}
+
+<div id="variure">
+{{form_row(form.variure)}}
+</div>
+    {% for variure in variures %}
+    <p> {{ variure.nomVariure }}</p>
+    {% if variure.passPartiel2 %}
+    <p> <strong> {{ variure.passPartiel2.nomPass2 }}</strong></p>
+    {% endif %}
+    {% if variure.passPartiel3 %}
+    <p><strong>{{ variure.passPartiel3.nomPass3 }}</strong></p>
+    {% endif %}
     {% endfor %}
-  </select>
 
 
-  <p id="paragpp2">Pass 2 :</p>
-  <select class="form-control" id="Pass2" disabled>
-    <option> - Selectionnez le pass 2 - </option>
-    {% for pass in pp2 %}
-
-    <option class="pass2cacher{{pass.id}}" data-idpartiel="{{pass.PassPartiel1.id}}" data-id="{{pass.id}}">{{pass.nomPass2}}</option>
-    {% endfor %}
-  </select>
-
-
-  <p id="paragpp3">Pass 3 :</p>
-
-  <select class="form-control" id="Pass3" disabled>
-    <option> - Selectionnez le pass 3 - </option>
-    {% for pass in pp3 %}
-
-    <option class="pass3cacher{{pass.id}}" data-idpartiel="{{pass.PassPartiel2.id}}" data-id="{{pass.id}}">{{pass.nomPass3}}</option>
-    {% endfor %}
-  </select>
-
-
-
-
-  <div id="variure">
-    {{form_row(form.variure)}}
-  </div>
 
 </div>
 
 
-  {{ form_end(form) }}
+{{ form_end(form) }}
 
-  
+
 </div>
 
 <div id="nouvellePerception">

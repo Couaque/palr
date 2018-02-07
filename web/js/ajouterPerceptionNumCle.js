@@ -3,19 +3,67 @@
 
 $(document).ready(function(){
 
+$('.js-example-basic-single-percep').select2({
+   placeholder: "Sélectionnez un percepteur",
+   allowClear: true
+});
+
+$('.js-example-basic-single-pp1').select2({
+   placeholder: "Sélectionnez un Pass 1",
+   allowClear: true
+});
+$('.js-example-basic-single-pp2').select2({
+   placeholder: "Sélectionnez un Pass 2",
+   allowClear: true
+});
+$('.js-example-basic-single-pp3').select2({
+   placeholder: "Sélectionnez un Pass 3",
+   allowClear: true
+});
+$('.js-example-basic-single-variure').select2({
+    placeholder: "Sélectionnez une clé",
+    allowClear: true
+});
+
+
+$('#administrateurbundle_perception_passPartiel1').next(".select2-container").hide();
+$('#administrateurbundle_perception_passPartiel2').next(".select2-container").hide();
+$('#administrateurbundle_perception_passPartiel3').next(".select2-container").hide();
+$('#administrateurbundle_perception_variure').next(".select2-container").hide();
+
+
 var list1 = $("#administrateurbundle_perception_passPartiel1");
 var list2 = $("#administrateurbundle_perception_passPartiel2");
 var list3 = $("#administrateurbundle_perception_passPartiel3");
+var list4 = $("#administrateurbundle_perception_percepteur");
+
+list2.hide();
 
 
-$("#administrateurbundle_perception_passPartiel1").prepend("<option selected='selected'>- Sélectionnez le pass 1 -</option>");
+$("#administrateurbundle_perception_passPartiel1").prepend("<option selected='selected'></option>");
+$("#administrateurbundle_perception_percepteur").prepend("<option selected='selected'> </option>");
+$("#administrateurbundle_perception_passPartiel2").prepend("<option selected='selected'></option>");
+$("#administrateurbundle_perception_passPartiel3").prepend("<option selected='selected'></option>");
+$("#administrateurbundle_perception_variure").prepend("<option selected='selected'></option>");
 
-$("#administrateurbundle_perception_passPartiel2").prepend("<option selected='selected'>- Sélectionnez le pass 2 -</option>");
-$("#administrateurbundle_perception_passPartiel3").prepend("<option selected='selected'>- Sélectionnez le pass 3 -</option>");
+for (var leI=1; leI<100; leI++){
+  $(".cachee"+leI).hide();
+}
+
+list4.on('change', function(event) {
+  for (var leI=1; leI<100; leI++){
+    if( ($("#administrateurbundle_perception_percepteur option:selected").data('id')) != ($(".cachee"+leI).data('idpartiel')) ) {
+
+      $(".cachee"+leI).hide();
+    }else{
+      $(".cachee"+leI).show();
+    }
+  }
+});
 
 
 
-list1.on('change', function(event) {
+/*list1.on('change', function(event) {
   for (var leI=1; leI<26; leI++){
     if(($("#administrateurbundle_perception_passPartiel1 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel2 option:eq("+leI+")").data('idpartiel'))){
 
@@ -40,7 +88,7 @@ list2.on('change', function(event) {
   }
   $("#administrateurbundle_perception_passPartiel3").removeAttr("disabled");
 });
-
+*/
 
 
 var pass1variure = $("#Pass1");
@@ -104,7 +152,8 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
  select8 = $("#Pass3"),
 
  divid2 = $('#dateFin'),
- divid = $('#variure');
+ label6 = $("label[for='administrateurbundle_perception_variure']");
+ select9 = $("#administrateurbundle_perception_variure" );
 
 
 
@@ -120,8 +169,8 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
  label3.hide();
  label4.hide();
  label5.hide();
- divid.hide();
-
+ label6.hide();
+ select9.hide();
  parag1.hide();
  parag2.hide();
  parag3.hide();
@@ -138,7 +187,8 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     label3.hide();
     label4.hide();
     label5.hide();
-    divid.show();
+    label6.show();
+    select9.show();
     h4.show();
     parag1.show();
     parag2.show();
@@ -150,6 +200,10 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     $("#administrateurbundle_perception_passPartiel1").val (null);
     $("#administrateurbundle_perception_passPartiel2").val (null);
     $("#administrateurbundle_perception_passPartiel3").val (null);
+      $('#administrateurbundle_perception_passPartiel1').next(".select2-container").hide();
+      $('#administrateurbundle_perception_passPartiel2').next(".select2-container").hide();
+      $('#administrateurbundle_perception_passPartiel3').next(".select2-container").hide();
+      $('#administrateurbundle_perception_variure').next(".select2-container").show();
   }
 });
 
@@ -162,7 +216,10 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     label4.show();
     label5.show();
     h4.hide();
-
+    $('#administrateurbundle_perception_passPartiel1').next(".select2-container").show();
+    $('#administrateurbundle_perception_passPartiel2').next(".select2-container").show();
+    $('#administrateurbundle_perception_passPartiel3').next(".select2-container").show();
+    $('#administrateurbundle_perception_variure').next(".select2-container").hide();
 
     parag1.hide();
     parag2.hide();
@@ -174,7 +231,8 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     $("#administrateurbundle_perception_passPartiel1").val (null);
     $("#administrateurbundle_perception_passPartiel2").val (null);
     $("#administrateurbundle_perception_passPartiel3").val (null);
-    divid.hide();
+    label6.hide();
+    select9.hide();
   }
 });
 
