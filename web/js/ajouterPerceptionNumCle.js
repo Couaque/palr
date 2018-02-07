@@ -25,6 +25,16 @@ $('.js-example-basic-single-variure').select2({
     allowClear: true
 });
 
+$('.js-example-basic-single-pp1').on("change", function () {
+    if(($("#administrateurbundle_perception_passPartiel2 option:selected")).val() != null ){
+        $("#administrateurbundle_perception_passPartiel3").prop('disabled', true);
+    }
+    if(($("#administrateurbundle_perception_passPartiel2 option:selected")).val() != null ){
+        $("#administrateurbundle_perception_passPartiel3").prop('disabled', true);
+    }
+})
+
+
 
 $('#administrateurbundle_perception_passPartiel1').next(".select2-container").hide();
 $('#administrateurbundle_perception_passPartiel2').next(".select2-container").hide();
@@ -54,6 +64,7 @@ for (var leI=1; leI<100; leI++){
 }
 
     $("#h5").hide();
+    $("#pp").hide();
 
 list4.on('change', function(event) {
     $("#h5").show();
@@ -68,8 +79,9 @@ list4.on('change', function(event) {
 });
 
 list5.on('change', function(event) {
-
+    $("#pp").show();
     for (var leI=1; leI<25; leI++){
+
         if( ($("#administrateurbundle_perception_variure option:selected").data('idpp2')) != ($("#pass"+leI).data('idpartielpp2'))
         ||  ($("#administrateurbundle_perception_variure option:selected").data('id')) != ($("#pass"+leI).data('id'))) {
             $(".deuxcachee"+leI).hide();
@@ -88,20 +100,9 @@ list5.on('change', function(event) {
 
 
 
-/*list1.on('change', function(event) {
-  for (var leI=1; leI<26; leI++){
-    if(($("#administrateurbundle_perception_passPartiel1 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel2 option:eq("+leI+")").data('idpartiel'))){
 
-      $(".pass2cacher"+leI).hide();
 
-    }else{
-      $(".pass2cacher"+leI).show();
-    }
-  }
-  $("#administrateurbundle_perception_passPartiel2").removeAttr("disabled");
-});
-
-list2.on('change', function(event) {
+/*list2.on('change', function(event) {
   for (var leI=1; leI<124; leI++){
     if(($("#administrateurbundle_perception_passPartiel2 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel3 option:eq("+leI+")").data('idpartiel'))){
 
@@ -220,7 +221,8 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     parag3.show();
     select6.show();
     select7.show();
-    select8.show();
+
+
     $("#administrateurbundle_perception_variure").val (null);
     $("#administrateurbundle_perception_passPartiel1").val (null);
     $("#administrateurbundle_perception_passPartiel2").val (null);
@@ -241,6 +243,12 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     label4.show();
     label5.show();
     h4.hide();
+    $("#pp").hide();
+      for (var leI=1; leI<100; leI++){
+          $(".deuxcachee"+leI).hide();
+          $(".troiscachee"+leI).hide();
+      }
+
     $('#administrateurbundle_perception_passPartiel1').next(".select2-container").show();
     $('#administrateurbundle_perception_passPartiel2').next(".select2-container").show();
     $('#administrateurbundle_perception_passPartiel3').next(".select2-container").show();

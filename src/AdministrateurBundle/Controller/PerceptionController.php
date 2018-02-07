@@ -296,8 +296,6 @@ class PerceptionController extends Controller
     $perception->setPassPartiel1(null);
     $perception->setPassPartiel3(null);
     $perception->setPassPartiel2(null);
-    $percepteur = new Percepteur();
-    $percepteur->setService(null);
 
 
 
@@ -344,9 +342,6 @@ class PerceptionController extends Controller
     $perception->setPassPartiel1(null);
     $perception->setPassPartiel3(null);
     $perception->setPassPartiel2(null);
-    $percepteur = new Percepteur();
-    $percepteur->setService(null);
-    //$perception->getPercepteur()->add($percepteur);
 
 
     $form = $this->createForm(PerceptionType2::class, $perception);
