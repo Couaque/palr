@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ead99de-4851-4fd7-8aa3-b09f754fc479" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change beforePath="$PROJECT_DIR$/app/config/parameters.yml.dist" afterPath="$PROJECT_DIR$/app/config/parameters.yml.dist" />
-      <change beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
-      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change beforePath="$PROJECT_DIR$/src/AdministrateurBundle/Controller/PerceptionController.php" afterPath="$PROJECT_DIR$/src/AdministrateurBundle/Controller/PerceptionController.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/AdministrateurBundle/Entity/Percepteur.php" afterPath="$PROJECT_DIR$/src/AdministrateurBundle/Entity/Percepteur.php" />
       <change beforePath="$PROJECT_DIR$/src/AdministrateurBundle/Entity/Perception.php" afterPath="$PROJECT_DIR$/src/AdministrateurBundle/Entity/Perception.php" />
-      <change beforePath="$PROJECT_DIR$/src/AdministrateurBundle/Form/PercepteurType.php" afterPath="$PROJECT_DIR$/src/AdministrateurBundle/Form/PercepteurType.php" />
-      <change beforePath="$PROJECT_DIR$/src/AdministrateurBundle/Form/PercepteurType2.php" afterPath="$PROJECT_DIR$/src/AdministrateurBundle/Form/PercepteurType2.php" />
       <change beforePath="$PROJECT_DIR$/src/AdministrateurBundle/Form/PerceptionType2.php" afterPath="$PROJECT_DIR$/src/AdministrateurBundle/Form/PerceptionType2.php" />
-      <change beforePath="$PROJECT_DIR$/src/AdministrateurBundle/Repository/PercepteurRepository.php" afterPath="$PROJECT_DIR$/src/AdministrateurBundle/Repository/PercepteurRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionLocalisationNouveauPercepteur.html.twig" afterPath="$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionLocalisationNouveauPercepteur.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionNumCleNouveauPercepteur.html.twig" afterPath="$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionNumCleNouveauPercepteur.html.twig" />
       <change beforePath="$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionNumClePercepteurConnu.html.twig" afterPath="$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionNumClePercepteurConnu.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionNumPorteNouveauPercepteur.html.twig" afterPath="$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionNumPorteNouveauPercepteur.html.twig" />
+      <change beforePath="$PROJECT_DIR$/web/css/ajouterPerception.css" afterPath="$PROJECT_DIR$/web/css/ajouterPerception.css" />
+      <change beforePath="$PROJECT_DIR$/web/css/nouvellePerception.css" afterPath="$PROJECT_DIR$/web/css/nouvellePerception.css" />
       <change beforePath="$PROJECT_DIR$/web/js/ajouterPerceptionNumCle.js" afterPath="$PROJECT_DIR$/web/js/ajouterPerceptionNumCle.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +26,18 @@
       <file leaf-file-name="ajouterPerceptionNumClePercepteurConnu.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionNumClePercepteurConnu.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="73" column="59" lean-forward="false" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
+            <state relative-caret-position="156">
+              <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ajouterPerceptionNumCle.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/ajouterPerceptionNumCle.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="55" column="17" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -46,40 +46,8 @@
       <file leaf-file-name="Percepteur.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Entity/Percepteur.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Variure.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Entity/Variure.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-432">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PerceptionController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Controller/PerceptionController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="389" column="15" lean-forward="false" selection-start-line="389" selection-start-column="15" selection-end-line="389" selection-end-column="15" />
-              <folding>
-                <marker date="1517925856453" expanded="true" signature="15373:15432" ph="UPDATE perception... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajouterPerceptionNumCle.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/ajouterPerceptionNumCle.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="221" column="4" lean-forward="false" selection-start-line="221" selection-start-column="4" selection-end-line="221" selection-end-column="4" />
+            <state relative-caret-position="467">
+              <caret line="242" column="100" lean-forward="false" selection-start-line="242" selection-start-column="100" selection-end-line="242" selection-end-column="100" />
               <folding />
             </state>
           </provider>
@@ -88,9 +56,41 @@
       <file leaf-file-name="PerceptionType2.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Form/PerceptionType2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="49" column="8" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+            <state relative-caret-position="288">
+              <caret line="37" column="44" lean-forward="false" selection-start-line="37" selection-start-column="44" selection-end-line="41" selection-end-column="50" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Perception.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Entity/Perception.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4152">
+              <caret line="15" column="91" lean-forward="false" selection-start-line="15" selection-start-column="91" selection-end-line="15" selection-end-column="91" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PerceptionType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Form/PerceptionType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="720">
+              <caret line="47" column="15" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="47" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PerceptionController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Controller/PerceptionController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6696">
+              <caret line="389" column="15" lean-forward="false" selection-start-line="389" selection-start-column="15" selection-end-line="389" selection-end-column="15" />
+              <folding>
+                <marker date="1517925856453" expanded="true" signature="15373:15432" ph="UPDATE perception... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -106,6 +106,8 @@
       <find>disabled</find>
       <find>select9</find>
       <find>select2-co</find>
+      <find>percepteur</find>
+      <find>list4</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -114,10 +116,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AdministrateurBundle/Form/PerceptionType2.php" />
-        <option value="$PROJECT_DIR$/web/js/ajouterPerceptionNumCle.js" />
         <option value="$PROJECT_DIR$/src/AdministrateurBundle/Controller/PerceptionController.php" />
+        <option value="$PROJECT_DIR$/src/AdministrateurBundle/Entity/Perception.php" />
+        <option value="$PROJECT_DIR$/src/AdministrateurBundle/Form/PerceptionType2.php" />
+        <option value="$PROJECT_DIR$/web/css/ajouterPerception.css" />
+        <option value="$PROJECT_DIR$/web/css/nouvellePerception.css" />
         <option value="$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionNumClePercepteurConnu.html.twig" />
+        <option value="$PROJECT_DIR$/web/js/ajouterPerceptionNumCle.js" />
         <option value="$PROJECT_DIR$/src/AdministrateurBundle/Entity/Percepteur.php" />
       </list>
     </option>
@@ -200,7 +205,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -273,13 +278,19 @@
               <item name="palr" type="b2602c69:ProjectViewProjectNode" />
               <item name="palr" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="palr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="palr" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -313,15 +324,16 @@
       <option name="presentableId" value="Default" />
       <updated>1517472280523</updated>
       <workItem from="1517472288307" duration="1864000" />
-      <workItem from="1517924146171" duration="2048000" />
+      <workItem from="1517924146171" duration="7301000" />
+      <workItem from="1518005024125" duration="8614000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3912000" />
+    <option name="totallyTimeSpent" value="17779000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1366" height="741" extended-state="6" />
+    <frame x="10" y="47" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24597365" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -357,6 +369,64 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionNumClePercepteurConnu.html.twig">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/ajouterPerceptionNumCle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1314">
+          <caret line="73" column="2" lean-forward="false" selection-start-line="73" selection-start-column="2" selection-end-line="73" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Entity/Percepteur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Entity/Perception.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="15" column="91" lean-forward="false" selection-start-line="15" selection-start-column="91" selection-end-line="15" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Form/PerceptionType2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Form/PerceptionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="47" column="15" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="47" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Controller/PerceptionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6696">
+          <caret line="389" column="15" lean-forward="false" selection-start-line="389" selection-start-column="15" selection-end-line="389" selection-end-column="15" />
+          <folding>
+            <marker date="1517925856453" expanded="true" signature="15373:15432" ph="UPDATE perception... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionNumClePercepteurConnu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="99" />
           <folding />
@@ -373,22 +443,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/jquery.instantSearch.js" />
     <entry file="file://$PROJECT_DIR$/json.txt" />
-    <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Form/PerceptionType2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="49" column="8" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/ajouterPerceptionNumCle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="221" column="4" lean-forward="false" selection-start-line="221" selection-start-column="4" selection-end-line="221" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Entity/Variure.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-432">
@@ -399,7 +453,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Controller/PerceptionController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
+        <state relative-caret-position="6696">
           <caret line="389" column="15" lean-forward="false" selection-start-line="389" selection-start-column="15" selection-end-line="389" selection-end-column="15" />
           <folding>
             <marker date="1517925856453" expanded="true" signature="15373:15432" ph="UPDATE perception... " />
@@ -407,18 +461,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Form/PerceptionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="47" column="15" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="47" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Form/PerceptionType2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="37" column="44" lean-forward="false" selection-start-line="37" selection-start-column="44" selection-end-line="41" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/ajouterPerception.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/nouvellePerception.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/ajouterPerceptionNumCle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="55" column="17" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Resources/views/Perception/ajouterPerceptionNumClePercepteurConnu.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="73" column="59" lean-forward="false" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
+        <state relative-caret-position="156">
+          <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Entity/Perception.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4152">
+          <caret line="15" column="91" lean-forward="false" selection-start-line="15" selection-start-column="91" selection-end-line="15" selection-end-column="91" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdministrateurBundle/Entity/Percepteur.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+        <state relative-caret-position="467">
+          <caret line="242" column="100" lean-forward="false" selection-start-line="242" selection-start-column="100" selection-end-line="242" selection-end-column="100" />
           <folding />
         </state>
       </provider>

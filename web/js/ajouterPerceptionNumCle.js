@@ -36,6 +36,7 @@ var list1 = $("#administrateurbundle_perception_passPartiel1");
 var list2 = $("#administrateurbundle_perception_passPartiel2");
 var list3 = $("#administrateurbundle_perception_passPartiel3");
 var list4 = $("#administrateurbundle_perception_percepteur");
+var list5 = $("#administrateurbundle_perception_variure");
 
 list2.hide();
 
@@ -48,9 +49,14 @@ $("#administrateurbundle_perception_variure").prepend("<option selected='selecte
 
 for (var leI=1; leI<100; leI++){
   $(".cachee"+leI).hide();
+  $(".deuxcachee"+leI).hide();
+  $(".troiscachee"+leI).hide();
 }
 
+    $("#h5").hide();
+
 list4.on('change', function(event) {
+    $("#h5").show();
   for (var leI=1; leI<100; leI++){
     if( ($("#administrateurbundle_perception_percepteur option:selected").data('id')) != ($(".cachee"+leI).data('idpartiel')) ) {
 
@@ -59,6 +65,25 @@ list4.on('change', function(event) {
       $(".cachee"+leI).show();
     }
   }
+});
+
+list5.on('change', function(event) {
+
+    for (var leI=1; leI<25; leI++){
+        if( ($("#administrateurbundle_perception_variure option:selected").data('idpp2')) != ($("#pass"+leI).data('idpartielpp2'))
+        ||  ($("#administrateurbundle_perception_variure option:selected").data('id')) != ($("#pass"+leI).data('id'))) {
+            $(".deuxcachee"+leI).hide();
+
+        } else{
+            $(".deuxcachee"+leI).show();
+        }
+        if( ($("#administrateurbundle_perception_variure option:selected").data('idpp3')) != ($("#pass"+leI).data('idpartielpp3'))
+            ||  ($("#administrateurbundle_perception_variure option:selected").data('id')) != ($("#pass"+leI).data('id'))) {
+            $(".troiscachee"+leI).hide();
+        }else{
+            $(".troiscachee"+leI).show();
+        }
+    }
 });
 
 
