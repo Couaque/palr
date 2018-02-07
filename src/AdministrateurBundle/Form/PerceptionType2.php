@@ -37,8 +37,8 @@ class PerceptionType2 extends AbstractType
                 'Permanente'=>'Permanente',
                 'Temporaire'=>'Temporaire'),
             'expanded'=> true))
-        ->add('dateDebut', DateType::class, array('label' => 'Date de début : ', 'format'=>'dd/MM/yyyy'))
-        ->add('dateFin', DateType::class, array('label' => 'Date de fin : ', 'format'=>'dd/MM/yyyy'))
+        ->add('dateDebut', DateType::class, array('label' => 'Date de début : ', 'format'=>'dd/MM/yyyy', 'years'=>range(date('Y'),date('Y')+10)))
+        ->add('dateFin', DateType::class, array('label' => 'Date de fin : ', 'format'=>'dd/MM/yyyy', 'years'=>range(date('Y'),date('Y')+10)))
         ->add('variure', EntityType::class, array(
             'class' => 'AdministrateurBundle:Variure',
             'choice_label' => 'nomVariure',
