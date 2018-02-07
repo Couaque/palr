@@ -72,6 +72,12 @@
             <p id="pass{{variure.id}}" class="troiscachee{{variure.id}}" data-idpartielpp3="{{variure.passPartiel3.id}}" data-id="{{variure.id}}">{{ variure.passPartiel3.nomPass3 }}</p>
         {% endif %}
     {% endfor %}
+    <h5 id="porte"> <strong> Equipement sur lequel cette variure est rattachée : </strong></h5>
+    {% for variure in variures %}
+        {% if variure.Equipement %}
+            <p id="porte{{variure.id}}" class="equipcachee{{variure.id}}" data-idpartielequip="{{variure.Equipement.id}}" data-id="{{variure.id}}">{{ variure.Equipement.nomEquipement }}</p>
+        {% endif %}
+    {% endfor %}
 </div>
 
 

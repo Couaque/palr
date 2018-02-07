@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="perception")
  * @ORM\Entity(repositoryClass="AdministrateurBundle\Repository\PerceptionRepository")
- * @UniqueEntity(fields={"variure"}, message="Cette clé a déja été perçue par quelqu'un !")
+ * @UniqueEntity(fields={"variure", "percepteur"}, message="Un même percepteur ne peut pas avoir 2 fois la même clé!")
  */
 class Perception
 {
@@ -28,7 +28,7 @@ class Perception
 
     /**
      * @var string
-     *
+     * @Assert\Expression("value <= this.dateFin", message="La date de fin doit être supérieure à la date de début!")
      * @ORM\Column(name="dateDebut", type="date")
      *
      */
@@ -36,7 +36,7 @@ class Perception
 
     /**
      * @var string
-     * @Assert\Expression("value >= this.dateDebut", message="La date de fin doit être supérieure à la date de début!")
+     *
      * @ORM\Column(name="dateFin", type="date", nullable=true)
      *
      */
