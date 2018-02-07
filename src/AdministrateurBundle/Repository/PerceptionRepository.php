@@ -19,9 +19,12 @@ class PerceptionRepository extends \Doctrine\ORM\EntityRepository
     $pass2 = false;
     $qb = $this->createQueryBuilder('p');
     $qb->select('perception')
-    ->from('\AdministrateurBundle\Entity\Perception','perception')
-    ->andWhere('perception.etatPerception = :etatPerception');
-    $parameters['etatPerception'] = $options['etat'];
+    ->from('\AdministrateurBundle\Entity\Perception','perception');
+
+    if($options['etat'] != "archivee"){
+      $qb->andWhere('perception.etatPerception = :etatPerception');
+      $parameters['etatPerception'] = "enCours";
+    }
 
     if($options['nom'] != ""){
       $qb->join('perception.percepteur','percepteur')
@@ -41,19 +44,19 @@ class PerceptionRepository extends \Doctrine\ORM\EntityRepository
       ->andWhere('variure.nomVariure = :nomVariure');
       $parameters['nomVariure'] = $options['numeroCle'];
     }
-    if($options['Pass1'] != "- Select -"){
+    if($options['Pass1'] != ""){
       $qb->join('perception.passPartiel1','passPartiel1')
       ->andWhere('passPartiel1.nomPass1 = :nomPass1');
       $parameters['nomPass1'] = $options['Pass1'];
       $pass1 = true;
     }
-    if($options['Pass2'] != "- Select -" && $pass1 == true){
+    if($options['Pass2'] != "" && $pass1 == true){
       $qb->join('perception.passPartiel2','passPartiel2')
       ->andWhere('passPartiel2.nomPass2 = :nomPass2');
       $parameters['nomPass2'] = $options['Pass2'];
       $pass2 = true;
     }
-    if($options['Pass3'] != "- Select -" && $pass2 == true){
+    if($options['Pass3'] != "" && $pass2 == true){
       $qb->join('perception.passPartiel3','passPartiel3')
       ->andWhere('passPartiel3.nomPass3 = :nomPass3');
       $parameters['nomPass3'] = $options['Pass3'];
@@ -62,8 +65,8 @@ class PerceptionRepository extends \Doctrine\ORM\EntityRepository
       $qb->andWhere('perception.id >= :id');
       $parameters['id'] = 1;
     }
-      $qb->setParameters($parameters);
-      return $qb->getQuery()->getResult();
+    $qb->setParameters($parameters);
+    return $qb->getQuery()->getResult();
 
   }
 }

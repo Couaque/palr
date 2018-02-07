@@ -324,7 +324,7 @@ class PerceptionController extends Controller
       $pp1 = $repository1->findAll();
       $pp2 = $repository2->findAll();
       $pp3 = $repository3->findAll();
-     
+
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleNouveauPercepteur.html.twig', array(
       'form' => $form->createView(),
       'pp1' => $pp1,
