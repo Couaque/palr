@@ -44,12 +44,13 @@
 <div class="champs">
 
   <p id="paragPorte">Numéro de porte :</p>
-  <select class="form-control" id="Porte" >
-    <option> - Selectionnez le numéro de porte voulu - </option>
+  <select class="js-porte" id="Porte" >
+    <option></option>
     {% for equipement in equipements %}
 <option data-id="{{equipement.id}}">{{equipement.nomEquipement}}</option>
     {% endfor %}
 </select>
+
 
  
   <div id="variure">
