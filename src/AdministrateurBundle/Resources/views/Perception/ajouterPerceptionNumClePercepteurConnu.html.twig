@@ -12,14 +12,7 @@
 
 
 
-        {% for variure in variures %}
-            {% if variure.passPartiel2 %}
-            <p id="pass{{variure.id}}" class="deuxcachee{{variure.id}}" data-idpartielpp2="{{variure.passPartiel2.id}}" data-id="{{variure.id}}">{{ variure.passPartiel2.nomPass2 }}</p>
-            {% endif %}
-            {% if variure.passPartiel3 %}
-                <p id="pass{{variure.id}}" class="troiscachee{{variure.id}}" data-idpartielpp3="{{variure.passPartiel3.id}}" data-id="{{variure.id}}">{{ variure.passPartiel3.nomPass3 }}</p>
-            {% endif %}
-        {% endfor %}
+
 
 <div class="container alert alert-info">
 <h2>Ajouter une perception</h2>
@@ -70,6 +63,15 @@
 
 <div id="variure">
 {{form_row(form.variure)}}
+    <h5 id="pp"> <strong> Pass rattachée à cette variure : </strong></h5>
+    {% for variure in variures %}
+        {% if variure.passPartiel2 %}
+            <p id="pass{{variure.id}}" class="deuxcachee{{variure.id}}" data-idpartielpp2="{{variure.passPartiel2.id}}" data-id="{{variure.id}}">{{ variure.passPartiel2.nomPass2 }}</p>
+        {% endif %}
+        {% if variure.passPartiel3 %}
+            <p id="pass{{variure.id}}" class="troiscachee{{variure.id}}" data-idpartielpp3="{{variure.passPartiel3.id}}" data-id="{{variure.id}}">{{ variure.passPartiel3.nomPass3 }}</p>
+        {% endif %}
+    {% endfor %}
 </div>
 
 
