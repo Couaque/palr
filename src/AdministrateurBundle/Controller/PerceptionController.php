@@ -115,9 +115,7 @@ class PerceptionController extends Controller
     $perception->setPassPartiel1(null);
     $perception->setPassPartiel3(null);
     $perception->setPassPartiel2(null);
-    $percepteur = new Percepteur();
-    $percepteur->setService(null);
-    //$perception->getPercepteur()->add($percepteur);
+
 
 
     $form = $this->createForm(PerceptionType3::class, $perception);
@@ -157,8 +155,7 @@ class PerceptionController extends Controller
     $perception->setPassPartiel1(null);
     $perception->setPassPartiel3(null);
     $perception->setPassPartiel2(null);
-    $percepteur = new Percepteur();
-    $percepteur->setService(null);
+
 
 
 
@@ -198,9 +195,7 @@ class PerceptionController extends Controller
     $perception->setPassPartiel1(null);
     $perception->setPassPartiel3(null);
     $perception->setPassPartiel2(null);
-    $percepteur = new Percepteur();
-    $percepteur->setService(null);
-    //$perception->getPercepteur()->add($percepteur);
+
 
 
     $form = $this->createForm(PerceptionType5::class, $perception);
@@ -246,9 +241,7 @@ class PerceptionController extends Controller
     $perception->setPassPartiel1(null);
     $perception->setPassPartiel3(null);
     $perception->setPassPartiel2(null);
-    $percepteur = new Percepteur();
-    $percepteur->setService(null);
-    //$perception->getPercepteur()->add($percepteur);
+
 
 
     $form = $this->createForm(PerceptionType6::class, $perception);
@@ -313,6 +306,12 @@ class PerceptionController extends Controller
       if($perception->getTypePerception() == "Permanente"){
         $perception->setDateFin(null);
       }
+      if($perception->getPercepteur()->getEmail()== null){
+          $perception->getPercepteur()->setEmail("Email non renseigné");
+      }
+      if($perception->getPercepteur()->getTelephone()==null){
+          $perception->getPercepteur()->setTelephone("Telephone non renseigné");
+      }
       $perception->setEtatPerception("enCours");
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
@@ -322,15 +321,25 @@ class PerceptionController extends Controller
     $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
     $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
+      $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
+      $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+
+
       $pp1 = $repository1->findAll();
       $pp2 = $repository2->findAll();
       $pp3 = $repository3->findAll();
+      $variures = $repository5->findAll();
+
+      $percepteurs = $repository4->findAll();
+
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleNouveauPercepteur.html.twig', array(
       'form' => $form->createView(),
       'pp1' => $pp1,
       'pp2' => $pp2,
       'pp3' => $pp3,
+        'percepteurs' => $percepteurs,
+        'variures' => $variures,
 
     ));
   }

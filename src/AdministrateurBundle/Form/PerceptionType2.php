@@ -42,27 +42,30 @@ class PerceptionType2 extends AbstractType
         ->add('variure', EntityType::class, array(
             'class' => 'AdministrateurBundle:Variure',
             'choice_label' => 'nomVariure',
-            'label' => "Veuillez entrez l'une des clés trouvée par vos filtres : ",
+            'label' => "Veuillez rechercher une clé : ",
             'attr' => array('class' => 'js-example-basic-single-variure'),
             'choice_attr' => function($variure, $index, $value){
                 if ($variure->getPassPartiel2() != null ){
                     return
                         array(
                             'data-idpp2' => $variure->getPassPartiel2()->getId(),
-                            'data-id' => $variure->getId());
+                            'data-id' => $variure->getId(),
+                            'data-idporte' => $variure->getEquipement()->getId());
 
                 }else if ($variure->getPassPartiel3() != null ){
                     return
                         array(
 
                         'data-idpp3' => $variure->getPassPartiel3()->getId(),
-                        'data-id' => $variure->getId());
-                } return array();
+                        'data-id' => $variure->getId(),
+                    '   data-idporte' => $variure->getEquipement()->getId());
+                }
+                    return array();
             }))
         ->add('passPartiel1', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel1',
             'choice_label' => 'nomPass1',
-            'label' => 'Pass 1 correspondant :',
+            'label' => 'Choisissez un Pass 1 :',
             'attr' => array('class' => 'js-example-basic-single-pp1'),
             'choice_attr' => function($passPartiel1, $index, $value){
             return array(
@@ -72,7 +75,7 @@ class PerceptionType2 extends AbstractType
         ->add('passPartiel2', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel2',
             'choice_label' => 'nomPass2',
-            'label' => 'Pass 2 correspondant :',
+            'label' => 'Ou un Pass 2 :',
            'attr' => array('class' => 'js-example-basic-single-pp2'),
             'choice_attr' => function($passPartiel2, $index, $value){
             return array(
@@ -83,7 +86,7 @@ class PerceptionType2 extends AbstractType
         ->add('passPartiel3', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel3',
             'choice_label' => 'nomPass3',
-            'label' => 'Pass 3 correspondant :',
+            'label' => 'Ou un Pass 3 :',
             'attr' => array('class' => 'js-example-basic-single-pp3'),
             'choice_attr' => function($passPartiel3, $index, $value){
                 return array(

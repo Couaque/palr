@@ -2,6 +2,7 @@
 
 
 $(document).ready(function(){
+    $(".has-error").show();
 
 $('.js-example-basic-single-percep').select2({
    placeholder: "Sélectionnez un percepteur",
@@ -94,10 +95,12 @@ for (var leI=1; leI<100; leI++){
   $(".cachee"+leI).hide();
   $(".deuxcachee"+leI).hide();
   $(".troiscachee"+leI).hide();
+  $(".equipcachee"+leI).hide();
 }
 
     $("#h5").hide();
     $("#pp").hide();
+    $("#porte").hide();
 
 list4.on('change', function(event) {
     $("#h5").show();
@@ -113,6 +116,7 @@ list4.on('change', function(event) {
 
 list5.on('change', function(event) {
     $("#pp").show();
+    $("#porte").show();
     for (var leI=1; leI<25; leI++){
 
         if( ($("#administrateurbundle_perception_variure option:selected").data('idpp2')) != ($("#pass"+leI).data('idpartielpp2'))
@@ -127,6 +131,13 @@ list5.on('change', function(event) {
             $(".troiscachee"+leI).hide();
         }else{
             $(".troiscachee"+leI).show();
+        }
+
+        if( ($("#administrateurbundle_perception_variure option:selected").data('idporte')) != ($("#porte"+leI).data('idpartielequip'))
+            ||  ($("#administrateurbundle_perception_variure option:selected").data('id')) != ($("#porte"+leI).data('id'))) {
+            $(".equipcachee"+leI).hide();
+        }else{
+            $(".equipcachee"+leI).show();
         }
     }
 });
@@ -277,9 +288,11 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     label5.show();
     h4.hide();
     $("#pp").hide();
+    $("#porte").hide();
       for (var leI=1; leI<100; leI++){
           $(".deuxcachee"+leI).hide();
           $(".troiscachee"+leI).hide();
+          $(".equipcachee"+leI).hide();
       }
 
     $('#administrateurbundle_perception_passPartiel1').next(".select2-container").show();
@@ -326,6 +339,8 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
 
   }
 });
+
+
 
  $('#administrateurbundle_perception_typePerception_0').change(function(){
   if($(this).val() == 'Permanente'){

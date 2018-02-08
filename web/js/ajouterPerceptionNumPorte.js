@@ -3,6 +3,10 @@
 
 $(document).ready(function(){
 
+    $('.js-porte').select2({
+        placeholder: "Sélectionnez une porte",
+        allowClear: true
+    });
 
 
 var list1 = $("#Porte");
