@@ -39,7 +39,7 @@ var passPartiel3test=$('#passPartiel3test');
 //var JsVars = jQuery('#js-vars').data('vars');
 //var passPartiel2js = JsVars.chartData;
 
-select.select2();
+
 select2.select2();
 select3.select2();
 select4.select2();
