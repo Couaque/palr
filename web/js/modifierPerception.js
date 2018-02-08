@@ -199,4 +199,43 @@ list2.on('change', function(event) {
    divid2.show();
  }
 });
+$('.js-example-basic-single-pp1').on("change", function () {
+    if(($("#administrateurbundle_perception_passPartiel1 option:selected")).text() != null){
+        $("#administrateurbundle_perception_passPartiel3").prop('disabled', true);
+        $("#administrateurbundle_perception_passPartiel2").prop('disabled', true);
+    }
+
+    if (($("#administrateurbundle_perception_passPartiel1 option:selected")).data('select2-id') == ($("#administrateurbundle_perception_passPartiel1 option:first-child")).data('select2-id')) {
+        $("#administrateurbundle_perception_passPartiel3").removeAttr("disabled");
+        $("#administrateurbundle_perception_passPartiel2").removeAttr("disabled");
+    }
+});
+
+$('.js-example-basic-single-pp2').on("change", function () {
+    if(($("#administrateurbundle_perception_passPartiel2 option:selected")).text() != null){
+
+        $("#administrateurbundle_perception_passPartiel1").prop('disabled', true);
+        $("#administrateurbundle_perception_passPartiel3").prop('disabled', true);
+    }
+
+    if (($("#administrateurbundle_perception_passPartiel2 option:selected")).data('select2-id') == ($("#administrateurbundle_perception_passPartiel2 option:first-child")).data('select2-id')) {
+
+        $("#administrateurbundle_perception_passPartiel1").removeAttr("disabled");
+        $("#administrateurbundle_perception_passPartiel3").removeAttr("disabled");
+    }
+});
+
+    $('.js-example-basic-single-pp3').on("change", function () {
+        if(($("#administrateurbundle_perception_passPartiel3 option:selected")).text() != null){
+
+            $("#administrateurbundle_perception_passPartiel1").prop('disabled', true);
+            $("#administrateurbundle_perception_passPartiel2").prop('disabled', true);
+        }
+
+        if (($("#administrateurbundle_perception_passPartiel3 option:selected")).data('select2-id') == ($("#administrateurbundle_perception_passPartiel3 option:first-child")).data('select2-id')) {
+
+            $("#administrateurbundle_perception_passPartiel1").removeAttr("disabled");
+            $("#administrateurbundle_perception_passPartiel2").removeAttr("disabled");
+        }
+    });
 });

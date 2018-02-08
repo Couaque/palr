@@ -235,11 +235,7 @@ class Percepteur
     }
 
     public function __toString(){
-<<<<<<< HEAD
-        return ' ' . $this->nomPercepteur . ' ' . $this->prenomPercepteur . ' < ' . $this->email . ' ' .$this->telephone .'>';
-=======
         return ' ' . $this->nomPercepteur . ' ' . $this->prenomPercepteur . ' <' . $this->email . '> ' . $this->telephone;
->>>>>>> fef033c8ace77c037357903d327951ea24df3f2e
     }
 
     /**
@@ -307,7 +303,7 @@ class Percepteur
         return $this->Perceptions;
     }
 
-<<<<<<< HEAD
+
     /**
      * Get perceptions
      *
@@ -322,9 +318,5 @@ class Percepteur
         }
         return $res;
     }
-=======
 
-
-
->>>>>>> fef033c8ace77c037357903d327951ea24df3f2e
 }
