@@ -6,7 +6,9 @@
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle",
-            "AdministrateurBundle\\": "src/AdministrateurBundle"
+            "AdministrateurBundle\\": "src/AdministrateurBundle",
+            "AdminBundle\\": "src/AdminBundle",
+            "SecuriteBundle\\": "src/SecuriteBundle" 
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },

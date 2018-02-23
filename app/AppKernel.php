@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new AdministrateurBundle\AdministrateurBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\ElasticaBundle\FOSElasticaBundle(),
+            new AdminBundle\AdminBundle(),
+            new SecuriteBundle\SecuriteBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
