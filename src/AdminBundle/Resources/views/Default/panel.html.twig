@@ -1,1 +1,9 @@
-Hello World!
+{% extends '::base.html.twig' %}
+{% block body %}
+<div id="wrapper" style="text-align: center;">
+<h1>Bienvenue dans votre panel administrateur.</h1>
+<a href="{{path('creerUtilisateur')}}" class="btn btn-success">Créer un utilisateur</a>
+<a href="{{path('desactiverUtilisateur')}}" class="btn btn-success">Désactiver un utilisateur</a>
+<a href="{{path('enrichirBD')}}" class="btn btn-success">Enrichir la base de données</a>
+</div>
+{% endblock %}

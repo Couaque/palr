@@ -69,3 +69,14 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+# app/config/config.yml
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: SecuriteBundle\Entity\Utilisateur
+
+    ## To solve the problem
+    from_email:
+        address: "noreply@yourcompany.com"
+        sender_name: "No Reply"
