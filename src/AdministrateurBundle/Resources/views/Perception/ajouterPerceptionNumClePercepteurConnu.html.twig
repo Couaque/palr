@@ -7,11 +7,7 @@
 </div>
 {% endfor %}
 
-
 <link href="/css/nouvellePerception.css" rel="stylesheet">
-
-
-
 
 
 <div class="container alert alert-info">
@@ -40,10 +36,7 @@
                 {% endif %}
             {% endfor %}
         {% endfor %}
-
-</div>
-
-
+      </div>
 {{form_row(form.typePerception)}}
 <div id="dateDebut">
 {{form_row(form.dateDebut)}}
@@ -59,7 +52,19 @@
 
 {{form_row(form.passPartiel1)}}
 {{form_row(form.passPartiel2)}}
+<h5 id="h5pp1"> <strong> Pass 1 rattaché : </strong> </h5>
+{% for pp in pp1 %}
+  <p id="pp1" class="pass1cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass1}} </p>
+  {% endfor %}
 {{form_row(form.passPartiel3)}}
+<h5 id="h5pp2"> <strong> Pass 2 rattaché : </strong> </h5>
+{% for pp in pp2 %}
+  <p id="pp2" class="pass2cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass2}} </p>
+  {% endfor %}
+  <h5 id="h5pp1-3"> <strong> Pass 1 rattaché : </strong> </h5>
+  {% for pp in pp1 %}
+    <p id="pp1pp3" class="pass1-3cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass1}} </p>
+    {% endfor %}
 
 <div id="variure">
 {{form_row(form.variure)}}
@@ -72,19 +77,30 @@
             <p id="pass{{variure.id}}" class="troiscachee{{variure.id}}" data-idpartielpp3="{{variure.passPartiel3.id}}" data-id="{{variure.id}}">{{ variure.passPartiel3.nomPass3 }}</p>
         {% endif %}
     {% endfor %}
+
     <h5 id="porte"> <strong> Equipement sur lequel cette variure est rattachée : </strong></h5>
-    {% for variure in variures %}
-        {% if variure.Equipement %}
-            <p id="porte{{variure.id}}" class="equipcachee{{variure.id}}" data-idpartielequip="{{variure.Equipement.id}}" data-id="{{variure.id}}">{{ variure.Equipement.nomEquipement }}</p>
-        {% endif %}
+  <div id="scroll" style="height:200pt;overflow:scroll;margin-right:100px;margin-left:100px;">
+    {% for equip in equipements %}
+        {% for e in equip %}
+
+
+            <p id="of" class="ofcachee{{e.id}}" data-idpartielof="{{e.OutilFermeture.id}}" data-id="{{e.id}}">{{ e.nomEquipement}} </p>
+
+        {% endfor %}
     {% endfor %}
+    </div>
+
+
+</div>
+
+
 </div>
 
 
 
 
 
-</div>
+
 
 
 {{ form_end(form) }}
@@ -95,8 +111,6 @@
 <div id="nouvellePerception">
 <a href="{{ path('ajouterPerception') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span>  Nouvelle perception</a>
 </div>
-
-
 <script src="/js/ajouterPerceptionNumCle.js"></script>
 
 {% endblock %}

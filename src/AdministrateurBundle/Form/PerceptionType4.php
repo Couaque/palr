@@ -23,7 +23,7 @@ class PerceptionType4 extends AbstractType
             'class' => 'AdministrateurBundle:Percepteur',
             'required'=>true,
             'multiple'=>false,))
-        ->add('typePerception', ChoiceType::class, 
+        ->add('typePerception', ChoiceType::class,
             array('label' => 'Type de perception :' ,'choices'=> array(
             'Permanente'=>'Permanente',
             'Temporaire'=>'Temporaire'),
@@ -36,15 +36,12 @@ class PerceptionType4 extends AbstractType
             'label' => "Veuillez entrez l'une des clés trouvée par vos filtres : ",
             'attr' => array( 'disabled' => 'true'),
             'choice_attr' => function($variure, $index, $value){
-                if ($variure->getEquipement() != null ){
-                    return 
+              return
                 array(
                 'class' => "variurecachee" . $variure->getId(),
                 'data-id' => $variure->getId(),
-                'data-idpartielporte' => $variure->getEquipement()->getId()); 
-                }else{
-                    return array('class' => "variuresansequip");
-                } return array();
+                'data-idpartielporte' => $variure->getOutilFermeture()->getId()); 
+
             }))
         ->add('passPartiel1', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel1',
@@ -53,7 +50,7 @@ class PerceptionType4 extends AbstractType
             'choice_attr' => function($passPartiel1, $index, $value){
             return array(
                 'data-id' => $passPartiel1->getId(),
-                ); 
+                );
             }))
         ->add('passPartiel2', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel2',
@@ -64,7 +61,7 @@ class PerceptionType4 extends AbstractType
             return array(
                 'class' => "pass2cacher" . $passPartiel2->getId(),
                 'data-id' => $passPartiel2->getId(),
-                'data-idpartiel' => $passPartiel2->getPassPartiel1()->getId()); 
+                'data-idpartiel' => $passPartiel2->getPassPartiel1()->getId());
             }))
         ->add('passPartiel3', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel3',
@@ -75,15 +72,15 @@ class PerceptionType4 extends AbstractType
                 return array(
                 'class' => "pass3cacher" . $passPartiel3->getId(),
                 'data-id' => $passPartiel3->getId(),
-                'data-idpartiel' => $passPartiel3->getPassPartiel2()->getId()); 
-               
+                'data-idpartiel' => $passPartiel3->getPassPartiel2()->getId());
+
             }))
-        ->add('save', SubmitType::class, array('label' => 'Valider la Perception', 
+        ->add('save', SubmitType::class, array('label' => 'Valider la Perception',
         'attr' => array('class' => "btn btn-info btn-lg")));
-       
-         
+
+
     }
-    
+
     /**
      * {@inheritdoc}
      */

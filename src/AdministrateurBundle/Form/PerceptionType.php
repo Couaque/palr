@@ -38,7 +38,7 @@ class PerceptionType extends AbstractType
                             array(
                                 'data-idpp2' => $variure->getPassPartiel2()->getId(),
                                 'data-id' => $variure->getId(),
-                        'data-idporte' => $variure->getEquipement()->getId());
+                        'data-idof' => $variure->getOutilFermeture()->getId());
 
                     }else if ($variure->getPassPartiel3() != null ){
                         return
@@ -46,7 +46,7 @@ class PerceptionType extends AbstractType
 
                                 'data-idpp3' => $variure->getPassPartiel3()->getId(),
                                 'data-id' => $variure->getId(),
-                        'data-idporte' => $variure->getEquipement()->getId());
+                        'data-idof' => $variure->getOutilFermeture()->getId());
                     } return array();
                 }))
             ->add('passPartiel1', EntityType::class, array(
@@ -79,7 +79,8 @@ class PerceptionType extends AbstractType
                     return array(
                         'class' => "pass3cacher" . $passPartiel3->getId(),
                         'data-id' => $passPartiel3->getId(),
-                        'data-idpartiel' => $passPartiel3->getPassPartiel2()->getId());
+                        'data-idpp2' => $passPartiel3->getPassPartiel2()->getId(),
+                        'data-idpp1' => $passPartiel3->getPassPartiel2()->getPassPartiel1()->getId());
 
                 }))
             ->add('choixPerception', ChoiceType::class,
@@ -94,7 +95,7 @@ class PerceptionType extends AbstractType
 
 
     }
-    
+
     /**
      * {@inheritdoc}
      */

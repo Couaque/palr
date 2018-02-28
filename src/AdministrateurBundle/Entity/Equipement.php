@@ -33,13 +33,8 @@ class Equipement
     */
     private $batiment;
 
-     /**
-    *@ORM\OneToMany(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"}, mappedBy="Equipement")
-    */
-    private $Variures;
-    
     /**
-    *@ORM\OneToOne(targetEntity="AdministrateurBundle\Entity\OutilFermeture", cascade={"persist"})
+    *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\OutilFermeture", cascade={"persist"}, inversedBy="Equipements")
     */
     private $outilFermeture;
 
@@ -114,39 +109,6 @@ class Equipement
         return $this->batiment;
     }
 
-    /**
-     * Add variure
-     *
-     * @param \AdministrateurBundle\Entity\Variure $variure
-     *
-     * @return Equipement
-     */
-    public function addVariure(\AdministrateurBundle\Entity\Variure $variure)
-    {
-        $this->Variures[] = $variure;
-
-        return $this;
-    }
-
-    /**
-     * Remove variure
-     *
-     * @param \AdministrateurBundle\Entity\Variure $variure
-     */
-    public function removeVariure(\AdministrateurBundle\Entity\Variure $variure)
-    {
-        $this->Variures->removeElement($variure);
-    }
-
-    /**
-     * Get variures
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getVariures()
-    {
-        return $this->Variures;
-    }
 
     /**
      * Set outilFermeture

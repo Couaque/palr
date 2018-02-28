@@ -42,31 +42,60 @@
   </div>
 
 <div class="champs">
-
+<h5><strong>Séléctionnez une porte : </strong></h5>
   <p id="paragPorte">Numéro de porte :</p>
   <select class="js-porte" id="Porte" >
-    <option></option>
+    <option selected="selected"></option>
     {% for equipement in equipements %}
-<option data-id="{{equipement.id}}">{{equipement.nomEquipement}}</option>
+<option data-id="{{equipement.OutilFermeture.id}}">{{equipement.nomEquipement}}</option>
     {% endfor %}
 </select>
+<h5 id="paragVariure"><strong>Clé associée à cette porte :</strong></h5>
+
+  {% for v in variures %}
+<p id="Cle" class="clecachee{{v.OutilFermeture.id}}" data-id="{{v.OutilFermeture.id}}" >{{v.nomVariure}} {% if v.passPartiel2 %} {{v.passPartiel2.nomPass2}} {% endif %}
+ {% if v.passPartiel3 %} {{v.passPartiel3.nomPass3}} {% endif %}</p>
+  {% endfor %}
 
 
- 
-  <div id="variure">
-    {{form_row(form.variure)}}
-  </div>
 
 </div>
+
+{{form_row(form.choixPerception)}}
+<div class="champs">
+{{form_row(form.passPartiel1)}}
+
+{{form_row(form.passPartiel2)}}
+<h5 id="h5pp1"> <strong> Pass 1 rattaché : </strong> </h5>
+{% for pp in pp1 %}
+  <p id="pp1" class="pass1cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass1}} </p>
+  {% endfor %}
+
+
+{{form_row(form.passPartiel3)}}
+<h5 id="h5pp2"> <strong> Pass 2 rattaché : </strong> </h5>
+{% for pp in pp2 %}
+  <p id="pp2" class="pass2cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass2}} </p>
+  {% endfor %}
+  <h5 id="h5pp1-3"> <strong> Pass 1 rattaché : </strong> </h5>
+  {% for pp in pp1 %}
+    <p id="pp1pp3" class="pass1-3cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass1}} </p>
+    {% endfor %}
+
+
+<div id="variure">
+    {{form_row(form.variure)}}
+
+</div>
+</div>
   {{ form_end(form) }}
- 
+
 </div>
 
 <div id="nouvellePerception">
 <a href="{{ path('ajouterPerception') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span>  Nouvelle perception</a>
 </div>
 
-<script src="/js/ajouterPerceptionNumPorte.js"></script>
+<script src="/js/ajouterPerceptionNumCle.js"></script>
 
 {% endblock %}
-

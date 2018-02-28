@@ -5,29 +5,32 @@ $(document).ready(function(){
 
     $('.js-porte').select2({
         placeholder: "Sélectionnez une porte",
-        allowClear: true
+        allowClear: true,
+        width : '400px'
     });
 
 
 var list1 = $("#Porte");
-var list2 = $("#administrateurbundle_perception_variure");
-$("#administrateurbundle_perception_variure").val (null);
-$(".variuresansequip").hide();
+$("#paragVariure").hide();
+$("#paragPass").hide();
+
+
+for (var leI=0; leI<200; leI++){
+  $(".clecachee"+leI).hide();
+}
 
 list1.on('change', function(event) {
-  for (var leI=0; leI<50; leI++){
-    console.log($("#Porte option:selected").data('id'));
-      console.log($("#administrateurbundle_perception_variure option:eq("+leI+")").data('idpartielporte'));
+  $("#paragVariure").show();
+  $("#paragPass").show();
+  for (var leI=0; leI<200; leI++){
 
-    if(($("#Porte option:selected").data('id')) != ($("#administrateurbundle_perception_variure option:eq("+leI+")").data('idpartielporte'))){
+    if ( ($("#Porte option:selected").data('id')) != ($(".clecachee"+leI).data('id'))){
 
-    $("#administrateurbundle_perception_variure option:eq("+leI+")").hide();
+    $(".clecachee"+leI).hide();
     }else{
-    $("#administrateurbundle_perception_variure option:eq("+leI+")").show();
+    $(".clecachee"+leI).show();
     }
   }
-
-  $("#administrateurbundle_perception_variure").removeAttr("disabled");
 });
 
 var porte = $("#Porte");
@@ -101,10 +104,9 @@ var porte = $("#Porte");
 
  $('#administrateurbundle_perception_typePerception_1').change(function(){
   if($(this).val() == 'Temporaire'){
-   divid2.show(); 
+   divid2.show();
  }
 });
 
 
 });
-

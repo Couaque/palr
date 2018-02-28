@@ -115,7 +115,7 @@ class PerceptionController extends Controller
 
 
 
-    $form = $this->createForm(PerceptionType3::class, $perception);
+    $form = $this->createForm(PerceptionType::class, $perception);
 
 
     $form->handleRequest($request);
@@ -135,9 +135,21 @@ class PerceptionController extends Controller
     }
     $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
     $listeEquipements = $repository->findAll();
+    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+    $variures = $repository2->findAll();
+    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
+    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
+    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
+    $pp1 = $repository1->findAll();
+    $pp2 = $repository2->findAll();
+    $pp3 = $repository3->findAll();
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPorteNouveauPercepteur.html.twig', array(
       'equipements' => $listeEquipements,
+      'variures' => $variures,
+      'pp1' => $pp1,
+      'pp2' => $pp2,
+      'pp3' => $pp3,
       'form' => $form->createView(),
     ));
   }
@@ -156,7 +168,7 @@ class PerceptionController extends Controller
 
 
 
-    $form = $this->createForm(PerceptionType4::class, $perception);
+    $form = $this->createForm(PerceptionType2::class, $perception);
 
 
     $form->handleRequest($request);
@@ -174,9 +186,29 @@ class PerceptionController extends Controller
     }
     $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
     $listeEquipements = $repository->findAll();
+    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
+    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
+    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
+    $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
+    $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+    $variures = $repository5->findAll();
+    $pp1 = $repository1->findAll();
+    $pp2 = $repository2->findAll();
+    $pp3 = $repository3->findAll();
+    $percepteurs = $repository4->findAll();
+    $perceptions = array();
+    foreach ($percepteurs as $p) {
+        $perceptions[] = $p->getPerceptions();
+    }
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPortePercepteurConnu.html.twig', array(
       'equipements' => $listeEquipements,
       'form' => $form->createView(),
+      'perceptions' => $perceptions,
+      'percepteurs' => $percepteurs,
+      'variures' => $variures,
+      'pp1' => $pp1,
+      'pp2' => $pp2,
+      'pp3' => $pp3,
 
     ));
   }
@@ -194,7 +226,7 @@ class PerceptionController extends Controller
 
 
 
-    $form = $this->createForm(PerceptionType5::class, $perception);
+    $form = $this->createForm(PerceptionType::class, $perception);
 
 
     $form->handleRequest($request);
@@ -215,6 +247,14 @@ class PerceptionController extends Controller
     $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:batiment');
     $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Localisation');
+    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
+    $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
+    $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
+    $repository6=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+    $variures = $repository6->findAll();
+    $pp1 = $repository1->findAll();
+    $pp2 = $repository4->findAll();
+    $pp3 = $repository5->findAll();
     $listeEquipements = $repository->findAll();
     $batiments = $repository2->findAll();
     $localisations = $repository3->findAll();
@@ -224,6 +264,10 @@ class PerceptionController extends Controller
       'form' => $form->createView(),
       'batiments' => $batiments,
       'localisations' => $localisations,
+      'pp1' => $pp1,
+      'pp2' => $pp2,
+      'pp3' => $pp3,
+      'variures' => $variures,
     ));
   }
 
@@ -240,7 +284,7 @@ class PerceptionController extends Controller
 
 
 
-    $form = $this->createForm(PerceptionType6::class, $perception);
+    $form = $this->createForm(PerceptionType2::class, $perception);
 
 
     $form->handleRequest($request);
@@ -261,7 +305,22 @@ class PerceptionController extends Controller
     $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:batiment');
     $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Localisation');
+    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
+    $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
+    $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
+    $repository6=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+    $repository7=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
+    $percepteurs = $repository7->findAll();
+    $perceptions = array();
+    foreach ($percepteurs as $p) {
+      $perceptions[] = $p->getPerceptions();
+    }
 
+
+    $variures = $repository6->findAll();
+    $pp1 = $repository1->findAll();
+    $pp2 = $repository4->findAll();
+    $pp3 = $repository5->findAll();
     $listeEquipements = $repository->findAll();
     $batiments = $repository2->findAll();
     $localisations = $repository3->findAll();
@@ -271,6 +330,12 @@ class PerceptionController extends Controller
       'form' => $form->createView(),
       'batiments' => $batiments,
       'localisations' => $localisations,
+      'pp1' => $pp1,
+      'pp2' => $pp2,
+      'pp3' => $pp3,
+      'variures' => $variures,
+      'perceptions' => $perceptions,
+      'percepteurs' => $percepteurs,
     ));
   }
 
@@ -300,7 +365,7 @@ class PerceptionController extends Controller
     if ($form->isSubmitted() && $form->isValid()) {
       $PerceptionInsert = $form->getData();
       if($perception->getTypePerception() == "Permanente"){
-        $perception->setDateFin(null);
+        $perception->setDateFin('2050-01-01');
       }
       if($perception->getPercepteur()->getEmail()== null){
           $perception->getPercepteur()->setEmail("Email non renseigné");
@@ -317,16 +382,19 @@ class PerceptionController extends Controller
     $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
     $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
-      $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
-      $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
-
-
-      $pp1 = $repository1->findAll();
-      $pp2 = $repository2->findAll();
-      $pp3 = $repository3->findAll();
-      $variures = $repository5->findAll();
-
-      $percepteurs = $repository4->findAll();
+    $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
+    $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+    $repository6=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:OutilFermeture');
+    $OutilFermeture = $repository6->findAll();
+    $equipements = array();
+    foreach ($OutilFermeture as $of) {
+      $equipements[] = $of->getEquipements();
+    }
+    $pp1 = $repository1->findAll();
+    $pp2 = $repository2->findAll();
+    $pp3 = $repository3->findAll();
+    $variures = $repository5->findAll();
+    $percepteurs = $repository4->findAll();
 
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleNouveauPercepteur.html.twig', array(
@@ -336,6 +404,7 @@ class PerceptionController extends Controller
       'pp3' => $pp3,
         'percepteurs' => $percepteurs,
         'variures' => $variures,
+        'equipements' => $equipements,
 
     ));
   }
@@ -347,11 +416,10 @@ class PerceptionController extends Controller
   public function ajouterPerceptionNumClePercepteurConnuAction(Request $request)
   {
     $perception = new Perception();
-    $perception->setDateFin(null);
+
     $perception->setPassPartiel1(null);
     $perception->setPassPartiel3(null);
     $perception->setPassPartiel2(null);
-
 
     $form = $this->createForm(PerceptionType2::class, $perception);
 
@@ -374,6 +442,7 @@ class PerceptionController extends Controller
     $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
     $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
     $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+    $repository6=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:OutilFermeture');
 
     $pp1 = $repository1->findAll();
     $pp2 = $repository2->findAll();
@@ -381,14 +450,20 @@ class PerceptionController extends Controller
     $variures = $repository5->findAll();
 
     $percepteurs = $repository4->findAll();
-      $perceptions = array();
-      foreach ($percepteurs as $p) {
-        $perceptions[] = $p->getPerceptions();
-      }
+    $OutilFermeture = $repository6->findAll();
+    $perceptions = array();
+    $equipements = array();
+    foreach ($percepteurs as $p) {
+      $perceptions[] = $p->getPerceptions();
+    }
+    foreach ($OutilFermeture as $of) {
+      $equipements[] = $of->getEquipements();
+   }
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumClePercepteurConnu.html.twig', array(
       'form' => $form->createView(),
       'perceptions' => $perceptions,
+      'equipements' => $equipements,
       'percepteurs' => $percepteurs,
       'variures' => $variures,
       'pp1' => $pp1,
