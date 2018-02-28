@@ -67,7 +67,7 @@ class Percepteur
     private $organisation;
 
     /**
-     * 
+     *
      * @ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\ServicePALR", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
@@ -88,7 +88,7 @@ class Percepteur
         return $this->id;
     }
 
-    
+
 
     /**
      * Set email
@@ -304,6 +304,19 @@ class Percepteur
     }
 
 
+    /**
+     * Get perceptions
+     *
+     * @return array
+     */
+    public function getPerceptionsId()
+    {
+        $res = array();
+        foreach ($this->Perceptions as $perception ) {
+            $res = $perception->getId();
 
+        }
+        return $res;
+    }
 
 }

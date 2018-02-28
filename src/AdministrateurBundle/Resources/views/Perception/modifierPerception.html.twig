@@ -9,29 +9,21 @@
 </div>
 {% endfor %}
 <link href="/css/nouvellePerception.css" rel="stylesheet">
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<link href="/css/modifierPerception.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <div class="container alert alert-info">
   <h2>Modifier la perception</h2>
   <h3> Modifiez les champs désirés : </h3>
   {{form_start(form)}}
       <form class="col s12">
           <div class="row">
-            <h4>Percepteur :</h4>
             <div class="champs">
-              {{  form_row(form.percepteur.nomPercepteur)}}
-              {{  form_row(form.percepteur.prenomPercepteur)}}
-              {{  form_row(form.percepteur.email)}}
+            {{form_row(form.percepteur)}}
             </div>
-              <div id="typePercepteur">
-              {{  form_row(form.percepteur.typePercepteur)}}
+              <div id="typePerceptiondiv">
+                {{  form_row(form.typePerception)}}
               </div>
-              <div class="champs" id="organisation">
-              {{  form_row(form.percepteur.organisation)}}
-              </div>
-              <div class="champs" id="service">
-              {{  form_row(form.percepteur.service)}}
-              </div>
-              {{  form_row(form.typePerception)}}
               <div id="dateFin">
                 {{  form_row(form.dateFin)}}
               </div>
@@ -59,7 +51,22 @@
       </form>
 
 </div>
-
-<script src="/js/modifierPerception.js"></script>
+<script>
+var passPartiel2test = document.getElementById("select2-administrateurbundle_perception_passPartiel2-container").innerText;
+var passPartiel3test = document.getElementById("select2-administrateurbundle_perception_passPartiel3-container").innerText;
+if (passPartiel2test===null) {
+  $("#administrateurbundle_perception_passPartiel2").prepend("<option selected='selected'></option>");
+}
+else{
+  $("#administrateurbundle_perception_passPartiel2").prepend("<option></option>");
+}
+if(passPartiel3test===null){
+  $("#administrateurbundle_perception_passPartiel3").prepend("<option selected='selected'></option>");
+}
+else{
+  $("#administrateurbundle_perception_passPartiel3").prepend("<option></option>");
+}</script>
+<script src="/js/modifierPerception.js">
+</script>
 
 {% endblock %}
