@@ -31,7 +31,7 @@ class OutilFermeture
     /**
      * @var string
      *
-     * @ORM\Column(name="dimensions", type="string", length=255)
+     * @ORM\Column(name="dimensions", type="string", length=255, nullable=true)
      */
     private $dimensions;
 
@@ -43,9 +43,15 @@ class OutilFermeture
     private $etat;
 
     /**
-    *@ORM\OneToOne(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"})
-    */
-    private $variure;
+   *@ORM\OneToMany(targetEntity="AdministrateurBundle\Entity\Equipement", cascade={"persist"}, mappedBy="outilFermeture")
+   */
+   private $Equipements;
+
+   /**
+  *@ORM\OneToMany(targetEntity="AdministrateurBundle\Entity\Variure", cascade={"persist"}, mappedBy="outilFermeture")
+  */
+  private $Variures;
+
 
     /**
      * Get id
@@ -127,5 +133,80 @@ class OutilFermeture
     public function getEtat()
     {
         return $this->etat;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Equipements = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add equipement
+     *
+     * @param \AdministrateurBundle\Entity\Equipement $equipement
+     *
+     * @return OutilFermeture
+     */
+    public function addEquipement(\AdministrateurBundle\Entity\Equipement $equipement)
+    {
+        $this->Equipements[] = $equipement;
+
+        return $this;
+    }
+
+    /**
+     * Remove equipement
+     *
+     * @param \AdministrateurBundle\Entity\Equipement $equipement
+     */
+    public function removeEquipement(\AdministrateurBundle\Entity\Equipement $equipement)
+    {
+        $this->Equipements->removeElement($equipement);
+    }
+
+    /**
+     * Get equipements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEquipements()
+    {
+        return $this->Equipements;
+    }
+
+    /**
+     * Add variure
+     *
+     * @param \AdministrateurBundle\Entity\Variure $variure
+     *
+     * @return OutilFermeture
+     */
+    public function addVariure(\AdministrateurBundle\Entity\Variure $variure)
+    {
+        $this->Variures[] = $variure;
+
+        return $this;
+    }
+
+    /**
+     * Remove variure
+     *
+     * @param \AdministrateurBundle\Entity\Variure $variure
+     */
+    public function removeVariure(\AdministrateurBundle\Entity\Variure $variure)
+    {
+        $this->Variures->removeElement($variure);
+    }
+
+    /**
+     * Get variures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVariures()
+    {
+        return $this->Variures;
     }
 }

@@ -33,20 +33,20 @@ class PerceptionType extends AbstractType
                 'label' => "Veuillez rechercher une clé : ",
                 'attr' => array('class' => 'js-example-basic-single-variure'),
                 'choice_attr' => function($variure, $index, $value){
-                    if ($variure->getPassPartiel2() != null ){
+                    if ($variure->getPassPartiel2() != null && $variure->getOutilFermeture() != null){
                         return
                             array(
                                 'data-idpp2' => $variure->getPassPartiel2()->getId(),
                                 'data-id' => $variure->getId(),
-                        'data-idporte' => $variure->getEquipement()->getId());
+                        'data-idof' => $variure->getOutilFermeture()->getId());
 
-                    }else if ($variure->getPassPartiel3() != null ){
+                    }else if ($variure->getPassPartiel3() != null  && $variure->getOutilFermeture() != null){
                         return
                             array(
 
                                 'data-idpp3' => $variure->getPassPartiel3()->getId(),
                                 'data-id' => $variure->getId(),
-                        'data-idporte' => $variure->getEquipement()->getId());
+                        'data-idof' => $variure->getOutilFermeture()->getId());
                     } return array();
                 }))
             ->add('passPartiel1', EntityType::class, array(
@@ -79,7 +79,8 @@ class PerceptionType extends AbstractType
                     return array(
                         'class' => "pass3cacher" . $passPartiel3->getId(),
                         'data-id' => $passPartiel3->getId(),
-                        'data-idpartiel' => $passPartiel3->getPassPartiel2()->getId());
+                        'data-idpp2' => $passPartiel3->getPassPartiel2()->getId(),
+                        'data-idpp1' => $passPartiel3->getPassPartiel2()->getPassPartiel1()->getId());
 
                 }))
             ->add('choixPerception', ChoiceType::class,
@@ -94,7 +95,7 @@ class PerceptionType extends AbstractType
 
 
     }
-    
+
     /**
      * {@inheritdoc}
      */

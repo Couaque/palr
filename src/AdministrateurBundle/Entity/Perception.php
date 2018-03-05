@@ -27,16 +27,26 @@ class Perception
     private $id;
 
     /**
-     * @var string
-     * @Assert\Expression("value <= this.dateFin", message="La date de fin doit être supérieure à la date de début!")
+     * @var \DateTime
+     * @Assert\Type(
+     *      type = "\DateTime",
+     *      message = "vacancy.date.valid",
+     * )
      * @ORM\Column(name="dateDebut", type="date")
      *
      */
     public $dateDebut;
 
     /**
-     * @var string
-     *
+     * @var \DateTime
+     * @Assert\Type(
+     *      type = "\DateTime",
+     *      message = "vacancy.date.valid",
+     * )
+     * @Assert\Expression(
+     *     "this.getDateFin() >= this.getDateDebut()",
+     *     message="La date de fin doit être supérieure à la date de début!"
+     * )
      * @ORM\Column(name="dateFin", type="date", nullable=true)
      *
      */
