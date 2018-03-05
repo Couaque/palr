@@ -30,23 +30,19 @@
               <div class="champs">
               {{  form_row(form.choixPerception)}}
               </div>
-              <div class="champs">
-              <div id="pass">
+              <div class="champs" id="pass">
               {{  form_row(form.passPartiel1)}}
               {{  form_row(form.passPartiel2)}}
               {{  form_row(form.passPartiel3)}}
               </div>
-              </div>
-              <div class="champs">
-              <div id="variure">
+              <div class="champs" id="variure">
                 {{  form_row(form.variure)}}
-              </div>
               </div>
               <div id="etatPerception">
                 {{form_row(form.etatPerception)}}
               </div>
               {{ form_row(form._token)}}
-              <a href="{{ path('perception') }}">{{ form_row(form.save) }}</a>
+              {{ form_row(form.save) }}
           </div>
       </form>
 

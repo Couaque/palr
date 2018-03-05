@@ -51,8 +51,10 @@ class PerceptionController extends Controller
     $perception = $em->getRepository('AdministrateurBundle:Perception')->find($id);
     $form = $this->createForm(ModifierPerceptionType::class, $perception);
     $form->handleRequest($request);
-
     if ($form->isSubmitted() && $form->isValid()) {
+      if($perception->getTypePerception() == "Permanente"){
+        $perception->setDateFin(null);
+      }
       $PerceptionInsert = $form->getData();
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
