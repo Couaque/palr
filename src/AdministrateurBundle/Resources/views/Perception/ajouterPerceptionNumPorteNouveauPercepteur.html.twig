@@ -53,7 +53,9 @@
 <h5 id="paragVariure"><strong>Clé associée à cette porte :</strong></h5>
 
   {% for v in variures %}
+  {% if v.OutilFermeture %}
 <p id="Cle" class="clecachee{{v.OutilFermeture.id}}" data-id="{{v.OutilFermeture.id}}" >{{v.nomVariure}} {% if v.passPartiel2 %} {{v.passPartiel2.nomPass2}} {% endif %}
+{% endif %}
  {% if v.passPartiel3 %} {{v.passPartiel3.nomPass3}} {% endif %}</p>
   {% endfor %}
 

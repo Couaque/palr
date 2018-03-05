@@ -45,14 +45,14 @@ class PerceptionType2 extends AbstractType
             'label' => "Veuillez rechercher une clé : ",
             'attr' => array('class' => 'js-example-basic-single-variure'),
             'choice_attr' => function($variure, $index, $value){
-                if ($variure->getPassPartiel2() != null ){
+                if ($variure->getPassPartiel2() != null  && $variure->getOutilFermeture() != null){
                     return
                         array(
                             'data-idpp2' => $variure->getPassPartiel2()->getId(),
                             'data-id' => $variure->getId(),
                             'data-idof' => $variure->getOutilFermeture()->getId());
 
-                }else if ($variure->getPassPartiel3() != null ){
+                }else if ($variure->getPassPartiel3() != null  && $variure->getOutilFermeture() != null){
                     return
                         array(
 

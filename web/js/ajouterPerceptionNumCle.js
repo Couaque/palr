@@ -27,14 +27,14 @@ $("#scrollPortes").hide();
 
 
 
-for (var leI=0; leI<200; leI++){
+for (var leI=0; leI<6000; leI++){
   $(".clecachee"+leI).hide();
 }
 
 list1.on('change', function(event) {
   $("#paragVariure").show();
   $("#paragPass").show();
-  for (var leI=0; leI<200; leI++){
+  for (var leI=0; leI<6000; leI++){
 
     if ( ($("#Porte option:selected").data('id')) != ($(".clecachee"+leI).data('id'))){
 
@@ -45,7 +45,7 @@ list1.on('change', function(event) {
   }
 });
 
-  for (var leI=1; leI<200; leI++){
+  for (var leI=1; leI<6000; leI++){
 $("#PorteLocal").attr('id', 'PorteLocal'+leI);
 $("#PorteLocal"+leI).hide();
 }
@@ -53,7 +53,7 @@ $("#PorteLocal"+leI).hide();
 $("#Localisation").on('change', function(event) {
 $("#scrollPortes").show();
 $("#paragPorte").show();
-    for(var leI=1; leI<50; leI++){
+    for(var leI=1; leI<6000; leI++){
 
     if ( ($("#Localisation option:selected").data('id')) != ($("#PorteLocal"+leI).data('id'))
     || ( ($("#PorteLocal"+leI).data('id2') != ($("#PorteLocal"+leI).data('id3'))))) {
@@ -159,7 +159,7 @@ $("#administrateurbundle_perception_passPartiel2").prepend("<option selected='se
 $("#administrateurbundle_perception_passPartiel3").prepend("<option selected='selected'></option>");
 $("#administrateurbundle_perception_variure").prepend("<option selected='selected'></option>");
 
-for (var leI=1; leI<300; leI++){
+for (var leI=1; leI<6000; leI++){
   $(".cachee"+leI).hide();
   $(".deuxcachee"+leI).hide();
   $(".troiscachee"+leI).hide();
@@ -180,7 +180,7 @@ for (var leI=1; leI<300; leI++){
 
 list4.on('change', function(event) {
     $("#h5").show();
-  for (var leI=1; leI<100; leI++){
+  for (var leI=1; leI<6000; leI++){
     if( ($("#administrateurbundle_perception_percepteur option:selected").data('id')) != ($(".cachee"+leI).data('idpartiel')) ) {
 
       $(".cachee"+leI).hide();
@@ -196,7 +196,7 @@ list5.on('change', function(event) {
     $("#pp").show();
     $("#scroll").show();
     $("#porte").show();
-    for (var leI=1; leI<25; leI++){
+    for (var leI=1; leI<6000; leI++){
 
         if( ($("#administrateurbundle_perception_variure option:selected").data('idpp2')) != ($("#pass"+leI).data('idpartielpp2'))
         ||  ($("#administrateurbundle_perception_variure option:selected").data('id')) != ($("#pass"+leI).data('id'))) {
@@ -286,7 +286,7 @@ pass2variure.on('change', function(event) {
 });
 
 pass2variure.on('change', function(event) {
-  for (var leI=0; leI<124; leI++){
+  for (var leI=0; leI<6000; leI++){
    if(($("#Pass2 option:selected").data('id')) != ($("#administrateurbundle_perception_variure option:eq("+leI+")").data('idpartielpp2'))){
     $("#administrateurbundle_perception_variure option:eq("+leI+")").hide();
   }else{
@@ -365,7 +365,7 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     $("#h5pp1").hide();
     $("#h5pp2").hide();
     $("#h5pp1-3").hide();
-    for (var leI=1; leI<100; leI++){
+    for (var leI=1; leI<1000; leI++){
         $(".pass1cache"+leI).hide();
         $(".pass2cache"+leI).hide();
         $(".pass1-3cache"+leI).hide();
@@ -399,7 +399,7 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     $("#pp").hide();
     $("#porte").hide();
     $("#scroll").hide();
-      for (var leI=1; leI<100; leI++){
+      for (var leI=1; leI<1000; leI++){
           $(".deuxcachee"+leI).hide();
           $(".troiscachee"+leI).hide();
 
