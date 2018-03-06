@@ -25,11 +25,12 @@ class PerceptionType extends AbstractType
                     'Permanente'=>'Permanente',
                     'Temporaire'=>'Temporaire'),
                     'expanded'=> true))
-            ->add('dateDebut', DateType::class, array('label' => 'Date de début : ', 'format'=>'dd/MM/yyyy', 'years'=>range(date('Y'),date('Y')+10)))
-            ->add('dateFin', DateType::class, array('label' => 'Date de fin : ', 'format'=>'dd/MM/yyyy', 'years'=>range(date('Y'),date('Y')+10)))
+            ->add('dateDebut', DateType::class, array('label' => 'Date de début : ','widget' => 'single_text', 'years'=>range(date('Y'),date('Y')+10)))
+            ->add('dateFin', DateType::class, array('label' => 'Date de fin : ', 'widget' => 'single_text', 'years'=>range(date('Y'),date('Y')+10)))
             ->add('variure', EntityType::class, array(
                 'class' => 'AdministrateurBundle:Variure',
-                'choice_label' => 'nomVariure',
+                'required'=>true,
+                'multiple'=>false,
                 'label' => "Veuillez rechercher une clé : ",
                 'attr' => array('class' => 'js-example-basic-single-variure'),
                 'choice_attr' => function($variure, $index, $value){

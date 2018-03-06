@@ -44,7 +44,7 @@ class Perception
      *      message = "vacancy.date.valid",
      * )
      * @Assert\Expression(
-     *     "this.getDateFin() >= this.getDateDebut()",
+     *     "(this.getDateFin() > this.getDateDebut()) || this.getDateFin() == null",
      *     message="La date de fin doit être supérieure à la date de début!"
      * )
      * @ORM\Column(name="dateFin", type="date", nullable=true)

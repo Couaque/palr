@@ -185,4 +185,17 @@ class Variure
     {
         return $this->outilFermeture;
     }
+
+    public function __toString(){
+      if($this->passPartiel2 == null && $this->passPartiel3 == null){
+        return ' Clé : ' . $this->nomVariure;
+      }
+      else if ($this->passPartiel2 != null && $this->passPartiel3 == null){
+        return ' Clé : ' . $this->nomVariure . ' Pass rattaché : ' . $this->passPartiel2;
+      }
+      else {
+        return ' Clé : ' . $this->nomVariure . ' Pass rattaché : ' . $this->passPartiel3;
+      }
+
+    }
 }

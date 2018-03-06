@@ -7,12 +7,14 @@ $(document).ready(function(){
     $('.js-porte').select2({
         placeholder: "Sélectionnez une porte",
         allowClear: true,
-        width : '400px'
+        width : '400px',
+        theme: "classic"
     });
     $('.js-local').select2({
         placeholder: "Sélectionnez une localisation",
         allowClear: true,
-        width : '400px'
+        width : '600px',
+        theme: "classic"
     });
 
 
@@ -24,12 +26,6 @@ $("#paragPass").hide();
 $("#paragPorte").hide();
 
 $("#scrollPortes").hide();
-
-
-
-for (var leI=0; leI<6000; leI++){
-  $(".clecachee"+leI).hide();
-}
 
 list1.on('change', function(event) {
   $("#paragVariure").show();
@@ -45,10 +41,6 @@ list1.on('change', function(event) {
   }
 });
 
-  for (var leI=1; leI<6000; leI++){
-$("#PorteLocal").attr('id', 'PorteLocal'+leI);
-$("#PorteLocal"+leI).hide();
-}
 
 $("#Localisation").on('change', function(event) {
 $("#scrollPortes").show();
@@ -67,25 +59,30 @@ $("#paragPorte").show();
 
 $('.js-example-basic-single-percep').select2({
    placeholder: "Sélectionnez un percepteur",
-   allowClear: true
+   allowClear: true,
+   theme: "classic"
 });
 
 
 $('.js-example-basic-single-pp1').select2({
    placeholder: "Sélectionnez un Pass 1",
-   allowClear: true
+   allowClear: true,
+
 });
 $('.js-example-basic-single-pp2').select2({
    placeholder: "Sélectionnez un Pass 2",
-   allowClear: true
+   allowClear: true,
+
 });
 $('.js-example-basic-single-pp3').select2({
     placeholder: "Sélectionnez un Pass 3",
-    allowClear: true
+    allowClear: true,
+
 });
 $('.js-example-basic-single-variure').select2({
     placeholder: "Sélectionnez une clé",
-    allowClear: true
+    allowClear: true,
+    theme: "classic"
 });
 
 
@@ -161,12 +158,13 @@ $("#administrateurbundle_perception_variure").prepend("<option selected='selecte
 
 for (var leI=1; leI<6000; leI++){
   $(".cachee"+leI).hide();
-  $(".deuxcachee"+leI).hide();
-  $(".troiscachee"+leI).hide();
   $(".ofcachee"+leI).hide();
   $(".pass1cache"+leI).hide();
   $(".pass2cache"+leI).hide();
   $(".pass1-3cache"+leI).hide();
+  $("#PorteLocal").attr('id', 'PorteLocal'+leI);
+  $("#PorteLocal"+leI).hide();
+  $(".clecachee"+leI).hide();
 }
 
     $("#h5").hide();
@@ -180,7 +178,7 @@ for (var leI=1; leI<6000; leI++){
 
 list4.on('change', function(event) {
     $("#h5").show();
-  for (var leI=1; leI<6000; leI++){
+  for (var leI=1; leI<100; leI++){
     if( ($("#administrateurbundle_perception_percepteur option:selected").data('id')) != ($(".cachee"+leI).data('idpartiel')) ) {
 
       $(".cachee"+leI).hide();
@@ -196,21 +194,7 @@ list5.on('change', function(event) {
     $("#pp").show();
     $("#scroll").show();
     $("#porte").show();
-    for (var leI=1; leI<6000; leI++){
-
-        if( ($("#administrateurbundle_perception_variure option:selected").data('idpp2')) != ($("#pass"+leI).data('idpartielpp2'))
-        ||  ($("#administrateurbundle_perception_variure option:selected").data('id')) != ($("#pass"+leI).data('id'))) {
-            $(".deuxcachee"+leI).hide();
-
-        } else{
-            $(".deuxcachee"+leI).show();
-        }
-        if( ($("#administrateurbundle_perception_variure option:selected").data('idpp3')) != ($("#pass"+leI).data('idpartielpp3'))
-            ||  ($("#administrateurbundle_perception_variure option:selected").data('id')) != ($("#pass"+leI).data('id'))) {
-            $(".troiscachee"+leI).hide();
-        }else{
-            $(".troiscachee"+leI).show();
-        }
+    for (var leI=1; leI<500; leI++){
 
         if( ($("#administrateurbundle_perception_variure option:selected").data('idof')) != ($(".ofcachee"+leI).data('idpartielof'))) {
             $(".ofcachee"+leI).hide();
@@ -219,7 +203,6 @@ list5.on('change', function(event) {
         }
     }
 });
-
 
 
 
@@ -255,46 +238,6 @@ list3.on('change', function(event) {
     }
 
   }
-});
-
-
-
-var pass1variure = $("#Pass1");
-var pass2variure = $("#Pass2");
-var pass3variure = $("#Pass3");
-pass1variure.on('change', function(event) {
-  for (var leI=1; leI<26; leI++){
-    if(($("#Pass1 option:selected").data('id')) != ($("#Pass2 option:eq("+leI+")").data('idpartiel'))){
-      $(".pass2cacher"+leI).hide();
-    }else{
-      $(".pass2cacher"+leI).show();
-    }
-  }
-  $("#Pass2").removeAttr("disabled");
-});
-
-pass2variure.on('change', function(event) {
-  for (var leI=1; leI<124; leI++){
-    if(($("#Pass2 option:selected").data('id')) != ($("#Pass3 option:eq("+leI+")").data('idpartiel'))){
-      $(".pass3cacher"+leI).hide();
-    }else{
-      $(".pass3cacher"+leI).show();
-    }
-  }
-
-  $("#Pass3").removeAttr("disabled");
-});
-
-pass2variure.on('change', function(event) {
-  for (var leI=0; leI<6000; leI++){
-   if(($("#Pass2 option:selected").data('id')) != ($("#administrateurbundle_perception_variure option:eq("+leI+")").data('idpartielpp2'))){
-    $("#administrateurbundle_perception_variure option:eq("+leI+")").hide();
-  }else{
-    $("#administrateurbundle_perception_variure option:eq("+leI+")").show();
-  }
-}
-$("#Pass3").removeAttr("disabled");
-$("#administrateurbundle_perception_variure").removeAttr("disabled")
 });
 
 
@@ -457,7 +400,6 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
  $('#administrateurbundle_perception_typePerception_0').change(function(){
   if($(this).val() == 'Permanente'){
     divid2.hide();
-
   }
 });
 

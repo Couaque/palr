@@ -110,5 +110,9 @@ class PassPartiel3
         return $this->passPartiel2;
     }
 
-    
+    public function __toString(){
+      return ' ' . $this->nomPass3;
+    }
+
+
 }

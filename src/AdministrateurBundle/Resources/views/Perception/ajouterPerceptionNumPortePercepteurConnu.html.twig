@@ -38,12 +38,14 @@
       {% endfor %}
 </div>
   {{form_row(form.typePerception)}}
+  <div class="champs2">
   <div id="dateDebut">
     {{form_row(form.dateDebut)}}
   </div>
   <div id="dateFin">
     {{form_row(form.dateFin)}}
   </div>
+</div>
   <div class="champs">
 <h5><strong>Séléctionnez une porte : </strong></h5>
     <p id="paragPorte">Numéro de porte :</p>
@@ -59,8 +61,8 @@
   {% if v.OutilFermeture %}
 
 <p id="Cle" class="clecachee{{v.OutilFermeture.id}}" data-id="{{v.OutilFermeture.id}}" >{{v.nomVariure}} {% if v.passPartiel2 %} {{v.passPartiel2.nomPass2}} {% endif %}
-{% endif %}
  {% if v.passPartiel3 %} {{v.passPartiel3.nomPass3}} {% endif %}</p>
+{% endif %}
   {% endfor %}
   </div>
 
