@@ -14,13 +14,13 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class DefaultController extends Controller
 {
-    /**
-     * @Route("/")
-     */
-    public function indexAction()
-    {
-        return $this->redirectToRoute("accueil");
-    }
+  /**
+   * @Route("/", name="accueil")
+   */
+  public function indexAction()
+  {
+      return $this->render('AdministrateurBundle:Default:accueil.html.twig');
+  }
 
     /**
      * @Route("/login", name="login")
@@ -29,13 +29,4 @@ class DefaultController extends Controller
     {
         return $this->render('AdministrateurBundle:Default:login.html.twig');
     }
-
-      /**
-       * @Route("/accueil", name="accueil")
-       */
-      public function accueilAction()
-      {
-          return $this->render('AdministrateurBundle:Default:accueil.html.twig');
-      }
-
 }
