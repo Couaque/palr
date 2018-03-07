@@ -22,11 +22,11 @@ class DefaultController extends Controller
       return $this->render('AdministrateurBundle:Default:accueil.html.twig');
   }
 
-    /**
-     * @Route("/login", name="login")
-     */
-    public function loginAction()
-    {
-        return $this->render('AdministrateurBundle:Default:login.html.twig');
-    }
+  /**
+   * @Route("/loginc", name="login")
+   */
+  public function loginAction()
+  {
+      return $this->render('AdministrateurBundle:Default:login.html.twig');
+  }
 }
