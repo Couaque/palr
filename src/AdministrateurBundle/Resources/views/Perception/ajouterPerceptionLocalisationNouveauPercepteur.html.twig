@@ -32,20 +32,17 @@
 
 
   {{form_row(form.typePerception)}}
-  <div id="dateDebut">
+  <div class="champs2">
     {{form_row(form.dateDebut)}}
-  </div>
-  <div id="dateFin">
     {{form_row(form.dateFin)}}
-  </div>
-
+</div>
   <p id="paragLocalisation"><strong>Localisation :</strong></p>
     <select class="js-local" id="Localisation">
       <option selected="selected"></option>
       {% for local in localisations %}
 
 
-  <option data-id="{{local.id}}" >{{local.nomLocalisation}}</option>
+  <option data-id="{{local.id}}" >{{local.nomLocalisation}} <strong>- Batiment associé : </strong> {{local.batiment.nomBat}}</option>
 
           {% endfor %}
   </select>

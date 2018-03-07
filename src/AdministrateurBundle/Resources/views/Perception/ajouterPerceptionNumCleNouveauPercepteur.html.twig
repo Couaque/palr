@@ -33,12 +33,14 @@
 
 
   {{form_row(form.typePerception)}}
+  <div class="champs2">
   <div id="dateDebut">
     {{form_row(form.dateDebut)}}
   </div>
   <div id="dateFin">
     {{form_row(form.dateFin)}}
   </div>
+</div>
 
 
   {{form_row(form.choixPerception)}}
@@ -51,7 +53,7 @@
     <p id="pp1" class="pass1cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass1}} </p>
     {% endfor %}
 
-    
+
   {{form_row(form.passPartiel3)}}
   <h5 id="h5pp2"> <strong> Pass 2 rattaché : </strong> </h5>
   {% for pp in pp2 %}
@@ -65,15 +67,7 @@
 
   <div id="variure">
       {{form_row(form.variure)}}
-    <h5 id="pp"> <strong> Pass rattachée à cette variure : </strong></h5>
-      {% for variure in variures %}
-          {% if variure.passPartiel2 %}
-            <p id="pass{{variure.id}}" class="deuxcachee{{variure.id}}" data-idpartielpp2="{{variure.passPartiel2.id}}" data-id="{{variure.id}}">{{ variure.passPartiel2.nomPass2 }}</p>
-          {% endif %}
-          {% if variure.passPartiel3 %}
-            <p id="pass{{variure.id}}" class="troiscachee{{variure.id}}" data-idpartielpp3="{{variure.passPartiel3.id}}" data-id="{{variure.id}}">{{ variure.passPartiel3.nomPass3 }}</p>
-          {% endif %}
-      {% endfor %}
+
         <h5 id="porte"> <strong> Equipement sur lequel cette variure est rattachée : </strong></h5>
       <div id="scroll" style="height:200pt;overflow:scroll;">
         {% for equip in equipements %}

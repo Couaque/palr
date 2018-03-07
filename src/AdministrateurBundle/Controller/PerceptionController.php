@@ -109,7 +109,9 @@ class PerceptionController extends Controller
   public function ajouterPerceptionNumPorteNouveauPercepteurAction(Request $request)
   {
     $perception = new Perception();
-    $perception->setDateFin(null);
+    if($perception->getTypePerception() == "Permanente"){
+      $perception->setDateFin(null);
+    }
     $perception->setPassPartiel1(null);
     $perception->setPassPartiel3(null);
     $perception->setPassPartiel2(null);
@@ -123,7 +125,7 @@ class PerceptionController extends Controller
 
     if ($form->isSubmitted() && $form->isValid()) {
       $PerceptionInsert = $form->getData();
-      if($perception->getTypePerception() == "Permanente"){
+      if($perception->getDateDebut() > $perception->getDateFin()){
         $perception->setDateFin(null);
       }
 
@@ -430,9 +432,6 @@ class PerceptionController extends Controller
 
     if ($form->isSubmitted() && $form->isValid()) {
       $PerceptionInsert = $form->getData();
-      if($perception->getTypePerception() == "Permanente"){
-        $perception->setDateFin(null);
-      }
       $perception->setEtatPerception("enCours");
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
