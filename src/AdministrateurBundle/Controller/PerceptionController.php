@@ -64,6 +64,7 @@ class PerceptionController extends Controller
     $this->get('acme.js_vars')->chartData = $testPass;*/
     return $this->render('AdministrateurBundle:Perception:modifierPerception.html.twig', array(
       'form' => $form->createView(),
+      'perception' => $perception
     ));
   }
 

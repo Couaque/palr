@@ -20,10 +20,9 @@ class ModifierPerceptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('percepteur', EntityType::class, array(
-          'class' => 'AdministrateurBundle:Percepteur',
-          'disabled' => true
-        ))
+        ->add('percepteur', TextType::class,array(
+            'disabled' => true)
+        )
         ->add('typePerception', ChoiceType::class,
             array('label' => 'Type de perception :' ,'choices'=> array(
             'Permanente'=>'Permanente',

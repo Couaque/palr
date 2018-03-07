@@ -41,18 +41,23 @@ var passPartiel3test=$('#passPartiel3test');
 
 
 select2.select2({
-    allowClear: true
+  placeholder: "Sélectionnez un Pass 1",
+  allowClear: true,
 });
 select3.select2({
-    allowClear: true
+    placeholder: "Sélectionnez un Pass 2",
+    allowClear: true,
 });
 select4.select2({
-    allowClear: true
+    placeholder: "Sélectionnez un Pass 3",
+    allowClear: true,
 });
 $( "#administrateurbundle_perception_variure").select2({
     allowClear: true
 });
-
+$("#administrateurbundle_perception_passPartiel1").prepend("<option selected='selected'></option>");
+$("#administrateurbundle_perception_passPartiel2").prepend("<option selected='selected'></option>");
+$("#administrateurbundle_perception_passPartiel3").prepend("<option selected='selected'></option>");
 //Cacher les éléments inutiles, rendre la page comme elle doit être affichée.
 function miseEnPage(){
   h4.hide();
