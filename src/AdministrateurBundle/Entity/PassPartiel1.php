@@ -62,5 +62,9 @@ class PassPartiel1
     {
         return $this->nomPass1;
     }
-}
+    
+    public function __toString(){
+        return ' ' . $this->nomPass1;
+    }
 
+}

@@ -20,10 +20,9 @@ class ModifierPerceptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('percepteur', EntityType::class, array(
-          'class' => 'AdministrateurBundle:Percepteur',
-          'disabled' => true
-        ))
+        ->add('percepteur', TextType::class,array(
+            'disabled' => true)
+        )
         ->add('typePerception', ChoiceType::class,
             array('label' => 'Type de perception :' ,'choices'=> array(
             'Permanente'=>'Permanente',
@@ -40,11 +39,13 @@ class ModifierPerceptionType extends AbstractType
         ->add('variure', EntityType::class, array(
             'class' => 'AdministrateurBundle:Variure',
             'choice_label' => 'nomVariure',
+            'attr' => array('class' => 'js-example-basic-single-variure'),
             'label' => 'Nom de la clé :',))
         ->add('passPartiel1', EntityType::class, array(
             'class' => 'AdministrateurBundle:PassPartiel1',
             'choice_label' => 'nomPass1',
             'label' => 'Pass 1 correspondant :',
+            'attr' => array('class' => 'js-example-basic-single-pp1'),
             'choice_attr' => function($passPartiel1, $index, $value){
             return array(
                 'data-id' => $passPartiel1->getId(),
@@ -54,6 +55,7 @@ class ModifierPerceptionType extends AbstractType
                     'class' => 'AdministrateurBundle:PassPartiel2',
                     'choice_label' => 'nomPass2',
                     'label' => 'Pass 2 correspondant :',
+                    'attr' => array('class' => 'js-example-basic-single-pp2'),
                     'choice_attr' => function($passPartiel2, $index, $value){
                     return array(
                         'class' => "pass2cacher" . $passPartiel2->getId(),
@@ -64,6 +66,7 @@ class ModifierPerceptionType extends AbstractType
             'class' => 'AdministrateurBundle:PassPartiel3',
             'choice_label' => 'nomPass3',
             'label' => 'Pass 3 correspondant :',
+            'attr' => array('class' => 'js-example-basic-single-pp3'),
             'choice_attr' => function($passPartiel3, $index, $value){
                 return array(
                 'class' => "pass3cacher" . $passPartiel3->getId(),
