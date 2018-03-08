@@ -23,10 +23,10 @@ class PercepteurType extends AbstractType
             ->add('nomPercepteur', TextType::class, array('label' => 'Nom du percepteur :' ,'label_attr'=> array('class' => 'active-custom')))
             ->add('prenomPercepteur', TextType::class, array('label' => 'Prénom du percepteur :' ))
             ->add('email', TextType::class, array(
-                'label' => 'Email (Non obligatoire) :',
+                'label' => 'Email (Optionnel) :',
                 'required' => false))
             ->add('telephone', TextType::class, array(
-                'label' => 'Téléphone (Non obligatoire) :',
+                'label' => 'Téléphone (Optionnel) :',
                 'required' => false))
             ->add('typePercepteur', ChoiceType::class,
             array('label' => 'Type de percepteur :' ,'choices'=> array(
@@ -38,9 +38,10 @@ class PercepteurType extends AbstractType
         ->add('service', EntityType::class, array(
             'class' => 'AdministrateurBundle:ServicePALR',
             'choice_label' => 'nomServicePALR',
-            'label' => 'Service du port :'));
+            'label' => 'Veuillez rechercher le service du port :',
+            'attr' => array('class' => 'js-service')));
     }
-    
+
     /**
      * {@inheritdoc}
      */

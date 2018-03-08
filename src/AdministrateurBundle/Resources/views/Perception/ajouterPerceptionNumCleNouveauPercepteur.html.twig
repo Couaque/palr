@@ -74,7 +74,7 @@
             {% for e in equip %}
 
 
-                <p id="of" class="ofcachee{{e.id}}" data-idpartielof="{{e.OutilFermeture.id}}" data-id="{{e.id}}">{{ e.nomEquipement}} </p>
+                <p id="of" class="ofcachee{{e.id}}" data-idpartielof="{{e.OutilFermeture.id}}" data-id="{{e.id}}">{{ e.nomEquipement}} - Outil de Fermeture : {{ e.OutilFermeture.typeFermeture}} {{ e.OutilFermeture.dimensions}} </p>
 
             {% endfor %}
         {% endfor %}

@@ -23,6 +23,7 @@ class PerceptionType2 extends AbstractType
 
         $builder
         ->add('percepteur', EntityType::class, array(
+            'label' => 'Veuillez entrer le percepteur :',
             'class' => 'AdministrateurBundle:Percepteur',
             'required'=>true,
             'multiple'=>false,

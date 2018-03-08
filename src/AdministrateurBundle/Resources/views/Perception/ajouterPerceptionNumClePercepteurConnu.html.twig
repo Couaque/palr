@@ -18,7 +18,7 @@
 {{ form_start(form) }}
 <div class="champs">
 {{form_row(form.percepteur)}}
-    <h5 id="h5"> <strong> Clés ou Pass déja perçues par ce percepteur : </strong></h5>
+    <h5 id="h5"> <strong> Clés ou Pass déja perçue(s) par ce percepteur : </strong></h5>
 
         {% for percep in perceptions %}
             {% for p in percep %}
@@ -71,12 +71,12 @@
 {{form_row(form.variure)}}
 
     <h5 id="porte"> <strong> Equipement sur lequel cette variure est rattachée : </strong></h5>
-  <div id="scroll" style="height:200pt;overflow:scroll;margin-right:100px;margin-left:100px;">
+    <div id="scroll" style="height:200pt;overflow:scroll;">
     {% for equip in equipements %}
         {% for e in equip %}
 
 
-            <p id="of" class="ofcachee{{e.id}}" data-idpartielof="{{e.OutilFermeture.id}}" data-id="{{e.id}}">{{ e.nomEquipement}} </p>
+        <p id="of" class="ofcachee{{e.id}}" data-idpartielof="{{e.OutilFermeture.id}}" data-id="{{e.id}}">{{ e.nomEquipement}} - Outil de Fermeture : {{ e.OutilFermeture.typeFermeture}} {{ e.OutilFermeture.dimensions}} </p>
 
         {% endfor %}
     {% endfor %}

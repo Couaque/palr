@@ -77,14 +77,6 @@ class PerceptionController extends Controller
 
 
   /**
-  * @Route("/perception/ajouterPerception/localisation/Choix", name="localisation")
-  */
-  public function ajouterPerceptionLocalisationChoixAction()
-  {
-    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionLocalisationChoix.html.twig');
-  }
-
-  /**
   * @Route("/perception/ajouterPerception/numCle/Choix", name="numCle")
   */
   public function ajouterPerceptionNumCleChoixAction()
@@ -114,6 +106,21 @@ class PerceptionController extends Controller
     $perception->setPassPartiel3(null);
     $perception->setPassPartiel2(null);
 
+    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
+    $listeEquipements = $repository->findAll();
+    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+    $variures = $repository2->findAll();
+    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
+    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
+    $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
+    $pp1 = $repository1->findAll();
+    $pp2 = $repository3->findAll();
+    $pp3 = $repository4->findAll();
+    $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:batiment');
+    $repository6=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Localisation');
+    $batiments = $repository5->findAll();
+    $localisations = $repository6->findAll();
+
 
 
     $form = $this->createForm(PerceptionType::class, $perception);
@@ -126,24 +133,33 @@ class PerceptionController extends Controller
       if($perception->getDateDebut() > $perception->getDateFin()){
         $perception->setDateFin(null);
       }
-
+      if($perception->getPercepteur()->getTelephone()==null){
+          $perception->getPercepteur()->setTelephone("Telephone non renseigné");
+      }
+      if($perception->getPercepteur()->getEmail()== null){
+          $perception->getPercepteur()->setEmail("Email non renseigné");
+      }
       $perception->setEtatPerception("enCours");
       $perception->setChoixPerception("Cle");
       $em = $this->getDoctrine()->getManager();
       $em->persist($PerceptionInsert);
       $em->flush();
       $this->addFlash("success", "Vous avez bien inséré la perception");
+
+      $perception = new Perception();
+      $form = $this->createForm(PerceptionType::class, $perception);
+      return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPorteNouveauPercepteur.html.twig', array(
+        'equipements' => $listeEquipements,
+        'variures' => $variures,
+        'pp1' => $pp1,
+        'pp2' => $pp2,
+        'pp3' => $pp3,
+        'batiments' => $batiments,
+        'localisations' => $localisations,
+        'form' => $form->createView(),
+      ));
     }
-    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
-    $listeEquipements = $repository->findAll();
-    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
-    $variures = $repository2->findAll();
-    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
-    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
-    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
-    $pp1 = $repository1->findAll();
-    $pp2 = $repository2->findAll();
-    $pp3 = $repository3->findAll();
+
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPorteNouveauPercepteur.html.twig', array(
       'equipements' => $listeEquipements,
@@ -151,6 +167,8 @@ class PerceptionController extends Controller
       'pp1' => $pp1,
       'pp2' => $pp2,
       'pp3' => $pp3,
+      'batiments' => $batiments,
+      'localisations' => $localisations,
       'form' => $form->createView(),
     ));
   }
@@ -173,6 +191,29 @@ class PerceptionController extends Controller
 
 
     $form->handleRequest($request);
+    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
+    $listeEquipements = $repository->findAll();
+    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
+    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
+    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
+    $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
+    $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+    $repository6=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:batiment');
+    $repository7=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Localisation');
+    $batiments = $repository6->findAll();
+    $localisations = $repository7->findAll();
+    $variures = $repository5->findAll();
+    $pp1 = $repository1->findAll();
+    $pp2 = $repository2->findAll();
+    $pp3 = $repository3->findAll();
+    $percepteurs = $repository4->findAll();
+
+
+
+    $perceptions = array();
+    foreach ($percepteurs as $p) {
+        $perceptions[] = $p->getPerceptions();
+    }
 
     if ($form->isSubmitted() && $form->isValid()) {
       $PerceptionInsert = $form->getData();
@@ -185,166 +226,37 @@ class PerceptionController extends Controller
       $em->persist($PerceptionInsert);
       $em->flush();
       $this->addFlash("success", "Vous avez bien inséré la perception");
+      $perception = new Perception();
+      $form = $this->createForm(PerceptionType2::class, $perception);
+      return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPortePercepteurConnu.html.twig', array(
+        'equipements' => $listeEquipements,
+        'form' => $form->createView(),
+        'perceptions' => $perceptions,
+        'percepteurs' => $percepteurs,
+        'variures' => $variures,
+        'batiments'=> $batiments,
+        'localisations' => $localisations,
+        'pp1' => $pp1,
+        'pp2' => $pp2,
+        'pp3' => $pp3,
+
+      ));
     }
-    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
-    $listeEquipements = $repository->findAll();
-    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
-    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
-    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
-    $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
-    $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
-    $variures = $repository5->findAll();
-    $pp1 = $repository1->findAll();
-    $pp2 = $repository2->findAll();
-    $pp3 = $repository3->findAll();
-    $percepteurs = $repository4->findAll();
-    $perceptions = array();
-    foreach ($percepteurs as $p) {
-        $perceptions[] = $p->getPerceptions();
-    }
+
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumPortePercepteurConnu.html.twig', array(
       'equipements' => $listeEquipements,
       'form' => $form->createView(),
       'perceptions' => $perceptions,
       'percepteurs' => $percepteurs,
       'variures' => $variures,
-      'pp1' => $pp1,
-      'pp2' => $pp2,
-      'pp3' => $pp3,
-
-    ));
-  }
-
-  /**
-  * @Route("/perception/ajouterPerception/localisation/nouveauPercepteur", name="localisationNouveauPercepteur")
-  */
-  public function ajouterPerceptionLocalisationNouveauPercepteurAction(Request $request)
-  {
-    $perception = new Perception();
-    $perception->setDateFin(null);
-    $perception->setPassPartiel1(null);
-    $perception->setPassPartiel3(null);
-    $perception->setPassPartiel2(null);
-
-
-
-    $form = $this->createForm(PerceptionType::class, $perception);
-
-
-    $form->handleRequest($request);
-
-    if ($form->isSubmitted() && $form->isValid()) {
-      $PerceptionInsert = $form->getData();
-      if($perception->getTypePerception() == "Permanente"){
-        $perception->setDateFin(null);
-      }
-      $perception->setEtatPerception("enCours");
-      $perception->setChoixPerception("Clé");
-
-      $em = $this->getDoctrine()->getManager();
-      $em->persist($PerceptionInsert);
-      $em->flush();
-      $this->addFlash("success", "Vous avez bien inséré la perception");
-    }
-    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
-    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:batiment');
-    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Localisation');
-    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
-    $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
-    $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
-    $repository6=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
-    $variures = $repository6->findAll();
-    $pp1 = $repository1->findAll();
-    $pp2 = $repository4->findAll();
-    $pp3 = $repository5->findAll();
-    $listeEquipements = $repository->findAll();
-    $batiments = $repository2->findAll();
-    $localisations = $repository3->findAll();
-
-    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionLocalisationNouveauPercepteur.html.twig', array(
-      'equipements' => $listeEquipements,
-      'form' => $form->createView(),
-      'batiments' => $batiments,
+      'batiments'=> $batiments,
       'localisations' => $localisations,
       'pp1' => $pp1,
       'pp2' => $pp2,
       'pp3' => $pp3,
-      'variures' => $variures,
+
     ));
   }
-
-  /**
-  * @Route("/perception/ajouterPerception/localisation/PercepteurConnu", name="localisationPercepteurConnu")
-  */
-  public function ajouterPerceptionLocalisationPercepteurConnuAction(Request $request)
-  {
-    $perception = new Perception();
-    $perception->setDateFin(null);
-    $perception->setPassPartiel1(null);
-    $perception->setPassPartiel3(null);
-    $perception->setPassPartiel2(null);
-
-
-
-    $form = $this->createForm(PerceptionType2::class, $perception);
-
-
-    $form->handleRequest($request);
-
-    if ($form->isSubmitted() && $form->isValid()) {
-      $PerceptionInsert = $form->getData();
-      if($perception->getTypePerception() == "Permanente"){
-        $perception->setDateFin(null);
-      }
-      $perception->setEtatPerception("enCours");
-      $perception->setChoixPerception("Clé");
-
-      $em = $this->getDoctrine()->getManager();
-      $em->persist($PerceptionInsert);
-      $em->flush();
-      $this->addFlash("success", "Vous avez bien inséré la perception");
-    }
-    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
-    $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:batiment');
-    $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Localisation');
-    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
-    $repository4=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
-    $repository5=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
-    $repository6=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
-    $repository7=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Percepteur');
-    $percepteurs = $repository7->findAll();
-    $perceptions = array();
-    foreach ($percepteurs as $p) {
-      $perceptions[] = $p->getPerceptions();
-    }
-
-
-    $variures = $repository6->findAll();
-    $pp1 = $repository1->findAll();
-    $pp2 = $repository4->findAll();
-    $pp3 = $repository5->findAll();
-    $listeEquipements = $repository->findAll();
-    $batiments = $repository2->findAll();
-    $localisations = $repository3->findAll();
-
-    return $this->render('AdministrateurBundle:Perception:ajouterPerceptionLocalisationPercepteurConnu.html.twig', array(
-      'equipements' => $listeEquipements,
-      'form' => $form->createView(),
-      'batiments' => $batiments,
-      'localisations' => $localisations,
-      'pp1' => $pp1,
-      'pp2' => $pp2,
-      'pp3' => $pp3,
-      'variures' => $variures,
-      'perceptions' => $perceptions,
-      'percepteurs' => $percepteurs,
-    ));
-  }
-
-
-
-
-
 
   /**
   * @Route("/perception/ajouterPerception/numCle/nouveauPercepteur", name="numCleNouveauPercepteur")
@@ -356,31 +268,6 @@ class PerceptionController extends Controller
     $perception->setPassPartiel1(null);
     $perception->setPassPartiel3(null);
     $perception->setPassPartiel2(null);
-
-
-
-    $form = $this->createForm(PerceptionType::class, $perception);
-
-
-    $form->handleRequest($request);
-
-    if ($form->isSubmitted() && $form->isValid()) {
-      $PerceptionInsert = $form->getData();
-      if($perception->getTypePerception() == "Permanente"){
-        $perception->setDateFin('2050-01-01');
-      }
-      if($perception->getPercepteur()->getEmail()== null){
-          $perception->getPercepteur()->setEmail("Email non renseigné");
-      }
-      if($perception->getPercepteur()->getTelephone()==null){
-          $perception->getPercepteur()->setTelephone("Telephone non renseigné");
-      }
-      $perception->setEtatPerception("enCours");
-      $em = $this->getDoctrine()->getManager();
-      $em->persist($PerceptionInsert);
-      $em->flush();
-      $this->addFlash("success", "Vous avez bien inséré la perception");
-    }
     $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
     $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
@@ -397,6 +284,43 @@ class PerceptionController extends Controller
     $pp3 = $repository3->findAll();
     $variures = $repository5->findAll();
     $percepteurs = $repository4->findAll();
+
+
+    $form = $this->createForm(PerceptionType::class, $perception);
+
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      $PerceptionInsert = $form->getData();
+      if($perception->getPercepteur()->getEmail()== null){
+          $perception->getPercepteur()->setEmail("Email non renseigné");
+      }
+      if($perception->getPercepteur()->getTelephone()==null){
+          $perception->getPercepteur()->setTelephone("Telephone non renseigné");
+      }
+      $perception->setEtatPerception("enCours");
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($PerceptionInsert);
+      $em->flush();
+      $this->addFlash("success", "Vous avez bien inséré la perception");
+
+      $perception = new Perception();
+      $form = $this->createForm(PerceptionType::class, $perception);
+
+      return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleNouveauPercepteur.html.twig', array(
+        'form' => $form->createView(),
+        'pp1' => $pp1,
+        'pp2' => $pp2,
+        'pp3' => $pp3,
+          'percepteurs' => $percepteurs,
+          'variures' => $variures,
+          'equipements' => $equipements,
+
+      ));
+
+    }
+
 
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumCleNouveauPercepteur.html.twig', array(
@@ -422,20 +346,6 @@ class PerceptionController extends Controller
     $perception->setPassPartiel1(null);
     $perception->setPassPartiel3(null);
     $perception->setPassPartiel2(null);
-
-    $form = $this->createForm(PerceptionType2::class, $perception);
-
-
-    $form->handleRequest($request);
-
-    if ($form->isSubmitted() && $form->isValid()) {
-      $PerceptionInsert = $form->getData();
-      $perception->setEtatPerception("enCours");
-      $em = $this->getDoctrine()->getManager();
-      $em->persist($PerceptionInsert);
-      $em->flush();
-      $this->addFlash("success", "Vous avez bien inséré la perception");
-    }
     $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel1');
     $repository2=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel2');
     $repository3=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:PassPartiel3');
@@ -458,6 +368,34 @@ class PerceptionController extends Controller
     foreach ($OutilFermeture as $of) {
       $equipements[] = $of->getEquipements();
    }
+
+
+    $form = $this->createForm(PerceptionType2::class, $perception);
+
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      $PerceptionInsert = $form->getData();
+      $perception->setEtatPerception("enCours");
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($PerceptionInsert);
+      $em->flush();
+      $this->addFlash("success", "Vous avez bien inséré la perception");
+
+      $perception = new Perception();
+      $form = $this->createForm(PerceptionType2::class, $perception);
+      return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumClePercepteurConnu.html.twig', array(
+        'form' => $form->createView(),
+        'perceptions' => $perceptions,
+        'equipements' => $equipements,
+        'percepteurs' => $percepteurs,
+        'variures' => $variures,
+        'pp1' => $pp1,
+        'pp2' => $pp2,
+        'pp3' => $pp3,
+      ));
+    }
 
     return $this->render('AdministrateurBundle:Perception:ajouterPerceptionNumClePercepteurConnu.html.twig', array(
       'form' => $form->createView(),

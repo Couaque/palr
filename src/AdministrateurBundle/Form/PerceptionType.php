@@ -26,7 +26,7 @@ class PerceptionType extends AbstractType
                     'Temporaire'=>'Temporaire'),
                     'expanded'=> true))
             ->add('dateDebut', DateType::class, array('label' => 'Date de début : ','widget' => 'single_text', 'years'=>range(date('Y'),date('Y')+10)))
-            ->add('dateFin', DateType::class, array('label' => 'Date de fin : ', 'widget' => 'single_text', 'years'=>range(date('Y'),date('Y')+10)))
+            ->add('dateFin', DateType::class, array('label' => 'Date de fin : ', 'widget' => 'single_text','required'  => false, 'years'=>range(date('Y'),date('Y')+10)))
             ->add('variure', EntityType::class, array(
                 'class' => 'AdministrateurBundle:Variure',
                 'required'=>true,

@@ -7,7 +7,12 @@ $(document).ready(function(){
     $('.js-porte').select2({
         placeholder: "Sélectionnez une porte",
         allowClear: true,
-        width : '400px',
+        width : '600px',
+        theme: "classic"
+    });
+    $('.js-service').select2({
+        placeholder: "Sélectionnez un service",
+        allowClear: true,
         theme: "classic"
     });
     $('.js-local').select2({
@@ -21,9 +26,10 @@ $(document).ready(function(){
 var list1 = $("#Porte");
 $('.js-porte').val('').trigger('change');
 $('.js-local').val('').trigger('change');
+$('.js-service').val('').trigger('change');
 $("#paragVariure").hide();
 $("#paragPass").hide();
-$("#paragPorte").hide();
+$("#paragPorteLocal").hide();
 
 $("#scrollPortes").hide();
 
@@ -44,15 +50,14 @@ list1.on('change', function(event) {
 
 $("#Localisation").on('change', function(event) {
 $("#scrollPortes").show();
-$("#paragPorte").show();
-    for(var leI=1; leI<6000; leI++){
+$("#paragPorteLocal").show();
+    for(var leI=1; leI<650; leI++){
 
-    if ( ($("#Localisation option:selected").data('id')) != ($("#PorteLocal"+leI).data('id'))
-    || ( ($("#PorteLocal"+leI).data('id2') != ($("#PorteLocal"+leI).data('id3'))))) {
+    if ( ($("#Localisation option:selected").data('id')) != ($(".portecachee"+leI).data('id'))) {
 
-    $("#PorteLocal"+leI).hide();
+    $(".portecachee"+leI).hide();
     }else{
-    $("#PorteLocal"+leI).show();
+    $(".portecachee"+leI).show();
     }
   }
 });
@@ -370,6 +375,7 @@ list3.on('change', function(event) {
   }
 });
 
+$('#administrateurbundle_perception_percepteur_service').next(".select2-container").hide();
 
  $('#administrateurbundle_perception_percepteur_typePercepteur_0').change(function(){
   if($(this).val() == 'EmployePort'){
@@ -377,6 +383,7 @@ list3.on('change', function(event) {
     textField.hide();
     label.hide();
     label2.show();
+    $('#administrateurbundle_perception_percepteur_service').next(".select2-container").show();
     $("#administrateurbundle_perception_percepteur_organisation").val ("PALR");
 
   }
@@ -389,7 +396,9 @@ list3.on('change', function(event) {
     select.hide();
     label2.hide();
     $("#administrateurbundle_perception_percepteur_organisation").val (null);
+    $('#administrateurbundle_perception_percepteur_service').next(".select2-container").hide();
     $("#administrateurbundle_perception_percepteur_service").val (null);
+    $('.js-service').val('').trigger('change');
 
 
   }

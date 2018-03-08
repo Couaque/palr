@@ -43,27 +43,50 @@
   </div>
 </div>
 
-<div class="champs">
-<h5><strong>Séléctionnez une porte : </strong></h5>
-  <p id="paragPorte">Numéro de porte :</p>
+<p id="paragLocalisation"><strong>Sélectionnez une localisation : (optionnel)</strong></p>
+  <select class="js-local" id="Localisation">
+    <option selected="selected"></option>
+    {% for local in localisations %}
+<option data-id="{{local.id}}" >{{local.nomLocalisation}} <strong>- Batiment associé : </strong> {{local.batiment.nomBat}}</option>
+        {% endfor %}
+</select>
+
+<h5 id="paragPorteLocal"><strong>Liste des portes à cette localisation : </strong></h5>
+<div id="scrollPortes" style="height:150pt;overflow:scroll;margin-left:250px;margin-right:250px;">
+{% for e in equipements %}
+{% if e.OutilFermeture %}
+{% if e.localisation %}
+<p id="PorteLocal" class="portecachee{{e.id}}" data-id2="{{e.id}}"  data-id="{{e.localisation.id}}" >
+{{ e.nomEquipement }}</p>
+{% endif %}
+{% endif %}
+{% endfor %}
+</div>
+
+
+
+<h5><strong>Séléctionnez une porte : (optionnel)</strong></h5>
   <select class="js-porte" id="Porte" >
     <option selected="selected"></option>
     {% for equipement in equipements %}
-<option data-id="{{equipement.OutilFermeture.id}}">{{equipement.nomEquipement}}</option>
+    {% if equipement.outilFermeture %}
+<option data-id="{{equipement.OutilFermeture.id}}">{{equipement.nomEquipement}} - Outil de fermeture : {{equipement.OutilFermeture.typeFermeture}} {{equipement.OutilFermeture.dimensions}}</option>
+  {% endif %}
     {% endfor %}
+
 </select>
 <h5 id="paragVariure"><strong>Clé associée à cette porte :</strong></h5>
 
   {% for v in variures %}
   {% if v.OutilFermeture %}
-<p id="Cle" class="clecachee{{v.OutilFermeture.id}}" data-id="{{v.OutilFermeture.id}}" >{{v.nomVariure}} {% if v.passPartiel2 %} {{v.passPartiel2.nomPass2}} {% endif %}
+<p id="Cle" class="clecachee{{v.OutilFermeture.id}}" data-id="{{v.OutilFermeture.id}}" >Clé : {{v.nomVariure}} Pass rattaché : {% if v.passPartiel2 %} {{v.passPartiel2.nomPass2}} {% endif %}
  {% if v.passPartiel3 %} {{v.passPartiel3.nomPass3}} {% endif %}</p>
  {% endif %}
   {% endfor %}
 
 
 
-</div>
+
 
 {{form_row(form.choixPerception)}}
 <div class="champs">
