@@ -61,6 +61,18 @@ class Perception
 
     /**
      * @var string
+     * @ORM\Column(name="motivationDemande", type="string", length=255)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255,
+     *      minMessage = "Ce message doit contenir au moins 2 caractères.",
+     *      maxMessage = "Ce message ne peut pas dépasser 255 caractères."
+     * )
+     */
+    private $motivationDemande;
+
+    /**
+     * @var string
      * @Assert\Choice({"Clé", "Pass"})
      * @ORM\Column(name="choixPerception", type="string", length=255)
      */
@@ -351,5 +363,29 @@ class Perception
     public function getEtatPerception()
     {
         return $this->etatPerception;
+    }
+
+    /**
+     * Set motivationDemande
+     *
+     * @param string $motivationDemande
+     *
+     * @return Perception
+     */
+    public function setMotivationDemande($motivationDemande)
+    {
+        $this->motivationDemande = $motivationDemande;
+
+        return $this;
+    }
+
+    /**
+     * Get motivationDemande
+     *
+     * @return string
+     */
+    public function getMotivationDemande()
+    {
+        return $this->motivationDemande;
     }
 }

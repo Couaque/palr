@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
@@ -40,6 +41,8 @@ class PerceptionType2 extends AbstractType
             'expanded'=> true))
         ->add('dateDebut', DateType::class, array('label' => 'Date de début : ', 'widget' => 'single_text', 'years'=>range(date('Y'),date('Y')+10)))
         ->add('dateFin', DateType::class, array('label' => 'Date de fin : ', 'widget' => 'single_text', 'required'  => false, 'years'=>range(date('Y'),date('Y')+10)))
+        ->add('motivationDemande', TextareaType::class, array(
+          'label' => "Motivation de la demande :"))
         ->add('variure', EntityType::class, array(
             'class' => 'AdministrateurBundle:Variure',
             'required'=>true,
