@@ -163,6 +163,9 @@ list2.on('change', function(event) {
     parag1.show();
     parag2.show();
     parag3.show();
+    $('.js-example-basic-single-pp1').val('').trigger('change');
+    $('.js-example-basic-single-pp2').val('').trigger('change');
+    $('.js-example-basic-single-pp3').val('').trigger('change');
     select6.show();
     select7.show();
     select8.show();
@@ -175,6 +178,7 @@ list2.on('change', function(event) {
     pass.show();
     variure.hide();
     h4.hide();
+    $('.js-example-basic-single-variure').val('').trigger('change');
     parag1.hide();
     parag2.hide();
     parag3.hide();

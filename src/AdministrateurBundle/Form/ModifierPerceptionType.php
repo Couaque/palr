@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ModifierPerceptionType extends AbstractType
 {
@@ -28,14 +29,14 @@ class ModifierPerceptionType extends AbstractType
             'Permanente'=>'Permanente',
             'Temporaire'=>'Temporaire'),
         'expanded'=> true))
-        ->add('dateFin', DateType::class, array(
-            'label' => 'Date de fin : ',
-            'format'=>'dd/MM/yyyy'))
+            ->add('dateFin', DateType::class, array('label' => 'Date de fin : ', 'widget' => 'single_text', 'years'=>range(date('Y'),date('Y')+10)))
         ->add('choixPerception', ChoiceType::class, array(
                 'label' => 'La personne perçoit :' ,'choices'=> array(
                 'Une clé'=>'Clé',
                 'Un Pass'=>'Pass'),
             'expanded'=> true))
+        ->add('motivationDemande', TextareaType::class, array(
+              'label' => "Motivation de la demande :"))
         ->add('variure', EntityType::class, array(
             'class' => 'AdministrateurBundle:Variure',
             'choice_label' => 'nomVariure',
