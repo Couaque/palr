@@ -27,19 +27,23 @@
               <div id="typePerceptiondiv">
                 {{  form_row(form.typePerception)}}
               </div>
+
               <div id="dateFin">
                 {{  form_row(form.dateFin)}}
               </div>
+	     
               <div class="champs">
+	      {{  form_row(form.motivationDemande) }}
               {{  form_row(form.choixPerception)}}
               </div>
               <div class="champs" id="pass">
                 <label> Pass Actuel : </label>
-                {{perception.passPartiel1}}
-                {{perception.passPartiel2}}
-                {{perception.passPartiel3}}
+<div id="cacherpass">
+                <div id="pp1">{{perception.passPartiel1}}</div>
+                <div id="pp2">{{perception.passPartiel2}}</div>
+                <div id="pp3">{{perception.passPartiel3}}</div>
+</div>
               {{  form_row(form.passPartiel1)}}
-
               {{  form_row(form.passPartiel2)}}
               {{  form_row(form.passPartiel3)}}
               </div>
@@ -55,21 +59,7 @@
       </form>
 
 </div>
-<script>
-var passPartiel2test = document.getElementById("select2-administrateurbundle_perception_passPartiel2-container").innerText;
-var passPartiel3test = document.getElementById("select2-administrateurbundle_perception_passPartiel3-container").innerText;
-if (passPartiel2test===null) {
-  $("#administrateurbundle_perception_passPartiel2").prepend("<option selected='selected'></option>");
-}
-else{
-  $("#administrateurbundle_perception_passPartiel2").prepend("<option></option>");
-}
-if(passPartiel3test===null){
-  $("#administrateurbundle_perception_passPartiel3").prepend("<option selected='selected'></option>");
-}
-else{
-  $("#administrateurbundle_perception_passPartiel3").prepend("<option></option>");
-}</script>
+
 <script src="/js/modifierPerception.js">
 </script>
 
