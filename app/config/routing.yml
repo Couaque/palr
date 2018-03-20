@@ -21,3 +21,6 @@ filtrerPerception:
   path: /perception/filtrerPerception
   defaults: { _controller: AdministrateurBundle:Perception:filtrerPerception }
   methods: [post]
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
