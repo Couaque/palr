@@ -11,6 +11,9 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
+use AdminBundle\Form\UserType;
+use AdminBundle\Form\CreerUserType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class DefaultController extends Controller
 {
@@ -27,37 +30,26 @@ class DefaultController extends Controller
      */
     public function creerUtilisateurAction(Request $request)
     {
-      $form = $this->createFormBuilder(null)
-      ->add('username', TextType::class, array('label_attr' => array('class' => 'active-custom')))
-      ->add('password', TextType::class, array('label_attr' => array('class' => 'active-custom')))
-      ->add('email', EmailType::class, array('label_attr' => array('class' => 'active-custom')))
-      ->add('save', SubmitType::class, array('label' => 'Créer le compte', 'attr' => array('class' => 'btn')))
-      ->add('admin', SubmitType::class, array('label' => 'L\'utilisateur sera admin', 'attr' => array('class' => 'btn')))
-      ->getForm();
-
-      $form->handleRequest($request);
-      //Traitement du formulaire si il est valide
-      if($form->isSubmitted() && $form->isValid()){
-        $userManager = $container->get('fos_user.user_manager');
-        $user = $userManager->createUser();
-        $user->setUsername($form->getData()['username']);
-        $user->setEmail($form->getData()['email']);
-        $user->setPassword($form->getData()['password']);
+      /*$em=$this->getDoctrine()->getManager();
+      $user = new Utilisateur();
+      $form = $this->createForm(CreerUserType::class, $user); */
+      $form = $this->container->get('fos_user.registration.form');
+      $formHandler = $this->container->get('fos_user.registration.form.handler');
+      $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
+ 
+      $process = $formHandler->process($confirmationEnabled);
+      if ($process) {
+        $userManager = $this->get('fos_user.user_manager');
+        $user = $form->getData();
         $userManager->updateUser($user);
-
-      }else{
+        /*$UtilisateurInsert = $form->getData();
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($UtilisateurInsert);
+        $em->flush();
+        $this->addFlash("success", "Utilisateur créé avec succès"); */
+      }
         //Si le formulaire n'est pas valide, on affiche les erreurs et on recommence la saisie.
-        if ($form->isSubmitted() && !($form->isValid())) {
-          $validator = $this->get('validator');
-          $errors = $validator->validate($membre);
-          //Récupération des erreurs, et conversion en chaînes de caractères
-          $errorsString = (string) $errors;
-          return $this->render('AdminBundle:Default:creerUtilisateur.html.twig', array(
-            'form' => $form->createView(),
-            'errors' => $errors
-          ));
-        }
-    }
+    
     return $this->render('AdminBundle:Default:creerUtilisateur.html.twig', array(
       'form' => $form->createView()
     ));
@@ -68,6 +60,52 @@ class DefaultController extends Controller
      */
     public function desactiverUtilisateurAction()
     {
-        return $this->render('AdminBundle:Default:desactiverUtilisateur.html.twig');
+        $userManager = $this->get('fos_user.user_manager');
+        $users = $userManager->findUsers();
+        return $this->render('AdminBundle:Default:desactiverUtilisateur.html.twig', array('users' => $users));
     }
+   /**
+     * @Route("desactiver/{id}", name="desactiver")
+     * @Route("/desactiver", defaults={"id"=-1})
+     * @param Request $request
+     * @param $id
+     *
+     */
+  public function deleteUtilisateurAction(Request $request, $id)
+  {
+    $em = $this->getDoctrine()->getManager();
+    $utilisateur = $em->getRepository('SecuriteBundle:Utilisateur')->find($id);
+    $this->addFlash("success", "Vous avez bien désactivé l'Utilisateur");
+    $em->remove($utilisateur);
+    $em->flush();
+    $users = $this->getDoctrine()->getManager()->getRepository('SecuriteBundle:Utilisateur')->findAll();
+    return $this->render('AdminBundle:Default:desactiverUtilisateur.html.twig', array('users' => $users));
+  }
+   /**
+     * @Route("editer/{id}", name="editer")
+     * @Route("/editer", defaults={"id"=-1})
+     * @param Request $request
+     * @param $id
+     *
+     */
+  public function editAction(Request $request, $id)
+  {
+        $em=$this->getDoctrine()->getManager();
+        $utilisateur = $em->getRepository('SecuriteBundle:Utilisateur')->find($id);
+        $editForm = $this->createForm(UserType::class, $utilisateur);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($utilisateur);
+            $em->flush();
+            return $this->redirectToRoute('desactiverUtilisateur');
+        }
+
+        return $this->render('AdminBundle:Default:edit.html.twig', array(
+            'article' => $id,
+            'edit_form' => $editForm->createView(),
+
+        ));
+  }
 }
