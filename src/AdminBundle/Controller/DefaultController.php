@@ -33,14 +33,11 @@ class DefaultController extends Controller
       /*$em=$this->getDoctrine()->getManager();
       $user = new Utilisateur();
       $form = $this->createForm(CreerUserType::class, $user); */
-      $user = new User();
-      $this->createForm(
-      $this->get('fos_user.registration.form.type'),
-        $user,
-        array(
-          'validation_groups' => false,
-        )
-      );
+      $userManager = $this->get('fos_user.user_manager');
+      $user = $userManager->createUser();
+      $form = $this->createForm(CreerUserType::class, $user);
+      $form->handleRequest($request);
+ 
       
       if ($form->isSubmitted() && $form->isValid()) {
         $user->setUsername($form->get('username')->getData());
