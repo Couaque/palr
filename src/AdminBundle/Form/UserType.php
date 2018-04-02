@@ -33,7 +33,15 @@ class UserType extends AbstractType
         // Or for Symfony < 2.8
         // return 'fos_user_registration';
     }
-
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'SecuriteBundle\Entity\User'
+        ));
+    }
     public function getBlockPrefix()
     {
         return 'app_user_registration';

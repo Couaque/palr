@@ -18,13 +18,14 @@ class CreerUserType extends AbstractType
         $builder
         ->add('email', EmailType::class, array('label_attr' => array('class' => 'active-custom')))
         ->add('username', TextType::class, array('label' => 'Nom D\'Utilisateur :'))
-        ->add('password', PasswordType::class, array('label' => 'Mot de passe :'))
+        ->add('password', PasswordType::class, array('label' => 'Confirmer le mot de passe :'))
+        ->add('plainPassword', PasswordType::class, array('label' => 'Mot de passe :'))
         ->add('roles', ChoiceType::class, array(
             'choices'  => array(
             'Administrateur' => 'ROLE_SUPER_ADMIN',
             'Utilisateur' => 'ROLE_USER'), 'multiple' => true, 'expanded' => true))
         ->add('save', SubmitType::class, array('label' => 'Créer un utilisateur', 'attr' => array('class' => 'btn btn-primary')));
-        $builder->remove('plainPassword');
+
     }
 
     public function getParent()

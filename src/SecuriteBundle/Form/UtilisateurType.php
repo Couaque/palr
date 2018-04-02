@@ -15,7 +15,7 @@ class UtilisateurType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SecuriteBundle\Entity\Utilisateur'
+            'data_class' => 'SecuriteBundle\Entity\User'
         ));
     }
 
