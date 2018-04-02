@@ -71,11 +71,20 @@
     <option selected="selected"></option>
     {% for equipement in equipements %}
     {% if equipement.outilFermeture %}
-<option data-id="{{equipement.OutilFermeture.id}}">{{equipement.nomEquipement}} - Outil de fermeture : {{equipement.OutilFermeture.typeFermeture}} {{equipement.OutilFermeture.dimensions}}</option>
+    {% if equipement.localisation %}
+<option data-id="{{equipement.OutilFermeture.id}}" data-id2="{{equipement.localisation.id}}">{{equipement.nomEquipement}}</option>
+  {% endif %}
   {% endif %}
     {% endfor %}
 
 </select>
+
+<h5 id="paragLocal"><strong>Localisation de cette porte :</strong></h5>
+  {% for local in localisations %}
+<p id="Local" class="localcachee{{local.id}}" data-id="{{local.id}}" >{{local.nomLocalisation}}</p>
+   {% endfor %}
+
+
 <h5 id="paragVariure"><strong>Clé associée à cette porte :</strong></h5>
 
   {% for v in variures %}

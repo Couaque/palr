@@ -6,7 +6,9 @@
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle",
-            "AdministrateurBundle\\": "src/AdministrateurBundle"
+            "AdministrateurBundle\\": "src/AdministrateurBundle",
+            "AdminBundle\\": "src/AdminBundle",
+            "SecuriteBundle\\": "src/SecuriteBundle" 
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
@@ -19,6 +21,7 @@
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/elastica-bundle": "^4.1",
+        "friendsofsymfony/user-bundle": "~2.0",
         "incenteev/composer-parameter-handler": "^2.0",
         "jms/serializer": "^1.10",
         "jms/serializer-bundle": "^2.3",
