@@ -1,0 +1,11 @@
+#percepteur{
+  display:none;
+}
+#cacherpass{
+  display:none;
+}
+#dateFin{
+  max-width: 60%;
+	margin-left: 40%;
+	margin-right: 40%;
+}

@@ -2,28 +2,142 @@
 
 
 $(document).ready(function(){
+    $(".has-error").show();
+
+    $('.js-porte').select2({
+        placeholder: "Sélectionnez une porte",
+        allowClear: true,
+        width : '600px',
+        theme: "classic"
+    });
+    $('.js-service').select2({
+        placeholder: "Sélectionnez un service",
+        allowClear: true,
+        theme: "classic"
+    });
+    $('.js-local').select2({
+        placeholder: "Sélectionnez une localisation",
+        allowClear: true,
+        width : '600px',
+        theme: "classic"
+    });
+
+
+var list1 = $("#Porte");
+$('.js-porte').val('').trigger('change');
+$('.js-local').val('').trigger('change');
+$('.js-service').val('').trigger('change');
+$("#paragVariure").hide();
+$("#paragPass").hide();
+$("#paragPorteLocal").hide();
+
+$("#scrollPortes").hide();
+
+list1.on('change', function(event) {
+  $("#paragVariure").show();
+  $("#paragPass").show();
+  for (var leI=0; leI<6000; leI++){
+
+    if ( ($("#Porte option:selected").data('id')) != ($(".clecachee"+leI).data('id'))){
+
+    $(".clecachee"+leI).hide();
+    }else{
+    $(".clecachee"+leI).show();
+    }
+  }
+});
+
+
+$("#Localisation").on('change', function(event) {
+$("#scrollPortes").show();
+$("#paragPorteLocal").show();
+    for(var leI=1; leI<650; leI++){
+
+    if ( ($("#Localisation option:selected").data('id')) != ($(".portecachee"+leI).data('id'))) {
+
+    $(".portecachee"+leI).hide();
+    }else{
+    $(".portecachee"+leI).show();
+    }
+  }
+});
 
 $('.js-example-basic-single-percep').select2({
    placeholder: "Sélectionnez un percepteur",
-   allowClear: true
+   allowClear: true,
+   theme: "classic"
 });
+
 
 $('.js-example-basic-single-pp1').select2({
    placeholder: "Sélectionnez un Pass 1",
-   allowClear: true
+   allowClear: true,
+
 });
 $('.js-example-basic-single-pp2').select2({
    placeholder: "Sélectionnez un Pass 2",
-   allowClear: true
+   allowClear: true,
+
 });
 $('.js-example-basic-single-pp3').select2({
-   placeholder: "Sélectionnez un Pass 3",
-   allowClear: true
+    placeholder: "Sélectionnez un Pass 3",
+    allowClear: true,
+
 });
 $('.js-example-basic-single-variure').select2({
     placeholder: "Sélectionnez une clé",
-    allowClear: true
+    allowClear: true,
+    theme: "classic"
 });
+
+
+
+$('.js-example-basic-single-pp1').on("change", function () {
+    if(($("#administrateurbundle_perception_passPartiel1 option:selected")).text() != null){
+        $("#administrateurbundle_perception_passPartiel3").prop('disabled', true);
+        $("#administrateurbundle_perception_passPartiel2").prop('disabled', true);
+    }
+
+    if (($("#administrateurbundle_perception_passPartiel1 option:selected")).data('select2-id') == ($("#administrateurbundle_perception_passPartiel1 option:first-child")).data('select2-id')) {
+        $("#administrateurbundle_perception_passPartiel3").removeAttr("disabled");
+        $("#administrateurbundle_perception_passPartiel2").removeAttr("disabled");
+    }
+});
+
+$('.js-example-basic-single-pp2').on("change", function () {
+    if(($("#administrateurbundle_perception_passPartiel2 option:selected")).text() != null){
+
+        $("#administrateurbundle_perception_passPartiel1").prop('disabled', true);
+        $("#h5pp1").show();
+        $("#administrateurbundle_perception_passPartiel3").prop('disabled', true);
+    }
+
+    if (($("#administrateurbundle_perception_passPartiel2 option:selected")).data('select2-id') == ($("#administrateurbundle_perception_passPartiel2 option:first-child")).data('select2-id')) {
+
+        $("#administrateurbundle_perception_passPartiel1").removeAttr("disabled");
+        $("#h5pp1").hide();
+        $("#administrateurbundle_perception_passPartiel3").removeAttr("disabled");
+    }
+});
+
+    $('.js-example-basic-single-pp3').on("change", function () {
+        if(($("#administrateurbundle_perception_passPartiel3 option:selected")).text() != null){
+
+            $("#administrateurbundle_perception_passPartiel1").prop('disabled', true);
+            $("#administrateurbundle_perception_passPartiel2").prop('disabled', true);
+            $("#h5pp2").show();
+            $("#h5pp1-3").show();
+        }
+
+        if (($("#administrateurbundle_perception_passPartiel3 option:selected")).data('select2-id') == ($("#administrateurbundle_perception_passPartiel3 option:first-child")).data('select2-id')) {
+
+            $("#administrateurbundle_perception_passPartiel1").removeAttr("disabled");
+            $("#h5pp2").hide();
+            $("#h5pp1-3").hide();
+            $("#administrateurbundle_perception_passPartiel2").removeAttr("disabled");
+        }
+    });
+
 
 
 $('#administrateurbundle_perception_passPartiel1').next(".select2-container").hide();
@@ -32,25 +146,43 @@ $('#administrateurbundle_perception_passPartiel3').next(".select2-container").hi
 $('#administrateurbundle_perception_variure').next(".select2-container").hide();
 
 
-var list1 = $("#administrateurbundle_perception_passPartiel1");
+
 var list2 = $("#administrateurbundle_perception_passPartiel2");
 var list3 = $("#administrateurbundle_perception_passPartiel3");
 var list4 = $("#administrateurbundle_perception_percepteur");
+var list5 = $("#administrateurbundle_perception_variure");
 
 list2.hide();
 
 
 $("#administrateurbundle_perception_passPartiel1").prepend("<option selected='selected'></option>");
-$("#administrateurbundle_perception_percepteur").prepend("<option selected='selected'> </option>");
+$("#administrateurbundle_perception_percepteur").prepend("<option selected='selected'></option>");
 $("#administrateurbundle_perception_passPartiel2").prepend("<option selected='selected'></option>");
 $("#administrateurbundle_perception_passPartiel3").prepend("<option selected='selected'></option>");
 $("#administrateurbundle_perception_variure").prepend("<option selected='selected'></option>");
 
-for (var leI=1; leI<100; leI++){
+for (var leI=1; leI<6000; leI++){
   $(".cachee"+leI).hide();
+  $(".ofcachee"+leI).hide();
+  $(".pass1cache"+leI).hide();
+  $(".pass2cache"+leI).hide();
+  $(".pass1-3cache"+leI).hide();
+  $("#PorteLocal").attr('id', 'PorteLocal'+leI);
+  $("#PorteLocal"+leI).hide();
+  $(".clecachee"+leI).hide();
 }
 
+    $("#h5").hide();
+    $("#h5pp1").hide();
+    $("#h5pp2").hide();
+    $("#h5pp1-3").hide();
+    $("#pp").hide();
+    $("#porte").hide();
+    $("#scroll").hide();
+
+
 list4.on('change', function(event) {
+    $("#h5").show();
   for (var leI=1; leI<100; leI++){
     if( ($("#administrateurbundle_perception_percepteur option:selected").data('id')) != ($(".cachee"+leI).data('idpartiel')) ) {
 
@@ -63,70 +195,54 @@ list4.on('change', function(event) {
 
 
 
-/*list1.on('change', function(event) {
-  for (var leI=1; leI<26; leI++){
-    if(($("#administrateurbundle_perception_passPartiel1 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel2 option:eq("+leI+")").data('idpartiel'))){
+list5.on('change', function(event) {
+    $("#pp").show();
+    $("#scroll").show();
+    $("#porte").show();
+    for (var leI=1; leI<500; leI++){
 
-      $(".pass2cacher"+leI).hide();
-
-    }else{
-      $(".pass2cacher"+leI).show();
+        if( ($("#administrateurbundle_perception_variure option:selected").data('idof')) != ($(".ofcachee"+leI).data('idpartielof'))) {
+            $(".ofcachee"+leI).hide();
+        }else{
+            $(".ofcachee"+leI).show();
+        }
     }
-  }
-  $("#administrateurbundle_perception_passPartiel2").removeAttr("disabled");
 });
+
+
+
 
 list2.on('change', function(event) {
+
   for (var leI=1; leI<124; leI++){
-    if(($("#administrateurbundle_perception_passPartiel2 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel3 option:eq("+leI+")").data('idpartiel'))){
+    if(($("#administrateurbundle_perception_passPartiel2 option:selected").data('idpartiel')) != ($(".pass1cache"+leI).data('idpartiel'))){
 
-      $(".pass3cacher"+leI).hide();
+      $(".pass1cache"+leI).hide();
 
     }else{
-      $(".pass3cacher"+leI).show();
+      $(".pass1cache"+leI).show();
     }
   }
-  $("#administrateurbundle_perception_passPartiel3").removeAttr("disabled");
 });
-*/
 
+list3.on('change', function(event) {
+  for (var leI=1; leI<150; leI++){
+    if(($("#administrateurbundle_perception_passPartiel3 option:selected").data('idpp2')) != ($(".pass2cache"+leI).data('idpartiel'))){
 
-var pass1variure = $("#Pass1");
-var pass2variure = $("#Pass2");
-var pass3variure = $("#Pass3");
-pass1variure.on('change', function(event) {
-  for (var leI=1; leI<26; leI++){
-    if(($("#Pass1 option:selected").data('id')) != ($("#Pass2 option:eq("+leI+")").data('idpartiel'))){
-      $(".pass2cacher"+leI).hide();
+      $(".pass2cache"+leI).hide();
+
     }else{
-      $(".pass2cacher"+leI).show();
+      $(".pass2cache"+leI).show();
     }
-  }
-  $("#Pass2").removeAttr("disabled");
-});
+    if(($("#administrateurbundle_perception_passPartiel3 option:selected").data('idpp1')) != ($(".pass1-3cache"+leI).data('idpartiel'))){
 
-pass2variure.on('change', function(event) {
-  for (var leI=1; leI<124; leI++){
-    if(($("#Pass2 option:selected").data('id')) != ($("#Pass3 option:eq("+leI+")").data('idpartiel'))){
-      $(".pass3cacher"+leI).hide();
+      $(".pass1-3cache"+leI).hide();
+
     }else{
-      $(".pass3cacher"+leI).show();
+      $(".pass1-3cache"+leI).show();
     }
-  }
 
-  $("#Pass3").removeAttr("disabled");
-});
-
-pass2variure.on('change', function(event) {
-  for (var leI=0; leI<124; leI++){
-   if(($("#Pass2 option:selected").data('id')) != ($("#administrateurbundle_perception_variure option:eq("+leI+")").data('idpartielpp2'))){
-    $("#administrateurbundle_perception_variure option:eq("+leI+")").hide();
-  }else{
-    $("#administrateurbundle_perception_variure option:eq("+leI+")").show();
   }
-}
-$("#Pass3").removeAttr("disabled");
-$("#administrateurbundle_perception_variure").removeAttr("disabled")
 });
 
 
@@ -162,7 +278,6 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
  label.hide();
  select.hide();
  label2.hide();
- divid2.hide();
  select2.hide();
  select3.hide();
  select4.hide();
@@ -195,7 +310,19 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     parag3.show();
     select6.show();
     select7.show();
-    select8.show();
+    $("#h5pp1").hide();
+    $("#h5pp2").hide();
+    $("#h5pp1-3").hide();
+    for (var leI=1; leI<1000; leI++){
+        $(".pass1cache"+leI).hide();
+        $(".pass2cache"+leI).hide();
+        $(".pass1-3cache"+leI).hide();
+    }
+    $('.js-example-basic-single-pp1').val('').trigger('change');
+    $('.js-example-basic-single-pp2').val('').trigger('change');
+    $('.js-example-basic-single-pp3').val('').trigger('change');
+
+
     $("#administrateurbundle_perception_variure").val (null);
     $("#administrateurbundle_perception_passPartiel1").val (null);
     $("#administrateurbundle_perception_passPartiel2").val (null);
@@ -213,13 +340,25 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     select3.show();
     select4.show();
     label3.show();
+    $('.js-example-basic-single-variure').val('').trigger('change');
     label4.show();
     label5.show();
     h4.hide();
+    $("#pp").hide();
+    $("#porte").hide();
+    $("#scroll").hide();
+      for (var leI=1; leI<1000; leI++){
+          $(".deuxcachee"+leI).hide();
+          $(".troiscachee"+leI).hide();
+
+      }
+
     $('#administrateurbundle_perception_passPartiel1').next(".select2-container").show();
     $('#administrateurbundle_perception_passPartiel2').next(".select2-container").show();
     $('#administrateurbundle_perception_passPartiel3').next(".select2-container").show();
     $('#administrateurbundle_perception_variure').next(".select2-container").hide();
+
+
 
     parag1.hide();
     parag2.hide();
@@ -236,6 +375,7 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
   }
 });
 
+$('#administrateurbundle_perception_percepteur_service').next(".select2-container").hide();
 
  $('#administrateurbundle_perception_percepteur_typePercepteur_0').change(function(){
   if($(this).val() == 'EmployePort'){
@@ -243,6 +383,7 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     textField.hide();
     label.hide();
     label2.show();
+    $('#administrateurbundle_perception_percepteur_service').next(".select2-container").show();
     $("#administrateurbundle_perception_percepteur_organisation").val ("PALR");
 
   }
@@ -255,16 +396,19 @@ $("#administrateurbundle_perception_variure").removeAttr("disabled")
     select.hide();
     label2.hide();
     $("#administrateurbundle_perception_percepteur_organisation").val (null);
+    $('#administrateurbundle_perception_percepteur_service').next(".select2-container").hide();
     $("#administrateurbundle_perception_percepteur_service").val (null);
+    $('.js-service').val('').trigger('change');
 
 
   }
 });
 
+
+
  $('#administrateurbundle_perception_typePerception_0').change(function(){
   if($(this).val() == 'Permanente'){
     divid2.hide();
-
   }
 });
 

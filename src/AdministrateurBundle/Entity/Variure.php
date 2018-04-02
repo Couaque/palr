@@ -46,9 +46,9 @@ class Variure
      private $passPartiel3;
 
      /**
-    *@ORM\ManyToOne(targetEntity="Equipement", cascade={"persist"}, inversedBy="Variures")
-    */
-     private $Equipement;
+     *@ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\OutilFermeture", cascade={"persist"}, inversedBy="Variures")
+     */
+     private $outilFermeture;
 
     /**
      * Get id
@@ -163,26 +163,39 @@ class Variure
     */
 
     /**
-     * Set equipement
+     * Set outilFermeture
      *
-     * @param \AdministrateurBundle\Entity\Equipement $equipement
+     * @param \AdministrateurBundle\Entity\OutilFermeture $outilFermeture
      *
      * @return Variure
      */
-    public function setEquipement(\AdministrateurBundle\Entity\Equipement $equipement = null)
+    public function setOutilFermeture(\AdministrateurBundle\Entity\OutilFermeture $outilFermeture = null)
     {
-        $this->Equipement = $equipement;
+        $this->outilFermeture = $outilFermeture;
 
         return $this;
     }
 
     /**
-     * Get equipement
+     * Get outilFermeture
      *
-     * @return \AdministrateurBundle\Entity\Equipement
+     * @return \AdministrateurBundle\Entity\OutilFermeture
      */
-    public function getEquipement()
+    public function getOutilFermeture()
     {
-        return $this->Equipement;
+        return $this->outilFermeture;
+    }
+
+    public function __toString(){
+      if($this->passPartiel2 == null && $this->passPartiel3 == null){
+        return ' Clé : ' . $this->nomVariure;
+      }
+      else if ($this->passPartiel2 != null && $this->passPartiel3 == null){
+        return ' Clé : ' . $this->nomVariure . ' Pass rattaché : ' . $this->passPartiel2;
+      }
+      else {
+        return ' Clé : ' . $this->nomVariure . ' Pass rattaché : ' . $this->passPartiel3;
+      }
+
     }
 }

@@ -13,8 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="perception")
  * @ORM\Entity(repositoryClass="AdministrateurBundle\Repository\PerceptionRepository")
- * @UniqueEntity(fields={"variure"}, message="Cette clé a déja été perçue par quelqu'un !")
- * @UniqueEntity(fields={"passPartiel1"}, message="Ce pass a déja été perçu par quelqu'un !")
+ * @UniqueEntity(fields={"variure", "percepteur"}, message="Un même percepteur ne peut pas avoir 2 fois la même clé!")
  */
 class Perception
 {
@@ -28,16 +27,26 @@ class Perception
     private $id;
 
     /**
-     * @var string
-     *
+     * @var \DateTime
+     * @Assert\Type(
+     *      type = "\DateTime",
+     *      message = "vacancy.date.valid",
+     * )
      * @ORM\Column(name="dateDebut", type="date")
      *
      */
     public $dateDebut;
 
     /**
-     * @var string
-     *
+     * @var \DateTime
+     * @Assert\Type(
+     *      type = "\DateTime",
+     *      message = "vacancy.date.valid",
+     * )
+     * @Assert\Expression(
+     *     "(this.getDateFin() > this.getDateDebut()) || this.getDateFin() == null",
+     *     message="La date de fin doit être supérieure à la date de début!"
+     * )
      * @ORM\Column(name="dateFin", type="date", nullable=true)
      *
      */
@@ -49,6 +58,18 @@ class Perception
      * @ORM\Column(name="typePerception", type="string", length=255)
      */
     private $typePerception;
+
+    /**
+     * @var string
+     * @ORM\Column(name="motivationDemande", type="string", length=255)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255,
+     *      minMessage = "Ce message doit contenir au moins 2 caractères.",
+     *      maxMessage = "Ce message ne peut pas dépasser 255 caractères."
+     * )
+     */
+    private $motivationDemande;
 
     /**
      * @var string
@@ -66,10 +87,6 @@ class Perception
 
      /**
     *@ORM\ManyToOne(targetEntity="Percepteur", cascade={"persist"}, inversedBy="Perceptions")
-<<<<<<< HEAD
-=======
-    *@ORM\JoinColumn(nullable=false)
->>>>>>> 82026e726f5380e81df8a4388641eeb4ca9c6db4
     *@Assert\NotNull(message="Vous devez entrer un percepteur!")
     */
      private $percepteur;
@@ -346,5 +363,29 @@ class Perception
     public function getEtatPerception()
     {
         return $this->etatPerception;
+    }
+
+    /**
+     * Set motivationDemande
+     *
+     * @param string $motivationDemande
+     *
+     * @return Perception
+     */
+    public function setMotivationDemande($motivationDemande)
+    {
+        $this->motivationDemande = $motivationDemande;
+
+        return $this;
+    }
+
+    /**
+     * Get motivationDemande
+     *
+     * @return string
+     */
+    public function getMotivationDemande()
+    {
+        return $this->motivationDemande;
     }
 }

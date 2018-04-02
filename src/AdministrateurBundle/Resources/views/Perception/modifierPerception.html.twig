@@ -9,57 +9,58 @@
 </div>
 {% endfor %}
 <link href="/css/nouvellePerception.css" rel="stylesheet">
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<link href="/css/modifierPerception.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <div class="container alert alert-info">
   <h2>Modifier la perception</h2>
   <h3> Modifiez les champs désirés : </h3>
   {{form_start(form)}}
       <form class="col s12">
           <div class="row">
-            <h4>Percepteur :</h4>
             <div class="champs">
-              {{  form_row(form.percepteur.nomPercepteur)}}
-              {{  form_row(form.percepteur.prenomPercepteur)}}
-              {{  form_row(form.percepteur.email)}}
+              <div id="percepteur">
+            {{form_row(form.percepteur)}} <!-- Rajouter un bouton modifier Percepteur   -->
+              </div>
+            <label> Nom : {{perception.percepteur.nomPercepteur}} <br/> Prénom : {{perception.percepteur.prenomPercepteur}} </label>
             </div>
-              <div id="typePercepteur">
-              {{  form_row(form.percepteur.typePercepteur)}}
+              <div id="typePerceptiondiv">
+                {{  form_row(form.typePerception)}}
               </div>
-              <div class="champs" id="organisation">
-              {{  form_row(form.percepteur.organisation)}}
-              </div>
-              <div class="champs" id="service">
-              {{  form_row(form.percepteur.service)}}
-              </div>
-              {{  form_row(form.typePerception)}}
+
               <div id="dateFin">
                 {{  form_row(form.dateFin)}}
               </div>
+	     
               <div class="champs">
+	      {{  form_row(form.motivationDemande) }}
               {{  form_row(form.choixPerception)}}
               </div>
-              <div class="champs">
-              <div id="pass">
+              <div class="champs" id="pass">
+                <label> Pass Actuel : </label>
+<div id="cacherpass">
+                <div id="pp1">{{perception.passPartiel1}}</div>
+                <div id="pp2">{{perception.passPartiel2}}</div>
+                <div id="pp3">{{perception.passPartiel3}}</div>
+</div>
               {{  form_row(form.passPartiel1)}}
               {{  form_row(form.passPartiel2)}}
               {{  form_row(form.passPartiel3)}}
               </div>
-              </div>
-              <div class="champs">
-              <div id="variure">
+              <div class="champs" id="variure">
                 {{  form_row(form.variure)}}
-              </div>
               </div>
               <div id="etatPerception">
                 {{form_row(form.etatPerception)}}
               </div>
               {{ form_row(form._token)}}
-              <a href="{{ path('perception') }}">{{ form_row(form.save) }}</a>
+              {{ form_row(form.save) }}
           </div>
       </form>
 
 </div>
 
-<script src="/js/modifierPerception.js"></script>
+<script src="/js/modifierPerception.js">
+</script>
 
 {% endblock %}

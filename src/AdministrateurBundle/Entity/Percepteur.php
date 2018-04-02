@@ -3,6 +3,8 @@
 namespace AdministrateurBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Percepteur
@@ -56,13 +58,6 @@ class Percepteur
      */
     private $typePercepteur;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="coordonnees", type="string", length=255, nullable=true)
-     */
-    private $coordonnees;
-
 
     /**
      * @var string
@@ -72,7 +67,7 @@ class Percepteur
     private $organisation;
 
     /**
-     * 
+     *
      * @ORM\ManyToOne(targetEntity="AdministrateurBundle\Entity\ServicePALR", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
@@ -93,7 +88,7 @@ class Percepteur
         return $this->id;
     }
 
-    
+
 
     /**
      * Set email
@@ -240,7 +235,7 @@ class Percepteur
     }
 
     public function __toString(){
-        return ' ' . $this->nomPercepteur . ' ' . $this->prenomPercepteur . ' ' . $this->email ;
+        return ' ' . $this->nomPercepteur . ' ' . $this->prenomPercepteur . ' <' . $this->email . '> ' . $this->telephone;
     }
 
     /**
@@ -308,6 +303,7 @@ class Percepteur
         return $this->Perceptions;
     }
 
+
     /**
      * Get perceptions
      *
@@ -318,8 +314,9 @@ class Percepteur
         $res = array();
         foreach ($this->Perceptions as $perception ) {
             $res = $perception->getId();
-            
+
         }
         return $res;
     }
+
 }

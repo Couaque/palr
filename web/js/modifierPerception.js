@@ -15,8 +15,8 @@ var textField = $("#administrateurbundle_perception_percepteur_organisation"),
     choixPerception1 = $("#administrateurbundle_perception_choixPerception_1"),
     typePerception1 = $("#administrateurbundle_perception_typePerception_1"),
     typePerception0 = $("#administrateurbundle_perception_typePerception_0"),
-    organisation = $('#organisation'),
-    service=$('#service'),
+    organisation = $('#organisationdiv'),
+    service=$('#servicediv'),
     parag=$("#parag"),
     pass=$('#pass'),
     select = $( "#administrateurbundle_perception_percepteur_service" ),
@@ -34,68 +34,98 @@ var textField = $("#administrateurbundle_perception_percepteur_organisation"),
     divid2 = $('#dateFin'),
     divid = $('#variure'),
     etatPerception=$('#etatPerception');
+var passPartiel2test=$('#passPartiel2test');
+var passPartiel3test=$('#passPartiel3test');
+//var JsVars = jQuery('#js-vars').data('vars');
+//var passPartiel2js = JsVars.chartData;
 
 
-h4.hide();
-
-
-if(textField.val()=='PALR'){
-  service.show();
-  organisation.hide();
-}
-else{
-  organisation.show();
-  service.hide();
-
-}
-if(typePerception0.is(':checked')){
-  divid2.hide();
-}else{
-  divid2.show();
-}
-if(choixPerception1.is(':checked')){
-  pass.show();
-  variure.hide();
+select2.select2({
+  placeholder: "Sélectionnez un Pass 1",
+  allowClear: true,
+});
+select3.select2({
+    placeholder: "Sélectionnez un Pass 2",
+    allowClear: true,
+});
+select4.select2({
+    placeholder: "Sélectionnez un Pass 3",
+    allowClear: true,
+});
+$( "#administrateurbundle_perception_variure").select2({
+    allowClear: true
+});
+$("#administrateurbundle_perception_passPartiel1").prepend("<option selected='selected'></option>");
+$("#administrateurbundle_perception_passPartiel2").prepend("<option selected='selected'></option>");
+$("#administrateurbundle_perception_passPartiel3").prepend("<option selected='selected'></option>");
+//Cacher les éléments inutiles, rendre la page comme elle doit être affichée.
+function miseEnPage(){
   h4.hide();
-  parag.hide();
-  divid.hide();
-}
-else{
-  pass.hide();
-  divid.show();
-  h4.show();
-  parag.show();
-}
-
-
-divTypePercepteur.hide();
-
-
-
-
-for (var leI=1; leI<26; leI++){
-  if(($("#administrateurbundle_perception_passPartiel1 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel2 option:eq("+leI+")").data('idpartiel'))){
-    $(".pass2cacher"+leI).hide();
-  }else{
-    $(".pass2cacher"+leI).show();
+  if(typePercepteur.val()=="EmployePort")
+  {
+    organisation.hide();
+    service.show();
   }
-}
-for (var leI=1; leI<124; leI++){
-  if(($("#administrateurbundle_perception_passPartiel2 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel3 option:eq("+leI+")").data('idpartiel'))){
-    $(".pass3cacher"+leI).hide();
-  }else{
-    $(".pass3cacher"+leI).show();
+  else{
+    organisation.show();
+    service.hide();
   }
+
+  if(typePerception0.is(':checked')){
+    divid2.hide();
+  }
+  else
+  {
+    divid2.show();
+  }
+  if(choixPerception1.is(':checked')){
+    pass.show();
+    variure.hide();
+    h4.hide();
+    parag.hide();
+    divid.hide();
+  }
+  else{
+    pass.hide();
+    divid.show();
+    h4.show();
+    parag.show();
+  }
+  divTypePercepteur.hide();
+  for (var leI=1; leI<26; leI++){
+    if(($("#administrateurbundle_perception_passPartiel1 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel2 option:eq("+leI+")").data('idpartiel'))){
+      $(".pass2cacher"+leI).hide();
+    }else{
+      $(".pass2cacher"+leI).show();
+    }
+  }
+  for (var leI=1; leI<124; leI++){
+    if(($("#administrateurbundle_perception_passPartiel2 option:selected").data('id')) != ($("#administrateurbundle_perception_passPartiel3 option:eq("+leI+")").data('idpartiel'))){
+      $(".pass3cacher"+leI).hide();
+    }else{
+      $(".pass3cacher"+leI).show();
+    }
+  }
+  parag1.hide();
+  parag2.hide();
+  parag3.hide();
+  select6.hide();
+  select7.hide();
+  select8.hide();
+  etatPerception.hide();
+  $("#administrateurbundle_perception_passPartiel1").prepend("<option></option>");
+
+  $("#administrateurbundle_perception_passPartiel2").prepend("<option></option>");
+
+  $("#administrateurbundle_perception_passPartiel3").prepend("<option></option>");
+
+  $("#administrateurbundle_perception_variure").prepend("<option></option>");
+
 }
-$("#administrateurbundle_perception_passPartiel2").prepend("<option></option>");
-$("#administrateurbundle_perception_passPartiel3").prepend("<option></option>");
-parag1.hide();
-parag2.hide();
-parag3.hide();
-select6.hide();
-select7.hide();
-select8.hide();
-etatPerception.hide();
+miseEnPage();
+
+
+
 
 
 
@@ -133,6 +163,9 @@ list2.on('change', function(event) {
     parag1.show();
     parag2.show();
     parag3.show();
+    $('.js-example-basic-single-pp1').val('').trigger('change');
+    $('.js-example-basic-single-pp2').val('').trigger('change');
+    $('.js-example-basic-single-pp3').val('').trigger('change');
     select6.show();
     select7.show();
     select8.show();
@@ -145,6 +178,7 @@ list2.on('change', function(event) {
     pass.show();
     variure.hide();
     h4.hide();
+    $('.js-example-basic-single-variure').val('').trigger('change');
     parag1.hide();
     parag2.hide();
     parag3.hide();
@@ -190,4 +224,41 @@ list2.on('change', function(event) {
    divid2.show();
  }
 });
+$('.js-example-basic-single-pp1').on("change", function () {
+    if(($("#administrateurbundle_perception_passPartiel1 option:selected")).text() != null){
+        $("#administrateurbundle_perception_passPartiel3").prop('disabled', true);
+        $("#administrateurbundle_perception_passPartiel2").prop('disabled', true);
+    }
+
+    if (($("#administrateurbundle_perception_passPartiel1 option:selected")).data('select2-id') == ($("#administrateurbundle_perception_passPartiel1 option:first-child")).data('select2-id')) {
+        $("#administrateurbundle_perception_passPartiel3").removeAttr("disabled");
+        $("#administrateurbundle_perception_passPartiel2").removeAttr("disabled");
+    }
+});
+
+$('.js-example-basic-single-pp2').on("change", function () {
+    if(($("#administrateurbundle_perception_passPartiel2 option:selected")).text() != null){
+        $("#administrateurbundle_perception_passPartiel1").prop('disabled', true);
+        $("#administrateurbundle_perception_passPartiel3").prop('disabled', true);
+    }
+
+    if (($("#administrateurbundle_perception_passPartiel2 option:selected")).data('select2-id') == ($("#administrateurbundle_perception_passPartiel2 option:first-child")).data('select2-id')) {
+        $("#administrateurbundle_perception_passPartiel1").removeAttr("disabled");
+        $("#administrateurbundle_perception_passPartiel3").removeAttr("disabled");
+    }
+});
+
+    $('.js-example-basic-single-pp3').on("change", function () {
+        if(($("#administrateurbundle_perception_passPartiel3 option:selected")).text() != null){
+
+            $("#administrateurbundle_perception_passPartiel1").prop('disabled', true);
+            $("#administrateurbundle_perception_passPartiel2").prop('disabled', true);
+        }
+
+        if (($("#administrateurbundle_perception_passPartiel3 option:selected")).data('select2-id') == ($("#administrateurbundle_perception_passPartiel3 option:first-child")).data('select2-id')) {
+
+            $("#administrateurbundle_perception_passPartiel1").removeAttr("disabled");
+            $("#administrateurbundle_perception_passPartiel2").removeAttr("disabled");
+        }
+    });
 });

@@ -138,4 +138,9 @@ class PassPartiel2
     {
         return $this->Variures;
     }
+
+      public function __toString(){
+        return ' ' . $this->nomPass2;
+      }
+
 }

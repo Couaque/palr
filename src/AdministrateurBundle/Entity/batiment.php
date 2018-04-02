@@ -25,9 +25,25 @@ class batiment
     /**
      * @var string
      *
+     * @ORM\Column(name="codeBat", type="string", length=255)
+     */
+    private $codeBat;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="nomBat", type="string", length=255)
      */
     private $nomBat;
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
+     */
+    private $adresse;
 
 
 
@@ -42,7 +58,7 @@ class batiment
     */
     private $Localisations;
 
-  
+
     /**
      * Get id
      *

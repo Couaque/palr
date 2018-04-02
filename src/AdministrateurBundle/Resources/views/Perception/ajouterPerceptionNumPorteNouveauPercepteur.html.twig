@@ -31,41 +31,99 @@
 <div class="champs">
   {{form_row(form.percepteur.organisation)}}
   {{form_row(form.percepteur.service)}}
+  {{form_row(form.motivationDemande)}}
 </div>
 
   {{form_row(form.typePerception)}}
+  <div class="champs2">
   <div id="dateDebut">
     {{form_row(form.dateDebut)}}
   </div>
   <div id="dateFin">
     {{form_row(form.dateFin)}}
   </div>
+</div>
 
-<div class="champs">
-
-  <p id="paragPorte">Numéro de porte :</p>
-  <select class="form-control" id="Porte" >
-    <option> - Selectionnez le numéro de porte voulu - </option>
-    {% for equipement in equipements %}
-<option data-id="{{equipement.id}}">{{equipement.nomEquipement}}</option>
-    {% endfor %}
+<p id="paragLocalisation"><strong>Sélectionnez une localisation : (optionnel)</strong></p>
+  <select class="js-local" id="Localisation">
+    <option selected="selected"></option>
+    {% for local in localisations %}
+<option data-id="{{local.id}}" >{{local.nomLocalisation}} <strong>- Batiment associé : </strong> {{local.batiment.nomBat}}</option>
+        {% endfor %}
 </select>
 
- 
-  <div id="variure">
+<h5 id="paragPorteLocal"><strong>Liste des portes à cette localisation : </strong></h5>
+<div id="scrollPortes" style="height:150pt;overflow:scroll;margin-left:250px;margin-right:250px;">
+{% for e in equipements %}
+{% if e.OutilFermeture %}
+{% if e.localisation %}
+<p id="PorteLocal" class="portecachee{{e.id}}" data-id2="{{e.id}}"  data-id="{{e.localisation.id}}" >
+{{ e.nomEquipement }}</p>
+{% endif %}
+{% endif %}
+{% endfor %}
+</div>
+
+
+
+<h5><strong>Séléctionnez une porte : (optionnel)</strong></h5>
+  <select class="js-porte" id="Porte" >
+    <option selected="selected"></option>
+    {% for equipement in equipements %}
+    {% if equipement.outilFermeture %}
+<option data-id="{{equipement.OutilFermeture.id}}">{{equipement.nomEquipement}} - Outil de fermeture : {{equipement.OutilFermeture.typeFermeture}} {{equipement.OutilFermeture.dimensions}}</option>
+  {% endif %}
+    {% endfor %}
+
+</select>
+<h5 id="paragVariure"><strong>Clé associée à cette porte :</strong></h5>
+
+  {% for v in variures %}
+  {% if v.OutilFermeture %}
+<p id="Cle" class="clecachee{{v.OutilFermeture.id}}" data-id="{{v.OutilFermeture.id}}" >Clé : {{v.nomVariure}} Pass rattaché : {% if v.passPartiel2 %} {{v.passPartiel2.nomPass2}} {% endif %}
+ {% if v.passPartiel3 %} {{v.passPartiel3.nomPass3}} {% endif %}</p>
+ {% endif %}
+  {% endfor %}
+
+
+
+
+
+{{form_row(form.choixPerception)}}
+<div class="champs">
+{{form_row(form.passPartiel1)}}
+
+{{form_row(form.passPartiel2)}}
+<h5 id="h5pp1"> <strong> Pass 1 rattaché : </strong> </h5>
+{% for pp in pp1 %}
+  <p id="pp1" class="pass1cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass1}} </p>
+  {% endfor %}
+
+
+{{form_row(form.passPartiel3)}}
+<h5 id="h5pp2"> <strong> Pass 2 rattaché : </strong> </h5>
+{% for pp in pp2 %}
+  <p id="pp2" class="pass2cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass2}} </p>
+  {% endfor %}
+  <h5 id="h5pp1-3"> <strong> Pass 1 rattaché : </strong> </h5>
+  {% for pp in pp1 %}
+    <p id="pp1pp3" class="pass1-3cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass1}} </p>
+    {% endfor %}
+
+
+<div id="variure">
     {{form_row(form.variure)}}
-  </div>
 
 </div>
+</div>
   {{ form_end(form) }}
- 
+
 </div>
 
 <div id="nouvellePerception">
 <a href="{{ path('ajouterPerception') }}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span>  Nouvelle perception</a>
 </div>
 
-<script src="/js/ajouterPerceptionNumPorte.js"></script>
+<script src="/js/ajouterPerceptionNumCle.js"></script>
 
 {% endblock %}
-

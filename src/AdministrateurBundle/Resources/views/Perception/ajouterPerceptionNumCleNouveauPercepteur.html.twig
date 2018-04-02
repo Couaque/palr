@@ -20,11 +20,6 @@
   <div class="champs">
   {{form_row(form.percepteur.nomPercepteur)}}
   {{form_row(form.percepteur.prenomPercepteur)}}
-
-
-   <input type="checkbox" name="test[]" />Email
-    <input type="checkbox" name="test[]" />Téléphone 
-
   {{form_row(form.percepteur.email)}}
   {{form_row(form.percepteur.telephone)}}
 
@@ -34,70 +29,65 @@
 <div class="champs">
   {{form_row(form.percepteur.organisation)}}
   {{form_row(form.percepteur.service)}}
+  {{form_row(form.motivationDemande)}}
 </div>
 
 
   {{form_row(form.typePerception)}}
+  <div class="champs2">
   <div id="dateDebut">
     {{form_row(form.dateDebut)}}
   </div>
   <div id="dateFin">
     {{form_row(form.dateFin)}}
   </div>
+</div>
 
-  
+
   {{form_row(form.choixPerception)}}
 <div class="champs">
   {{form_row(form.passPartiel1)}}
 
   {{form_row(form.passPartiel2)}}
+  <h5 id="h5pp1"> <strong> Pass 1 rattaché : </strong> </h5>
+  {% for pp in pp1 %}
+    <p id="pp1" class="pass1cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass1}} </p>
+    {% endfor %}
+
+
   {{form_row(form.passPartiel3)}}
-
-  <p id="paragpp1"> Pass 1 : </p>
-  
-  <select class="form-control" id="Pass1">
-    <option> - Selectionnez le pass 1 - </option>
-    {% for pass in pp1 %}
-
-    <option data-id="{{pass.id}}">{{pass.nomPass1}}</option>
+  <h5 id="h5pp2"> <strong> Pass 2 rattaché : </strong> </h5>
+  {% for pp in pp2 %}
+    <p id="pp2" class="pass2cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass2}} </p>
     {% endfor %}
-  </select>
-
-
-  <p id="paragpp2">Pass 2 :</p>
-  <select class="form-control" id="Pass2" disabled>
-    <option> - Selectionnez le pass 2 - </option>
-    {% for pass in pp2 %}
-
-    <option class="pass2cacher{{pass.id}}" data-idpartiel="{{pass.PassPartiel1.id}}" data-id="{{pass.id}}">{{pass.nomPass2}}</option>
-    {% endfor %}
-  </select>
-
-
-  <p id="paragpp3">Pass 3 :</p>
-
-  <select class="form-control" id="Pass3" disabled>
-    <option> - Selectionnez le pass 3 - </option>
-    {% for pass in pp3 %}
-
-    <option class="pass3cacher{{pass.id}}" data-idpartiel="{{pass.PassPartiel2.id}}" data-id="{{pass.id}}">{{pass.nomPass3}}</option>
-    {% endfor %}
-  </select>
-
-
+    <h5 id="h5pp1-3"> <strong> Pass 1 rattaché : </strong> </h5>
+    {% for pp in pp1 %}
+      <p id="pp1pp3" class="pass1-3cache{{pp.id}}" data-idpartiel="{{pp.id}}"> {{pp.nomPass1}} </p>
+      {% endfor %}
 
 
   <div id="variure">
-    {{form_row(form.variure)}}
-  </div>
+      {{form_row(form.variure)}}
 
+        <h5 id="porte"> <strong> Equipement sur lequel cette variure est rattachée : </strong></h5>
+      <div id="scroll" style="height:200pt;overflow:scroll;">
+        {% for equip in equipements %}
+            {% for e in equip %}
+
+
+                <p id="of" class="ofcachee{{e.id}}" data-idpartielof="{{e.OutilFermeture.id}}" data-id="{{e.id}}">{{ e.nomEquipement}} - Outil de Fermeture : {{ e.OutilFermeture.typeFermeture}} {{ e.OutilFermeture.dimensions}} </p>
+
+            {% endfor %}
+        {% endfor %}
+        </div>
+  </div>
 </div>
 
   {{ form_end(form) }}
 
 
 
-  
+
 </div>
 
 <div id="nouvellePerception">
@@ -107,4 +97,3 @@
 <script src="/js/ajouterPerceptionNumCle.js"></script>
 
 {% endblock %}
-
