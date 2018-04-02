@@ -5,7 +5,7 @@ namespace AdminBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use SecuriteBundle\Form\UtilisateurType;
-use SecuriteBundle\Entity\Utilisateur;
+use SecuriteBundle\Entity\User;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -33,20 +33,23 @@ class DefaultController extends Controller
       /*$em=$this->getDoctrine()->getManager();
       $user = new Utilisateur();
       $form = $this->createForm(CreerUserType::class, $user); */
-      $form = $this->container->get('fos_user.registration.form');
-      $formHandler = $this->container->get('fos_user.registration.form.handler');
-      $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
+      $userManager = $this->get('fos_user.user_manager');
+      $user = $userManager->createUser();
+      $form = $this->createForm(CreerUserType::class, $user);
+      $form->handleRequest($request);
  
-      $process = $formHandler->process($confirmationEnabled);
-      if ($process) {
-        $userManager = $this->get('fos_user.user_manager');
-        $user = $form->getData();
+      
+      if ($form->isSubmitted() && $form->isValid()) {
+        $user->setUsername($form->get('username')->getData());
+        $user->setPassword($form->get('password')->getData());
+        $user->setRoles($form->get('roles')->getData());
+        $user->setEmail($form->get('email')->getData());
         $userManager->updateUser($user);
         /*$UtilisateurInsert = $form->getData();
         $em = $this->getDoctrine()->getManager();
         $em->persist($UtilisateurInsert);
-        $em->flush();
-        $this->addFlash("success", "Utilisateur créé avec succès"); */
+        $em->flush();*/
+        $this->addFlash("success", "Utilisateur créé avec succès"); 
       }
         //Si le formulaire n'est pas valide, on affiche les erreurs et on recommence la saisie.
     
@@ -74,11 +77,11 @@ class DefaultController extends Controller
   public function deleteUtilisateurAction(Request $request, $id)
   {
     $em = $this->getDoctrine()->getManager();
-    $utilisateur = $em->getRepository('SecuriteBundle:Utilisateur')->find($id);
+    $utilisateur = $em->getRepository('SecuriteBundle:User')->find($id);
     $this->addFlash("success", "Vous avez bien désactivé l'Utilisateur");
     $em->remove($utilisateur);
     $em->flush();
-    $users = $this->getDoctrine()->getManager()->getRepository('SecuriteBundle:Utilisateur')->findAll();
+    $users = $this->getDoctrine()->getManager()->getRepository('SecuriteBundle:User')->findAll();
     return $this->render('AdminBundle:Default:desactiverUtilisateur.html.twig', array('users' => $users));
   }
    /**
@@ -91,7 +94,7 @@ class DefaultController extends Controller
   public function editAction(Request $request, $id)
   {
         $em=$this->getDoctrine()->getManager();
-        $utilisateur = $em->getRepository('SecuriteBundle:Utilisateur')->find($id);
+        $utilisateur = $em->getRepository('SecuriteBundle:User')->find($id);
         $editForm = $this->createForm(UserType::class, $utilisateur);
         $editForm->handleRequest($request);
 

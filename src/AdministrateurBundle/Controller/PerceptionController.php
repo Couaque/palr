@@ -426,9 +426,9 @@ class PerceptionController extends Controller
       $options['Pass3']=$req->get('Pass3');
       $repository = $this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Perception');
       $perceptions = $repository->recherche($options);
-
-      $data = $this->get('jms_serializer')->serialize($perceptions, 'json');
-      $response = new Response($data);
+      var_dump($perceptions);
+      // $data = $this->get('jms_serializer')->serialize($perceptions, 'json');
+      $response = new Response("cc");
       $response->headers->set('Content-Type', 'application/json');
 
       return $response;
