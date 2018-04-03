@@ -427,7 +427,6 @@ class PerceptionController extends Controller
       $options['Pass3']=$req->get('Pass3');
       $repository = $this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Perception');
       $perceptions = $repository->recherche($options);
-<<<<<<< HEAD
 
       foreach ($perceptions as $perception) {
         $tablPerception['id']= $perception->getId();
@@ -443,12 +442,6 @@ class PerceptionController extends Controller
         }
 
         $tablPerception['etatPerception']= $perception->getEtatPerception();
-=======
-      var_dump($perceptions);
-      // $data = $this->get('jms_serializer')->serialize($perceptions, 'json');
-      $response = new Response("cc");
-      $response->headers->set('Content-Type', 'application/json');
->>>>>>> 2d3aa9181e371a7e8407c4eb6d4d6f95afdc2c5f
 
 
         if($perception->getVariure() != NULL ){
@@ -559,6 +552,8 @@ class PerceptionController extends Controller
 
 
 
+
+
   //Descriptif des perceptions
   $pdf->SetY(60);
 
@@ -575,9 +570,6 @@ class PerceptionController extends Controller
   $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
   $equipements = $repository->findAll();
   $batimentscle = array();
-  $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
-  $variures = $repository1->findAll();
-  $batimentspass = array();
   foreach($listePerceptions as $liste){
     foreach($liste as $perc){
       foreach ($equipements as $id=>$eq) {
@@ -586,124 +578,84 @@ class PerceptionController extends Controller
             $batimentscle[] = $eq->getBatiment()->getNomBat();
           }
         }
-        foreach ($variures as $var) {
-          if($var->getPassPartiel2()!=null && $perc->getPassPartiel2()!=null){
-            if($var->getPassPartiel2()->getNomPass2() == $perc->getPassPartiel2()->getNomPass2()){
-              if($var->getOutilFermeture() == $eq->getOutilFermeture()){
-                $batimentspass[] = $eq->getBatiment()->getNomBat();
-
-              }
-            }
-          }
-          else if ($var->getPassPartiel3()!=null && $perc->getPassPartiel3()!=null) {
-            if($var->getPassPartiel3()->getNomPass3() == $perc->getPassPartiel3()->getNomPass3()){
-              if($var->getOutilFermeture() == $eq->getOutilFermeture()){
-                $batimentspass[] = $eq->getBatiment()->getNomBat();
-              }
-            }
-          }
-          else if ($var->getPassPartiel3()!=null && $perc->getPassPartiel1()!=null) {
-            if($var->getPassPartiel3()->getPassPartiel2()->getPassPartiel1()->getNomPass1() == $perc->getPassPartiel1()->getNomPass1()){
-              if($var->getOutilFermeture() == $eq->getOutilFermeture()){
-                $batimentspass[] = $eq->getBatiment()->getNomBat();
-              }
-            }
-          }
-          else if ($var->getPassPartiel2()!=null && $perc->getPassPartiel1()!=null) {
-              if($var->getPassPartiel2()->getPassPartiel1()->getNomPass1() == $perc->getPassPartiel1()->getNomPass1()){
-                if($var->getOutilFermeture() == $eq->getOutilFermeture()){
-                  $batimentspass[] = $eq->getBatiment()->getNomBat();
-              }
-            }
-          }
-        }
       }
-      $batPass = array_unique($batimentspass);
-      $newBat = array_unique($batimentscle);
-
       if($perc->getPercepteur()->getOrganisation() == "PALR"){
           $pdf->Cell($tab2[1],10,utf8_decode("Service demandeur : " . $perc->getPercepteur()->getService()->getNomServicePALR()),1,0,'');
       }else{
           $pdf->Cell($tab2[1],10,utf8_decode("Service demandeur : " . $perc->getPercepteur()->getOrganisation()),1,0,'');
       }
 
-
-
-
       if($perc->getDateFin() !=null){
       $pdf->Multicell($tab2[2],10,utf8_decode("Date de début de la perception : " . $perc->getDateDebut()->format('d / m / Y') . "\nDate de fin de la perception : " . $perc->getDateFin()->format('d / m / Y')),1,'',false);
       $pdf->SetXY($x, $y + 10);
       if($perc->getVariure()!=null){
-        $xBat = $x + 42;
-        $yBat = $y + 16;
-        $pdf->Cell($tab2[5],10,utf8_decode(' Batiment(s) concerné(s) : '),1,0,'');
-
-        foreach ($newBat as $id=>$bat) {
-          if(current($newBat) == end($newBat)){
-
-            $pdf->Text($xBat, $yBat, utf8_decode($bat));
-          }else {
-            $pdf->Text($xBat, $yBat, utf8_decode($bat . ',  '));
-          }
-          $xBat += 28;
-        }
+        $pdf->Cell($tab2[3],10,utf8_decode(' Batiment concerné : ' . $batimentscle[0]),1,0,'');
       }
-
-      if($perc->getPassPartiel2()!=null){
-        $pdf->Cell($tab2[5],10,utf8_decode(' Batiment concerné : ' . $batPass),1,0,'');
+      if($perc->getPassPartiel2()!=null || $perc->getPassPartiel3() !=null){
+        $pdf->Cell($tab2[5],10,utf8_decode(' Batiment concerné : '),1,0,'');
       }
     }else{
       $pdf->Multicell($tab2[2],10,utf8_decode("Date de la demande : " . $perc->getDateDebut()->format('d / m / Y')),1,'',false);
 
       if($perc->getVariure()!=null){
-        $pdf->Cell($tab2[5],10,utf8_decode(' Batiment(s) concerné(s) : ' . join(", ", $newBat)),1,0,'');
-        $pdf->SetXY($x, $y - 0.05);
-        $pdf->Ln();
-
+        $pdf->Cell($tab2[5],10,utf8_decode(' Batiment concerné : ' . $batimentscle[0]),1,0,'');
       }
-      else if($perc->getPassPartiel1()!=null){
-        $pdf->MultiCell($tab2[5],7,utf8_decode(" Batiment(s) concerné(s) : \n" . join(", ", $batPass)),1,'',false);
-        $y+=31;
-        if($pdf->GetY() == $y){
-            $pdf->SetXY($x, $y-14);
-        }else{
-          $pdf->SetXY($x, $y);
-        }
-
-        $pdf->Ln();
-
-      }else if($perc->getPassPartiel2()!=null){
-        $pdf->MultiCell($tab2[5],7,utf8_decode(" Batiment(s) concerné(s) : \n" . join(", ", $batPass)),1,'',false);
-        $y+=17;
-        $pdf->SetXY($x, $y);
-        $pdf->Ln();
+      if($perc->getPassPartiel2()!=null || $perc->getPassPartiel3() !=null){
+        $pdf->Cell($tab2[5],10,utf8_decode(' Batiment concerné : '),1,0,'');
       }
-      else if($perc->getPassPartiel3()!=null){
-        $pdf->MultiCell($tab2[5],7,utf8_decode(" Batiment(s) concerné(s) : \n" . join(", ", $batPass)),1,'',false);
-        $y+=17;
-        $pdf->SetXY($x, $y);
-        $pdf->Ln();
-      }
+      $pdf->SetXY($x, $y - 0.05);
+      $pdf->Ln();
     }
     $pdf->Ln();
-
-
-
     if($perc->getMotivationDemande()!=null){
       $pdf->Multicell($tab2[5],7,utf8_decode("Motivation de la demande : \n" . $perc->getMotivationDemande()),1,'',false);
     }else {
       $pdf->Multicell($tab2[5],7,utf8_decode("Motivation de la demande : Aucune donnée renseignée"),1,'',false);
     }
-      $pdf->Cell($tab2[6],10,utf8_decode("Nom du demandeur : "),1,0,'');
-    }
+      $pdf->Cell($tab2[6],10,utf8_decode("Nom du demandeur : " . $perc->getPercepteur()->getNomPercepteur() . " " . $perc->getPercepteur()->getPrenomPercepteur() ),1,0,'');
   }
+  }
+
+
+
+
+    /*$repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
+    $equipements = $repository->findAll();
+    $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
+    $variures = $repository1->findAll();
+    $batimentscle = array();
+    $batimentspass = array();
+    foreach($listePerceptions as $liste){
+      foreach($liste as $perc){
+        foreach ($equipements as $id=>$eq) {
+          foreach ($variures as $var) {
+            if($var->getPassPartiel2()!=null && $perc->getPassPartiel2()!=null){
+              if($var->getPassPartiel2()->getNomPass2() == $perc->getPassPartiel2()->getNomPass2()){
+                if($var->getOutilFermeture() == $eq->getOutilFermeture()){
+                  $batimentspass[] = $eq->getBatiment()->getNomBat();
+                }
+              }
+            }
+          }
+          if($perc->getVariure()!=null){
+            if($perc->getVariure()->getOutilFermeture() == $eq->getOutilFermeture()){
+              $batimentscle[] = $eq->getBatiment()->getNomBat();
+            }
+          }
+        }
+      }
+    }
+    if($perc->getVariure()!=null){
+      $pdf->Cell($tab2[3],10,utf8_decode(' Batiment concerné : ' . $batimentscle[0]),1,0,'');
+    }
+    if($perc->getPassPartiel2()!=null){
+      */
+
+    //}
+    //$pdf->Cell($tab2[3],10,utf8_decode("Bâtiment concerné :"),1,0,'');
     $pdf->Cell($tab2[7],10,utf8_decode("Visa du demandeur :"),1,0,'');
 
-<<<<<<< HEAD
     $pdf->SetY(135);
-=======
-    $pdf->SetY(150);
->>>>>>> 2d3aa9181e371a7e8407c4eb6d4d6f95afdc2c5f
 
     $x = $pdf->GetX();
     $y = $pdf->GetY();
@@ -734,7 +686,7 @@ class PerceptionController extends Controller
     $pdf->SetXY($x + 108.5, $y+27);
     $pdf->Cell($tab3[5],20,utf8_decode("Date et visa :"),1,0,'');
 
-    $pdf->SetY(200);
+    $pdf->SetY(190);
     $x = $pdf->GetX();
     $y = $pdf->GetY();
     $pdf->SetFont('Arial','IB',13);
@@ -756,7 +708,7 @@ class PerceptionController extends Controller
           $pdf->Cell($tab3[4],20,utf8_decode("Date et visa : " . $perc->getDateFin()->format('d / m / Y')),1,0,'');
           $pdf->SetXY($x + 108.5, $y+7);
         }else {
-          $pdf->Cell($tab3[4],20,utf8_decode("Date et visa : Non renseignée"),1,0,'');
+          $pdf->Cell($tab3[4],20,utf8_decode("Date et visa : Date de restitution non renseignée"),1,0,'');
           $pdf->SetXY($x + 108.5, $y+7);
         }
       }
@@ -766,10 +718,6 @@ class PerceptionController extends Controller
     $pdf->SetXY($x + 108.5, $y+27);
     $pdf->Cell($tab3[5],20,utf8_decode("Date et visa :"),1,0,'');
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 2d3aa9181e371a7e8407c4eb6d4d6f95afdc2c5f
     // Footer du PDF
     $pdf->SetY(255);
     //Disclaimer
