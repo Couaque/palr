@@ -495,242 +495,283 @@ class PerceptionController extends Controller
     return $this->redirectToRoute('perception');
   }
 
-  /**
-  * @Route("/perception/imprimer", name="imprimerPerception")
-  */
-  public function imprimerPerceptionAction($listeid){
-    $listePerceptions = array();
-    foreach($listeid as $id){
-      $repo = $this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Perception');
-      $listePerceptions[] = $repo->findById($id);
-    }
-    //var_dump($listePerceptions);
-    $pdf = new \FPDF();
-    //Initialisation d'une première page
-    $pdf->AddPage();
-    $pdf->SetFont('Arial','',15);
-    $pdf->SetTextColor(0, 0, 0);
-    //Ajout de l'icône
-    //Ajout du titre
-
-
-
-
-    $pdf->SetY(20);
-    $x = $pdf->GetX();
-    $y = $pdf->GetY();
-    $tab = array(37, 113, 37);
-    $pdf->SetFont('Arial','',15);
-    $pdf->Cell($tab[0],30,'',1,0,$pdf->Image('img/Logo_PALR.jpg',12,23,32));
-    $pdf->SetFont('Arial','B',22);
-    foreach($listePerceptions as $liste){
-      foreach($liste as $perc){
-        $pdf->Multicell($tab[1],15,'DEMANDE DE PERCEPTION ' . strtoupper($perc->getTypePerception()) . ' D\'UNE CLE',1,'C',false);
+    /**
+    * @Route("/perception/imprimer", name="imprimerPerception")
+    */
+    public function imprimerPerceptionAction($listeid){
+      $listePerceptions = array();
+      foreach($listeid as $id){
+        $repo = $this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Perception');
+        $listePerceptions[] = $repo->findById($id);
       }
-    }
-    $pdf->SetFont('Arial','',7);
-    $pdf->SetXY($x + 150, $y);
+      //var_dump($listePerceptions);
+      $pdf = new \FPDF();
+      //Initialisation d'une première page
+      $pdf->AddPage();
+      $pdf->SetFont('Arial','',15);
+      $pdf->SetTextColor(0, 0, 0);
+      //Ajout de l'icône
+      //Ajout du titre
 
-    foreach($listePerceptions as $liste){
-    foreach($liste as $perc){
-      //Affichage du pass donné
-      if($perc->getVariure()!=null){
-        if($perc->getVariure()->getPassPartiel2()!=null){
-          $pdf->Multicell($tab[2],7.5,utf8_decode("Cadre réservé SAP \n N° de la clé : ". $perc->getVariure()->getNomVariure() . "\n Pass de rattachement : ". $perc->getVariure()->getPassPartiel2()->getNomPass2()),1,'C',false);
-        }else if ($perc->getVariure()->getPassPartiel3()!=null){
-          $pdf->Multicell($tab[2],7.5,utf8_decode("Cadre réservé SAP \n N° de la clé : ". $perc->getVariure()->getNomVariure() . "\n Pass de rattachement : ". $perc->getVariure()->getPassPartiel3()->getNomPass3()),1,'C',false);
+
+
+
+      $pdf->SetY(20);
+      $x = $pdf->GetX();
+      $y = $pdf->GetY();
+      $tab = array(37, 113, 37);
+      $pdf->SetFont('Arial','',15);
+      $pdf->Cell($tab[0],30,'',1,0,$pdf->Image('img/Logo_PALR.jpg',12,23,32));
+      $pdf->SetFont('Arial','B',22);
+      foreach($listePerceptions as $liste){
+        foreach($liste as $perc){
+          $pdf->Multicell($tab[1],15,'DEMANDE DE PERCEPTION ' . strtoupper($perc->getTypePerception()) . ' D\'UNE CLE',1,'C',false);
         }
       }
-      elseif ($perc->getPassPartiel3()!=null)
-      $pdf->Multicell($tab[2],10,utf8_decode("Cadre réservé SAP \n N° du pass : \n". $perc->getPassPartiel3()->getNomPass3()),1,'C',false);
-      elseif ($perc->getPassPartiel2()!=null)
-      $pdf->Multicell($tab[2],10,utf8_decode("Cadre réservé SAP \n N° du pass : \n". $perc->getPassPartiel2()->getNomPass2()),1,'C',false);
-      elseif ($perc->getPassPartiel1()!=null)
-      $pdf->Multicell($tab[2],10,utf8_decode("Cadre réservé SAP \n N° du pass : \n". $perc->getPassPartiel1()->getNomPass1()),1,'C',false);
-    }
-  }
+      $pdf->SetFont('Arial','',7);
+      $pdf->SetXY($x + 150, $y);
 
-
-
-
-
-  //Descriptif des perceptions
-  $pdf->SetY(60);
-
-  $tab2 = array(187, 93.5, 93.5, 93.5, 93.5, 187, 93.5, 93.5);
-  $pdf->SetFont('Arial','IB',13);
-  $pdf->SetFillColor(192, 192, 192);
-  $pdf->Cell($tab2[0],7,utf8_decode("1-PARTIE RESERVEE AU DEMANDEUR"),1,0,'C',1);
-  $pdf->SetFont('Arial','',10);
-  $pdf->Ln();
-  $x = $pdf->GetX();
-  $y = $pdf->GetY();
-
-
-  $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
-  $equipements = $repository->findAll();
-  $batimentscle = array();
-  foreach($listePerceptions as $liste){
-    foreach($liste as $perc){
-      foreach ($equipements as $id=>$eq) {
+      foreach($listePerceptions as $liste){
+      foreach($liste as $perc){
+        //Affichage du pass donné
         if($perc->getVariure()!=null){
-          if($perc->getVariure()->getOutilFermeture() == $eq->getOutilFermeture()){
-            $batimentscle[] = $eq->getBatiment()->getNomBat();
+          if($perc->getVariure()->getPassPartiel2()!=null){
+            $pdf->Multicell($tab[2],7.5,utf8_decode("Cadre réservé SAP \n N° de la clé : ". $perc->getVariure()->getNomVariure() . "\n Pass de rattachement : ". $perc->getVariure()->getPassPartiel2()->getNomPass2()),1,'C',false);
+          }else if ($perc->getVariure()->getPassPartiel3()!=null){
+            $pdf->Multicell($tab[2],7.5,utf8_decode("Cadre réservé SAP \n N° de la clé : ". $perc->getVariure()->getNomVariure() . "\n Pass de rattachement : ". $perc->getVariure()->getPassPartiel3()->getNomPass3()),1,'C',false);
           }
         }
+        elseif ($perc->getPassPartiel3()!=null)
+        $pdf->Multicell($tab[2],10,utf8_decode("Cadre réservé SAP \n N° du pass : \n". $perc->getPassPartiel3()->getNomPass3()),1,'C',false);
+        elseif ($perc->getPassPartiel2()!=null)
+        $pdf->Multicell($tab[2],10,utf8_decode("Cadre réservé SAP \n N° du pass : \n". $perc->getPassPartiel2()->getNomPass2()),1,'C',false);
+        elseif ($perc->getPassPartiel1()!=null)
+        $pdf->Multicell($tab[2],10,utf8_decode("Cadre réservé SAP \n N° du pass : \n". $perc->getPassPartiel1()->getNomPass1()),1,'C',false);
       }
-      if($perc->getPercepteur()->getOrganisation() == "PALR"){
-          $pdf->Cell($tab2[1],10,utf8_decode("Service demandeur : " . $perc->getPercepteur()->getService()->getNomServicePALR()),1,0,'');
-      }else{
-          $pdf->Cell($tab2[1],10,utf8_decode("Service demandeur : " . $perc->getPercepteur()->getOrganisation()),1,0,'');
-      }
-
-      if($perc->getDateFin() !=null){
-      $pdf->Multicell($tab2[2],10,utf8_decode("Date de début de la perception : " . $perc->getDateDebut()->format('d / m / Y') . "\nDate de fin de la perception : " . $perc->getDateFin()->format('d / m / Y')),1,'',false);
-      $pdf->SetXY($x, $y + 10);
-      if($perc->getVariure()!=null){
-        $pdf->Cell($tab2[3],10,utf8_decode(' Batiment concerné : ' . $batimentscle[0]),1,0,'');
-      }
-      if($perc->getPassPartiel2()!=null || $perc->getPassPartiel3() !=null){
-        $pdf->Cell($tab2[5],10,utf8_decode(' Batiment concerné : '),1,0,'');
-      }
-    }else{
-      $pdf->Multicell($tab2[2],10,utf8_decode("Date de la demande : " . $perc->getDateDebut()->format('d / m / Y')),1,'',false);
-
-      if($perc->getVariure()!=null){
-        $pdf->Cell($tab2[5],10,utf8_decode(' Batiment concerné : ' . $batimentscle[0]),1,0,'');
-      }
-      if($perc->getPassPartiel2()!=null || $perc->getPassPartiel3() !=null){
-        $pdf->Cell($tab2[5],10,utf8_decode(' Batiment concerné : '),1,0,'');
-      }
-      $pdf->SetXY($x, $y - 0.05);
-      $pdf->Ln();
     }
+
+
+
+    //Descriptif des perceptions
+    $pdf->SetY(60);
+
+    $tab2 = array(187, 93.5, 93.5, 93.5, 93.5, 187, 93.5, 93.5);
+    $pdf->SetFont('Arial','IB',13);
+    $pdf->SetFillColor(192, 192, 192);
+    $pdf->Cell($tab2[0],7,utf8_decode("1-PARTIE RESERVEE AU DEMANDEUR"),1,0,'C',1);
+    $pdf->SetFont('Arial','',10);
     $pdf->Ln();
-    if($perc->getMotivationDemande()!=null){
-      $pdf->Multicell($tab2[5],7,utf8_decode("Motivation de la demande : \n" . $perc->getMotivationDemande()),1,'',false);
-    }else {
-      $pdf->Multicell($tab2[5],7,utf8_decode("Motivation de la demande : Aucune donnée renseignée"),1,'',false);
-    }
-      $pdf->Cell($tab2[6],10,utf8_decode("Nom du demandeur : " . $perc->getPercepteur()->getNomPercepteur() . " " . $perc->getPercepteur()->getPrenomPercepteur() ),1,0,'');
-  }
-  }
+    $x = $pdf->GetX();
+    $y = $pdf->GetY();
 
 
-
-
-    /*$repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
+    $repository=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Equipement');
     $equipements = $repository->findAll();
+    $batimentscle = array();
     $repository1=$this->getDoctrine()->getManager()->getRepository('AdministrateurBundle:Variure');
     $variures = $repository1->findAll();
-    $batimentscle = array();
     $batimentspass = array();
     foreach($listePerceptions as $liste){
       foreach($liste as $perc){
         foreach ($equipements as $id=>$eq) {
-          foreach ($variures as $var) {
-            if($var->getPassPartiel2()!=null && $perc->getPassPartiel2()!=null){
-              if($var->getPassPartiel2()->getNomPass2() == $perc->getPassPartiel2()->getNomPass2()){
-                if($var->getOutilFermeture() == $eq->getOutilFermeture()){
-                  $batimentspass[] = $eq->getBatiment()->getNomBat();
-                }
-              }
-            }
-          }
           if($perc->getVariure()!=null){
             if($perc->getVariure()->getOutilFermeture() == $eq->getOutilFermeture()){
               $batimentscle[] = $eq->getBatiment()->getNomBat();
             }
           }
+          foreach ($variures as $var) {
+            if($var->getPassPartiel2()!=null && $perc->getPassPartiel2()!=null){
+              if($var->getPassPartiel2()->getNomPass2() == $perc->getPassPartiel2()->getNomPass2()){
+                if($var->getOutilFermeture() == $eq->getOutilFermeture()){
+                  $batimentspass[] = $eq->getBatiment()->getNomBat();
+
+                }
+              }
+            }
+            else if ($var->getPassPartiel3()!=null && $perc->getPassPartiel3()!=null) {
+              if($var->getPassPartiel3()->getNomPass3() == $perc->getPassPartiel3()->getNomPass3()){
+                if($var->getOutilFermeture() == $eq->getOutilFermeture()){
+                  $batimentspass[] = $eq->getBatiment()->getNomBat();
+                }
+              }
+            }
+            else if ($var->getPassPartiel3()!=null && $perc->getPassPartiel1()!=null) {
+              if($var->getPassPartiel3()->getPassPartiel2()->getPassPartiel1()->getNomPass1() == $perc->getPassPartiel1()->getNomPass1()){
+                if($var->getOutilFermeture() == $eq->getOutilFermeture()){
+                  $batimentspass[] = $eq->getBatiment()->getNomBat();
+                }
+              }
+            }
+            else if ($var->getPassPartiel2()!=null && $perc->getPassPartiel1()!=null) {
+                if($var->getPassPartiel2()->getPassPartiel1()->getNomPass1() == $perc->getPassPartiel1()->getNomPass1()){
+                  if($var->getOutilFermeture() == $eq->getOutilFermeture()){
+                    $batimentspass[] = $eq->getBatiment()->getNomBat();
+                }
+              }
+            }
+          }
+        }
+        $batPass = array_unique($batimentspass);
+        $newBat = array_unique($batimentscle);
+
+        if($perc->getPercepteur()->getOrganisation() == "PALR"){
+            $pdf->Cell($tab2[1],10,utf8_decode("Service demandeur : " . $perc->getPercepteur()->getService()->getNomServicePALR()),1,0,'');
+        }else{
+            $pdf->Cell($tab2[1],10,utf8_decode("Service demandeur : " . $perc->getPercepteur()->getOrganisation()),1,0,'');
+        }
+
+
+
+
+        if($perc->getDateFin() !=null){
+        $pdf->Multicell($tab2[2],10,utf8_decode("Date de début de la perception : " . $perc->getDateDebut()->format('d / m / Y') . "\nDate de fin de la perception : " . $perc->getDateFin()->format('d / m / Y')),1,'',false);
+        $pdf->SetXY($x, $y + 10);
+        if($perc->getVariure()!=null){
+          $xBat = $x + 42;
+          $yBat = $y + 16;
+          $pdf->Cell($tab2[5],10,utf8_decode(' Batiment(s) concerné(s) : '),1,0,'');
+
+          foreach ($newBat as $id=>$bat) {
+            if(current($newBat) == end($newBat)){
+
+              $pdf->Text($xBat, $yBat, utf8_decode($bat));
+            }else {
+              $pdf->Text($xBat, $yBat, utf8_decode($bat . ',  '));
+            }
+            $xBat += 28;
+          }
+        }
+
+        if($perc->getPassPartiel2()!=null){
+          $pdf->Cell($tab2[5],10,utf8_decode(' Batiment concerné : ' . $batPass),1,0,'');
+        }
+      }else{
+        $pdf->Multicell($tab2[2],10,utf8_decode("Date de la demande : " . $perc->getDateDebut()->format('d / m / Y')),1,'',false);
+
+        if($perc->getVariure()!=null){
+          $pdf->Cell($tab2[5],10,utf8_decode(' Batiment(s) concerné(s) : ' . join(", ", $newBat)),1,0,'');
+          $pdf->SetXY($x, $y - 0.05);
+          $pdf->Ln();
+
+        }
+        else if($perc->getPassPartiel1()!=null){
+          $pdf->MultiCell($tab2[5],7,utf8_decode(" Batiment(s) concerné(s) : \n" . join(", ", $batPass)),1,'',false);
+          $y+=31;
+          if($pdf->GetY() == $y){
+              $pdf->SetXY($x, $y-14);
+          }else{
+            $pdf->SetXY($x, $y);
+          }
+
+          $pdf->Ln();
+
+        }else if($perc->getPassPartiel2()!=null){
+          $pdf->MultiCell($tab2[5],7,utf8_decode(" Batiment(s) concerné(s) : \n" . join(", ", $batPass)),1,'',false);
+          $y+=17;
+          $pdf->SetXY($x, $y);
+          $pdf->Ln();
+        }
+        else if($perc->getPassPartiel3()!=null){
+          $pdf->MultiCell($tab2[5],7,utf8_decode(" Batiment(s) concerné(s) : \n" . join(", ", $batPass)),1,'',false);
+          $y+=17;
+          $pdf->SetXY($x, $y);
+          $pdf->Ln();
         }
       }
-    }
-    if($perc->getVariure()!=null){
-      $pdf->Cell($tab2[3],10,utf8_decode(' Batiment concerné : ' . $batimentscle[0]),1,0,'');
-    }
-    if($perc->getPassPartiel2()!=null){
-      */
+      $pdf->Ln();
 
-    //}
-    //$pdf->Cell($tab2[3],10,utf8_decode("Bâtiment concerné :"),1,0,'');
-    $pdf->Cell($tab2[7],10,utf8_decode("Visa du demandeur :"),1,0,'');
 
-    $pdf->SetY(135);
 
-    $x = $pdf->GetX();
-    $y = $pdf->GetY();
-    $tab3 = array(187, 15, 78.5, 15, 78.5, 78.5, 78.5);
-    $pdf->SetFont('Arial','IB',13);
-    $pdf->Cell($tab3[0],7,utf8_decode("2-PERCEPTION PAR LE SALARIE"),1,0,'C',1);
-    $pdf->SetFont('Arial','',10);
-    $pdf->Ln();
-    $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(192, 192, 192);
-    $pdf->Multicell($tab3[1],13.35,utf8_decode("Le percepteur "),1,'C',1);
-    $pdf->SetFont('Arial','',10);
-    $pdf->SetXY($x + 15, $y+7);
-    foreach($listePerceptions as $liste){
-      foreach($liste as $perc){
-        $pdf->Cell($tab3[2],20,utf8_decode("Nom : " . $perc->getPercepteur()->getNomPercepteur() . " " . $perc->getPercepteur()->getPrenomPercepteur()),1,0,'');
-        $pdf->SetFont('Arial','B',10);
-        $pdf->SetFillColor(192, 192, 192);
-        $pdf->Multicell($tab3[3],13.35,utf8_decode("            Le SAP "),1,'C',1);
-        $pdf->SetXY($x + 15, $y+27);
-        $pdf->SetFont('Arial','',10);
-        $pdf->Cell($tab3[4],20,utf8_decode("Date et visa : " . $perc->getDateDebut()->format('d / m / Y')),1,0,'');
+      if($perc->getMotivationDemande()!=null){
+        $pdf->Multicell($tab2[5],7,utf8_decode("Motivation de la demande : \n" . $perc->getMotivationDemande()),1,'',false);
+      }else {
+        $pdf->Multicell($tab2[5],7,utf8_decode("Motivation de la demande : Aucune donnée renseignée"),1,'',false);
+      }
+        $pdf->Cell($tab2[6],10,utf8_decode("Nom du demandeur : "),1,0,'');
       }
     }
+      $pdf->Cell($tab2[7],10,utf8_decode("Visa du demandeur :"),1,0,'');
 
-    $pdf->SetXY($x + 108.5, $y+7);
-    $pdf->Cell($tab3[5],20,utf8_decode("Nom :"),1,0,'');
-    $pdf->SetXY($x + 108.5, $y+27);
-    $pdf->Cell($tab3[5],20,utf8_decode("Date et visa :"),1,0,'');
+      $pdf->SetY(150);
 
-    $pdf->SetY(190);
-    $x = $pdf->GetX();
-    $y = $pdf->GetY();
-    $pdf->SetFont('Arial','IB',13);
-    $pdf->Cell($tab3[0],7,utf8_decode("3-RESTITUTION AU SAP"),1,0,'C',1);
-    $pdf->SetFont('Arial','',10);
-    $pdf->Ln();
-    $pdf->SetFont('Arial','B',10);
-    $pdf->Multicell($tab3[1],13.35,utf8_decode("Le percepteur "),1,'C',1);
-    $pdf->SetXY($x + 15, $y+7);
-    $pdf->SetFont('Arial','',10);
-    foreach($listePerceptions as $liste){
-      foreach($liste as $perc){
-        $pdf->Cell($tab3[2],20,utf8_decode("Nom : " . $perc->getPercepteur()->getNomPercepteur() . " " . $perc->getPercepteur()->getPrenomPercepteur()),1,0,'');
-        $pdf->SetFont('Arial','B',10);
-        $pdf->Multicell($tab3[3],13.35,utf8_decode("            Le SAP "),1,'C',1);
-        $pdf->SetFont('Arial','',10);
-        $pdf->SetXY($x + 15, $y+27);
-        if($perc->getDateFin()!=null){
-          $pdf->Cell($tab3[4],20,utf8_decode("Date et visa : " . $perc->getDateFin()->format('d / m / Y')),1,0,'');
-          $pdf->SetXY($x + 108.5, $y+7);
-        }else {
-          $pdf->Cell($tab3[4],20,utf8_decode("Date et visa : Date de restitution non renseignée"),1,0,'');
-          $pdf->SetXY($x + 108.5, $y+7);
+      $x = $pdf->GetX();
+      $y = $pdf->GetY();
+      $tab3 = array(187, 15, 78.5, 15, 78.5, 78.5, 78.5);
+      $pdf->SetFont('Arial','IB',13);
+      $pdf->Cell($tab3[0],7,utf8_decode("2-PERCEPTION PAR LE SALARIE"),1,0,'C',1);
+      $pdf->SetFont('Arial','',10);
+      $pdf->Ln();
+      $pdf->SetFont('Arial','B',10);
+      $pdf->SetFillColor(192, 192, 192);
+      $pdf->Multicell($tab3[1],13.35,utf8_decode("Le percepteur "),1,'C',1);
+      $pdf->SetFont('Arial','',10);
+      $pdf->SetXY($x + 15, $y+7);
+      foreach($listePerceptions as $liste){
+        foreach($liste as $perc){
+          $pdf->Cell($tab3[2],20,utf8_decode("Nom : " . $perc->getPercepteur()->getNomPercepteur() . " " . $perc->getPercepteur()->getPrenomPercepteur()),1,0,'');
+          $pdf->SetFont('Arial','B',10);
+          $pdf->SetFillColor(192, 192, 192);
+          $pdf->Multicell($tab3[3],13.35,utf8_decode("            Le SAP "),1,'C',1);
+          $pdf->SetXY($x + 15, $y+27);
+          $pdf->SetFont('Arial','',10);
+          $pdf->Cell($tab3[4],20,utf8_decode("Date et visa : " . $perc->getDateDebut()->format('d / m / Y')),1,0,'');
         }
       }
+
+
+
+
+      $pdf->SetXY($x + 108.5, $y+7);
+      $pdf->Cell($tab3[5],20,utf8_decode("Nom :"),1,0,'');
+      $pdf->SetXY($x + 108.5, $y+27);
+      $pdf->Cell($tab3[5],20,utf8_decode("Date et visa :"),1,0,'');
+
+      $pdf->SetY(200);
+      $x = $pdf->GetX();
+      $y = $pdf->GetY();
+      $pdf->SetFont('Arial','IB',13);
+      $pdf->Cell($tab3[0],7,utf8_decode("3-RESTITUTION AU SAP"),1,0,'C',1);
+      $pdf->SetFont('Arial','',10);
+      $pdf->Ln();
+      $pdf->SetFont('Arial','B',10);
+      $pdf->Multicell($tab3[1],13.35,utf8_decode("Le percepteur "),1,'C',1);
+      $pdf->SetXY($x + 15, $y+7);
+      $pdf->SetFont('Arial','',10);
+      foreach($listePerceptions as $liste){
+        foreach($liste as $perc){
+          $pdf->Cell($tab3[2],20,utf8_decode("Nom : " . $perc->getPercepteur()->getNomPercepteur() . " " . $perc->getPercepteur()->getPrenomPercepteur()),1,0,'');
+          $pdf->SetFont('Arial','B',10);
+          $pdf->Multicell($tab3[3],13.35,utf8_decode("            Le SAP "),1,'C',1);
+          $pdf->SetFont('Arial','',10);
+          $pdf->SetXY($x + 15, $y+27);
+          if($perc->getDateFin()!=null){
+            $pdf->Cell($tab3[4],20,utf8_decode("Date et visa : " . $perc->getDateFin()->format('d / m / Y')),1,0,'');
+            $pdf->SetXY($x + 108.5, $y+7);
+          }else {
+            $pdf->Cell($tab3[4],20,utf8_decode("Date et visa : Non renseignée"),1,0,'');
+            $pdf->SetXY($x + 108.5, $y+7);
+          }
+        }
+      }
+
+      $pdf->Cell($tab3[5],20,utf8_decode("Nom :"),1,0,'');
+      $pdf->SetXY($x + 108.5, $y+27);
+      $pdf->Cell($tab3[5],20,utf8_decode("Date et visa :"),1,0,'');
+
+
+      // Footer du PDF
+      $pdf->SetY(255);
+      //Disclaimer
+      $pdf->SetFont('Arial','I',11);
+      $pdf->Multicell(0,4,utf8_decode("(1): Ce document ne doit être établi que pour un seul N° de porte ou de Passe Partiel"), '', 'I', false);
+
+      return new Response($pdf->Output(), 200, array('Content-Type' => 'application/pdf'));
     }
 
-    $pdf->Cell($tab3[5],20,utf8_decode("Nom :"),1,0,'');
-    $pdf->SetXY($x + 108.5, $y+27);
-    $pdf->Cell($tab3[5],20,utf8_decode("Date et visa :"),1,0,'');
-
-    // Footer du PDF
-    $pdf->SetY(255);
-    //Disclaimer
-    $pdf->SetFont('Arial','I',11);
-    $pdf->Multicell(0,4,utf8_decode("(1): Ce document ne doit être établi que pour un seul N° de porte ou de Passe Partiel"), '', 'I', false);
-
-    return new Response($pdf->Output(), 200, array('Content-Type' => 'application/pdf'));
+    /**
+    * @Route("/perception/imprimer/{id}", name="imprimerUnePerception")
+    */
+    public function imprimerUnePerceptionAction($id){
+      return $this->imprimerPerceptionAction(array($id));
+    }
   }
-
-  /**
-  * @Route("/perception/imprimer/{id}", name="imprimerUnePerception")
-  */
-  public function imprimerUnePerceptionAction($id){
-    return $this->imprimerPerceptionAction(array($id));
-  }
-}
