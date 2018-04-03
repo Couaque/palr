@@ -38,8 +38,10 @@ $('.btn-filtrer').on('click',function ajaxCall(){
       console.log(data);
       var leI = 0;
       for (leI in data) {
-        var maDateDebut =data[leI].dateDebut;
-        var maDateFin = data[leI].dateFin;
+        var mesDatesDebut = data[leI].dateDebut.split("T");
+        var maDateDebut = mesDatesDebut[0];
+        var mesDatesFin = data[leI].dateFin.split("T");
+        var maDateFin = mesDatesFin[0];
 
         var passPercu = "X";
 
@@ -64,10 +66,10 @@ $('.btn-filtrer').on('click',function ajaxCall(){
         }
 
         var icone = "<a href="+"perception/modifierPerception/"+data[leI].id+" class="+"a-modif-perception"+
-        "></a><a onclick="+"imprimer("+data[leI].id+")"+" class="+"a2-modif-perception"+
+        "></a><a href="+"perception/imprimer/"+data[leI].id+" class="+"a2-modif-perception"+
         "></a><a onclick="+"confirmeArchivee("+data[leI].id+")"+" id="+data[leI].id+" class="+"a1-modif-perception"+"></a>";
 
-        $("#table>tbody:last").append("<tr><td class="+data[leI].id+">"+data[leI].nom+
+        $("#table>tbody:last").append("<tr class="+data[leI].id+"><td>"+data[leI].nom+
         "</td><td>"+data[leI].prenom+
         "</td><td>"+data[leI].organisation+
         "</td><td>"+maDateDebut+
@@ -77,7 +79,7 @@ $('.btn-filtrer').on('click',function ajaxCall(){
         "</td><td>"+variure+
         "</td><td>"+icone+"</td></tr>");
         if(data[leI].etatPerception=="archivee"){
-          $("td ."+data[leI].id+"").addClass("danger");
+          $("."+data[leI].id+"").addClass("danger");
         }
       }
       $(".a-modif-perception").addClass("btn btn-success btn-modif-filtre glyphicon glyphicon-pencil");
@@ -91,7 +93,6 @@ $('.btn-filtrer').on('click',function ajaxCall(){
     }
   });
 });
-
 
 function confirmeArchivee(id){
   var conf = confirm("Voulez-vous vraiment archivee cette perception ?");
