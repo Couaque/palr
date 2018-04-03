@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <h1>Liste des Utilisateurs</h1>
+    <div class="tableau-modif col-md-8">
+        <div class="container">
+            <table class = "table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nom D'Utilisateur</th>
+                        <th>Email</th>
+                        <th>Roles</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{% for role in user.roles %}
+                                    {% if role == "ROLE_SUPER_ADMIN" %}
+                                        Administrateur
+                                        
+                                    {% elseif role == "ROLE_USER" %}
+                                        Utilisateur 
+                                    {% endif %}                        
+                                {% endfor %}
+                            </td>
+                            <td><a class="btn btn-success" href="editer/{{user.id}}">Editer</a>
+                                <a class="btn btn-danger" href="desactiver/{{user.id}}">X</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

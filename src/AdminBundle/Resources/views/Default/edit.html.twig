@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Edition Utilisateur</h1>
+<div class="panel panel-default panel-login">
+    <div class="panel-body col-md-3 col-centered text-center">
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <input class="btn btn-success" type="submit" value="Modifier" />
+    <a class="btn btn-warning" href="{{ path('desactiverUtilisateur') }}">Retourner à la liste</a>
+    {{ form_end(edit_form) }}
+</div>
+</div>
+
+
+            
+
+{% endblock %}

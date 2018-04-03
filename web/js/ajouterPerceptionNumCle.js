@@ -28,6 +28,7 @@ $('.js-porte').val('').trigger('change');
 $('.js-local').val('').trigger('change');
 $('.js-service').val('').trigger('change');
 $("#paragVariure").hide();
+$("#paragLocal").hide();
 $("#paragPass").hide();
 $("#paragPorteLocal").hide();
 
@@ -35,8 +36,9 @@ $("#scrollPortes").hide();
 
 list1.on('change', function(event) {
   $("#paragVariure").show();
+  $("#paragLocal").show();
   $("#paragPass").show();
-  for (var leI=0; leI<6000; leI++){
+  for (var leI=0; leI<6500; leI++){
 
     if ( ($("#Porte option:selected").data('id')) != ($(".clecachee"+leI).data('id'))){
 
@@ -44,6 +46,12 @@ list1.on('change', function(event) {
     }else{
     $(".clecachee"+leI).show();
     }
+
+    if ( ($("#Porte option:selected").data('id2')) != ($(".localcachee"+leI).data('id'))){
+      $(".localcachee"+leI).hide();
+      }else{
+      $(".localcachee"+leI).show();
+      }
   }
 });
 
@@ -51,7 +59,7 @@ list1.on('change', function(event) {
 $("#Localisation").on('change', function(event) {
 $("#scrollPortes").show();
 $("#paragPorteLocal").show();
-    for(var leI=1; leI<650; leI++){
+    for(var leI=1; leI<700; leI++){
 
     if ( ($("#Localisation option:selected").data('id')) != ($(".portecachee"+leI).data('id'))) {
 
@@ -161,7 +169,7 @@ $("#administrateurbundle_perception_passPartiel2").prepend("<option selected='se
 $("#administrateurbundle_perception_passPartiel3").prepend("<option selected='selected'></option>");
 $("#administrateurbundle_perception_variure").prepend("<option selected='selected'></option>");
 
-for (var leI=1; leI<6000; leI++){
+for (var leI=1; leI<6500; leI++){
   $(".cachee"+leI).hide();
   $(".ofcachee"+leI).hide();
   $(".pass1cache"+leI).hide();
@@ -170,6 +178,7 @@ for (var leI=1; leI<6000; leI++){
   $("#PorteLocal").attr('id', 'PorteLocal'+leI);
   $("#PorteLocal"+leI).hide();
   $(".clecachee"+leI).hide();
+  $(".localcachee"+leI).hide();
 }
 
     $("#h5").hide();
@@ -199,7 +208,7 @@ list5.on('change', function(event) {
     $("#pp").show();
     $("#scroll").show();
     $("#porte").show();
-    for (var leI=1; leI<500; leI++){
+    for (var leI=1; leI<700; leI++){
 
         if( ($("#administrateurbundle_perception_variure option:selected").data('idof')) != ($(".ofcachee"+leI).data('idpartielof'))) {
             $(".ofcachee"+leI).hide();

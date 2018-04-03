@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="img/favicon.png" />
   <title>{% block title %}PALR{% endblock %}</title>
 
   {% block stylesheets %}
@@ -32,14 +33,20 @@
   <div class="container-fluid">
     <ul class="nav navbar-nav">
       <li><a href="{{ path('accueil')}}">Accueil</a></li>
-      <li><a href="{{ path('perception') }}">Perceptions</a></li>
+      {% if is_granted(expression('"ROLE_USER" in roles')) %}
+        <li><a href="{{ path('perception') }}">Perceptions</a></li>
+          {% if is_granted(expression('"ROLE_SUPER_ADMIN" in roles')) %}
+            <li><a href="{{path('panel')}}">Panel admin</a></li>
+          {% endif %}
+        <li id="username"><a> Connecté en tant que {{ app.user.username }}</a></li>
+      {% else %}
+        <li><a href=" {{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
+      {% endif %}
+
       <!-- <li><a href="{{ path('bd') }}">Bases de données</a></li>
       <li><a href="{{ path('Inventaire') }}">Inventaire</a></li>
       <li><a href="{{ path('aide') }}">Aide</a></li> -->
     </ul>
-    <!-- <ul class="nav navbar-nav navbar-right">
-      <li><a href=" {{ path('login') }}"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
-    </ul> -->
   </div>
 </nav>
 
